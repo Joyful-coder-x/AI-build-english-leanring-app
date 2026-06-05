@@ -67,19 +67,33 @@ Each feature screen folder holds its `*Screen.kt` (Composable) + `*ViewModel.kt`
 
 - **Phase 1 — Vertical slice on fake data** 🚧 in progress
   - [x] Profile screen (个人中心) wired to `FakeUserRepository` via ViewModel
-  - [ ] Home/daily-practice learning path (core of 2.2) on fake data  ← **next step**
-  - [ ] Unit tests on ViewModel + `DuckTitle` logic (have `DuckTitleTest`; add `ProfileViewModel`)
+  - [x] Home/daily-practice learning path (core of 2.2) on fake data (`HomeViewModel` + `HomeScreen`)
+  - [ ] Unit tests on ViewModel + `DuckTitle` logic (have `DuckTitleTest`; add `HomeViewModel`/`ProfileViewModel`)  ← **next step**
 
 - **Phase 2 — Expand features (still fake data):** streak, mistake notebook,
   answering flow, onboarding, assessment, duck-mascot text.
 
 - **Phase 3 — Finalize data schemas:** design Supabase tables (app data) and
   the word/question content format (14 question types). Biggest content effort.
+  - [x] `DATA_DESIGN.md` written (full schema + volume + sourcing guide)
+  - [x] (early) `words` table created in Supabase with seed data
+  - [ ] Remaining tables + content format finalized
 
 - **Phase 4 — Swap fake → Supabase:** implement `Supabase*Repository`s, real
   auth/login (2.1.1). UI/ViewModels unchanged.
+  - [x] (early spike) Supabase SDK wired — `Supabase.client` (Postgrest/Auth/Storage)
+  - [x] (early spike) **E2E read of `public.words` proven** via temp `SupabaseTestScreen`
+  - [ ] Real `Supabase*Repository`s behind the existing interfaces
+  - [ ] Auth/login
 
 - **Phase 5 — Polish:** loading/error/empty states, animations, release prep.
+
+> **Note — out-of-order backend spike (done early, on purpose).** We validated
+> Supabase connectivity *before* Phase 4 to de-risk the biggest unknown. The
+> `SupabaseTestScreen` / `RemoteWord` / `SupabaseWordRepository` are a throwaway
+> proof, NOT the architecture. The disciplined next step is to return to the plan:
+> keep building UI on **fake** data (Phase 1 → 2), then do the real fake→Supabase
+> swap properly in Phase 4. Don't let the spike become the pattern.
 
 ---
 
