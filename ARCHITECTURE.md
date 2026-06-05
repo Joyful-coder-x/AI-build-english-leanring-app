@@ -58,17 +58,17 @@ Each feature screen folder holds its `*Screen.kt` (Composable) + `*ViewModel.kt`
 
 ## 3. Build phases (current = Phase 0 → 1)
 
-- **Phase 0 — Foundations** ✅ in progress
+- **Phase 0 — Foundations** ✅ done
   - [x] Read all specs + prototypes
   - [x] Git init + baseline commit
   - [x] Architecture doc + core domain models + repository interfaces + fakes
-  - [ ] Convert Gradle build to Kotlin + Compose  ← **next step**
-  - [ ] Compose theme + bottom-nav scaffold
+  - [x] Convert Gradle build to Kotlin + Compose (AGP 9.2 / Kotlin 2.2 / Compose BOM)
+  - [x] Compose theme (`KuaKuaTheme`) + bottom-nav scaffold (4 tabs: 首页/连胜/错词本/我的)
 
-- **Phase 1 — Vertical slice on fake data**
-  - [ ] Profile screen (个人中心) wired to `FakeUserRepository` via ViewModel
-  - [ ] Home/daily-practice learning path (core of 2.2) on fake data
-  - [ ] Unit tests on ViewModel + `DuckTitle` logic
+- **Phase 1 — Vertical slice on fake data** 🚧 in progress
+  - [x] Profile screen (个人中心) wired to `FakeUserRepository` via ViewModel
+  - [ ] Home/daily-practice learning path (core of 2.2) on fake data  ← **next step**
+  - [ ] Unit tests on ViewModel + `DuckTitle` logic (have `DuckTitleTest`; add `ProfileViewModel`)
 
 - **Phase 2 — Expand features (still fake data):** streak, mistake notebook,
   answering flow, onboarding, assessment, duck-mascot text.
