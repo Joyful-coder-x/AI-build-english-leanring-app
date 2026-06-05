@@ -1,7 +1,9 @@
 plugins {
-    // AGP 9.0+ has built-in Kotlin support and auto-supplies the Compose
-    // compiler, so no kotlin.android / kotlin.compose plugins are needed.
+    // AGP 9.0+ has built-in Kotlin (no kotlin.android plugin needed), but the
+    // Compose Compiler plugin must still be applied when Compose is enabled.
+    // Its version must match AGP 9.2's built-in Kotlin (2.2.x).
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -43,6 +45,7 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
