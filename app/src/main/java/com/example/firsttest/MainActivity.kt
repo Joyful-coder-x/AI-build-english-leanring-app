@@ -13,6 +13,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KuaKuaTheme {
+                // Real app shell: 4-tab bottom navigation.
+                // (The Supabase connectivity proof is kept in
+                // ui/debug/SupabaseTestScreen.kt — not wired here. To run it
+                // again temporarily, render SupabaseTestScreen() instead.)
                 MainScreen()
             }
         }
