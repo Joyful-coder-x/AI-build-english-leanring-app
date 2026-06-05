@@ -34,4 +34,17 @@ class DuckTitleTest {
     fun veryHighDuckPower_isMaster() {
         assertEquals(DuckTitle.MASTER, DuckTitle.forDuckPower(250_000))
     }
+
+    /** Every threshold boundary from spec 2.4.2, exactly at the cutoff. */
+    @Test
+    fun allThresholdBoundaries() {
+        assertEquals(DuckTitle.BEGINNER, DuckTitle.forDuckPower(499))
+        assertEquals(DuckTitle.HARD_WORKING, DuckTitle.forDuckPower(500))
+        assertEquals(DuckTitle.PROGRESSING, DuckTitle.forDuckPower(2_000))
+        assertEquals(DuckTitle.SKILLED, DuckTitle.forDuckPower(5_000))
+        assertEquals(DuckTitle.SUPER, DuckTitle.forDuckPower(10_000))
+        assertEquals(DuckTitle.EXCELLENT, DuckTitle.forDuckPower(20_000))
+        assertEquals(DuckTitle.INVINCIBLE, DuckTitle.forDuckPower(50_000))
+        assertEquals(DuckTitle.MASTER, DuckTitle.forDuckPower(100_000))
+    }
 }
