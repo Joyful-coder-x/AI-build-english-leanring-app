@@ -1,5 +1,6 @@
 package com.example.firsttest.ui.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,6 +39,7 @@ import com.example.firsttest.data.model.PracticeCardType
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    onDrillClick: (cardId: String) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory),
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -54,7 +56,11 @@ fun HomeScreen(
                     streakDays = state.streakDays,
                     streakGoal = state.streakGoal,
                 )
-                LearningPath(cards = state.cards, modifier = Modifier.weight(1f))
+                LearningPath(
+                    cards = state.cards,
+                    onDrillClick = onDrillClick,
+                    modifier = Modifier.weight(1f),
+                )
             }
     }
 }
@@ -98,7 +104,11 @@ private fun StatusChip(modifier: Modifier, icon: String, value: String, label: S
 // ---- Vertical learning path ----------------------------------------------
 
 @Composable
-private fun LearningPath(cards: List<PracticeCard>, modifier: Modifier = Modifier) {
+private fun LearningPath(
+    cards: List<PracticeCard>,
+    onDrillClick: (cardId: String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     // Assign display titles; 鸭力训练 cards are numbered in encounter order.
     val titled = remember(cards) {
         var drill = 0
@@ -118,14 +128,20 @@ private fun LearningPath(cards: List<PracticeCard>, modifier: Modifier = Modifie
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         items(titled, key = { it.first.id }) { (card, title) ->
-            PathCard(card = card, title = title)
+            PathCard(card = card, title = title, onDrillClick = onDrillClick)
         }
     }
 }
 
 @Composable
-private fun PathCard(card: PracticeCard, title: String) {
+private fun PathCard(
+    card: PracticeCard,
+    title: String,
+    onDrillClick: (cardId: String) -> Unit,
+) {
     val locked = card.state == CardState.LOCKED
+    // Only unlocked DUCK_TRAINING cards are tappable in Phase 2.
+    val isClickable = !locked && card.type == PracticeCardType.DUCK_TRAINING
     val icon = when (card.type) {
         PracticeCardType.DUCK_TRAINING -> "🦆"
         PracticeCardType.SCRATCH_CARD -> "🎁"
@@ -135,7 +151,11 @@ private fun PathCard(card: PracticeCard, title: String) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .alpha(if (locked) 0.5f else 1f),
+            .alpha(if (locked) 0.5f else 1f)
+            .then(
+                if (isClickable) Modifier.clickable { onDrillClick(card.id) }
+                else Modifier
+            ),
     ) {
         Row(
             modifier = Modifier

@@ -1,5 +1,6 @@
 package com.example.firsttest.ui.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,18 +11,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.firsttest.ui.home.HomeNav
 import com.example.firsttest.ui.home.HomeScreen
 import com.example.firsttest.ui.mistakes.MistakesScreen
+import com.example.firsttest.ui.practice.PracticeQuestionScreen
+import com.example.firsttest.ui.practice.PracticeResultScreen
 import com.example.firsttest.ui.profile.ProfileScreen
 import com.example.firsttest.ui.streak.StreakScreen
 
-/**
- * The 4 bottom-nav destinations, in display order, matching the product
- * framework (v1.0 产品框架): 首页 · 连胜 · 错词本 · 我的.
- */
 enum class TopLevelDestination(val label: String, val icon: String) {
     Home("首页", "🏠"),
     Streak("连胜", "🔥"),
@@ -30,14 +31,22 @@ enum class TopLevelDestination(val label: String, val icon: String) {
 }
 
 /**
- * App shell: a [Scaffold] with a 4-tab [NavigationBar]. Selection is held in
- * local saveable state (no nav-graph dependency yet); deeper in-tab navigation
- * can be layered on per phase. Each tab renders its feature screen, fed the
- * scaffold's content padding so it sits above the bottom bar.
+ * App shell: a 4-tab [NavigationBar] with Home-tab sub-navigation for the
+ * practice answering flow (Home → PracticeQuestion → PracticeResult).
+ *
+ * Tab selection uses [rememberSaveable] (survives rotation).
+ * Home sub-nav uses plain [remember] — config changes reset to LearningPath,
+ * which is acceptable in Phase 2. navigation-compose replaces this in Phase 3+.
  */
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     var selected by rememberSaveable { mutableStateOf(TopLevelDestination.Home) }
+    var homeNav by remember { mutableStateOf<HomeNav>(HomeNav.LearningPath) }
+
+    // System back button pops the Home sub-stack back to the learning path.
+    BackHandler(enabled = homeNav !is HomeNav.LearningPath) {
+        homeNav = HomeNav.LearningPath
+    }
 
     Scaffold(
         modifier = modifier,
@@ -56,7 +65,33 @@ fun MainScreen(modifier: Modifier = Modifier) {
     ) { innerPadding ->
         Box(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             when (selected) {
-                TopLevelDestination.Home -> HomeScreen()
+                TopLevelDestination.Home -> when (val nav = homeNav) {
+                    is HomeNav.LearningPath ->
+                        HomeScreen(
+                            onDrillClick = { cardId ->
+                                homeNav = HomeNav.PracticeQuestion(cardId)
+                            },
+                        )
+
+                    is HomeNav.PracticeQuestion ->
+                        PracticeQuestionScreen(
+                            cardId = nav.cardId,
+                            onBack = { homeNav = HomeNav.LearningPath },
+                            onSessionComplete = { correct, total, stars, power ->
+                                homeNav = HomeNav.PracticeResult(correct, total, stars, power)
+                            },
+                        )
+
+                    is HomeNav.PracticeResult ->
+                        PracticeResultScreen(
+                            correctCount = nav.correctCount,
+                            totalCount = nav.totalCount,
+                            starRating = nav.starRating,
+                            duckPowerEarned = nav.duckPowerEarned,
+                            onReturnHome = { homeNav = HomeNav.LearningPath },
+                        )
+                }
+
                 TopLevelDestination.Streak -> StreakScreen()
                 TopLevelDestination.Mistakes -> MistakesScreen()
                 TopLevelDestination.Profile -> ProfileScreen()
