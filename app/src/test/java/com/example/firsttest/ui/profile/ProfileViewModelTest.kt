@@ -15,7 +15,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-/** Unit tests for [ProfileViewModel]: it surfaces the fake user as Success. */
 @OptIn(ExperimentalCoroutinesApi::class)
 class ProfileViewModelTest {
 
@@ -26,6 +25,7 @@ class ProfileViewModelTest {
 
     @Test
     fun startsInLoadingState() {
+        // stateIn(Eagerly) hasn't had a chance to emit yet (dispatcher not advanced).
         val vm = ProfileViewModel(FakeUserRepository())
         assertEquals(ProfileUiState.Loading, vm.uiState.value)
     }
@@ -34,15 +34,26 @@ class ProfileViewModelTest {
     fun emitsSuccessWithFakeUser() = runTest(dispatcher) {
         val vm = ProfileViewModel(FakeUserRepository())
         advanceUntilIdle()
-
         val state = vm.uiState.value
         assertTrue("expected Success but was $state", state is ProfileUiState.Success)
         state as ProfileUiState.Success
-
         assertEquals("leoninebess", state.user.nickname)
         assertEquals(450, state.user.duckPower)
         assertEquals(5, state.user.streak.currentDays)
-        // duckTitle is derived from duckPower (450 -> 初学鸭).
+        // DuckTitle is derived from duckPower (450 → 初学鸭, threshold 0–499).
         assertEquals(DuckTitle.BEGINNER, state.user.duckTitle)
+    }
+
+    @Test
+    fun duckPowerUpdateReflectsOnFlow() = runTest(dispatcher) {
+        val repo = FakeUserRepository()
+        val vm = ProfileViewModel(repo)
+        advanceUntilIdle()
+
+        repo.addDuckPower(100)
+        advanceUntilIdle()
+
+        val state = vm.uiState.value as ProfileUiState.Success
+        assertEquals(550, state.user.duckPower)
     }
 }

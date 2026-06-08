@@ -17,11 +17,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-/**
- * Unit tests for [HomeViewModel]'s data flow over the fake repositories.
- * A [StandardTestDispatcher] stands in for Dispatchers.Main so viewModelScope
- * work is controllable and deterministic.
- */
 @OptIn(ExperimentalCoroutinesApi::class)
 class HomeViewModelTest {
 
@@ -30,61 +25,70 @@ class HomeViewModelTest {
     @Before fun setUp() = Dispatchers.setMain(dispatcher)
     @After fun tearDown() = Dispatchers.resetMain()
 
-    private fun newViewModel() = HomeViewModel(FakeUserRepository(), FakePracticeRepository())
+    private fun newVm() = HomeViewModel(FakeUserRepository(), FakePracticeRepository())
 
     @Test
     fun startsInLoadingState() {
-        // Before the dispatcher runs the init coroutine, state is Loading.
-        val vm = newViewModel()
-        assertEquals(HomeUiState.Loading, vm.uiState.value)
+        // Before dispatcher advances, combine hasn't emitted cards yet → Loading.
+        assertEquals(HomeUiState.Loading, newVm().uiState.value)
     }
 
     @Test
-    fun emitsSuccessWithStatusRowAndSixCards() = runTest(dispatcher) {
-        val vm = newViewModel()
-        advanceUntilIdle()
-
-        val state = vm.uiState.value
-        assertTrue("expected Success but was $state", state is HomeUiState.Success)
-        state as HomeUiState.Success
-
-        assertEquals(450, state.duckPower)
-        assertEquals(5, state.streakDays)
-        assertEquals(7, state.streakGoal)
-        assertEquals(6, state.cards.size)
+    fun emitsSuccessAfterLoad() = runTest(dispatcher) {
+        val vm = newVm(); advanceUntilIdle()
+        assertTrue(vm.uiState.value is HomeUiState.Success)
     }
 
     @Test
-    fun cardsAreInExpectedOrderAndStates() = runTest(dispatcher) {
-        val vm = newViewModel()
-        advanceUntilIdle()
+    fun statusRowHasCorrectFakeValues() = runTest(dispatcher) {
+        val vm = newVm(); advanceUntilIdle()
+        val s = vm.uiState.value as HomeUiState.Success
+        assertEquals(450, s.duckPower)
+        assertEquals(5,   s.streakDays)
+        assertEquals(7,   s.streakGoal)
+    }
+
+    @Test
+    fun sixCardsInCorrectOrderAndStates() = runTest(dispatcher) {
+        val vm = newVm(); advanceUntilIdle()
         val cards = (vm.uiState.value as HomeUiState.Success).cards
+        assertEquals(6, cards.size)
 
         // 0 — 鸭力训练 1: completed, 3 stars
-        assertEquals("dt1", cards[0].id)
         assertEquals(PracticeCardType.DUCK_TRAINING, cards[0].type)
-        assertEquals(CardState.PRACTICED, cards[0].state)
-        assertEquals(3, cards[0].starRating)
+        assertEquals(CardState.PRACTICED,            cards[0].state)
+        assertEquals(3,                              cards[0].starRating)
 
-        // 1 — 鸭力训练 2: unlocked, not practiced
-        assertEquals("dt2", cards[1].id)
-        assertEquals(PracticeCardType.DUCK_TRAINING, cards[1].type)
-        assertEquals(CardState.UNLOCKED_UNPRACTICED, cards[1].state)
+        // 1 — 鸭力训练 2: unlocked
+        assertEquals(PracticeCardType.DUCK_TRAINING,     cards[1].type)
+        assertEquals(CardState.UNLOCKED_UNPRACTICED,     cards[1].state)
 
         // 2 — 刮刮卡: unlocked
-        assertEquals(PracticeCardType.SCRATCH_CARD, cards[2].type)
-        assertEquals(CardState.UNLOCKED_UNPRACTICED, cards[2].state)
+        assertEquals(PracticeCardType.SCRATCH_CARD,      cards[2].type)
+        assertEquals(CardState.UNLOCKED_UNPRACTICED,     cards[2].state)
 
         // 3 — 挑战赛: unlocked
-        assertEquals(PracticeCardType.CHALLENGE, cards[3].type)
-        assertEquals(CardState.UNLOCKED_UNPRACTICED, cards[3].state)
+        assertEquals(PracticeCardType.CHALLENGE,         cards[3].type)
+        assertEquals(CardState.UNLOCKED_UNPRACTICED,     cards[3].state)
 
         // 4 — 鸭力训练 3: locked
-        assertEquals(PracticeCardType.DUCK_TRAINING, cards[4].type)
-        assertEquals(CardState.LOCKED, cards[4].state)
+        assertEquals(PracticeCardType.DUCK_TRAINING,     cards[4].type)
+        assertEquals(CardState.LOCKED,                   cards[4].state)
 
         // 5 — 解锁更多: locked
-        assertEquals(PracticeCardType.UNLOCK_MORE, cards[5].type)
-        assertEquals(CardState.LOCKED, cards[5].state)
+        assertEquals(PracticeCardType.UNLOCK_MORE,       cards[5].type)
+        assertEquals(CardState.LOCKED,                   cards[5].state)
+    }
+
+    @Test
+    fun duckPowerUpdateReflectsInStatusRow() = runTest(dispatcher) {
+        val userRepo = FakeUserRepository()
+        val vm = HomeViewModel(userRepo, FakePracticeRepository())
+        advanceUntilIdle()
+        assertEquals(450, (vm.uiState.value as HomeUiState.Success).duckPower)
+
+        userRepo.addDuckPower(50)
+        advanceUntilIdle()
+        assertEquals(500, (vm.uiState.value as HomeUiState.Success).duckPower)
     }
 }

@@ -6,48 +6,41 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.firsttest.data.model.User
-import com.example.firsttest.data.repository.FakeUserRepository
 import com.example.firsttest.data.repository.UserRepository
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.firsttest.di.AppRepositories
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
-/** UI state for the Profile (个人中心) screen. */
 sealed interface ProfileUiState {
     data object Loading : ProfileUiState
     data class Success(val user: User) : ProfileUiState
 }
 
 /**
- * Holds the Profile screen state. Reads from a [UserRepository] (the fake one
- * for now) and exposes an immutable [StateFlow] for the UI to observe.
+ * Holds the Profile / 个人中心 screen state.
+ *
+ * Collects [UserRepository.userFlow] so the screen automatically reflects any
+ * change made to the user's data — most importantly, duck power earned during a
+ * practice session updates here without any explicit refresh call.
  */
 class ProfileViewModel(
-    private val userRepository: UserRepository,
+    userRepository: UserRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<ProfileUiState>(ProfileUiState.Loading)
-    val uiState: StateFlow<ProfileUiState> = _uiState.asStateFlow()
-
-    init {
-        loadUser()
-    }
-
-    private fun loadUser() {
-        viewModelScope.launch {
-            val user = userRepository.getCurrentUser()
-            _uiState.value = ProfileUiState.Success(user)
-        }
-    }
+    val uiState: StateFlow<ProfileUiState> = userRepository
+        .userFlow()
+        .map { user -> ProfileUiState.Success(user) as ProfileUiState }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = ProfileUiState.Loading,
+        )
 
     companion object {
-        /**
-         * Phase 1: wires the in-memory [FakeUserRepository]. In Phase 4 this is
-         * the single place that changes to use a real (Supabase) repository.
-         */
         val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer { ProfileViewModel(FakeUserRepository()) }
+            initializer { ProfileViewModel(AppRepositories.user) }
         }
     }
 }
