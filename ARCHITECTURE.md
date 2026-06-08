@@ -56,7 +56,7 @@ Each feature screen folder holds its `*Screen.kt` (Composable) + `*ViewModel.kt`
 
 ---
 
-## 3. Build phases (current = Phase 0 → 1)
+## 3. Build phases (current = Phase 2)
 
 - **Phase 0 — Foundations** ✅ done
   - [x] Read all specs + prototypes
@@ -65,13 +65,25 @@ Each feature screen folder holds its `*Screen.kt` (Composable) + `*ViewModel.kt`
   - [x] Convert Gradle build to Kotlin + Compose (AGP 9.2 / Kotlin 2.2 / Compose BOM)
   - [x] Compose theme (`KuaKuaTheme`) + bottom-nav scaffold (4 tabs: 首页/连胜/错词本/我的)
 
-- **Phase 1 — Vertical slice on fake data** 🚧 in progress
+- **Phase 1 — Vertical slice on fake data** ✅ done
   - [x] Profile screen (个人中心) wired to `FakeUserRepository` via ViewModel
   - [x] Home/daily-practice learning path (core of 2.2) on fake data (`HomeViewModel` + `HomeScreen`)
-  - [ ] Unit tests on ViewModel + `DuckTitle` logic (have `DuckTitleTest`; add `HomeViewModel`/`ProfileViewModel`)  ← **next step**
+  - [x] Unit tests: 49 passing across DuckTitle, HomeViewModel, ProfileViewModel, PracticeViewModel, StreakViewModel, MistakesViewModel
 
-- **Phase 2 — Expand features (still fake data):** streak, mistake notebook,
-  answering flow, onboarding, assessment, duck-mascot text.
+- **Phase 2 — Expand features** 🚧 in progress
+  - [x] Answering flow: `PracticeQuestionScreen` + `PracticeResultScreen` (types 1 & 2)
+  - [x] HomeScreen cards clickable; `HomeNav` sub-navigation (Home → Practice → Result)
+  - [x] 连胜 screen: monthly calendar, streak count + goal, props display
+  - [x] 错词本 screen: Ebbinghaus word list + stage badges + empty state
+  - [x] Scoring: stars, base duck power, combo bonus (spec 2.2.3)
+  - [x] Questions from Supabase (`SupabasePracticeRepository`)
+  - [x] Shared `UserRepository` flow — duck power updates propagate to Profile + Home
+  - [x] `AppRepositories` DI singleton
+  - [ ] Speed bonus (+5 if 3★ within `expectedTimeMs`) — needs countdown timer
+  - [ ] Streak auto-update after practice (≥1★ → check-in today)
+  - [ ] Props update from scratch card rewards
+  - [ ] Onboarding flow (spec 2.7)
+  - [ ] Assessment screen (spec 2.9)
 
 - **Phase 3 — Finalize data schemas:** design Supabase tables (app data) and
   the word/question content format (14 question types). Biggest content effort.
