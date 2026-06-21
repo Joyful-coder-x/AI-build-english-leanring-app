@@ -1,0 +1,46 @@
+{
+  "project": "kuakua-duck",
+  "pilot": {
+    "level_number": 1,
+    "ielts_band": 4.0,
+    "word_count_target": 80,
+    "active_question_types": [1, 2]
+  },
+  "sources": {
+    "word_list_primary": "Oxford 3000",
+    "word_list_upper": "Oxford 5000",
+    "definition_primary": "Cambridge Dictionary",
+    "definition_backup": "Oxford Learner's Dictionaries",
+    "example_sources": [
+      "Cambridge Dictionary",
+      "Oxford Learner's Dictionaries",
+      "COCA",
+      "BNC"
+    ]
+  },
+  "tts": {
+    "provider": "Google Cloud Text-to-Speech",
+    "voice": "en-GB-Neural2-B",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1.0,
+    "storage_bucket": "pronunciations",
+    "path_prefix": "pronunciations"
+  },
+  "tables": {
+    "words": "words",
+    "word_meanings": "word_meanings",
+    "word_forms": "word_forms",
+    "examples": "examples",
+    "questions": "questions",
+    "question_options": "question_options"
+  },
+  "question_defaults": {
+    "type_1_expected_time_ms": 30000,
+    "type_2_expected_time_ms": 20000,
+    "category": "new_word",
+    "type_1_answer_form": "keyboard",
+    "type_2_answer_form": "option",
+    "is_active": true
+  },
+  "uuid_namespace": "7a6f7064-2d2b-4fc0-a7d5-822c38d61001"
+}

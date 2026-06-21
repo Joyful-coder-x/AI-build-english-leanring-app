@@ -1,0 +1,63 @@
+topic,subtopic,ielts_paper_type,band_min,band_max,word_goal,candidate_goal,approx_levels,chinese_learner_priority,notes
+Daily Life,people and family,General,4.0,4.0,160,280,1-3,high,Beginner concrete nouns and adjectives for family age appearance relationships and Speaking Part 1.
+Daily Life,home and objects,General,4.0,4.0,160,280,4-6,high,Rooms furniture household objects daily routines and concrete home vocabulary.
+Daily Life,food and drink,General,4.0,4.0,160,280,7-9,high,Meals cooking food types restaurants and common Speaking Part 1 vocabulary.
+Daily Life,time and numbers,General,4.0,4.0,140,240,10-12,high,Days months ordinals duration dates schedules and basic time expressions.
+Daily Life,basic actions and verbs,General,4.0,4.0,180,320,13-16,high,Common action verbs needed across topics. Avoid highly polysemous verbs unless manually reviewed.
+Daily Life,colours shapes and descriptions,General,4.0,4.0,140,240,17-19,medium,Basic adjectives shapes size colour texture and simple description language.
+Daily Life,feelings and emotions,Speaking,4.0,4.0,140,240,20-22,high,Basic emotion and opinion vocabulary for Speaking Part 1 and Part 2.
+Daily Life,school and study basics,General,4.0,4.0,140,240,23-25,high,Student teacher class homework exam and school life basics for Chinese learners.
+Daily Life,travel and places,Speaking/Listening,4.0,4.0,160,280,26-29,high,Places directions trips hotels transport words and common Listening/Speaking contexts.
+Daily Life,shopping and money basics,Listening/Speaking,4.0,4.0,120,220,30-32,medium,Prices payment shops services and Listening Section 1 transaction vocabulary.
+Daily Life,body and health basics,Speaking/Listening,4.0,4.0,140,240,33-35,high,Body parts symptoms basic healthcare and doctor-visit listening vocabulary.
+Daily Life,animals and nature basics,General,4.0,4.0,120,220,36-38,medium,Common animals plants natural features and beginner-safe nature vocabulary.
+Daily Life,weather and seasons,General,4.0,4.0,120,220,39-41,medium,Weather seasons temperature climate basics and common Speaking/Listening vocabulary.
+Daily Life,sports and leisure,Speaking,4.0,4.0,140,240,42-44,medium,Hobbies sports entertainment leisure and common Speaking Part 1/2 vocabulary.
+Daily Life,transport and getting around,Listening,4.0,4.0,120,220,45-47,medium,Buses trains airports routes directions and public transport listening vocabulary.
+Daily Life,numbers and quantity,General,4.0,4.0,120,220,48-50,medium,Measurements quantities comparisons percentages and cross-topic numerical language.
+Daily Life,clothes and appearance,Speaking,4.0,4.0,100,180,51-54,low,Clothing appearance style and lower-frequency but concrete Speaking vocabulary.
+Education,school systems and structure,Writing/Speaking,4.5,5.0,220,380,55-60,high,Primary secondary curriculum compulsory schooling policy and core Task 2 education terms.
+Education,university and higher education,Writing/Speaking,4.5,5.5,220,380,61-66,high,Degree campus tuition graduate admission scholarship and Chinese learner priority terms.
+Education,teaching and learning methods,Writing/Speaking,5.0,5.5,220,380,67-72,high,Lecture seminar rote learning critical thinking classroom methods and essay collocations.
+Education,exams and assessment,Writing/Reading,4.5,5.5,220,380,73-77,high,Exam assessment grade pressure qualification certificate and test-oriented learner vocabulary.
+Education,online and technology in education,Writing/Speaking,5.5,6.0,220,380,78-81,high,E-learning distance learning online classroom educational technology and post-pandemic topics.
+Health,medical care and treatment,Reading/Listening,4.5,5.0,220,380,82-87,high,Hospital doctor patient treatment surgery disease prevention and health Reading vocabulary.
+Health,diet nutrition and lifestyle,Writing/Speaking,4.5,5.5,220,380,88-93,high,Diet obesity nutrition exercise lifestyle habit and frequent Task 2 health topics.
+Health,mental health and wellbeing,Writing/Speaking,5.5,6.0,200,340,94-99,medium,Stress anxiety depression wellbeing pressure and growing IELTS Speaking/Writing area.
+Environment,natural world and ecosystems,Reading,4.5,5.0,250,430,100-105,high,Species habitat ecosystem biodiversity wildlife and Academic Reading environment vocabulary.
+Environment,climate change and global warming,Writing/Speaking,5.0,6.0,300,520,106-114,high,Emissions carbon warming drought extreme weather and top Task 2 topic in China test prep.
+Environment,pollution and waste,Writing/Speaking,5.0,5.5,260,450,115-120,high,Pollution waste recycle contaminate plastic landfill and very frequent essay vocabulary.
+Environment,conservation and sustainability,Writing/Reading,5.5,6.5,280,480,121-126,high,Renewable sustainable conservation deforestation resource protection and high-value collocations.
+Technology,everyday technology,Speaking/Listening,4.5,5.0,180,310,127-130,high,Devices screens apps internet communication and everyday digital-life vocabulary.
+Technology,digital society and internet,Writing/Speaking,5.5,6.5,260,450,131-136,high,Social media privacy data cybercrime online behaviour and very common Task 2 topic.
+Technology,science and innovation,Reading/Writing,6.0,7.0,260,450,137-142,high,Innovation breakthrough research artificial intelligence invention and Academic Reading terms.
+Technology,automation and future of work,Writing,6.0,7.0,220,380,143-144,high,Automation robotics workforce replacement productivity and high-band future-work arguments.
+Work,jobs and career basics,Speaking/Listening,4.5,5.0,220,380,145-150,high,Jobs salary workplace colleague interview and common Speaking Part 1/2 vocabulary.
+Work,workplace skills and qualities,Writing/Speaking,5.0,6.0,220,380,151-154,medium,Leadership teamwork communication motivation responsibility and employability collocations.
+Work,employment trends,Writing/Reading,6.0,7.0,220,380,155-158,medium,Unemployment flexible work remote work labour market and Task 2 employment vocabulary.
+Work,business and entrepreneurship,Writing/Reading,6.0,7.0,200,340,159-162,medium,Company profit market startup investment consumer and business-track IELTS vocabulary.
+Society,urban life and cities,Writing/Reading,5.5,6.5,260,450,163-168,high,Urban rural infrastructure congestion housing migration and very common Task 2 topic.
+Society,crime and law,Writing/Reading,5.5,6.5,260,450,169-174,high,Crime punishment law justice prison prevention and legal vocabulary Chinese learners struggle with.
+Society,family and social change,Writing/Speaking,5.0,6.0,220,380,175-177,high,Marriage ageing generation parenting divorce and common Chinese IELTS essay topic.
+Society,gender equality and rights,Writing/Speaking,6.0,7.0,220,380,178-180,medium,Gender equality discrimination rights opportunity and higher-band social issues vocabulary.
+Media,news and journalism,Reading/Writing,5.5,6.5,220,380,181-184,high,Media journalist broadcast bias censorship misinformation and Academic Reading/Task 2 terms.
+Media,advertising and marketing,Writing/Reading,5.5,6.5,220,380,185-188,high,Advertising brand consumer influence promotion and frequent Task 2 topic vocabulary.
+Media,social media and communication,Writing/Speaking,5.5,6.5,220,380,189-192,high,Platform content viral communication privacy influence and current high-frequency IELTS topic.
+Government,politics and policy,Writing/Reading,6.0,7.0,220,380,193-196,medium,Policy legislation government democracy regulation and cautious high-band Reading/Writing vocabulary.
+Government,public services and welfare,Writing/Reading,6.0,7.0,220,380,197-200,medium,Tax welfare subsidy public sector healthcare education funding and government-responsibility essays.
+Government,international relations,Reading/Writing,6.5,7.5,200,340,201-204,medium,Diplomacy treaty sanction trade cooperation conflict and higher-band Academic Reading vocabulary.
+Economy,personal finance and banking,Listening/Reading,5.0,6.0,180,310,205-207,high,Bank loan debt budget savings insurance and practical Listening/Reading finance terms.
+Economy,national economy and growth,Writing/Reading,6.5,7.5,240,420,208-212,medium,Inflation recession GDP productivity consumption and high-band economy Reading/Writing vocabulary.
+Economy,global trade and development,Reading/Writing,7.0,8.0,220,380,213-216,medium,Export import globalisation development inequality investment and high-band academic topics.
+Science,biology and human body,Reading,5.5,6.5,200,340,217-219,medium,Cell organ gene evolution disease and common Academic Reading science vocabulary.
+Science,physics and chemistry basics,Reading,6.0,7.0,180,310,220-222,low,Element molecule reaction force energy and occasional Academic Reading science vocabulary.
+Science,space and astronomy,Reading,6.5,7.5,180,310,223-225,low,Planet orbit galaxy telescope mission and occasional Reading passage vocabulary.
+Science,research and data,Reading/Writing,6.5,8.0,260,450,226-231,medium,Hypothesis experiment evidence analyse result data and core Academic Reading/Task 1 language.
+Academic Language,academic verbs,Writing/Reading,6.0,8.0,220,380,232,high,AWL-style verbs such as demonstrate indicate suggest attribute contribute and evaluate.
+Academic Language,academic nouns,Writing/Reading,6.0,8.0,240,420,233,high,Abstract nouns such as factor impact trend implication approach evidence and outcome.
+Academic Language,academic adjectives and adverbs,Writing/Reading,6.0,8.0,220,380,234,high,Formal modifiers such as significant considerable substantial relatively and approximately.
+Academic Language,cause and effect language,Writing,6.0,8.0,220,380,235,high,Causation consequence result lead-to contribute-to and Task 2 reasoning vocabulary.
+Academic Language,comparison and contrast language,Writing/Reading,6.0,8.0,220,380,236,high,Whereas while compared with in contrast similar distinct and chart comparison language.
+Academic Language,stance and evaluation language,Writing/Speaking,6.5,8.0,220,380,237,high,Argue claim assume valid problematic beneficial harmful and high-band opinion language.
+Academic Language,data and trend language,Writing,6.5,8.0,240,420,238,high,Increase decline fluctuate proportion percentage peak remain stable and Task 1 language.
+Academic Language,argument and counterargument language,Writing,7.0,8.0,260,450,239-240,high,However nevertheless opponents proponents justify refute concession and high-band essay structure.
