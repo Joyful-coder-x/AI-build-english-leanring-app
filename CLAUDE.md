@@ -1,5 +1,7 @@
 # Claude Code — Project Rules for KuaKua Duck
 
+> Full file index, legacy boundaries, architecture rules, and coding conventions: `docs/CODEBASE_INDEX.md`
+
 ## IDE & tooling
 
 - **Android Studio only.** Do not suggest VS Code extensions, VS Code launch configs, or any non-Android-Studio tooling for the Android project.
@@ -16,28 +18,46 @@
 
 ## Content pipeline rules
 
-- Pipeline lives in `content_pipeline/`. Scripts run from the project root: `python content_pipeline/scripts/<script>.py`
-- Output folders: `output/oxford_source/` (Oxford word lists), `output/level_001/` (all level 1 files + Supabase CSVs), `output/level_001/tts/` (TTS manifest), `output/reference/` (schema SQL etc.)
-- `packages/level_001_packages.json` is the master content file. Always run `validate_packages.py` after editing it.
-- UUID namespace in `config/pipeline_config.json` must never change — all UUIDs are deterministic from it.
+- The active pipeline lives in `backend/content-pipeline/`. Run numbered scripts from the project root with `python backend/content-pipeline/scripts/<script>.py`.
+- Reviewed intermediate files and Supabase imports live under `backend/content-pipeline/constructed_data/`.
+- The first 20-word generator is archived under `backend/content-pipeline/legacy-pilot/`; do not use it for production imports.
 - Pipeline output is **AI-draft**. Human QA is required before marking status `production`.
 
-## Project status (as of 2026-06-15)
+### Curriculum terminology
+
+- Use **word**, not "unit", in curriculum plans and user-facing descriptions.
+- A word means `lemma + part of speech + selected definition`. The same spelling with a different definition counts as a different word, including when taught in another level.
+- Curriculum hierarchy: several words make up a level, and several levels make up an IELTS band.
+- A level has approximately 80 total word placements: 45-55 new words, with the remainder made up of forms, collocations, and reviewed/context words.
+
+## Project status (as of 2026-06-25)
+
+### Approved progression change (2026-06-24)
+
+- The initial placement assessment is legacy behavior and must be removed.
+- New users start at Level 1 after onboarding.
+- Internal `band` values are displayed to learners as `雅思 # 分难度`.
+- Every difficulty transition uses an always-open 40-question upgrade exam.
+- Passing requires at least 37/40; attempts are unlimited.
+- Canonical rules: `docs/plans/BAND_UPGRADE_EXAM_PLAN.md`.
 
 ### Done
 - [x] Phase 1: Home screen, DuckTitle, navigation skeleton (fake data)
 - [x] Phase 2: Practice flow — PracticeQuestionScreen (Type 1 keyboard + Type 2 MCQ), combo bonus, 连胜 streak, 错词本 MistakesScreen
 - [x] Supabase connected: questions + question_options read live from DB
 - [x] Content pipeline: 20-word pilot batch (A1 People/Home/Food/Time/Actions) fully generated, validated, and imported into Supabase
-- [x] File organisation: output/ subfolders, docs/ for planning MDs, PDFs to content_pipeline/reference/
+- [x] File organisation: backend systems grouped together, documentation indexed by purpose, and source-reference PDFs stored with the content pipeline.
+- [x] **LevelPractice round system** — migrations 015 + 016 (weighted scoring, cloze support); `LevelPracticeViewModel` + `LevelPracticeScreen` in `ui/level/`; all level taps route here; `answer_outcome_enum`, spaced-review mastery writes, duck power formula all wired.
+- [x] **Codebase index** — `docs/CODEBASE_INDEX.md`: complete file map with active/legacy categorization, architecture rules, coding conventions, scope boundaries.
 
 ### Still needed
-- [ ] **Assessment / onboarding screen** (`ui/assessment/` exists but not wired) — determines starting level for new users
-- [ ] **Onboarding flow** (`ui/onboarding/` exists but not wired)
-- [ ] **Profile screen** — currently placeholder; needs real user stats from Supabase
-- [ ] **SupabaseMistakeRepository** — mistake_words table in Supabase; currently only stored locally/fake
-- [ ] **word_forms table** — created manually this session; not yet in the schema SQL; needs adding to `output/reference/schema_reference.sql`
-- [ ] **TTS audio** — `pronunciation_tts_manifest.jsonl` exists but `synthesize_audio.py` not yet built; no audio files yet
-- [ ] **Content: remaining ~2860 words** — pipeline ready; need to run batches of 20–50 words following `content_pipeline/PIPELINE_GUIDE.md`
-- [ ] **RLS policies** — verify Supabase Row Level Security allows anonymous reads on words/questions tables
-- [ ] **levels table** — needs data (level metadata rows) before level-select screen can work
+- [ ] Apply migrations 015 + 016 to hosted Supabase; verify they run cleanly.
+- [ ] **RLS policies** — verify Supabase Row Level Security allows anonymous reads on words/questions tables.
+- [ ] **Onboarding flow** — `ui/onboarding/` exists but is not wired into `AppSessionViewModel` navigation.
+- [ ] **Profile screen** — currently shows fake data; needs real user stats from `SupabaseUserRepository`.
+- [ ] **SupabaseMistakeRepository** — `mistake_senses` table writes exist in RPCs; Android side still uses `FakeMistakeRepository`.
+- [ ] **StreakScreen** — UI exists; needs live Supabase data (streak counters via `refresh_user_profile` RPC).
+- [ ] **word_forms table** — verify current Supabase migration schema and import compatibility before next production load.
+- [ ] **TTS audio** — `pronunciation_tts_manifest.jsonl` exists but `synthesize_audio.py` not yet built; no audio files yet.
+- [ ] **Content: remaining curriculum** — continue with the reviewed numbered workflow documented in `backend/content-pipeline/README.md`.
+- [ ] **levels table** — needs data rows before level-select screen can work.
