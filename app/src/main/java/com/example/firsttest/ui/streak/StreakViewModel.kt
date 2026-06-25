@@ -62,11 +62,16 @@ class StreakViewModel(
         .map { user ->
             val now = Calendar.getInstance()
             StreakUiState.Success(
-                currentDays           = user.streak.currentDays,
-                goalDays              = user.streak.goalDays,
-                monthLabel            = formatMonth(now),
-                calendarDays          = buildCalendar(user.streak.currentDays, now),
+                currentDays  = user.streak.currentDays,
+                goalDays     = user.streak.goalDays,
+                monthLabel   = formatMonth(now),
+                // TODO: calendar shows last-N-days as CHECKED (approximation).
+                //   Real per-day history needs a checkin_history table in Supabase.
+                calendarDays = buildCalendar(user.streak.currentDays, now),
+                // TODO: checkedThisMonth is approximate (min of streak vs day-of-month).
+                //   Accurate count requires per-day check-in records.
                 checkedThisMonth      = minOf(user.streak.currentDays, now.get(Calendar.DAY_OF_MONTH)),
+                // TODO: props not persisted to Supabase — always 0 until user_props table added.
                 streakProtectionCount = user.props.firstOrNull { it.type == PropType.STREAK_PROTECTION }?.count ?: 0,
                 challengeKeyCount     = user.props.firstOrNull { it.type == PropType.CHALLENGE_KEY }?.count ?: 0,
             )

@@ -22,6 +22,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,6 +39,7 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,9 +57,13 @@ import kotlin.math.sin
 
 @Composable
 fun ProfileScreen(
+    onReassessClick: () -> Unit = {},
+    onSignOut: () -> Unit = {},
     viewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory),
+    accountViewModel: AccountViewModel = viewModel(factory = AccountViewModel.Factory),
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val accountState by accountViewModel.uiState.collectAsState()
     // Hosted inside MainScreen's Scaffold, which already supplies window insets
     // and the bottom-nav padding; opt out here to avoid double-counting them.
     Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0)) { innerPadding ->
@@ -69,13 +75,31 @@ fun ProfileScreen(
                 ) { Text("加载中…") }
 
             is ProfileUiState.Success ->
-                ProfileContent(user = state.user, modifier = Modifier.padding(innerPadding))
+                ProfileContent(
+                    user = state.user,
+                    onReassessClick = onReassessClick,
+                    onSignOut = onSignOut,
+                    accountState = accountState,
+                    onCurrentPasswordChanged = accountViewModel::setCurrentPassword,
+                    onNewPasswordChanged = accountViewModel::setNewPassword,
+                    onChangePassword = accountViewModel::changePassword,
+                    modifier = Modifier.padding(innerPadding),
+                )
         }
     }
 }
 
 @Composable
-private fun ProfileContent(user: User, modifier: Modifier = Modifier) {
+private fun ProfileContent(
+    user: User,
+    onReassessClick: () -> Unit,
+    onSignOut: () -> Unit,
+    accountState: AccountUiState,
+    onCurrentPasswordChanged: (String) -> Unit,
+    onNewPasswordChanged: (String) -> Unit,
+    onChangePassword: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -83,13 +107,14 @@ private fun ProfileContent(user: User, modifier: Modifier = Modifier) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        // Settings affordance (top-right). Settings screen not built yet.
+        // TODO: ⚙️ settings screen not built — tapping does nothing.
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
             Text("⚙️", fontSize = 22.sp)
         }
 
         // Identity: avatar + nickname + ID
         Row(verticalAlignment = Alignment.CenterVertically) {
+            // TODO: avatar — no upload flow yet; show placeholder until storage + crop built.
             Box(
                 modifier = Modifier
                     .size(72.dp)
@@ -118,9 +143,63 @@ private fun ProfileContent(user: User, modifier: Modifier = Modifier) {
             StatCard(Modifier.weight(1f), "🎓", user.userLevel.levelName, "等级名称")
         }
 
-        AssessmentCard(user)
+        // TODO: AssessmentCard radar axes (听力/阅读/口语/写作) require dedicated
+        //   assessment features — no data source exists. Only vocabulary axis is live.
+        AssessmentCard(user, onReassessClick)
         StreakCard(user.streak)
+        // TODO: PropsCard — props (连胜保护/挑战钥匙) not persisted to Supabase yet.
+        //   Requires a user_props table or columns on profiles; always shows empty for now.
         PropsCard(user.props)
+        AccountSecurityCard(
+            state = accountState,
+            onCurrentPasswordChanged = onCurrentPasswordChanged,
+            onNewPasswordChanged = onNewPasswordChanged,
+            onChangePassword = onChangePassword,
+        )
+        OutlinedButton(onClick = onSignOut, modifier = Modifier.fillMaxWidth()) {
+            Text("Sign out")
+        }
+    }
+}
+
+@Composable
+private fun AccountSecurityCard(
+    state: AccountUiState,
+    onCurrentPasswordChanged: (String) -> Unit,
+    onNewPasswordChanged: (String) -> Unit,
+    onChangePassword: () -> Unit,
+) {
+    Card(Modifier.fillMaxWidth()) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Text("Account security", style = MaterialTheme.typography.titleMedium)
+            OutlinedTextField(
+                value = state.currentPassword,
+                onValueChange = onCurrentPasswordChanged,
+                label = { Text("Current password") },
+                visualTransformation = PasswordVisualTransformation(),
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            OutlinedTextField(
+                value = state.newPassword,
+                onValueChange = onNewPasswordChanged,
+                label = { Text("New password") },
+                visualTransformation = PasswordVisualTransformation(),
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            state.message?.let { Text(it) }
+            Button(
+                onClick = onChangePassword,
+                enabled = !state.isLoading,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(if (state.isLoading) "Changing..." else "Change password")
+            }
+        }
     }
 }
 
@@ -146,7 +225,7 @@ private fun StatCard(modifier: Modifier, icon: String, value: String, label: Str
 }
 
 @Composable
-private fun AssessmentCard(user: User) {
+private fun AssessmentCard(user: User, onReassessClick: () -> Unit) {
     Card(Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier.padding(16.dp),
@@ -161,13 +240,13 @@ private fun AssessmentCard(user: User) {
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.weight(1f),
                 )
-                OutlinedButton(onClick = { /* TODO: 重新评测 (2.9) */ }) { Text("重新评测") }
+                OutlinedButton(onClick = onReassessClick) { Text("重新评测") }
             }
             AbilityRadarChart(
                 radar = user.abilityRadar,
                 modifier = Modifier.fillMaxWidth().height(220.dp),
             )
-            Button(onClick = { /* TODO: 评测报告 (2.9) */ }, modifier = Modifier.fillMaxWidth()) {
+            Button(onClick = onReassessClick, modifier = Modifier.fillMaxWidth()) {
                 Text("评测报告")
             }
         }
@@ -324,7 +403,17 @@ private fun AbilityRadarChart(radar: AbilityRadar, modifier: Modifier = Modifier
 @Preview(showBackground = true, heightDp = 1200)
 @Composable
 private fun ProfileContentPreview() {
-    KuaKuaTheme { ProfileContent(previewUser) }
+    KuaKuaTheme {
+        ProfileContent(
+            user = previewUser,
+            onReassessClick = {},
+            onSignOut = {},
+            accountState = AccountUiState(),
+            onCurrentPasswordChanged = {},
+            onNewPasswordChanged = {},
+            onChangePassword = {},
+        )
+    }
 }
 
 private val previewUser = User(

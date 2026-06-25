@@ -137,6 +137,7 @@ data class DbPracticeRoundQuestion(
     @SerialName("expected_time_ms") val expectedTimeMs: Int = 12_000,
     @SerialName("attempt_count") val attemptCount: Int = 0,
     @SerialName("hint_used") val hintUsed: Boolean = false,
+    @SerialName("letter_count") val letterCount: Int? = null,
     @SerialName("revealed_answer") val revealedAnswer: String? = null,
     @SerialName("answer_given") val answerGiven: String? = null,
     @SerialName("is_answered") val isAnswered: Boolean = false,
@@ -241,4 +242,47 @@ data class DbQuestionOption(
     @SerialName("option_text") val optionText: String,
     @SerialName("is_correct")  val isCorrect: Boolean,
     @SerialName("sort_order")  val sortOrder: Int,
+)
+
+// ---- Mistake words (mistake_senses + word_senses + user_sense_mastery) ---------
+
+/**
+ * Row from mistake_senses with nested word_senses→words join.
+ * Select: "sense_id, wrong_count, first_wrong_at, last_wrong_at,
+ *           word_senses(definition_zh, part_of_speech, words(headword))"
+ */
+@Serializable
+data class DbMistakeSense(
+    @SerialName("sense_id")       val senseId: String,
+    @SerialName("wrong_count")    val wrongCount: Int,
+    @SerialName("first_wrong_at") val firstWrongAt: String,
+    @SerialName("last_wrong_at")  val lastWrongAt: String,
+    @SerialName("word_senses")    val sense: DbMistakeSenseDetail,
+)
+
+@Serializable
+data class DbMistakeSenseDetail(
+    @SerialName("definition_zh")  val definitionZh: String,
+    @SerialName("part_of_speech") val partOfSpeech: String,
+    val words: DbMistakeWord,
+)
+
+@Serializable
+data class DbMistakeWord(
+    val headword: String,
+)
+
+/** Row from user_sense_mastery — just the scheduling fields. */
+@Serializable
+data class DbSenseMastery(
+    @SerialName("sense_id")    val senseId: String,
+    @SerialName("review_stage") val reviewStage: Int = 0,
+    @SerialName("next_due_at") val nextDueAt: String? = null,
+)
+
+/** Single level_number from user_level_progress (for highest-unlocked query). */
+@Serializable
+data class DbLevelNumber(
+    @SerialName("level_number") val levelNumber: Int,
+    val progress: Double = 0.0,
 )
