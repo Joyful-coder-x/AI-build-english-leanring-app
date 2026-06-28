@@ -94,6 +94,9 @@ fun LevelPracticeScreen(
                         onValueChange = viewModel::onTypedAnswerChanged,
                         onSubmit = viewModel::onSubmit,
                         enabled = !state.isSubmitting,
+                        letterCount = state.letterCount,
+                        feedback = state.feedback,
+                        label = "请输入空格中的目标词",
                     )
                 } else {
                     OptionList(
@@ -105,6 +108,64 @@ fun LevelPracticeScreen(
                     )
                 }
                 Spacer(Modifier.height(4.dp))
+                Button(
+                    onClick = viewModel::onSubmit,
+                    enabled = state.submitEnabled,
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text("提交") }
+            }
+
+            is LevelPracticeUiState.ShowingClozeAnswer -> {
+                TopBar(
+                    levelNumber,
+                    state.questionIndex + 1,
+                    state.totalQuestions,
+                    state.comboCount,
+                    onBack,
+                )
+                QuestionCard(state.question)
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                ) {
+                    Column(
+                        Modifier.padding(20.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Text("目标词", style = MaterialTheme.typography.labelLarge)
+                        Text(
+                            state.answer,
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                    }
+                }
+                Button(
+                    onClick = viewModel::onClozeAnswerSeen,
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text("我记住了，继续") }
+            }
+
+            is LevelPracticeUiState.ClozeMemoryRetype -> {
+                TopBar(
+                    levelNumber,
+                    state.questionIndex + 1,
+                    state.totalQuestions,
+                    state.comboCount,
+                    onBack,
+                )
+                QuestionCard(state.question)
+                ClozeInput(
+                    value = state.typedAnswer,
+                    onValueChange = viewModel::onTypedAnswerChanged,
+                    onSubmit = viewModel::onSubmit,
+                    enabled = !state.isSubmitting,
+                    letterCount = null,
+                    feedback = "",
+                    label = "现在从记忆中作答",
+                )
                 Button(
                     onClick = viewModel::onSubmit,
                     enabled = state.submitEnabled,
@@ -195,22 +256,173 @@ private fun TopBar(
 @Composable
 private fun QuestionCard(question: LevelPracticeQuestion) {
     Card(Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            // Type header
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(questionTypeIcon(question.questionTypeKey), fontSize = 16.sp)
+                Text(
+                    text = questionTypeTitle(question.questionTypeKey),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.SemiBold,
+                )
+            }
+
             Text(
-                text = question.promptHint.ifBlank {
-                    if (question.answerForm == "keyboard") "填写正确的单词" else "选择正确的释义"
-                },
+                text = question.promptHint.ifBlank { questionTypeInstruction(question.questionTypeKey, question.answerForm) },
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Text(
-                text = question.stem,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
+
+            // Type-specific content area
+            when (question.questionTypeKey) {
+                "listening_choice", "listening_fill" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🔊", fontSize = 28.sp)
+                            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                                Text(
+                                    text = question.stem,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                )
+                                Text(
+                                    "(原型模式: 显示听力内容)",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.6f),
+                                )
+                            }
+                        }
+                    }
+                }
+
+                "speaking_repeat" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🎤", fontSize = 28.sp)
+                            Text(
+                                text = question.stem,
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
+                "open_speaking" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                        ) {
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text("🗣", fontSize = 20.sp)
+                                Text(
+                                    "用英语描述这个词：",
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f),
+                                )
+                            }
+                            Text(
+                                text = question.stem,
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
+                "reading_comprehension" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        ),
+                    ) {
+                        Text(
+                            text = question.stem,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(12.dp),
+                        )
+                    }
+                }
+
+                else -> {
+                    Text(
+                        text = question.stem,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+            }
         }
     }
 }
+
+private fun questionTypeIcon(questionTypeKey: String): String = when (questionTypeKey) {
+    "meaning_choice", "option_recognition" -> "📖"
+    "sentence_cloze_typing" -> "✍️"
+    "listening_choice" -> "🔊"
+    "listening_fill" -> "🎧"
+    "speaking_repeat" -> "🎤"
+    "open_speaking" -> "🗣"
+    "word_form" -> "🔤"
+    "reading_comprehension" -> "📄"
+    else -> "❓"
+}
+
+private fun questionTypeTitle(questionTypeKey: String): String = when (questionTypeKey) {
+    "meaning_choice", "option_recognition" -> "单词选义"
+    "sentence_cloze_typing" -> "句子填空"
+    "listening_choice" -> "听力选词"
+    "listening_fill" -> "听力拼写"
+    "speaking_repeat" -> "口语复读"
+    "open_speaking" -> "口语表达"
+    "word_form" -> "词形变换"
+    "reading_comprehension" -> "阅读理解"
+    else -> questionTypeKey.replace('_', ' ').replaceFirstChar { it.uppercase() }
+}
+
+private fun questionTypeInstruction(questionTypeKey: String, answerForm: String): String =
+    when (questionTypeKey) {
+        "meaning_choice" -> "选择正确的中文释义"
+        "sentence_cloze_typing" -> "填写空格中的目标词"
+        "listening_choice" -> "听完后选择你听到的单词"
+        "listening_fill" -> "听完后拼写你听到的单词"
+        "speaking_repeat" -> "朗读以下单词，然后自评"
+        "open_speaking" -> "用英语解释这个词的意思，然后自评"
+        "word_form" -> "写出目标词的正确词形"
+        "reading_comprehension" -> "阅读短文，回答问题"
+        else -> if (answerForm == "keyboard") "填写正确的单词" else "选择正确的选项"
+    }
 
 @Composable
 private fun ClozeInput(
@@ -218,7 +430,16 @@ private fun ClozeInput(
     onValueChange: (String) -> Unit,
     onSubmit: () -> Unit,
     enabled: Boolean,
+    letterCount: Int?,
+    feedback: String,
+    label: String,
 ) {
+    letterCount?.let {
+        Text("提示：$it 个字母", color = MaterialTheme.colorScheme.primary)
+    }
+    if (feedback.isNotBlank()) {
+        Text(feedback, color = MaterialTheme.colorScheme.tertiary)
+    }
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,

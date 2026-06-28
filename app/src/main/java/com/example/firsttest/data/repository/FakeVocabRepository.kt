@@ -10,6 +10,7 @@ import com.example.firsttest.data.model.MeaningChoiceQuestion
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
+import java.time.LocalDate
 
 /**
  * In-memory [VocabRepository] for offline dev and unit tests.
@@ -167,31 +168,112 @@ class FakeVocabRepository : VocabRepository {
         )
     }
 
-    // ---- Level Practice (unified round supporting option + cloze) ----------
+    // ---- Level Practice (unified round — all 8 question types) -------------
 
     private var activeLevelRound: LevelPracticeRound? = null
-    // Maps position → correct option id (option questions only)
-    private val levelRoundCorrectIds = mutableMapOf<Int, String>()
+    // Maps position → correct answer (option id or typed word)
+    private val levelRoundCorrectAnswers = mutableMapOf<Int, String>()
 
     override suspend fun startLevelPracticeRound(levelNumber: Int): LevelPracticeRound {
-        val questions = getMeaningChoiceQuestionsForLevel(levelNumber, 3)
-            .mapIndexed { index, q ->
-                LevelPracticeQuestion(
-                    questionId      = q.questionId,
-                    senseId         = q.senseId,
-                    position        = index + 1,
-                    promptHint      = q.promptHint,
-                    stem            = q.stem,
-                    answerForm      = "option",
-                    questionTypeKey = "option_recognition",
-                    translationZh   = q.definitionZh,
-                    options         = q.options,
-                )
-            }
-        levelRoundCorrectIds.clear()
-        questions.forEach { q ->
-            q.options.firstOrNull { it.isCorrect }?.let { levelRoundCorrectIds[q.position] = it.optionId }
+        val questions = buildList {
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_1", senseId = "s1", position = 1,
+                promptHint      = "选择正确的中文释义", stem = "achieve",
+                answerForm      = "option", questionTypeKey = "meaning_choice",
+                translationZh   = "实现；达到（目标或结果）",
+                options         = listOf(
+                    MeaningChoiceOption("o1a", "s1", "实现；达到（目标或结果）", true),
+                    MeaningChoiceOption("o1b", "s2", "快速地移动到另一个地方", false),
+                    MeaningChoiceOption("o1c", "s3", "为某事提供资金支持", false),
+                    MeaningChoiceOption("o1d", "s4", "向一群人正式讲话", false),
+                ).shuffled(),
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_2", senseId = "s2", position = 2,
+                promptHint      = "填写空格中的目标词",
+                stem            = "She worked hard to ___ her goals.",
+                answerForm      = "keyboard", questionTypeKey = "sentence_cloze_typing",
+                translationZh   = "实现；达到", options = emptyList(), letterCount = 7,
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_3", senseId = "s3", position = 3,
+                promptHint      = "听完后选择你听到的单词", stem = "evidence",
+                answerForm      = "option", questionTypeKey = "listening_choice",
+                translationZh   = "证据；证明",
+                options         = listOf(
+                    MeaningChoiceOption("o3a", "s3", "evidence", true),
+                    MeaningChoiceOption("o3b", "s5", "apparent", false),
+                    MeaningChoiceOption("o3c", "s6", "essential", false),
+                    MeaningChoiceOption("o3d", "s7", "efficient", false),
+                ).shuffled(),
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_4", senseId = "s4", position = 4,
+                promptHint      = "听完后拼写你听到的单词", stem = "significant",
+                answerForm      = "keyboard", questionTypeKey = "listening_fill",
+                translationZh   = "重要的；显著的", options = emptyList(), letterCount = 11,
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_5", senseId = "s1", position = 5,
+                promptHint      = "朗读以下单词，然后选择自评结果", stem = "achieve",
+                answerForm      = "option", questionTypeKey = "speaking_repeat",
+                translationZh   = "实现；达到",
+                options         = listOf(
+                    MeaningChoiceOption("sp5a", "s1", "✅ 我清晰地说出来了", true),
+                    MeaningChoiceOption("sp5b", "s1", "🤔 大概说对了", true),
+                    MeaningChoiceOption("sp5c", "s1", "❌ 我没说出来", false),
+                ),
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_6", senseId = "s3", position = 6,
+                promptHint      = "用英语描述这个词的含义，然后自评",
+                stem            = "证据；有助于证明某事为真的事实或信息",
+                answerForm      = "option", questionTypeKey = "open_speaking",
+                translationZh   = "evidence",
+                options         = listOf(
+                    MeaningChoiceOption("sp6a", "s3", "✅ 我说出了核心含义", true),
+                    MeaningChoiceOption("sp6b", "s3", "🤔 我说了部分内容", true),
+                    MeaningChoiceOption("sp6c", "s3", "❌ 我没有说出来", false),
+                ),
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_7", senseId = "s1", position = 7,
+                promptHint      = "写出 achieve 的名词形式",
+                stem            = "His ___ in the exam was outstanding. (achieve → 名词)",
+                answerForm      = "keyboard", questionTypeKey = "word_form",
+                translationZh   = "实现；成就 (achievement)", options = emptyList(), letterCount = 11,
+            ))
+            add(LevelPracticeQuestion(
+                questionId      = "lp_${levelNumber}_8", senseId = "s3", position = 8,
+                promptHint      = "阅读短文，回答问题",
+                stem            = "Scientists have found new evidence that climate change is accelerating faster than expected. " +
+                    "The data, collected over 20 years, provides significant proof of rising global temperatures.\n\n" +
+                    "问题：文中 "evidence" 的中文含义最接近？",
+                answerForm      = "option", questionTypeKey = "reading_comprehension",
+                translationZh   = "证据；证明",
+                options         = listOf(
+                    MeaningChoiceOption("rc8a", "s3", "证据；证明", true),
+                    MeaningChoiceOption("rc8b", "s5", "论点；争议", false),
+                    MeaningChoiceOption("rc8c", "s6", "假设；猜测", false),
+                    MeaningChoiceOption("rc8d", "s7", "实验；测试", false),
+                ).shuffled(),
+            ))
         }
+
+        levelRoundCorrectAnswers.clear()
+        questions.forEach { q ->
+            when {
+                q.answerForm == "keyboard" -> levelRoundCorrectAnswers[q.position] = when (q.questionTypeKey) {
+                    "sentence_cloze_typing" -> "achieve"
+                    "listening_fill"        -> "significant"
+                    "word_form"             -> "achievement"
+                    else                    -> ""
+                }
+                else -> q.options.firstOrNull { it.isCorrect }
+                    ?.let { levelRoundCorrectAnswers[q.position] = it.optionId }
+            }
+        }
+
         return LevelPracticeRound(
             roundId     = "fake-lp-$levelNumber",
             levelNumber = levelNumber,
@@ -205,16 +287,23 @@ class FakeVocabRepository : VocabRepository {
         answer: String,
         responseTimeMs: Int,
     ): LevelPracticeAnswerResult {
-        val correctId = levelRoundCorrectIds[position] ?: ""
-        val isCorrect = answer == correctId
+        val correct = levelRoundCorrectAnswers[position] ?: ""
+        val isCorrect = answer.trim().lowercase() == correct.trim().lowercase()
         return LevelPracticeAnswerResult(
             isCorrect       = isCorrect,
             answerOutcome   = if (isCorrect) "full_correct" else "wrong",
-            correctOptionId = correctId.ifBlank { null },
-            correctAnswer   = null,
+            correctOptionId = correct.ifBlank { null },
+            correctAnswer   = correct.ifBlank { null },
             learningState   = null,
             reviewStage     = null,
         )
+    }
+
+    override suspend fun getPracticeSessionDates(recentDays: Int): List<LocalDate> {
+        val today = LocalDate.now()
+        return listOf(0, 1, 2, 4, 5, 7, 8, 9, 12, 14, 15, 19, 21, 28, 35, 42, 50, 60, 70, 80)
+            .map { daysAgo -> today.minusDays(daysAgo.toLong()) }
+            .filter { !it.isBefore(today.minusDays(recentDays.toLong())) }
     }
 
     private fun bandScoreForLevel(levelNumber: Int): Double = when {

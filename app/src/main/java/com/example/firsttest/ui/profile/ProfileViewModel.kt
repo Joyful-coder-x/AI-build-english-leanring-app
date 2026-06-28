@@ -7,40 +7,59 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.firsttest.data.model.User
 import com.example.firsttest.data.repository.UserRepository
+import com.example.firsttest.data.repository.VocabRepository
 import com.example.firsttest.di.AppRepositories
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 sealed interface ProfileUiState {
     data object Loading : ProfileUiState
-    data class Success(val user: User) : ProfileUiState
+    data class Success(
+        val user: User,
+        val sessionDates: List<LocalDate> = emptyList(),
+    ) : ProfileUiState
 }
 
 /**
  * Holds the Profile / 个人中心 screen state.
  *
- * Collects [UserRepository.userFlow] so the screen automatically reflects any
- * change made to the user's data — most importantly, duck power earned during a
- * practice session updates here without any explicit refresh call.
+ * Collects [UserRepository.userFlow] reactively, and loads practice session
+ * dates once on init for the contribution heatmap.
  */
 class ProfileViewModel(
     userRepository: UserRepository,
+    private val vocabRepository: VocabRepository,
 ) : ViewModel() {
 
-    val uiState: StateFlow<ProfileUiState> = userRepository
-        .userFlow()
-        .map { user -> ProfileUiState.Success(user) as ProfileUiState }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.Eagerly,
-            initialValue = ProfileUiState.Loading,
-        )
+    private val _sessionDates = MutableStateFlow<List<LocalDate>>(emptyList())
+
+    val uiState: StateFlow<ProfileUiState> = combine(
+        userRepository.userFlow(),
+        _sessionDates,
+    ) { user, dates ->
+        ProfileUiState.Success(user, dates)
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.Eagerly,
+        initialValue = ProfileUiState.Loading,
+    )
+
+    init {
+        viewModelScope.launch {
+            _sessionDates.value = runCatching {
+                vocabRepository.getPracticeSessionDates(recentDays = 84)
+            }.getOrDefault(emptyList())
+        }
+    }
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer { ProfileViewModel(AppRepositories.user) }
+            initializer { ProfileViewModel(AppRepositories.user, AppRepositories.vocab) }
         }
     }
 }

@@ -27,6 +27,9 @@ sealed interface LevelPracticeUiState {
         val comboCount: Int,
         val selectedOptionId: String? = null,
         val typedAnswer: String = "",
+        val attemptCount: Int = question.attemptCount,
+        val letterCount: Int? = question.letterCount,
+        val feedback: String = "",
         val questionStartMs: Long = System.currentTimeMillis(),
         val isSubmitting: Boolean = false,
     ) : LevelPracticeUiState {
@@ -34,6 +37,26 @@ sealed interface LevelPracticeUiState {
             "keyboard" -> typedAnswer.isNotBlank()
             else -> selectedOptionId != null
         }
+    }
+
+    data class ShowingClozeAnswer(
+        val question: LevelPracticeQuestion,
+        val questionIndex: Int,
+        val totalQuestions: Int,
+        val comboCount: Int,
+        val answer: String,
+    ) : LevelPracticeUiState
+
+    data class ClozeMemoryRetype(
+        val question: LevelPracticeQuestion,
+        val questionIndex: Int,
+        val totalQuestions: Int,
+        val comboCount: Int,
+        val typedAnswer: String = "",
+        val questionStartMs: Long = System.currentTimeMillis(),
+        val isSubmitting: Boolean = false,
+    ) : LevelPracticeUiState {
+        val submitEnabled: Boolean get() = typedAnswer.isNotBlank() && !isSubmitting
     }
 
     data class Reviewing(
@@ -104,11 +127,135 @@ class LevelPracticeViewModel(
     }
 
     fun onTypedAnswerChanged(text: String) {
-        val s = _uiState.value as? LevelPracticeUiState.Answering ?: return
-        _uiState.value = s.copy(typedAnswer = text)
+        when (val state = _uiState.value) {
+            is LevelPracticeUiState.Answering ->
+                _uiState.value = state.copy(typedAnswer = text, feedback = "")
+            is LevelPracticeUiState.ClozeMemoryRetype ->
+                _uiState.value = state.copy(typedAnswer = text)
+            else -> Unit
+        }
     }
 
     fun onSubmit() {
+        when (val state = _uiState.value) {
+            is LevelPracticeUiState.Answering -> {
+                val answer = when (state.question.answerForm) {
+                    "keyboard" -> state.typedAnswer.trim().ifBlank { return }
+                    else -> state.selectedOptionId ?: return
+                }
+                submitStagedAnswer(
+                    state.question,
+                    state.questionIndex,
+                    state.totalQuestions,
+                    answer,
+                    elapsed(state.questionStartMs),
+                    { _uiState.value = state.copy(isSubmitting = true) },
+                ) { result -> handleAnsweringResult(state, answer, result) }
+            }
+            is LevelPracticeUiState.ClozeMemoryRetype -> submitStagedAnswer(
+                state.question,
+                state.questionIndex,
+                state.totalQuestions,
+                state.typedAnswer.trim(),
+                elapsed(state.questionStartMs),
+                { _uiState.value = state.copy(isSubmitting = true) },
+            ) { result ->
+                showReview(
+                    state.question,
+                    state.questionIndex,
+                    state.totalQuestions,
+                    state.typedAnswer,
+                    result,
+                )
+            }
+            else -> Unit
+        }
+    }
+
+    private fun submitStagedAnswer(
+        question: LevelPracticeQuestion,
+        questionIndex: Int,
+        totalQuestions: Int,
+        answer: String,
+        responseMs: Int,
+        markSubmitting: () -> Unit,
+        handleResult: (com.example.firsttest.data.model.LevelPracticeAnswerResult) -> Unit,
+    ) {
+        markSubmitting()
+        viewModelScope.launch {
+            try {
+                handleResult(vocabRepository.saveLevelPracticeAnswer(
+                    roundId, question.position, answer, responseMs,
+                ))
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                _uiState.value = LevelPracticeUiState.Error(e.message ?: "保存答案失败，请重试")
+            }
+        }
+    }
+
+    private fun handleAnsweringResult(
+        state: LevelPracticeUiState.Answering,
+        answer: String,
+        result: com.example.firsttest.data.model.LevelPracticeAnswerResult,
+    ) {
+        when (result.action) {
+            "near_meaning" -> _uiState.value = state.copy(
+                typedAnswer = "",
+                feedback = result.feedback.ifBlank { "意思接近，但本题练的是本关目标词。" },
+                questionStartMs = System.currentTimeMillis(),
+                isSubmitting = false,
+            )
+            "retry_with_hint" -> _uiState.value = state.copy(
+                typedAnswer = "",
+                attemptCount = result.attemptCount,
+                letterCount = result.letterCount,
+                questionStartMs = System.currentTimeMillis(),
+                isSubmitting = false,
+            )
+            "reveal_answer" -> _uiState.value = LevelPracticeUiState.ShowingClozeAnswer(
+                state.question,
+                state.questionIndex,
+                state.totalQuestions,
+                state.comboCount,
+                requireNotNull(result.revealedAnswer),
+            )
+            else -> showReview(
+                state.question, state.questionIndex, state.totalQuestions, answer, result,
+            )
+        }
+    }
+
+    fun onClozeAnswerSeen() {
+        val state = _uiState.value as? LevelPracticeUiState.ShowingClozeAnswer ?: return
+        _uiState.value = LevelPracticeUiState.ClozeMemoryRetype(
+            state.question, state.questionIndex, state.totalQuestions, state.comboCount,
+        )
+    }
+
+    private fun showReview(
+        question: LevelPracticeQuestion,
+        questionIndex: Int,
+        totalQuestions: Int,
+        answer: String,
+        result: com.example.firsttest.data.model.LevelPracticeAnswerResult,
+    ) {
+        if (result.answerOutcome == "full_correct") comboCount++ else comboCount = 0
+        _uiState.value = LevelPracticeUiState.Reviewing(
+            question = question,
+            questionIndex = questionIndex,
+            totalQuestions = totalQuestions,
+            submittedAnswer = answer,
+            correctOptionId = result.correctOptionId,
+            correctAnswer = result.revealedAnswer ?: result.correctAnswer,
+            answerOutcome = result.answerOutcome,
+            comboCount = comboCount,
+        )
+    }
+
+    @Suppress("unused")
+    private fun submitLegacy() {
         val s = _uiState.value as? LevelPracticeUiState.Answering ?: return
         val answer = when (s.question.answerForm) {
             "keyboard" -> s.typedAnswer.trim().ifBlank { return }
@@ -184,12 +331,28 @@ class LevelPracticeViewModel(
         }
     }
 
-    private fun buildAnswering(index: Int) = LevelPracticeUiState.Answering(
-        question       = questions[index],
-        questionIndex  = index,
-        totalQuestions = questions.size,
-        comboCount     = comboCount,
-    )
+    private fun buildAnswering(index: Int): LevelPracticeUiState {
+        val question = questions[index]
+        return if (
+            question.answerForm == "keyboard" &&
+            question.revealedAnswer != null &&
+            question.attemptCount >= 2
+        ) {
+            LevelPracticeUiState.ShowingClozeAnswer(
+                question, index, questions.size, comboCount, question.revealedAnswer,
+            )
+        } else {
+            LevelPracticeUiState.Answering(
+                question = question,
+                questionIndex = index,
+                totalQuestions = questions.size,
+                comboCount = comboCount,
+            )
+        }
+    }
+
+    private fun elapsed(startMs: Long): Int =
+        (System.currentTimeMillis() - startMs).coerceIn(0, Int.MAX_VALUE.toLong()).toInt()
 
     companion object {
         fun factory(levelNumber: Int) = viewModelFactory {

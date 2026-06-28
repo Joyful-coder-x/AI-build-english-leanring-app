@@ -1,5 +1,6 @@
 package com.example.firsttest.data.repository
 
+import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.model.User
 import kotlinx.coroutines.flow.Flow
 
@@ -18,7 +19,7 @@ import kotlinx.coroutines.flow.Flow
  *   - [addDuckPower]:   UPDATE profiles SET duck_power = duck_power + amount WHERE id = auth.uid()
  *   - [userFlow]:       either re-read after each write, or use Supabase Realtime
  *   NOTE: the `profiles` table does not yet exist in Supabase — create it from
- *   DATA_DESIGN.md §5 before implementing this.
+ *   docs/architecture/DATA_MODEL_AND_CAPACITY.md §5 before implementing this.
  */
 interface UserRepository {
     /** Returns a hot [Flow] that re-emits whenever the user's data changes. */
@@ -35,4 +36,13 @@ interface UserRepository {
      * TODO PHASE 4: persist via Supabase UPDATE on `profiles.duck_power`.
      */
     suspend fun addDuckPower(amount: Int)
+
+    /** Records today's check-in. Increments streak and advances goal if the current goal is reached. */
+    suspend fun checkInToday()
+
+    /** Adds [count] of [type] to the user's prop inventory. */
+    suspend fun addProp(type: PropType, count: Int = 1)
+
+    /** Marks onboarding complete; [userFlow] will emit a user with [User.onboardingCompleted] = true. */
+    suspend fun completeOnboarding()
 }

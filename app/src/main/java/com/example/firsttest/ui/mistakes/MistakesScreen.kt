@@ -4,12 +4,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Badge
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -54,6 +57,9 @@ fun MistakesScreen(
         is MistakesUiState.Empty ->
             EmptyState(modifier)
 
+        is MistakesUiState.Error ->
+            ErrorState(s.message, onRetry = viewModel::retry, modifier = modifier)
+
         is MistakesUiState.Success ->
             Column(modifier.fillMaxSize()) {
                 // Header
@@ -86,6 +92,26 @@ fun MistakesScreen(
                     }
                 }
             }
+    }
+}
+
+@Composable
+private fun ErrorState(message: String, onRetry: () -> Unit, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.fillMaxSize().padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Text("⚠️", style = MaterialTheme.typography.displaySmall)
+        Spacer(Modifier.height(8.dp))
+        Text("加载失败", style = MaterialTheme.typography.titleMedium)
+        Text(
+            message,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(16.dp))
+        Button(onClick = onRetry) { Text("重试") }
     }
 }
 

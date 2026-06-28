@@ -8,6 +8,7 @@ import com.example.firsttest.data.model.MeaningChoiceQuestion
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
+import java.time.LocalDate
 
 /**
  * Vocabulary content repository: levels and dynamically-built practice questions.
@@ -68,4 +69,7 @@ interface VocabRepository {
         starRating: Int,
         duckPowerEarned: Int,
     )
+
+    /** Returns dates of completed practice sessions within the last [recentDays] days. */
+    suspend fun getPracticeSessionDates(recentDays: Int): List<LocalDate>
 }

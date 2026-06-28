@@ -14,6 +14,7 @@ the codebase without touching the wrong things.
 | Project rules & phase status | `CLAUDE.md` |
 | Android architecture | `docs/architecture/APP_ARCHITECTURE.md` |
 | Database schema & RPC contracts | `backend/supabase/migrations/` (apply in filename order) |
+| Account/user-data plan | `docs/plans/ACCOUNT_AND_USER_DATA_PLAN.md` |
 | Level / spaced-review design | `docs/plans/LEVEL_AND_SPACED_REVIEW_FINAL_DESIGN.md` |
 | Band upgrade exam design | `docs/plans/BAND_UPGRADE_EXAM_PLAN.md` |
 | Content pipeline | `backend/content-pipeline/README.md` |
@@ -130,10 +131,7 @@ the new system — leave them untouched.
 | `ui/practice/PracticeQuestionScreen.kt` | Old card-based drill screen; template for future question types |
 | `ui/practice/PracticeViewModel.kt` | Original answer-grading ViewModel; reference for combo logic |
 | `ui/practice/PracticeResultViewModel.kt` | Level word-status query after a session |
-| `ui/meaning/MeaningChoiceScreen.kt` | Client-assembled MCQ screen; reference for option-list rendering pattern |
-| `ui/meaning/MeaningChoiceViewModel.kt` | First ViewModel to call server-side RPCs; reference for round lifecycle |
-| `ui/assessment/AssessmentScreen.kt` | Placement assessment screen; superseded by onboarding-to-Level-1 |
-| `ui/assessment/AssessmentIntroScreen.kt` | Intro for the old placement flow |
+| `ui/assessment/AssessmentScreen.kt` | Placement assessment screen; retained for Profile "reassessment" overlay |
 | `ui/assessment/AssessmentViewModel.kt` | Assessment question delivery and `finalize_placement` RPC |
 | `ui/scratch/ScratchCardScreen.kt` | Scratch-card prop mechanic; not in current navigation |
 | `ui/scratch/ScratchCardViewModel.kt` | Scratch state and streak-shield use |
@@ -190,8 +188,11 @@ Apply in filename order (prefix is `YYYYMMDDNNNN`). Supabase runs these sequenti
 | `architecture/CONTENT_DATA_SOURCE_POLICY.md` | Approved content sources, licensing, attribution |
 | `content/CONTENT_CONSTRUCTION_BRIEF.md` | Schema and requirements for building learning content |
 | `content/WORD_RESEARCH_AND_REVIEW_GUIDE.md` | Human-review workflow for words |
+| `plans/README.md` | Active plan ownership map; start here before editing plans |
+| `plans/DATABASE_TABLE_CLEANUP_AND_QUESTION_DATA_MAP.md` | Table cleanup map and where 8-type Level 1 question data belongs |
 | `plans/BAND_UPGRADE_EXAM_PLAN.md` | Authoritative spec: always-open 40-question upgrade exam, 37/40 pass |
 | `plans/LEVEL_AND_SPACED_REVIEW_FINAL_DESIGN.md` | Controlling spec: round composition, spaced review, level completion, mastery |
+| `plans/ACCOUNT_AND_USER_DATA_PLAN.md` | Account/auth flow, private user data, RLS, onboarding persistence, Android session wiring |
 | `plans/ENGINEERING_QUALITY_FOLLOW_UP.md` | Code-quality follow-up items |
 | `product-prototype-v1/` | Original Chinese feature specs + wireframe PNGs |
 
@@ -214,18 +215,26 @@ Full rules in `CLAUDE.md`. Key constraints for day-to-day work:
 
 **Practice round system**
 - `LevelPracticeViewModel` + `LevelPracticeScreen` (in `ui/level/`) are the **only** officially routed practice flow.
-- `MeaningChoiceViewModel` and `PracticeViewModel` remain as legacy references; nothing routes to them.
+- `MeaningChoiceScreen/ViewModel` deleted (2026-06-28); `PracticeViewModel` remains as legacy reference; nothing routes to it.
 - Server is the source of truth for correctness — the client never grades its own answers.
 
-**Question types**
-- Option (MCQ) questions: `answer_form = 'option'`, `question_type_key = 'option_recognition'`
-- Cloze questions: `answer_form = 'keyboard'`, `question_type_key = 'sentence_cloze_typing'`
-- Do **not** use `type_code` to distinguish question types — that field is legacy.
+**Question types (all 8 active)**
+- `meaning_choice` — MCQ, stem = target word, choose correct Chinese definition
+- `sentence_cloze_typing` — keyboard, fill in the blank in an English sentence
+- `listening_choice` — MCQ, simulated audio (stem shown), choose word heard
+- `listening_fill` — keyboard, simulated audio (stem shown), type the word
+- `speaking_repeat` — self-assess MCQ (✅ / ❌), read the word aloud
+- `open_speaking` — self-assess MCQ, describe the word in English
+- `word_form` — keyboard, fill in the correct word form in a sentence
+- `reading_comprehension` — MCQ, read a passage, answer a comprehension question
+- `answer_form = 'option'` → OptionList; `answer_form = 'keyboard'` → ClozeInput
+- Do **not** use `type_code` to distinguish types — that field is legacy.
 
 **In scope for current work**
-- Level practice: grading, mastery updates, round completion, spaced review scheduling.
+- Level practice: all 8 types graded server-side; mastery + spaced review all wired.
 - Mistake notebook: UI connected to fake data; Supabase impl pending.
-- Streak and profile: UI exists; connecting to live Supabase data is the next step.
+- Profile heatmap: reads live `practice_sessions` data via `getPracticeSessionDates()`.
+- Streak and radar: still on fake data; connecting to Supabase is the next step.
 - Onboarding: screen exists; needs wiring into `AppSessionViewModel` navigation.
 
 **Out of scope until explicitly approved**

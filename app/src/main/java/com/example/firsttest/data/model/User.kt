@@ -4,7 +4,7 @@ package com.example.firsttest.data.model
  * A logged-in user's profile and progress.
  *
  * This is "app data" — it will live in Supabase later (Phase 4). For now it is
- * served by FakeUserRepository. See ARCHITECTURE.md.
+ * served by FakeUserRepository. See docs/architecture/APP_ARCHITECTURE.md.
  */
 data class User(
     val id: String,                 // 用户ID — unique, system-assigned, immutable
@@ -16,6 +16,9 @@ data class User(
     val abilityRadar: AbilityRadar, // 能力雷达图
     val streak: StreakInfo,         // 夸夸连胜
     val props: List<Prop>,          // 我的道具
+    val onboardingCompleted: Boolean = false,
+    val username: String = nickname,
+    val email: String? = null,
 ) {
     /** 鸭力称号 — derived from [duckPower] (not stored separately). */
     val duckTitle: DuckTitle get() = DuckTitle.forDuckPower(duckPower)

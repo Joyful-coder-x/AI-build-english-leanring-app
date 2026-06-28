@@ -22,13 +22,32 @@ import com.example.firsttest.data.remote.DbPracticeRound
 import com.example.firsttest.data.remote.DbPracticeRoundResult
 import com.example.firsttest.data.remote.DbSavePracticeAnswerParams
 import com.example.firsttest.data.remote.DbSaveMeaningChoiceAnswerParams
+import com.example.firsttest.data.remote.DbSessionStartedAt
 import com.example.firsttest.data.remote.DbStartPracticeRoundParams
 import com.example.firsttest.data.remote.Supabase
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.rpc
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.UUID
+
+internal fun resolvedPracticeAnswerForm(answerForm: String?, typeCode: Int): String =
+    answerForm?.takeIf { it.isNotBlank() }
+        ?: if (typeCode == 3) "keyboard" else "option"
+
+internal fun resolvedPracticeQuestionTypeKey(
+    questionTypeKey: String?,
+    answerForm: String?,
+    typeCode: Int,
+): String = questionTypeKey?.takeIf { it.isNotBlank() }
+    ?: when {
+        typeCode == 3 -> "sentence_cloze_typing"
+        answerForm == "keyboard" -> "keyboard_recall"
+        else -> "option_recognition"
+    }
 
 /**
  * Real [VocabRepository] backed by Supabase.
@@ -48,7 +67,7 @@ class SupabaseVocabRepository : VocabRepository {
 
     override suspend fun startPracticeRound(levelNumber: Int): PracticeRound {
         val row = Supabase.client.postgrest.rpc(
-            "start_level_practice_round",
+            "start_practice_round",
             DbStartPracticeRoundParams(levelNumber),
         ).decodeAs<DbPracticeRound>()
 
@@ -67,8 +86,15 @@ class SupabaseVocabRepository : VocabRepository {
                     partOfSpeech = "",
                     definitionZh = question.translationZh,
                     typeCode = question.typeCode,
-                    questionTypeKey = question.questionTypeKey,
-                    answerForm = question.answerForm,
+                    questionTypeKey = resolvedPracticeQuestionTypeKey(
+                        question.questionTypeKey,
+                        question.answerForm,
+                        question.typeCode,
+                    ),
+                    answerForm = resolvedPracticeAnswerForm(
+                        question.answerForm,
+                        question.typeCode,
+                    ),
                     expectedTimeMs = question.expectedTimeMs,
                     attemptCount = question.attemptCount,
                     hintUsed = question.hintUsed,
@@ -101,10 +127,12 @@ class SupabaseVocabRepository : VocabRepository {
                 responseTimeMs = responseTimeMs,
             ),
         ).decodeAs<DbPracticeAnswerResult>()
+        val answerOutcome = row.answerOutcome
+            ?: if (row.isCorrect == true) "full_correct" else "wrong"
         return PracticeAnswerResult(
             isCorrect = row.isCorrect,
             correctOptionId = row.correctOptionId.orEmpty(),
-            answerOutcome = row.answerOutcome.orEmpty(),
+            answerOutcome = answerOutcome,
             action = row.action,
             attemptCount = row.attemptCount,
             letterCount = row.letterCount,
@@ -314,8 +342,18 @@ class SupabaseVocabRepository : VocabRepository {
                     position       = q.position,
                     promptHint     = q.promptHint,
                     stem           = q.stem,
-                    answerForm     = q.answerForm,
-                    questionTypeKey = q.questionTypeKey,
+                    answerForm     = resolvedPracticeAnswerForm(q.answerForm, q.typeCode),
+                    questionTypeKey = resolvedPracticeQuestionTypeKey(
+                        q.questionTypeKey,
+                        q.answerForm,
+                        q.typeCode,
+                    ),
+                    typeCode       = q.typeCode,
+                    expectedTimeMs = q.expectedTimeMs,
+                    attemptCount   = q.attemptCount,
+                    hintUsed       = q.hintUsed,
+                    letterCount    = q.letterCount,
+                    revealedAnswer = q.revealedAnswer,
                     translationZh  = q.translationZh,
                     options        = q.options.map { opt ->
                         MeaningChoiceOption(
@@ -345,14 +383,43 @@ class SupabaseVocabRepository : VocabRepository {
                 responseTimeMs = responseTimeMs,
             ),
         ).decodeAs<DbPracticeAnswerResult>()
+        // Migration 015+ returns answer_outcome; older DB only returns is_correct.
+        val answerOutcome = row.answerOutcome
+            ?: if (row.isCorrect == true) "full_correct" else "wrong"
         return LevelPracticeAnswerResult(
-            isCorrect       = row.isCorrect ?: false,
-            answerOutcome   = row.answerOutcome ?: if (row.isCorrect == true) "full_correct" else "wrong",
+            isCorrect       = row.isCorrect,
+            answerOutcome   = answerOutcome,
             correctOptionId = row.correctOptionId,
             correctAnswer   = row.correctAnswer,
             learningState   = row.learningState,
             reviewStage     = row.reviewStage,
+            action          = row.action,
+            attemptCount    = row.attemptCount,
+            letterCount     = row.letterCount,
+            feedback        = row.feedback.orEmpty(),
+            revealedAnswer  = row.revealedAnswer,
         )
+    }
+
+    override suspend fun getPracticeSessionDates(recentDays: Int): List<LocalDate> {
+        val cutoff = LocalDate.now().minusDays(recentDays.toLong())
+        val rows = Supabase.client
+            .from("practice_sessions")
+            .select(Columns.list("started_at")) {
+                filter {
+                    eq("status", "completed")
+                    gte("started_at", cutoff.toString())
+                }
+                limit(500)
+            }
+            .decodeList<DbSessionStartedAt>()
+        return rows.mapNotNull { row ->
+            runCatching {
+                Instant.parse(row.startedAt)
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate()
+            }.getOrNull()
+        }.distinct()
     }
 }
 

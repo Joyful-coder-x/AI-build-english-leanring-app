@@ -32,13 +32,42 @@ class FakeUserRepository : UserRepository {
 
     override suspend fun getCurrentUser(): User = _state.value
 
-    /** Adds duck power and re-emits on [userFlow] so all UIs reflect the change. */
     override suspend fun addDuckPower(amount: Int) {
         _state.update { it.copy(duckPower = it.duckPower + amount) }
-        // duckTitle is a derived property on User, so it auto-updates with duckPower.
+    }
+
+    override suspend fun checkInToday() {
+        _state.update { user ->
+            val streak = user.streak
+            val newDays = streak.currentDays + 1
+            val newGoal = nextStreakGoal(newDays, streak.goalDays)
+            user.copy(streak = streak.copy(currentDays = newDays, goalDays = newGoal))
+        }
+    }
+
+    override suspend fun addProp(type: PropType, count: Int) {
+        _state.update { user ->
+            val existing = user.props.find { it.type == type }
+            val newProps = if (existing != null) {
+                user.props.map { if (it.type == type) it.copy(count = it.count + count) else it }
+            } else {
+                user.props + Prop(type, count)
+            }
+            user.copy(props = newProps)
+        }
+    }
+
+    override suspend fun completeOnboarding() {
+        _state.update { it.copy(onboardingCompleted = true) }
     }
 
     companion object {
+        private fun nextStreakGoal(days: Int, currentGoal: Int): Int {
+            if (days < currentGoal) return currentGoal
+            val milestones = listOf(1, 3, 7, 14, 20, 30)
+            return milestones.firstOrNull { it > currentGoal } ?: (currentGoal + 10)
+        }
+
         private fun buildInitialUser() = User(
             id = "ksdfj76239skd",
             nickname = "leoninebess",
@@ -60,9 +89,7 @@ class FakeUserRepository : UserRepository {
                 reading    = AbilityRadar.Axis(current = 6.5f, previous = 5f),
                 writing    = AbilityRadar.Axis(current = 5.5f, previous = 4.5f),
             ),
-            // TODO PHASE 2: streak must update after each daily check-in (spec 2.4.1).
             streak = StreakInfo(currentDays = 5, goalDays = 7),
-            // TODO PHASE 2: props must update when earned via scratch card (spec 2.4).
             props = listOf(
                 Prop(PropType.STREAK_PROTECTION, count = 2),
                 Prop(PropType.CHALLENGE_KEY, count = 3),

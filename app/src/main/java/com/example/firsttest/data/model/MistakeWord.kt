@@ -16,7 +16,7 @@ package com.example.firsttest.data.model
  *   5 = reviewed 5× → review after 30 days → pass, remove from list
  *
  * TODO PHASE 3: persist to / read from Supabase `mistake_words` table
- *   (DATA_DESIGN.md §5). [reviewStage] drives AI-pushed review questions.
+ *   (docs/architecture/DATA_MODEL_AND_CAPACITY.md §5). [reviewStage] drives AI-pushed review questions.
  */
 data class MistakeWord(
     val wordId: String,

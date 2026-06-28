@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.firsttest.data.model.MistakeWord
 import com.example.firsttest.data.repository.MistakeRepository
 import com.example.firsttest.di.AppRepositories
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,8 +16,9 @@ import kotlinx.coroutines.launch
 
 sealed interface MistakesUiState {
     data object Loading : MistakesUiState
-    data object Empty : MistakesUiState        // no mistakes yet (spec: show empty state)
+    data object Empty : MistakesUiState
     data class Success(val words: List<MistakeWord>) : MistakesUiState
+    data class Error(val message: String) : MistakesUiState
 }
 
 /**
@@ -39,11 +41,22 @@ class MistakesViewModel(
 
     init { load() }
 
+    fun retry() {
+        _uiState.value = MistakesUiState.Loading
+        load()
+    }
+
     private fun load() {
         viewModelScope.launch {
-            val words = repository.getMistakeWords()
-            _uiState.value = if (words.isEmpty()) MistakesUiState.Empty
-                             else MistakesUiState.Success(words)
+            try {
+                val words = repository.getMistakeWords()
+                _uiState.value = if (words.isEmpty()) MistakesUiState.Empty
+                                 else MistakesUiState.Success(words)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                _uiState.value = MistakesUiState.Error(e.message ?: "加载失败，请重试")
+            }
         }
     }
 

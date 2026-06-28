@@ -88,5 +88,16 @@ class FakePracticeRepository : PracticeRepository {
             translationZh = "掌握一门新语言需要极大的耐心和每天的努力。",
             options = listOf("patience", "practice", "passion", "persistence"),
         ),
+        // Type 3 — sentence cloze typing (progressive hint)
+        Question(
+            id = "q4",
+            typeCode = 3,
+            promptHint = "母亲；妈妈",
+            stem = "My ______ helped me with my homework.",
+            correctAnswer = "mother",
+            translationZh = "我妈妈帮我做作业。",
+            expectedTimeMs = 12_000,
+            nearMeaningAnswers = listOf("mom", "mum"),
+        ),
     )
 }

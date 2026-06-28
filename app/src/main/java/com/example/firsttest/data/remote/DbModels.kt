@@ -132,8 +132,8 @@ data class DbPracticeRoundQuestion(
     @SerialName("question_skill") val questionSkill: String,
     val options: List<DbPracticeRoundOption> = emptyList(),
     @SerialName("type_code") val typeCode: Int = 2,
-    @SerialName("question_type_key") val questionTypeKey: String = "option_recognition",
-    @SerialName("answer_form") val answerForm: String = "option",
+    @SerialName("question_type_key") val questionTypeKey: String? = null,
+    @SerialName("answer_form") val answerForm: String? = null,
     @SerialName("expected_time_ms") val expectedTimeMs: Int = 12_000,
     @SerialName("attempt_count") val attemptCount: Int = 0,
     @SerialName("hint_used") val hintUsed: Boolean = false,
@@ -285,4 +285,10 @@ data class DbSenseMastery(
 data class DbLevelNumber(
     @SerialName("level_number") val levelNumber: Int,
     val progress: Double = 0.0,
+)
+
+/** One row from practice_sessions — just the timestamp, for the profile heatmap. */
+@Serializable
+data class DbSessionStartedAt(
+    @SerialName("started_at") val startedAt: String,
 )

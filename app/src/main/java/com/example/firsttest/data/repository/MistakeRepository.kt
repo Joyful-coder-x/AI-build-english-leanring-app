@@ -7,7 +7,7 @@ import com.example.firsttest.data.model.MistakeWord
  *
  * Phase 2 uses [FakeMistakeRepository].
  * TODO PHASE 3: implement SupabaseMistakeRepository that reads/writes the
- *   `mistake_words` table in Supabase (DATA_DESIGN.md §5).
+ *   `mistake_words` table in Supabase (docs/architecture/DATA_MODEL_AND_CAPACITY.md §5).
  *   Words are added automatically by PracticeViewModel on a wrong answer,
  *   and removed after the user passes reviewStage 5.
  */

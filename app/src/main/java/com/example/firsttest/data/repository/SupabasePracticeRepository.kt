@@ -11,73 +11,93 @@ import io.github.jan.supabase.postgrest.query.Columns
 /**
  * Real [PracticeRepository] that reads questions from Supabase.
  *
- * [getDailyPractice] still returns a fake card layout because the per-user
- * learning path (which cards are unlocked, practice history) requires the
- * `level_progress` and `practice_sessions` tables.
- * TODO PHASE 3: replace [getDailyPractice] with real user-progress query once
- *   those tables exist in Supabase.
+ * Supported type codes:
+ *   1 — keyboard fill-in
+ *   2 — MCQ 4-option (options fetched from question_options)
+ *   3 — sentence cloze typing (near-meaning answers fetched from question_options
+ *       where is_correct = false)
  *
- * [getQuestionsForCard] fetches all active type-1 and type-2 questions from the
- * `questions` table (with options from `question_options`) and returns them in
- * display order. In Phase 3 this will be filtered by the card's level/word set.
- * TODO PHASE 3: filter questions by the card's level_number so each 鸭力训练
- *   shows words appropriate to the user's current level.
+ * [getDailyPractice] still returns a fake card layout — see class-level TODO.
+ * TODO PHASE 3: replace [getDailyPractice] with real user-progress query.
+ *
+ * cardId scoping: the questions table has no per-card column yet, so [cardId]
+ * is not used for DB filtering. Phase 3 will add a level_number column.
  */
 class SupabasePracticeRepository : PracticeRepository {
 
     override suspend fun getDailyPractice(): List<PracticeCard> =
-        // TODO PHASE 3: fetch from Supabase level_progress + practice_sessions.
         FakePracticeRepository().getDailyPractice()
 
     override suspend fun getQuestionsForCard(cardId: String): List<Question> {
-        // ---- 1. Fetch all questions ----------------------------------------
-        val allDbQuestions = Supabase.client
+        // ---- 1. Fetch active questions of all supported types ----------------
+        val dbQuestions = Supabase.client
             .from("questions")
             .select(
                 Columns.list(
                     "id, type_code, prompt_hint, stem, correct_answer, " +
-                    "translation_zh, expected_time_ms, is_active"
+                    "translation_zh, expected_time_ms"
                 )
-            )
+            ) {
+                filter {
+                    eq("is_active", true)
+                    isIn("type_code", listOf(1, 2, 3))
+                }
+                limit(20)
+            }
             .decodeList<DbQuestion>()
 
-        // Phase 2 only renders type 1 (keyboard) and type 2 (MCQ).
-        // Type 14 (writing) and others exist in the DB but are skipped here.
-        // TODO PHASE 2: add type 14 (translation fill-in) renderer.
-        // TODO PHASE 3: add remaining 12 question types.
-        val questions = allDbQuestions.filter { it.isActive && it.typeCode in setOf(1, 2) }
-
-        // ---- 2. Fetch options for MCQ questions ----------------------------
-        val mcqIds = questions.filter { it.typeCode == 2 }.map { it.id }.toSet()
-        val allOptions: List<DbQuestionOption> = if (mcqIds.isEmpty()) {
+        // ---- 2. Fetch options for MCQ (type 2) and near-meaning for cloze (type 3) --
+        val needsOptions = dbQuestions.filter { it.typeCode == 2 || it.typeCode == 3 }.map { it.id }
+        val options: List<DbQuestionOption> = if (needsOptions.isEmpty()) {
             emptyList()
         } else {
             Supabase.client
                 .from("question_options")
-                .select(Columns.list("question_id, option_text, is_correct, sort_order"))
+                .select(Columns.list("question_id, option_text, is_correct, sort_order")) {
+                    filter {
+                        isIn("question_id", needsOptions)
+                    }
+                }
                 .decodeList<DbQuestionOption>()
-                .filter { it.questionId in mcqIds }
         }
 
-        val optionsByQuestion: Map<String, List<DbQuestionOption>> =
-            allOptions.groupBy { it.questionId }
+        val optionsByQuestion = options.groupBy { it.questionId }
 
-        // ---- 3. Map to domain model ----------------------------------------
-        return questions.map { q ->
-            val opts = optionsByQuestion[q.id]
-                ?.sortedBy { it.sortOrder }
-                ?.map { it.optionText }
-                ?: emptyList()
-            Question(
-                id             = q.id,
-                typeCode       = q.typeCode,
-                promptHint     = q.promptHint,
-                stem           = q.stem,
-                correctAnswer  = q.correctAnswer,
-                translationZh  = q.translationZh,
-                expectedTimeMs = q.expectedTimeMs,
-                options        = opts,
-            )
+        // ---- 3. Map to domain model -----------------------------------------
+        return dbQuestions.map { q ->
+            val qOptions = optionsByQuestion[q.id]?.sortedBy { it.sortOrder } ?: emptyList()
+            when (q.typeCode) {
+                2 -> Question(
+                    id             = q.id,
+                    typeCode       = q.typeCode,
+                    promptHint     = q.promptHint,
+                    stem           = q.stem,
+                    correctAnswer  = q.correctAnswer,
+                    translationZh  = q.translationZh,
+                    expectedTimeMs = q.expectedTimeMs,
+                    options        = qOptions.map { it.optionText },
+                )
+                3 -> Question(
+                    id                  = q.id,
+                    typeCode            = q.typeCode,
+                    promptHint          = q.promptHint,
+                    stem                = q.stem,
+                    correctAnswer       = q.correctAnswer,
+                    translationZh       = q.translationZh,
+                    expectedTimeMs      = q.expectedTimeMs,
+                    // For type 3, question_options rows with is_correct=false are near-meaning answers
+                    nearMeaningAnswers  = qOptions.filter { !it.isCorrect }.map { it.optionText },
+                )
+                else -> Question(
+                    id             = q.id,
+                    typeCode       = q.typeCode,
+                    promptHint     = q.promptHint,
+                    stem           = q.stem,
+                    correctAnswer  = q.correctAnswer,
+                    translationZh  = q.translationZh,
+                    expectedTimeMs = q.expectedTimeMs,
+                )
+            }
         }
     }
 }

@@ -30,7 +30,7 @@
 - Curriculum hierarchy: several words make up a level, and several levels make up an IELTS band.
 - A level has approximately 80 total word placements: 45-55 new words, with the remainder made up of forms, collocations, and reviewed/context words.
 
-## Project status (as of 2026-06-25)
+## Project status (as of 2026-06-28)
 
 ### Approved progression change (2026-06-24)
 
@@ -49,15 +49,18 @@
 - [x] File organisation: backend systems grouped together, documentation indexed by purpose, and source-reference PDFs stored with the content pipeline.
 - [x] **LevelPractice round system** — migrations 015 + 016 (weighted scoring, cloze support); `LevelPracticeViewModel` + `LevelPracticeScreen` in `ui/level/`; all level taps route here; `answer_outcome_enum`, spaced-review mastery writes, duck power formula all wired.
 - [x] **Codebase index** — `docs/CODEBASE_INDEX.md`: complete file map with active/legacy categorization, architecture rules, coding conventions, scope boundaries.
+- [x] **All 8 question types** — `LevelPracticeScreen` renders type-specific UI for all types: meaning_choice (MCQ), sentence_cloze_typing (keyboard), listening_choice/listening_fill (audio panel), speaking_repeat/open_speaking (self-assess), word_form (keyboard), reading_comprehension (passage card). `FakeVocabRepository` generates all 8 types for offline dev.
+- [x] **Profile heatmap** — GitHub-style 12-week × 7-day contribution grid on Profile screen; `VocabRepository.getPracticeSessionDates()` reads live data from `practice_sessions` in both `SupabaseVocabRepository` and `FakeVocabRepository`.
 
 ### Still needed
 - [ ] Apply migrations 015 + 016 to hosted Supabase; verify they run cleanly.
 - [ ] **RLS policies** — verify Supabase Row Level Security allows anonymous reads on words/questions tables.
 - [ ] **Onboarding flow** — `ui/onboarding/` exists but is not wired into `AppSessionViewModel` navigation.
-- [ ] **Profile screen** — currently shows fake data; needs real user stats from `SupabaseUserRepository`.
+- [ ] **Profile screen** — heatmap now reads live session data; other stats (duck power, radar, streak) still come from `FakeUserRepository`.
 - [ ] **SupabaseMistakeRepository** — `mistake_senses` table writes exist in RPCs; Android side still uses `FakeMistakeRepository`.
 - [ ] **StreakScreen** — UI exists; needs live Supabase data (streak counters via `refresh_user_profile` RPC).
 - [ ] **word_forms table** — verify current Supabase migration schema and import compatibility before next production load.
 - [ ] **TTS audio** — `pronunciation_tts_manifest.jsonl` exists but `synthesize_audio.py` not yet built; no audio files yet.
 - [ ] **Content: remaining curriculum** — continue with the reviewed numbered workflow documented in `backend/content-pipeline/README.md`.
 - [ ] **levels table** — needs data rows before level-select screen can work.
+- [ ] **AssessmentIntroScreen + MeaningChoiceScreen** — deleted as legacy; `AssessmentScreen` is retained for reassessment flow from Profile.

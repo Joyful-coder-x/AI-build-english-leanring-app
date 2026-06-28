@@ -14,11 +14,12 @@ package com.example.firsttest.data.model
  */
 data class Question(
     val id: String,
-    val typeCode: Int,             // 1 = keyboard fill-in, 2 = MCQ 4-option
-    val promptHint: String,        // shown above the stem, e.g. "请选择正确答案"
-    val stem: String,              // the sentence / question shown to the user
-    val correctAnswer: String,     // type 1: full word; type 2: matching option text
+    val typeCode: Int,             // 1 = keyboard fill-in, 2 = MCQ 4-option, 3 = sentence cloze typing
+    val promptHint: String,        // type 1/2: "请选择正确答案"; type 3: Chinese word hint e.g. "母亲；妈妈"
+    val stem: String,              // type 1/2: question sentence; type 3: sentence with blank
+    val correctAnswer: String,     // type 1/3: full target word; type 2: matching option text
     val translationZh: String,     // shown in the result panel after submission
-    val options: List<String> = emptyList(),    // type 2 only; includes correctAnswer
-    val expectedTimeMs: Int = 15_000,           // target solve time (spec 2.2.3 speed bonus)
+    val options: List<String> = emptyList(),          // type 2 only; includes correctAnswer
+    val expectedTimeMs: Int = 15_000,                 // target solve time for speed bonus
+    val nearMeaningAnswers: List<String> = emptyList(), // type 3 only; semantically close but wrong
 )

@@ -25,6 +25,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import kotlinx.coroutines.delay
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -52,7 +56,6 @@ fun PracticeQuestionScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // When the VM reaches Finished, hand off to the result screen.
     if (uiState is PracticeUiState.Finished) {
         val f = uiState as PracticeUiState.Finished
         LaunchedEffect(f) {
@@ -78,12 +81,43 @@ fun PracticeQuestionScreen(
                 }
             }
 
+            is PracticeUiState.Error -> {
+                Column(
+                    modifier = Modifier.fillMaxSize().padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    Text("⚠️", style = MaterialTheme.typography.displaySmall)
+                    Spacer(Modifier.height(8.dp))
+                    Text("加载题目失败", style = MaterialTheme.typography.titleMedium)
+                    Text(
+                        state.message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    Button(onClick = viewModel::retry) { Text("重试") }
+                    Spacer(Modifier.height(8.dp))
+                    TextButton(onClick = onBack) { Text("返回") }
+                }
+            }
+
             is PracticeUiState.Answering -> {
+                var remainingSecs by remember(state.question.id) {
+                    mutableStateOf(state.question.expectedTimeMs / 1000)
+                }
+                LaunchedEffect(state.question.id) {
+                    while (remainingSecs > 0) {
+                        delay(1_000L)
+                        remainingSecs--
+                    }
+                }
                 TopBar(
                     onBack = onBack,
                     current = state.questionIndex + 1,
                     total = state.totalQuestions,
                     comboCount = state.comboCount,
+                    remainingSecs = remainingSecs,
                 )
                 PromptHint(state.question.promptHint)
                 QuestionStem(state.question.stem)
@@ -93,6 +127,72 @@ fun PracticeQuestionScreen(
                     options = state.question.options,
                     currentAnswer = state.currentAnswer,
                     onAnswerChanged = viewModel::onAnswerChanged,
+                )
+                if (state.showLetterHint) {
+                    Text(
+                        "提示：${state.question.correctAnswer.length} 个字母",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                if (state.nearMeaningFeedback != null) {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Text(
+                            state.nearMeaningFeedback,
+                            modifier = Modifier.padding(12.dp),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        )
+                    }
+                }
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = viewModel::onSubmit,
+                    enabled = state.submitEnabled,
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text("提交") }
+            }
+
+            is PracticeUiState.ShowingClozeAnswer -> {
+                TopBar(
+                    onBack = onBack,
+                    current = state.questionIndex + 1,
+                    total = state.totalQuestions,
+                    comboCount = state.comboCount,
+                )
+                PromptHint(state.question.promptHint)
+                QuestionStem(state.question.stem)
+                Spacer(Modifier.height(8.dp))
+                ClozeAnswerRevealCard(
+                    targetWord = state.question.correctAnswer,
+                    translationZh = state.question.translationZh,
+                    onReady = viewModel::onClozeAnswerSeen,
+                )
+            }
+
+            is PracticeUiState.ClozeMemoryRetype -> {
+                TopBar(
+                    onBack = onBack,
+                    current = state.questionIndex + 1,
+                    total = state.totalQuestions,
+                    comboCount = state.comboCount,
+                )
+                PromptHint(state.question.promptHint)
+                QuestionStem(state.question.stem)
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    "现在从记忆中作答：",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                KeyboardInput(
+                    value = state.currentAnswer,
+                    onValueChange = viewModel::onAnswerChanged,
                 )
                 Spacer(Modifier.height(8.dp))
                 Button(
@@ -117,6 +217,7 @@ fun PracticeQuestionScreen(
                     givenAnswer = state.givenAnswer,
                     correctAnswer = state.question.correctAnswer,
                     translationZh = state.question.translationZh,
+                    clozeResult = state.clozeResult,
                 )
                 Spacer(Modifier.height(8.dp))
                 val isLastQuestion = state.questionIndex + 1 == state.totalQuestions
@@ -139,6 +240,7 @@ private fun TopBar(
     current: Int,
     total: Int,
     comboCount: Int,
+    remainingSecs: Int = -1,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -146,13 +248,22 @@ private fun TopBar(
     ) {
         TextButton(onClick = onBack) { Text("‹ 返回") }
         Spacer(Modifier.weight(1f))
-        Text(
-            "$current / $total",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                "$current / $total",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            if (remainingSecs >= 0) {
+                Text(
+                    "⏱ ${remainingSecs}s",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = if (remainingSecs <= 5) MaterialTheme.colorScheme.error
+                            else MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
         Spacer(Modifier.weight(1f))
-        // Combo placeholder — only visible when combo > 1
         Text(
             text = if (comboCount > 1) "🔥 ${comboCount}连击" else "        ",
             style = MaterialTheme.typography.labelMedium,
@@ -195,7 +306,7 @@ private fun AnswerArea(
             selected = currentAnswer,
             onSelect = onAnswerChanged,
         )
-        1 -> KeyboardInput(
+        1, 3 -> KeyboardInput(
             value = currentAnswer,
             onValueChange = onAnswerChanged,
         )
@@ -239,54 +350,163 @@ private fun KeyboardInput(value: String, onValueChange: (String) -> Unit) {
 }
 
 @Composable
+private fun ClozeAnswerRevealCard(
+    targetWord: String,
+    translationZh: String,
+    onReady: () -> Unit,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+        ),
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                "目标词：$targetWord",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+            Text(
+                translationZh,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+            Text(
+                "花一点时间记住它。",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+        }
+    }
+    Spacer(Modifier.height(8.dp))
+    Button(
+        onClick = onReady,
+        modifier = Modifier.fillMaxWidth(),
+    ) { Text("我记住了，开始作答") }
+}
+
+@Composable
 private fun ResultPanel(
     isCorrect: Boolean,
     givenAnswer: String,
     correctAnswer: String,
     translationZh: String,
+    clozeResult: ClozeResult? = null,
 ) {
-    val bgColor = if (isCorrect)
-        MaterialTheme.colorScheme.primaryContainer
-    else
-        MaterialTheme.colorScheme.errorContainer
-
-    val textColor = if (isCorrect)
-        MaterialTheme.colorScheme.onPrimaryContainer
-    else
-        MaterialTheme.colorScheme.onErrorContainer
-
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = bgColor),
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp),
-        ) {
-            Text(
-                if (isCorrect) "✅ 回答正确！" else "❌ 回答错误",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = textColor,
-            )
-            if (!isCorrect) {
-                Text(
-                    "你的答案：$givenAnswer",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = textColor,
-                )
-                Text(
-                    "正确答案：$correctAnswer",
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = textColor,
-                )
+    when (clozeResult) {
+        ClozeResult.MEMORY_RETYPE_CORRECT -> {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                ),
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        "记住了。你从记忆中写出了这个词。",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        "正确答案：$correctAnswer",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        translationZh,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
             }
-            Text(
-                translationZh,
-                style = MaterialTheme.typography.bodySmall,
-                color = textColor,
-            )
+        }
+
+        ClozeResult.WRONG -> {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                ),
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        "❌ 回答错误",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                    Text(
+                        "正确答案：$correctAnswer",
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                    Text(
+                        translationZh,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                }
+            }
+        }
+
+        else -> {
+            // Type 1, 2, and type 3 FIRST_TRY_CORRECT / HINT_CORRECT
+            val bgColor = if (isCorrect) MaterialTheme.colorScheme.primaryContainer
+                          else MaterialTheme.colorScheme.errorContainer
+            val textColor = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer
+                            else MaterialTheme.colorScheme.onErrorContainer
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = bgColor),
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        when {
+                            isCorrect && clozeResult == ClozeResult.HINT_CORRECT -> "✅ 回答正确！（提示后）"
+                            isCorrect -> "✅ 回答正确！"
+                            else -> "❌ 回答错误"
+                        },
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = textColor,
+                    )
+                    if (!isCorrect) {
+                        Text(
+                            "你的答案：$givenAnswer",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = textColor,
+                        )
+                        Text(
+                            "正确答案：$correctAnswer",
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = textColor,
+                        )
+                    }
+                    Text(
+                        translationZh,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = textColor,
+                    )
+                }
+            }
         }
     }
 }

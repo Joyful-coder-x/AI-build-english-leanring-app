@@ -7,7 +7,7 @@ import com.example.firsttest.data.model.Question
  * Source of the home learning-path cards and the questions inside each card.
  *
  * Phase 1-2 uses [FakePracticeRepository]. A real implementation will fetch
- * the AI-generated daily cycle and question bank. See ARCHITECTURE.md.
+ * the AI-generated daily cycle and question bank. See docs/architecture/APP_ARCHITECTURE.md.
  */
 interface PracticeRepository {
     suspend fun getDailyPractice(): List<PracticeCard>
