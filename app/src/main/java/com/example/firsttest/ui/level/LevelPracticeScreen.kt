@@ -1,5 +1,6 @@
 package com.example.firsttest.ui.level
 
+import android.speech.tts.TextToSpeech
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,11 +25,16 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -36,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.LevelPracticeQuestion
 import com.example.firsttest.data.model.MeaningChoiceOption
+import java.util.Locale
 
 @Composable
 fun LevelPracticeScreen(
@@ -50,6 +57,23 @@ fun LevelPracticeScreen(
     ),
 ) {
     val uiState by viewModel.uiState.collectAsState()
+
+    // Android built-in TTS engine for listening question types
+    val context = LocalContext.current
+    var ttsEngine: TextToSpeech? by remember { mutableStateOf(null) }
+    DisposableEffect(context) {
+        lateinit var engine: TextToSpeech
+        engine = TextToSpeech(context) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                engine.language = Locale.US
+                ttsEngine = engine
+            }
+        }
+        onDispose {
+            engine.shutdown()
+            ttsEngine = null
+        }
+    }
 
     if (uiState is LevelPracticeUiState.Finished) {
         val f = uiState as LevelPracticeUiState.Finished
@@ -86,7 +110,7 @@ fun LevelPracticeScreen(
                     comboCount = state.comboCount,
                     onBack = onBack,
                 )
-                QuestionCard(state.question)
+                QuestionCard(state.question, tts = ttsEngine, autoSpeak = true)
                 Spacer(Modifier.height(4.dp))
                 if (state.question.answerForm == "keyboard") {
                     ClozeInput(
@@ -123,7 +147,7 @@ fun LevelPracticeScreen(
                     state.comboCount,
                     onBack,
                 )
-                QuestionCard(state.question)
+                QuestionCard(state.question, tts = ttsEngine)
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
@@ -156,7 +180,7 @@ fun LevelPracticeScreen(
                     state.comboCount,
                     onBack,
                 )
-                QuestionCard(state.question)
+                QuestionCard(state.question, tts = ttsEngine)
                 ClozeInput(
                     value = state.typedAnswer,
                     onValueChange = viewModel::onTypedAnswerChanged,
@@ -181,7 +205,7 @@ fun LevelPracticeScreen(
                     comboCount = state.comboCount,
                     onBack = onBack,
                 )
-                QuestionCard(state.question)
+                QuestionCard(state.question, tts = ttsEngine)
                 Spacer(Modifier.height(4.dp))
                 if (state.question.answerForm == "keyboard") {
                     ClozeReview(
@@ -254,7 +278,28 @@ private fun TopBar(
 }
 
 @Composable
-private fun QuestionCard(question: LevelPracticeQuestion) {
+private fun QuestionCard(
+    question: LevelPracticeQuestion,
+    tts: TextToSpeech? = null,
+    autoSpeak: Boolean = false,
+) {
+    // For listening_choice: stem is 'Listening demo: your tester says "WORD". ...'
+    // Extract just the word to speak; fall back to speaking the full stem.
+    val listeningWord: String? = when (question.questionTypeKey) {
+        "listening_choice" ->
+            Regex("says \"([^\"]+)\"").find(question.stem)?.groupValues?.get(1)
+                ?: question.stem
+        "listening_fill" -> null   // word not embedded in stem; no TTS for this type
+        else -> null
+    }
+
+    // Auto-speak when the question first appears (Answering state only)
+    if (autoSpeak && listeningWord != null && tts != null) {
+        LaunchedEffect(question.questionId) {
+            tts.speak(listeningWord, TextToSpeech.QUEUE_FLUSH, null, question.questionId)
+        }
+    }
+
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             // Type header
@@ -279,31 +324,69 @@ private fun QuestionCard(question: LevelPracticeQuestion) {
 
             // Type-specific content area
             when (question.questionTypeKey) {
-                "listening_choice", "listening_fill" -> {
+                "listening_choice" -> {
                     Card(
                         colors = CardDefaults.cardColors(
                             containerColor = MaterialTheme.colorScheme.tertiaryContainer,
                         ),
                     ) {
-                        Row(
-                            modifier = Modifier.padding(12.dp),
-                            horizontalArrangement = Arrangement.spacedBy(10.dp),
-                            verticalAlignment = Alignment.CenterVertically,
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
                         ) {
-                            Text("🔊", fontSize = 28.sp)
-                            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                            Text("🔊", fontSize = 40.sp)
+                            Text(
+                                "已播放语音，请选择你听到的单词",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                            )
+                            if (listeningWord != null) {
+                                OutlinedButton(
+                                    onClick = {
+                                        tts?.speak(
+                                            listeningWord,
+                                            TextToSpeech.QUEUE_FLUSH,
+                                            null,
+                                            question.questionId + "_replay",
+                                        )
+                                    },
+                                ) {
+                                    Text("🔊 再听一次")
+                                }
+                            }
+                        }
+                    }
+                }
+
+                "listening_fill" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Text("🎧", fontSize = 40.sp)
+                            if (question.translationZh.isNotBlank()) {
                                 Text(
-                                    text = question.stem,
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    fontWeight = FontWeight.Bold,
+                                    question.translationZh,
+                                    style = MaterialTheme.typography.titleMedium,
                                     color = MaterialTheme.colorScheme.onTertiaryContainer,
                                 )
-                                Text(
-                                    "(原型模式: 显示听力内容)",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.6f),
-                                )
                             }
+                            Text(
+                                "根据中文含义，拼写对应的英文单词",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.6f),
+                            )
                         }
                     }
                 }
