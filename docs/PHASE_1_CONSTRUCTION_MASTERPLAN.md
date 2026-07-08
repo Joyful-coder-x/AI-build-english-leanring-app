@@ -48,12 +48,22 @@ These terms have precise definitions throughout. Do not reinterpret them.
 
 ### What is fully working in Phase 1
 
-Status as of 2026-07-07 (implementation pass): backend migrations 030–035 and
-the corresponding Android UI were built and verified via the local Docker SQL
-test harness, `gradlew test` (all unit tests), and `gradlew assembleDebug`
-(full build). Not yet verified: a real on-device manual run through the app,
-or applying 030–035 to the hosted Supabase project — do both before calling
-Phase 1 demo-ready.
+Status as of 2026-07-08: backend migrations 030–035 and the corresponding
+Android UI were built and verified via the local Docker SQL test harness,
+`gradlew test` (all unit tests), and `gradlew assembleDebug` (full build).
+Hosted Supabase migration deployment is now wired through GitHub Actions:
+local edit -> local verification -> commit -> push to GitHub `master` ->
+`.github/workflows/supabase-db.yml` runs `supabase db push`. The rerun of
+workflow run #1 succeeded: `Deploy migrations` passed, while `Import Band 4
+content` was skipped as designed. Not yet verified: a real on-device manual run
+through the app.
+
+**Hosted deployment rule:** SQL schema/RPC/RLS changes go into
+`backend/supabase/migrations/` as forward-only migration files and are deployed
+by pushing to `master`. Do not manually patch the hosted database when a
+migration is the correct source of truth. The Band 4 CSV import is a separate,
+manual GitHub Actions path only: run it with `import_band4=true` only after a
+database backup and explicit operator approval.
 
 | Area | Requirement | Status |
 |---|---|---|
@@ -1024,7 +1034,11 @@ band_upgrade_attempt_questions
 202607070035_overall_assessment.sql      — overall_assessment_attempts/questions, start/save/complete RPCs
 ```
 
-Apply all of 025–035 to the hosted Supabase in filename order — none of migrations 029–035 have been applied to a hosted project yet, only verified via the local Docker harness (`backend/supabase/manual/run_phase1_local_docker_verification.ps1`).
+Hosted Supabase deployment path is now GitHub Actions, not manual SQL paste:
+commit forward-only migration files under `backend/supabase/migrations/`, push
+to GitHub `master`, and let `.github/workflows/supabase-db.yml` run
+`supabase db push`. The 2026-07-08 rerun of workflow run #1 succeeded for
+`Deploy migrations`; `Import Band 4 content` skipped as designed.
 
 ---
 
@@ -1065,14 +1079,14 @@ Apply all of 025–035 to the hosted Supabase in filename order — none of migr
 
 Do these in order. Do not start step N until step N-1 passes its acceptance criteria.
 
-### Step 1: Backend stabilization — DONE locally 2026-07-07, hosted apply still pending
+### Step 1: Backend stabilization — DONE locally 2026-07-07, GitHub Actions hosted deploy working 2026-07-08
 
-1. Apply migrations 025–035 to the hosted Supabase in filename order. **Not yet done** — only applied and verified against the disposable local Docker Postgres via `run_phase1_local_docker_verification.ps1`.
+1. Hosted migration deployment is wired and working through GitHub Actions. Push migration commits to `master`; `.github/workflows/supabase-db.yml` runs `supabase db push` against the hosted Supabase project.
 2. Run `verify_project_installation.sql`. Required READY, 0 warnings, 0 failures — passed locally (137 checks).
 3. Run all SQL test files in `backend/supabase/tests/` — all pass locally, including the 4 new ones added 2026-07-07 (`202607070030`, `202607070031`, `202607070034`, `202607070035`).
 4. Run `.\gradlew.bat test` — passed.
 5. Run `.\gradlew.bat assembleDebug` — passed.
-6. Record the hosted migration state in `docs/plans/README.md` — still to do once applied to a real hosted project.
+6. Keep CSV content import separate from schema deployment. `Import Band 4 content` is skipped on normal pushes and must only be run manually with `import_band4=true` after backup/operator approval.
 
 ### Step 2: 8 question types in Android UI — DONE 2026-07-07
 

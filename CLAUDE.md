@@ -23,6 +23,15 @@
 - The first 20-word generator is archived under `backend/content-pipeline/legacy-pilot/`; do not use it for production imports.
 - Pipeline output is **AI-draft**. Human QA is required before marking status `production`.
 
+## Supabase deployment workflow
+
+- The working deployment path is: local edit -> local verification -> commit -> push to GitHub `master` -> GitHub Actions runs `supabase db push`.
+- GitHub Actions workflow: `.github/workflows/supabase-db.yml`; it uses repository secrets `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`, `SUPABASE_PROJECT_ID`, and `SUPABASE_DATABASE_URL`.
+- SQL schema/RPC/RLS changes must be added as forward-only files in `backend/supabase/migrations/`; do not edit migrations that may already have been applied to hosted Supabase.
+- Normal pushes deploy migrations only. The `Import Band 4 content` job is intentionally skipped unless the workflow is manually run with `import_band4=true`.
+- Do not run the Band 4 CSV import automatically or casually. It is content-changing and should happen only after a database backup and explicit operator intent.
+- The GitHub Actions deployment was confirmed working on 2026-07-08: `Deploy migrations` succeeded; `Import Band 4 content` skipped as designed.
+
 ### Curriculum terminology
 
 - Use **word**, not "unit", in curriculum plans and user-facing descriptions.
