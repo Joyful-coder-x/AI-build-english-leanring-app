@@ -1,6 +1,9 @@
 package com.example.firsttest.data.repository
 
 import com.example.firsttest.data.model.Level
+import com.example.firsttest.data.model.BandUpgradeAnswerResult
+import com.example.firsttest.data.model.BandUpgradeExam
+import com.example.firsttest.data.model.BandUpgradeQuestion
 import com.example.firsttest.data.model.LevelPracticeAnswerResult
 import com.example.firsttest.data.model.LevelPracticeQuestion
 import com.example.firsttest.data.model.LevelPracticeRound
@@ -11,6 +14,8 @@ import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
 import com.example.firsttest.data.remote.DbCompletePracticeRoundParams
+import com.example.firsttest.data.remote.DbBandUpgradeExam
+import com.example.firsttest.data.remote.DbCompleteBandUpgradeExamParams
 import com.example.firsttest.data.remote.DbCompleteMeaningChoiceSessionParams
 import com.example.firsttest.data.remote.DbLevel
 import com.example.firsttest.data.remote.DbLevelProgress
@@ -20,10 +25,13 @@ import com.example.firsttest.data.remote.DbLevelSenseRow
 import com.example.firsttest.data.remote.DbPracticeAnswerResult
 import com.example.firsttest.data.remote.DbPracticeRound
 import com.example.firsttest.data.remote.DbPracticeRoundResult
+import com.example.firsttest.data.remote.DbBandUpgradeAnswerResult
+import com.example.firsttest.data.remote.DbSaveBandUpgradeAnswerParams
 import com.example.firsttest.data.remote.DbSavePracticeAnswerParams
 import com.example.firsttest.data.remote.DbSaveMeaningChoiceAnswerParams
 import com.example.firsttest.data.remote.DbSessionStartedAt
 import com.example.firsttest.data.remote.DbStartPracticeRoundParams
+import com.example.firsttest.data.remote.DbStartBandUpgradeExamParams
 import com.example.firsttest.data.remote.Supabase
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
@@ -43,10 +51,16 @@ internal fun resolvedPracticeQuestionTypeKey(
     answerForm: String?,
     typeCode: Int,
 ): String = questionTypeKey?.takeIf { it.isNotBlank() }
-    ?: when {
-        typeCode == 3 -> "sentence_cloze_typing"
-        answerForm == "keyboard" -> "keyboard_recall"
-        else -> "option_recognition"
+    ?: when (typeCode) {
+        101  -> "meaning_choice"
+        102  -> "sentence_cloze_typing"
+        103  -> "listening_choice"
+        104  -> "listening_fill"
+        105  -> "speaking_repeat"
+        107  -> "word_form"
+        108  -> "reading_comprehension"
+        3    -> "sentence_cloze_typing"   // legacy type_code before migration 019
+        else -> if (answerForm == "keyboard") "keyboard_recall" else "option_recognition"
     }
 
 /**
@@ -61,7 +75,6 @@ internal fun resolvedPracticeQuestionTypeKey(
  * Requires authenticated Supabase session (RLS: `for select to authenticated`
  * on words, word_senses, level_sense_assignments, levels).
  *
- * TODO BACKEND: saving answers needs a Supabase RPC — see docs/TODO_MEANING_CHOICE_BACKEND.md.
  */
 class SupabaseVocabRepository : VocabRepository {
 
@@ -80,7 +93,7 @@ class SupabaseVocabRepository : VocabRepository {
                     levelNumber = row.levelNumber,
                     senseId = question.senseId,
                     position = question.position,
-                    promptHint = question.promptHint,
+                promptHint     = "Choose the matching English word.",
                     stem = question.stem,
                     wordText = question.stem,
                     partOfSpeech = "",
@@ -175,6 +188,44 @@ class SupabaseVocabRepository : VocabRepository {
                 isDue = row.isDue,
             )
         }
+
+    override suspend fun startBandUpgradeExam(targetBand: Double): BandUpgradeExam {
+        val row = Supabase.client.postgrest.rpc(
+            "start_band_upgrade_exam",
+            DbStartBandUpgradeExamParams(targetBand),
+        ).decodeAs<DbBandUpgradeExam>()
+        return row.toBandUpgradeExam()
+    }
+
+    override suspend fun saveBandUpgradeAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): BandUpgradeAnswerResult {
+        val row = Supabase.client.postgrest.rpc(
+            "save_band_upgrade_answer",
+            DbSaveBandUpgradeAnswerParams(
+                attemptId = attemptId,
+                position = position,
+                answer = answer,
+                responseTimeMs = responseTimeMs,
+            ),
+        ).decodeAs<DbBandUpgradeAnswerResult>()
+        return BandUpgradeAnswerResult(
+            alreadySaved = row.alreadySaved,
+            position = row.position,
+            isCorrect = row.isCorrect,
+        )
+    }
+
+    override suspend fun completeBandUpgradeExam(attemptId: String): BandUpgradeExam {
+        val row = Supabase.client.postgrest.rpc(
+            "complete_band_upgrade_exam",
+            DbCompleteBandUpgradeExamParams(attemptId),
+        ).decodeAs<DbBandUpgradeExam>()
+        return row.toBandUpgradeExam()
+    }
 
     override suspend fun saveMeaningChoiceAnswer(
         levelNumber: Int,
@@ -316,7 +367,7 @@ class SupabaseVocabRepository : VocabRepository {
                 questionId     = UUID.randomUUID().toString(),
                 levelNumber    = levelNumber,
                 senseId        = target.senseId,
-                promptHint     = "选择正确的中文释义",
+                promptHint     = "Choose the matching English word.",
                 stem           = target.sense.words.headword,
                 wordText       = target.sense.words.headword,
                 partOfSpeech   = target.sense.partOfSpeech,
@@ -340,7 +391,7 @@ class SupabaseVocabRepository : VocabRepository {
                     questionId     = q.questionId,
                     senseId        = q.senseId,
                     position       = q.position,
-                    promptHint     = q.promptHint,
+                promptHint     = "Choose the matching English word.",
                     stem           = q.stem,
                     answerForm     = resolvedPracticeAnswerForm(q.answerForm, q.typeCode),
                     questionTypeKey = resolvedPracticeQuestionTypeKey(
@@ -354,6 +405,7 @@ class SupabaseVocabRepository : VocabRepository {
                     hintUsed       = q.hintUsed,
                     letterCount    = q.letterCount,
                     revealedAnswer = q.revealedAnswer,
+                    audioText      = q.audioText,
                     translationZh  = q.translationZh,
                     options        = q.options.map { opt ->
                         MeaningChoiceOption(
@@ -440,3 +492,41 @@ internal fun bandScoreForId(bandId: Int): Double = when (bandId) {
     9 -> 8.0
     else -> error("Unknown band id: $bandId")
 }
+
+private fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
+    BandUpgradeExam(
+        attemptId = attemptId,
+        sourceBand = sourceBand,
+        targetBand = targetBand,
+        status = status,
+        questionCount = questionCount,
+        correctCount = correctCount,
+        accuracy = accuracy,
+        passed = passed,
+        categoryCounts = categoryCounts,
+        questions = questions.map { question ->
+            BandUpgradeQuestion(
+                position = question.position,
+                questionId = question.questionId,
+                questionTypeKey = question.questionTypeKey,
+                category = question.category,
+                answerForm = question.answerForm,
+                stem = question.stem.orEmpty(),
+                promptHint     = "Choose the matching English word.",
+                translationZh = question.translationZh.orEmpty(),
+                headword = question.headword.orEmpty(),
+                options = question.options
+                    .sortedBy { it.sortOrder }
+                    .map { option ->
+                        MeaningChoiceOption(
+                            optionId = option.id,
+                            senseId = "",
+                            text = option.text,
+                            isCorrect = false,
+                        )
+                    },
+                answered = question.answered,
+                isCorrect = question.isCorrect,
+            )
+        },
+    )

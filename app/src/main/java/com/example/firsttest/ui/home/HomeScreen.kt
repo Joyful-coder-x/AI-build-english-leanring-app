@@ -38,18 +38,19 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.Level
 
 /**
- * Home / 首页: status row above IELTS difficulty sections. The current
+ * Home: status row above IELTS difficulty sections. The current
  * difficulty opens by default; other unlocked difficulties can be expanded,
  * and locked difficulties expose their upgrade-exam action.
  */
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    refreshToken: Int = 0,
     onLevelClick: (levelNumber: Int) -> Unit = {},
     onBandTestClick: (targetBand: Double) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory),
 ) {
-    LaunchedEffect(Unit) {
+    LaunchedEffect(refreshToken) {
         viewModel.refreshWhenVisible()
     }
     val uiState by viewModel.uiState.collectAsState()
@@ -93,8 +94,8 @@ private fun StatusRow(duckPower: Int, streakDays: Int, streakGoal: Int) {
             .padding(horizontal = 16.dp, vertical = 12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        StatusChip(Modifier.weight(1f), "🔥", "$streakDays 天连胜", "目标 $streakGoal 天")
-        StatusChip(Modifier.weight(1f), "⚡", "$duckPower", "鸭力值")
+        StatusChip(Modifier.weight(1f), "Streak", "$streakDays days", "Goal $streakGoal days")
+        StatusChip(Modifier.weight(1f), "Power", "$duckPower", "Practice points")
     }
 }
 
@@ -172,7 +173,7 @@ private fun BandCard(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                Text(if (band.isUnlocked) "📘" else "🔒", fontSize = 28.sp)
+                Text(if (band.isUnlocked) "Open" else "Locked", fontSize = 16.sp)
                 Column(Modifier.weight(1f)) {
                     Text(
                         band.label,
@@ -182,11 +183,11 @@ private fun BandCard(
                     Text(
                         when {
                             band.isCurrent ->
-                                "当前难度 · ${band.unlockedLevelCount}/${band.levels.size} 关已解锁"
+                                "Current band - ${band.unlockedLevelCount}/${band.levels.size} levels unlocked"
                             band.isUnlocked ->
-                                "${band.completedLevelCount}/${band.levels.size} 关已完成"
+                                "${band.completedLevelCount}/${band.levels.size} levels completed"
                             else ->
-                                "通过前一难度考试后解锁"
+                                "Pass the previous band exam to unlock"
                         },
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -194,11 +195,11 @@ private fun BandCard(
                 }
                 if (band.isUnlocked) {
                     TextButton(onClick = { expanded = !expanded }) {
-                        Text(if (expanded) "收起" else "展开")
+                        Text(if (expanded) "Collapse" else "Expand")
                     }
                 } else {
                     OutlinedButton(onClick = { onBandTestClick(band.score) }) {
-                        Text("难度考试")
+                        Text("Band exam")
                     }
                 }
             }
@@ -220,24 +221,24 @@ private fun BandCard(
 private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
     val statusText = when {
         level.isCompleted -> buildString {
-            append("已完成")
+            append("Completed")
             if (level.completedSessionCount > 0) {
-                append(" · 最佳准确率 ")
+                append(" - best accuracy ")
                 append((level.bestAccuracy * 100).toInt())
                 append("%")
-                append(" · ")
+                append(" - ")
                 append(level.bestStarRating)
-                append("★")
-                append(" · 练习 ")
+                append(" stars")
+                append(" - practiced ")
                 append(level.completedSessionCount)
-                append(" 次")
+                append(" times")
             }
         }
         level.isUnlocked && level.completedSessionCount > 0 ->
-            "进行中 · 最佳准确率 ${(level.bestAccuracy * 100).toInt()}% · " +
-                "${level.bestStarRating}★ · 练习 ${level.completedSessionCount} 次"
-        level.isUnlocked -> "已解锁 · 尚未练习"
-        else -> "未解锁"
+            "In progress - best accuracy ${(level.bestAccuracy * 100).toInt()}% - " +
+                "${level.bestStarRating} stars - practiced ${level.completedSessionCount} times"
+        level.isUnlocked -> "Unlocked - not practiced yet"
+        else -> "Locked"
     }
 
     Card(
@@ -254,9 +255,9 @@ private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
         ) {
             Text(
                 when {
-                    level.isCompleted -> "✅"
-                    level.isUnlocked -> "🦆"
-                    else -> "🔒"
+                    level.isCompleted -> "Done"
+                    level.isUnlocked -> "Start"
+                    else -> "Locked"
                 },
                 fontSize = 22.sp,
             )
@@ -273,11 +274,7 @@ private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
                 )
             }
             Text(
-                text = when {
-                    level.isCompleted -> "复习 ›"
-                    level.isUnlocked -> "开始 ›"
-                    else -> "锁定"
-                },
+                text = if (level.isUnlocked) "Open" else "Locked",
                 style = MaterialTheme.typography.labelMedium,
                 color = if (level.isUnlocked) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.onSurfaceVariant,
@@ -295,15 +292,15 @@ private fun ErrorState(message: String, onRetry: () -> Unit, modifier: Modifier 
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text("⚠️", style = MaterialTheme.typography.displaySmall)
+        Text("!")
         Spacer(Modifier.height(8.dp))
-        Text("加载失败", style = MaterialTheme.typography.titleMedium)
+        Text("Unable to load", style = MaterialTheme.typography.titleMedium)
         Text(
             message,
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(16.dp))
-        Button(onClick = onRetry) { Text("重试") }
+        Button(onClick = onRetry) { Text("Retry") }
     }
 }

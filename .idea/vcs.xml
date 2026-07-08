@@ -2,5 +2,18 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/ECDICT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/English-Dictionary-CSV" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/English-Dictionary-Open-Source" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/IELTS_PracticeAndEvaluation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/addon-dictionary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/awesome-IELTS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/basic-vocabulary-word-lists" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/cc-cedict-structurizer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/ielts-materials" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/ielts-reading-mock-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/ielts-word-trainer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/oxford-5000-vocabulary-audio-definition" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backend/content-pipeline/sources/words" vcs="Git" />
   </component>
 </project>

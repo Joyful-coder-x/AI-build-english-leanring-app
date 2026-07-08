@@ -6,7 +6,11 @@ data class Prop(
     val count: Int,
 )
 
-enum class PropType(val displayName: String) {
-    STREAK_PROTECTION("连胜保护"),  // max 2 (spec 2.4.1)
-    CHALLENGE_KEY("挑战赛钥匙"),
+enum class PropType(val displayName: String, val dbValue: String) {
+    STREAK_PROTECTION("连胜保护", "streak_protection"),  // max 2 (spec 2.4.1)
+    CHALLENGE_KEY("挑战赛钥匙", "challenge_key");
+
+    companion object {
+        fun fromDbValue(value: String): PropType? = entries.firstOrNull { it.dbValue == value }
+    }
 }

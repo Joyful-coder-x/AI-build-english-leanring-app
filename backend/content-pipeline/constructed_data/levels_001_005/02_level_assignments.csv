@@ -1,0 +1,226 @@
+﻿assignment_id,level_number,sense_id,headword,topic_id,placement_type,order_in_level,vocabulary_role,human_review,review_reason
+l001_family_n_1,1,family_n_1,family,daily_life_people_and_family,new,1,foundation,F,
+l001_parent_n_1,1,parent_n_1,parent,daily_life_people_and_family,new,2,foundation,F,
+l001_mother_n_1,1,mother_n_1,mother,daily_life_people_and_family,new,3,foundation,F,
+l001_child_n_1,1,child_n_1,child,daily_life_people_and_family,new,4,foundation,F,
+l001_father_n_1,1,father_n_1,father,daily_life_people_and_family,new,5,foundation,F,
+l001_son_n_1,1,son_n_1,son,daily_life_people_and_family,new,6,foundation,F,
+l001_daughter_n_1,1,daughter_n_1,daughter,daily_life_people_and_family,new,7,foundation,F,
+l001_baby_n_1,1,baby_n_1,baby,daily_life_people_and_family,new,8,foundation,F,
+l001_brother_n_1,1,brother_n_1,brother,daily_life_people_and_family,new,9,foundation,F,
+l001_dad_n_1,1,dad_n_1,dad,daily_life_people_and_family,new,10,foundation,F,
+l001_husband_n_1,1,husband_n_1,husband,daily_life_people_and_family,new,11,foundation,F,
+l001_wife_n_1,1,wife_n_1,wife,daily_life_people_and_family,new,12,foundation,F,
+l001_sister_n_1,1,sister_n_1,sister,daily_life_people_and_family,new,13,foundation,F,
+l001_couple_n_1,1,couple_n_1,couple,daily_life_people_and_family,new,14,foundation,F,
+l001_married_adj_1,1,married_adj_1,married,daily_life_people_and_family,new,15,foundation,F,
+l001_adult_n_1,1,adult_n_1,adult,daily_life_people_and_family,new,16,foundation,F,
+l001_person_n_1,1,person_n_1,person,daily_life_people_and_family,new,17,foundation,F,
+l001_aunt_n_1,1,aunt_n_1,aunt,daily_life_people_and_family,new,18,foundation,F,
+l001_boy_n_1,1,boy_n_1,boy,daily_life_people_and_family,new,19,foundation,F,
+l001_girl_n_1,1,girl_n_1,girl,daily_life_people_and_family,new,20,foundation,F,
+l001_marriage_n_1,1,marriage_n_1,marriage,daily_life_people_and_family,new,21,foundation,F,
+l001_uncle_n_1,1,uncle_n_1,uncle,daily_life_people_and_family,new,22,foundation,F,
+l001_cousin_n_1,1,cousin_n_1,cousin,daily_life_people_and_family,new,23,foundation,F,
+l001_man_n_1,1,man_n_1,man,daily_life_people_and_family,new,24,foundation,F,
+l001_woman_n_1,1,woman_n_1,woman,daily_life_people_and_family,new,25,foundation,F,
+l001_age_n_1,1,age_n_1,age,daily_life_people_and_family,new,26,foundation,F,
+l001_relative_n_1,1,relative_n_1,relative,daily_life_people_and_family,new,27,foundation,F,
+l001_grandmother_n_1,1,grandmother_n_1,grandmother,daily_life_people_and_family,new,28,foundation,F,
+l001_people_n_1,1,people_n_1,people,daily_life_people_and_family,new,29,foundation,F,
+l001_grandfather_n_1,1,grandfather_n_1,grandfather,daily_life_people_and_family,new,30,foundation,F,
+l001_friend_n_1,1,friend_n_1,friend,daily_life_people_and_family,new,31,foundation,F,
+l001_kid_n_1,1,kid_n_1,kid,daily_life_people_and_family,new,32,foundation,F,
+l001_mom_n_1,1,mom_n_1,mom,daily_life_people_and_family,new,33,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_name_n_1,1,name_n_1,name,daily_life_people_and_family,new,34,foundation,F,
+l001_young_adj_1,1,young_adj_1,young,daily_life_people_and_family,new,35,foundation,F,
+l001_grandparent_n_1,1,grandparent_n_1,grandparent,daily_life_people_and_family,new,36,foundation,F,
+l001_old_adj_1,1,old_adj_1,old,daily_life_people_and_family,new,37,foundation,F,
+l001_partner_n_1,1,partner_n_1,partner,daily_life_people_and_family,new,38,foundation,F,
+l001_teenager_n_1,1,teenager_n_1,teenager,daily_life_people_and_family,new,39,foundation,F,
+l001_twin_n_1,1,twin_n_1,twin,daily_life_people_and_family,new,40,foundation,F,
+l001_grandson_n_1,1,grandson_n_1,grandson,daily_life_people_and_family,new,41,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_granddaughter_n_1,1,granddaughter_n_1,granddaughter,daily_life_people_and_family,new,42,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_nephew_n_1,1,nephew_n_1,nephew,daily_life_people_and_family,new,43,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_neighbor_n_1,1,neighbor_n_1,neighbor,daily_life_people_and_family,new,44,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_niece_n_1,1,niece_n_1,niece,daily_life_people_and_family,new,45,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_short_adj_1,2,short_adj_1,short,daily_life_people_and_family,new,1,foundation,F,
+l002_grow_v_1,2,grow_v_1,grow,daily_life_people_and_family,new,2,foundation,F,
+l002_birth_n_1,2,birth_n_1,birth,daily_life_people_and_family,new,3,foundation,F,
+l002_heavy_adj_1,2,heavy_adj_1,heavy,daily_life_people_and_family,new,4,foundation,F,
+l002_strong_adj_1,2,strong_adj_1,strong,daily_life_people_and_family,new,5,foundation,F,
+l002_height_n_1,2,height_n_1,height,daily_life_people_and_family,new,6,foundation,F,
+l002_face_n_1,2,face_n_1,face,daily_life_people_and_family,new,7,foundation,F,
+l002_beautiful_adj_1,2,beautiful_adj_1,beautiful,daily_life_people_and_family,new,8,foundation,F,
+l002_youth_n_1,2,youth_n_1,youth,daily_life_people_and_family,new,9,foundation,F,
+l002_eye_n_1,2,eye_n_1,eye,daily_life_people_and_family,new,10,foundation,F,
+l002_tall_adj_1,2,tall_adj_1,tall,daily_life_people_and_family,new,11,foundation,F,
+l002_born_v_1,2,born_v_1,born,daily_life_people_and_family,new,12,foundation,F,
+l002_hair_n_1,2,hair_n_1,hair,daily_life_people_and_family,new,13,foundation,F,
+l002_pretty_adj_1,2,pretty_adj_1,pretty,daily_life_people_and_family,new,14,foundation,F,
+l002_thin_adj_1,2,thin_adj_1,thin,daily_life_people_and_family,new,15,foundation,F,
+l002_healthy_adj_1,2,healthy_adj_1,healthy,daily_life_people_and_family,new,16,foundation,F,
+l002_weak_adj_1,2,weak_adj_1,weak,daily_life_people_and_family,new,17,foundation,F,
+l002_hand_n_1,2,hand_n_1,hand,daily_life_people_and_family,new,18,foundation,F,
+l002_foot_n_1,2,foot_n_1,foot,daily_life_people_and_family,new,19,foundation,F,
+l002_head_n_1,2,head_n_1,head,daily_life_people_and_family,new,20,foundation,F,
+l002_body_n_1,2,body_n_1,body,daily_life_people_and_family,new,21,foundation,F,
+l002_arm_n_1,2,arm_n_1,arm,daily_life_people_and_family,new,22,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_nose_n_1,2,nose_n_1,nose,daily_life_people_and_family,new,23,foundation,F,
+l002_mouth_n_1,2,mouth_n_1,mouth,daily_life_people_and_family,new,24,foundation,F,
+l002_childhood_n_1,2,childhood_n_1,childhood,daily_life_people_and_family,new,25,foundation,F,
+l002_skin_n_1,2,skin_n_1,skin,daily_life_people_and_family,new,26,foundation,F,
+l002_ear_n_1,2,ear_n_1,ear,daily_life_people_and_family,new,27,foundation,F,
+l002_leg_n_1,2,leg_n_1,leg,daily_life_people_and_family,new,28,foundation,F,
+l002_tooth_n_1,2,tooth_n_1,tooth,daily_life_people_and_family,new,29,foundation,F,
+l002_single_adj_1,2,single_adj_1,single,daily_life_people_and_family,new,30,foundation,F,
+l002_look_n_1,2,look_n_1,look,daily_life_people_and_family,new,31,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_laugh_v_1,2,laugh_v_1,laugh,daily_life_people_and_family,new,32,foundation,F,
+l002_voice_n_1,2,voice_n_1,voice,daily_life_people_and_family,new,33,foundation,F,
+l002_smile_v_1,2,smile_v_1,smile,daily_life_people_and_family,new,34,foundation,F,
+l002_appearance_n_1,2,appearance_n_1,appearance,daily_life_people_and_family,new,35,foundation,F,
+l002_dead_adj_1,2,dead_adj_1,dead,daily_life_people_and_family,new,36,foundation,F,
+l002_male_adj_1,2,male_adj_1,male,daily_life_people_and_family,new,37,foundation,F,
+l002_female_adj_1,2,female_adj_1,female,daily_life_people_and_family,new,38,foundation,F,
+l002_cute_adj_1,2,cute_adj_1,cute,daily_life_people_and_family,new,39,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_alive_adj_1,2,alive_adj_1,alive,daily_life_people_and_family,new,40,foundation,F,
+l002_handsome_adj_1,2,handsome_adj_1,handsome,daily_life_people_and_family,new,41,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_elderly_adj_1,2,elderly_adj_1,elderly,daily_life_people_and_family,new,42,general_ielts,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_pregnant_adj_1,2,pregnant_adj_1,pregnant,daily_life_people_and_family,new,43,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_beard_n_1,2,beard_n_1,beard,daily_life_people_and_family,new,44,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_slim_adj_1,2,slim_adj_1,slim,daily_life_people_and_family,new,45,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_care_v_1,3,care_v_1,care,daily_life_people_and_family,new,1,foundation,F,
+l003_support_v_1,3,support_v_1,support,daily_life_people_and_family,new,2,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_love_v_1,3,love_v_1,love,daily_life_people_and_family,new,3,foundation,F,
+l003_help_v_1,3,help_v_1,help,daily_life_people_and_family,new,4,foundation,F,
+l003_live_v_1,3,live_v_1,live,daily_life_people_and_family,new,5,foundation,F,
+l003_share_v_1,3,share_v_1,share,daily_life_people_and_family,new,6,foundation,F,
+l003_visit_v_1,3,visit_v_1,visit,daily_life_people_and_family,new,7,foundation,F,
+l003_meet_v_1,3,meet_v_1,meet,daily_life_people_and_family,new,8,foundation,F,
+l003_relationship_n_1,3,relationship_n_1,relationship,daily_life_people_and_family,new,9,foundation,F,
+l003_remember_v_1,3,remember_v_1,remember,daily_life_people_and_family,new,10,foundation,F,
+l003_know_v_1,3,know_v_1,know,daily_life_people_and_family,new,11,foundation,F,
+l003_nice_adj_1,3,nice_adj_1,nice,daily_life_people_and_family,new,12,foundation,F,
+l003_kind_adj_1,3,kind_adj_1,kind,daily_life_people_and_family,new,13,foundation,F,
+l003_respect_v_1,3,respect_v_1,respect,daily_life_people_and_family,new,14,foundation,F,
+l003_culture_n_1,3,culture_n_1,culture,daily_life_people_and_family,new,15,general_ielts,F,
+l003_friendly_adj_1,3,friendly_adj_1,friendly,daily_life_people_and_family,new,16,foundation,F,
+l003_community_n_1,3,community_n_1,community,daily_life_people_and_family,new,17,general_ielts,F,
+l003_quiet_adj_1,3,quiet_adj_1,quiet,daily_life_people_and_family,new,18,foundation,F,
+l003_role_n_1,3,role_n_1,role,daily_life_people_and_family,new,19,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_trust_n_1,3,trust_n_1,trust,daily_life_people_and_family,new,20,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_responsibility_n_1,3,responsibility_n_1,responsibility,daily_life_people_and_family,new,21,general_ielts,F,
+l003_active_adj_1,3,active_adj_1,active,daily_life_people_and_family,new,22,foundation,F,
+l003_independent_adj_1,3,independent_adj_1,independent,daily_life_people_and_family,new,23,foundation,F,
+l003_honest_adj_1,3,honest_adj_1,honest,daily_life_people_and_family,new,24,foundation,F,
+l003_raise_v_1,3,raise_v_1,raise,daily_life_people_and_family,new,25,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_value_n_1,3,value_n_1,value,daily_life_people_and_family,new,26,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_different_adj_1,3,different_adj_1,different,daily_life_people_and_family,new,27,foundation,F,
+l003_argument_n_1,3,argument_n_1,argument,daily_life_people_and_family,new,28,foundation,F,
+l003_agree_v_1,3,agree_v_1,agree,daily_life_people_and_family,new,29,foundation,F,
+l003_similar_adj_1,3,similar_adj_1,similar,daily_life_people_and_family,new,30,foundation,F,
+l003_polite_adj_1,3,polite_adj_1,polite,daily_life_people_and_family,new,31,foundation,F,
+l003_attitude_n_1,3,attitude_n_1,attitude,daily_life_people_and_family,new,32,general_ielts,F,
+l003_responsible_adj_1,3,responsible_adj_1,responsible,daily_life_people_and_family,new,33,foundation,F,
+l003_tradition_n_1,3,tradition_n_1,tradition,daily_life_people_and_family,new,34,foundation,F,
+l003_together_adv_1,3,together_adv_1,together,daily_life_people_and_family,new,35,foundation,F,
+l003_common_adj_1,3,common_adj_1,common,daily_life_people_and_family,new,36,foundation,F,
+l003_influence_n_1,3,influence_n_1,influence,daily_life_people_and_family,new,37,general_ielts,F,
+l003_protect_v_1,3,protect_v_1,protect,daily_life_people_and_family,new,38,foundation,F,
+l003_close_adj_1,3,close_adj_1,close,daily_life_people_and_family,new,39,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_alone_adj_1,3,alone_adj_1,alone,daily_life_people_and_family,new,40,foundation,F,
+l003_generation_n_1,3,generation_n_1,generation,daily_life_people_and_family,new,41,general_ielts,F,
+l003_disagree_v_1,3,disagree_v_1,disagree,daily_life_people_and_family,new,42,foundation,F,
+l003_encourage_v_1,3,encourage_v_1,encourage,daily_life_people_and_family,new,43,foundation,F,
+l003_behavior_n_1,3,behavior_n_1,behavior,daily_life_people_and_family,new,44,general_ielts,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_communicate_v_1,3,communicate_v_1,communicate,daily_life_people_and_family,new,45,foundation,F,
+l004_house_n_1,4,house_n_1,house,daily_life_home_and_objects,new,1,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_building_n_1,4,building_n_1,building,daily_life_home_and_objects,new,2,foundation,F,
+l004_room_n_1,4,room_n_1,room,daily_life_home_and_objects,new,3,foundation,F,
+l004_home_n_1,4,home_n_1,home,daily_life_home_and_objects,new,4,foundation,F,
+l004_wall_n_1,4,wall_n_1,wall,daily_life_home_and_objects,new,5,foundation,F,
+l004_bedroom_n_1,4,bedroom_n_1,bedroom,daily_life_home_and_objects,new,6,foundation,F,
+l004_apartment_n_1,4,apartment_n_1,apartment,daily_life_home_and_objects,new,7,foundation,F,
+l004_bathroom_n_1,4,bathroom_n_1,bathroom,daily_life_home_and_objects,new,8,foundation,F,
+l004_kitchen_n_1,4,kitchen_n_1,kitchen,daily_life_home_and_objects,new,9,foundation,F,
+l004_window_n_1,4,window_n_1,window,daily_life_home_and_objects,new,10,foundation,F,
+l004_floor_n_1,4,floor_n_1,floor,daily_life_home_and_objects,new,11,foundation,F,
+l004_door_n_1,4,door_n_1,door,daily_life_home_and_objects,new,12,foundation,F,
+l004_garden_n_1,4,garden_n_1,garden,daily_life_home_and_objects,new,13,foundation,F,
+l004_table_n_1,4,table_n_1,table,daily_life_home_and_objects,new,14,foundation,F,
+l004_chair_n_1,4,chair_n_1,chair,daily_life_home_and_objects,new,15,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_hall_n_1,4,hall_n_1,hall,daily_life_home_and_objects,new,16,foundation,F,
+l004_roof_n_1,4,roof_n_1,roof,daily_life_home_and_objects,new,17,foundation,F,
+l004_bed_n_1,4,bed_n_1,bed,daily_life_home_and_objects,new,18,foundation,F,
+l004_yard_n_1,4,yard_n_1,yard,daily_life_home_and_objects,new,19,foundation,F,
+l004_furniture_n_1,4,furniture_n_1,furniture,daily_life_home_and_objects,new,20,foundation,F,
+l004_ceiling_n_1,4,ceiling_n_1,ceiling,daily_life_home_and_objects,new,21,foundation,F,
+l004_desk_n_1,4,desk_n_1,desk,daily_life_home_and_objects,new,22,foundation,F,
+l004_light_n_1,4,light_n_1,light,daily_life_home_and_objects,new,23,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_entrance_n_1,4,entrance_n_1,entrance,daily_life_home_and_objects,new,24,foundation,F,
+l004_garage_n_1,4,garage_n_1,garage,daily_life_home_and_objects,new,25,foundation,F,
+l004_shelf_n_1,4,shelf_n_1,shelf,daily_life_home_and_objects,new,26,foundation,F,
+l004_key_n_1,4,key_n_1,key,daily_life_home_and_objects,new,27,foundation,F,
+l004_mirror_n_1,4,mirror_n_1,mirror,daily_life_home_and_objects,new,28,foundation,F,
+l004_carpet_n_1,4,carpet_n_1,carpet,daily_life_home_and_objects,new,29,foundation,F,
+l004_lamp_n_1,4,lamp_n_1,lamp,daily_life_home_and_objects,new,30,foundation,F,
+l004_lock_n_1,4,lock_n_1,lock,daily_life_home_and_objects,new,31,foundation,F,
+l004_stairs_n_1,4,stairs_n_1,stairs,daily_life_home_and_objects,new,32,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_shower_n_1,4,shower_n_1,shower,daily_life_home_and_objects,new,33,foundation,F,
+l004_cabinet_n_1,4,cabinet_n_1,cabinet,daily_life_home_and_objects,new,34,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_curtain_n_1,4,curtain_n_1,curtain,daily_life_home_and_objects,new,35,foundation,F,
+l004_balcony_n_1,4,balcony_n_1,balcony,daily_life_home_and_objects,new,36,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_toilet_n_1,4,toilet_n_1,toilet,daily_life_home_and_objects,new,37,foundation,F,
+l004_closet_n_1,4,closet_n_1,closet,daily_life_home_and_objects,new,38,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_drawer_n_1,4,drawer_n_1,drawer,daily_life_home_and_objects,new,39,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_couch_n_1,4,couch_n_1,couch,daily_life_home_and_objects,new,40,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_wardrobe_n_1,4,wardrobe_n_1,wardrobe,daily_life_home_and_objects,new,41,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_sofa_n_1,4,sofa_n_1,sofa,daily_life_home_and_objects,new,42,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_blanket_n_1,4,blanket_n_1,blanket,daily_life_home_and_objects,new,43,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_pillow_n_1,4,pillow_n_1,pillow,daily_life_home_and_objects,new,44,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_mattress_n_1,4,mattress_n_1,mattress,daily_life_home_and_objects,new,45,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_cup_n_1,5,cup_n_1,cup,daily_life_home_and_objects,new,1,foundation,F,
+l005_glass_n_1,5,glass_n_1,glass,daily_life_home_and_objects,new,2,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_object_n_1,5,object_n_1,object,daily_life_home_and_objects,new,3,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_thing_n_1,5,thing_n_1,thing,daily_life_home_and_objects,new,4,foundation,F,
+l005_box_n_1,5,box_n_1,box,daily_life_home_and_objects,new,5,foundation,F,
+l005_bag_n_1,5,bag_n_1,bag,daily_life_home_and_objects,new,6,foundation,F,
+l005_bottle_n_1,5,bottle_n_1,bottle,daily_life_home_and_objects,new,7,foundation,F,
+l005_knife_n_1,5,knife_n_1,knife,daily_life_home_and_objects,new,8,foundation,F,
+l005_television_n_1,5,television_n_1,television,daily_life_home_and_objects,new,9,foundation,F,
+l005_dish_n_1,5,dish_n_1,dish,daily_life_home_and_objects,new,10,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_computer_n_1,5,computer_n_1,computer,daily_life_home_and_objects,new,11,foundation,F,
+l005_plate_n_1,5,plate_n_1,plate,daily_life_home_and_objects,new,12,foundation,F,
+l005_phone_n_1,5,phone_n_1,phone,daily_life_home_and_objects,new,13,foundation,F,
+l005_bowl_n_1,5,bowl_n_1,bowl,daily_life_home_and_objects,new,14,foundation,F,
+l005_clock_n_1,5,clock_n_1,clock,daily_life_home_and_objects,new,15,foundation,F,
+l005_towel_n_1,5,towel_n_1,towel,daily_life_home_and_objects,new,16,foundation,F,
+l005_spoon_n_1,5,spoon_n_1,spoon,daily_life_home_and_objects,new,17,foundation,F,
+l005_carry_v_1,5,carry_v_1,carry,daily_life_home_and_objects,new,18,foundation,F,
+l005_fork_n_1,5,fork_n_1,fork,daily_life_home_and_objects,new,19,foundation,F,
+l005_pot_n_1,5,pot_n_1,pot,daily_life_home_and_objects,new,20,foundation,F,
+l005_put_v_1,5,put_v_1,put,daily_life_home_and_objects,new,21,foundation,F,
+l005_keep_v_1,5,keep_v_1,keep,daily_life_home_and_objects,new,22,foundation,F,
+l005_clean_v_1,5,clean_v_1,clean,daily_life_home_and_objects,new,23,foundation,F,
+l005_pan_n_1,5,pan_n_1,pan,daily_life_home_and_objects,new,24,foundation,F,
+l005_open_v_1,5,open_v_1,open,daily_life_home_and_objects,new,25,foundation,F,
+l005_soap_n_1,5,soap_n_1,soap,daily_life_home_and_objects,new,26,foundation,F,
+l005_brush_n_1,5,brush_n_1,brush,daily_life_home_and_objects,new,27,foundation,F,
+l005_fridge_n_1,5,fridge_n_1,fridge,daily_life_home_and_objects,new,28,foundation,F,
+l005_use_v_1,5,use_v_1,use,daily_life_home_and_objects,new,29,foundation,F,
+l005_need_v_1,5,need_v_1,need,daily_life_home_and_objects,new,30,foundation,F,
+l005_water_n_1,5,water_n_1,water,daily_life_home_and_objects,new,31,foundation,F,
+l005_wash_v_1,5,wash_v_1,wash,daily_life_home_and_objects,new,32,foundation,F,
+l005_cook_v_1,5,cook_v_1,cook,daily_life_home_and_objects,new,33,foundation,F,
+l005_oven_n_1,5,oven_n_1,oven,daily_life_home_and_objects,new,34,foundation,F,
+l005_move_v_1,5,move_v_1,move,daily_life_home_and_objects,new,35,foundation,F,
+l005_own_v_1,5,own_v_1,own,daily_life_home_and_objects,new,36,foundation,F,
+l005_repair_v_1,5,repair_v_1,repair,daily_life_home_and_objects,new,37,foundation,F,
+l005_electricity_n_1,5,electricity_n_1,electricity,daily_life_home_and_objects,new,38,foundation,F,
+l005_fix_v_1,5,fix_v_1,fix,daily_life_home_and_objects,new,39,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_basket_n_1,5,basket_n_1,basket,daily_life_home_and_objects,new,40,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_comfortable_adj_1,5,comfortable_adj_1,comfortable,daily_life_home_and_objects,new,41,foundation,F,
+l005_safe_adj_1,5,safe_adj_1,safe,daily_life_home_and_objects,new,42,foundation,F,
+l005_rent_v_1,5,rent_v_1,rent,daily_life_home_and_objects,new,43,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_refrigerator_n_1,5,refrigerator_n_1,refrigerator,daily_life_home_and_objects,new,44,foundation,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_stove_n_1,5,stove_n_1,stove,daily_life_home_and_objects,new,45,foundation,T,Check sense/POS/level placement or missing cross-source evidence.

@@ -11,6 +11,7 @@ composeBom = "2026.05.00"
 supabase = "3.5.0"
 ktor = "3.4.0"
 coroutinesTest = "1.10.2"
+desugarJdkLibs = "2.1.5"
 
 # Kept from the original View-based scaffold; no longer referenced (Compose now).
 appcompat = "1.6.1"
@@ -18,6 +19,7 @@ material = "1.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+android-desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }

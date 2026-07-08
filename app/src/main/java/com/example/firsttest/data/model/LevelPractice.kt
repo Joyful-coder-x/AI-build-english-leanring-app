@@ -16,6 +16,7 @@ data class LevelPracticeQuestion(
     val revealedAnswer: String? = null,
     val translationZh: String,
     val options: List<MeaningChoiceOption>,  // empty for cloze questions
+    val audioText: String? = null,
 )
 
 data class LevelPracticeRound(

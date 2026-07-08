@@ -1,6 +1,7 @@
 package com.example.firsttest.ui.streak
 
 import com.example.firsttest.data.repository.FakeUserRepository
+import com.example.firsttest.data.repository.FakeVocabRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -25,12 +26,13 @@ class StreakViewModelTest {
 
     @Test
     fun startsLoading() {
-        assertEquals(StreakUiState.Loading, StreakViewModel(FakeUserRepository()).uiState.value)
+        val vm = StreakViewModel(FakeUserRepository(), FakeVocabRepository())
+        assertEquals(StreakUiState.Loading, vm.uiState.value)
     }
 
     @Test
     fun emitsSuccessWithFakeStreakValues() = runTest(dispatcher) {
-        val vm = StreakViewModel(FakeUserRepository())
+        val vm = StreakViewModel(FakeUserRepository(), FakeVocabRepository())
         advanceUntilIdle()
         val s = vm.uiState.value as StreakUiState.Success
         assertEquals(5, s.currentDays)
@@ -41,34 +43,34 @@ class StreakViewModelTest {
 
     @Test
     fun calendarHasTodayCell() = runTest(dispatcher) {
-        val vm = StreakViewModel(FakeUserRepository())
+        val vm = StreakViewModel(FakeUserRepository(), FakeVocabRepository())
         advanceUntilIdle()
         val s = vm.uiState.value as StreakUiState.Success
         assertTrue(s.calendarDays.filterNotNull().any { it.state == DayState.TODAY })
     }
 
     @Test
-    fun calendarCheckedDayCountMatchesCurrentDays() = runTest(dispatcher) {
-        val vm = StreakViewModel(FakeUserRepository())
+    fun calendarChecksDaysWithCompletedSessions() = runTest(dispatcher) {
+        val vm = StreakViewModel(FakeUserRepository(), FakeVocabRepository())
         advanceUntilIdle()
         val s = vm.uiState.value as StreakUiState.Success
-        // TODAY + CHECKED days together should equal currentDays (5)
-        val checkedAndToday = s.calendarDays.filterNotNull()
-            .count { it.state == DayState.CHECKED || it.state == DayState.TODAY }
-        assertEquals(s.currentDays, checkedAndToday)
+        val checkedCount = s.calendarDays.filterNotNull().count { it.state == DayState.CHECKED }
+        // FakeVocabRepository always includes "today" among its session dates, and
+        // today's cell renders as TODAY rather than CHECKED, so it's excluded here.
+        assertEquals(s.checkedThisMonth - 1, checkedCount)
     }
 
     @Test
     fun buildCalendarReturnsMultipleOfSeven() {
         val cal = Calendar.getInstance()
-        val days = StreakViewModel.buildCalendar(5, cal)
+        val days = StreakViewModel.buildCalendar(setOf(5), cal)
         assertEquals(0, days.size % 7)
     }
 
     @Test
     fun duckPowerUpdateReflectsInStreak() = runTest(dispatcher) {
         val repo = FakeUserRepository()
-        val vm = StreakViewModel(repo)
+        val vm = StreakViewModel(repo, FakeVocabRepository())
         advanceUntilIdle()
 
         // addDuckPower should not break streak display

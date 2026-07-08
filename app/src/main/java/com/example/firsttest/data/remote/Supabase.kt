@@ -24,7 +24,10 @@ object Supabase {
             supabaseUrl = BuildConfig.SUPABASE_URL,
             supabaseKey = BuildConfig.SUPABASE_ANON_KEY,
         ) {
-            install(Auth)
+            install(Auth) {
+                scheme = "kuakuaduck"
+                host = "auth"
+            }
             install(Postgrest)
             install(Storage)
         }

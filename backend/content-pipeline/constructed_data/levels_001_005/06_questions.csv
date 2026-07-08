@@ -1,0 +1,1351 @@
+﻿question_id,sense_id,level_number,question_type_id,type_code,example_id,prompt_hint,stem,correct_answer,translation_zh,difficulty,expected_time_ms,is_active,generation_version,human_review,review_status,is_context_hint,context_for_multiple_meaning
+q_1_family_n_1_meaning_7e81e31103d2,family_n_1,1,2,2,,Choose the word that matches the meaning.,group consisting of one or two parents and their children,family,家庭；家人,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_family_n_1_context_6e1f3a5cf167,family_n_1,1,2,2,ex_family_n_1_1,根据句子选择目标单词的完整中文释义。,"My family eats dinner together every evening.
+
+句中“family”是什么意思？",family,我的家人每天晚上一起吃晚饭。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_family_n_1_spelling_ce6514aa8700,family_n_1,1,1,1,ex_family_n_1_2,Complete the word using the first-letter hint.,Her f_____ lives in a small apartment.,family,她的家人住在一套小公寓里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_family_n_1_cloze_b232d2f16391,family_n_1,1,3,3,ex_family_n_1_1,家庭；家人,My ______ eats dinner together every evening.,family,我的家人每天晚上一起吃晚饭。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_parent_n_1_meaning_88d11e09092a,parent_n_1,1,2,2,,Choose the word that matches the meaning.,person’s father or mother,parent,父亲或母亲,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_parent_n_1_context_d107f6ae84bd,parent_n_1,1,2,2,ex_parent_n_1_1,根据句子选择目标单词的完整中文释义。,"Each parent signed the school form.
+
+句中“parent”是什么意思？",parent,每位家长都在学校表格上签了字。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_parent_n_1_spelling_b17160853dab,parent_n_1,1,1,1,ex_parent_n_1_2,Complete the word using the first-letter hint.,A p_____ should listen carefully to a child.,parent,父母应该认真倾听孩子说话。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_parent_n_1_cloze_16dbb989b89f,parent_n_1,1,3,3,ex_parent_n_1_1,父亲或母亲,Each ______ signed the school form.,parent,每位家长都在学校表格上签了字。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mother_n_1_meaning_b7c3cd9e0081,mother_n_1,1,2,2,,Choose the word that matches the meaning.,female parent of a child or animal; a person who is acting as a mother to a child,mother,母亲；妈妈,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mother_n_1_context_ddc028372576,mother_n_1,1,2,2,ex_mother_n_1_1,根据句子选择目标单词的完整中文释义。,"His mother works at the local hospital.
+
+句中“mother”是什么意思？",mother,他的母亲在当地医院工作。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_mother_n_1_spelling_a64c115ff0b5,mother_n_1,1,1,1,ex_mother_n_1_2,Complete the word using the first-letter hint.,My m_____ calls me every Sunday.,mother,我妈妈每个星期天给我打电话。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mother_n_1_cloze_c5303f7fa110,mother_n_1,1,3,3,ex_mother_n_1_1,母亲；妈妈,His ______ works at the local hospital.,mother,他的母亲在当地医院工作。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_child_n_1_meaning_8d7f1c72c343,child_n_1,1,2,2,,Choose the word that matches the meaning.,young human who is not yet an adult,child,儿童；孩子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_child_n_1_context_0e7f458ee2d8,child_n_1,1,2,2,ex_child_n_1_1,根据句子选择目标单词的完整中文释义。,"The child held his father's hand.
+
+句中“child”是什么意思？",child,那个孩子牵着父亲的手。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_child_n_1_spelling_da8d47d645f8,child_n_1,1,1,1,ex_child_n_1_2,Complete the word using the first-letter hint.,Every c____ needs a safe place to learn.,child,每个孩子都需要一个安全的学习场所。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_child_n_1_cloze_b4ca8daf55e5,child_n_1,1,3,3,ex_child_n_1_1,儿童；孩子,The ______ held his father's hand.,child,那个孩子牵着父亲的手。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_father_n_1_meaning_dd72e7367d9f,father_n_1,1,2,2,,Choose the word that matches the meaning.,male parent of a child or an animal; a person who is acting as the father to a child,father,父亲；爸爸,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_father_n_1_context_552d3e575ce4,father_n_1,1,2,2,ex_father_n_1_1,根据句子选择目标单词的完整中文释义。,"Her father cooks breakfast on weekends.
+
+句中“father”是什么意思？",father,她父亲周末做早餐。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_father_n_1_spelling_b81cddbdb857,father_n_1,1,1,1,ex_father_n_1_2,Complete the word using the first-letter hint.,My f_____ taught me how to ride a bike.,father,我爸爸教我骑自行车。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_father_n_1_cloze_e2749b5286c1,father_n_1,1,3,3,ex_father_n_1_1,父亲；爸爸,Her ______ cooks breakfast on weekends.,father,她父亲周末做早餐。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_son_n_1_meaning_3bae50ac7df9,son_n_1,1,2,2,,Choose the word that matches the meaning.,person’s male child,son,儿子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_son_n_1_context_f5fbab304ddf,son_n_1,1,2,2,ex_son_n_1_1,根据句子选择目标单词的完整中文释义。,"Their son started school this year.
+
+句中“son”是什么意思？",son,他们的儿子今年开始上学。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_son_n_1_spelling_90ecf0f75c9f,son_n_1,1,1,1,ex_son_n_1_2,Complete the word using the first-letter hint.,She has one s___ and two daughters.,son,她有一个儿子和两个女儿。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_son_n_1_cloze_b3cb82eeccff,son_n_1,1,3,3,ex_son_n_1_1,儿子,Their ______ started school this year.,son,他们的儿子今年开始上学。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_daughter_n_1_meaning_1e6a5e8b4192,daughter_n_1,1,2,2,,Choose the word that matches the meaning.,person’s female child,daughter,女儿,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_daughter_n_1_context_48a5499cfd80,daughter_n_1,1,2,2,ex_daughter_n_1_1,根据句子选择目标单词的完整中文释义。,"His daughter loves reading before bed.
+
+句中“daughter”是什么意思？",daughter,他的女儿喜欢睡前阅读。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_daughter_n_1_spelling_2535cead2a41,daughter_n_1,1,1,1,ex_daughter_n_1_2,Complete the word using the first-letter hint.,Their d_______ is studying at college.,daughter,他们的女儿正在上大学。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_daughter_n_1_cloze_58557b530bd1,daughter_n_1,1,3,3,ex_daughter_n_1_1,女儿,His ______ loves reading before bed.,daughter,他的女儿喜欢睡前阅读。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_baby_n_1_meaning_65fd5b0163e8,baby_n_1,1,2,2,,Choose the word that matches the meaning.,very young child or animal,baby,婴儿,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_baby_n_1_context_7136e1c0b0c6,baby_n_1,1,2,2,ex_baby_n_1_1,根据句子选择目标单词的完整中文释义。,"The baby is sleeping in the bedroom.
+
+句中“baby”是什么意思？",baby,婴儿正在卧室里睡觉。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_baby_n_1_spelling_558ba1ce83b1,baby_n_1,1,1,1,ex_baby_n_1_2,Complete the word using the first-letter hint.,Please hold the b___ carefully.,baby,请小心抱着婴儿。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_baby_n_1_cloze_e26273676869,baby_n_1,1,3,3,ex_baby_n_1_1,婴儿,The ______ is sleeping in the bedroom.,baby,婴儿正在卧室里睡觉。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_brother_n_1_meaning_68522555df9d,brother_n_1,1,2,2,,Choose the word that matches the meaning.,boy or man who has the same parents as another person,brother,兄弟；哥哥；弟弟,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_brother_n_1_context_c1d6f04218fa,brother_n_1,1,2,2,ex_brother_n_1_1,根据句子选择目标单词的完整中文释义。,"My brother is three years younger than me.
+
+句中“brother”是什么意思？",brother,我弟弟比我小三岁。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_brother_n_1_spelling_6fe729569d3b,brother_n_1,1,1,1,ex_brother_n_1_2,Complete the word using the first-letter hint.,Her b______ plays basketball after school.,brother,她哥哥放学后打篮球。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_brother_n_1_cloze_19d3a5713b06,brother_n_1,1,3,3,ex_brother_n_1_1,兄弟；哥哥；弟弟,My ______ is three years younger than me.,brother,我弟弟比我小三岁。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_dad_n_1_meaning_b5d6a6294589,dad_n_1,1,2,2,,Choose the word that matches the meaning.,father,dad,爸爸,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_dad_n_1_context_f88a3956df1b,dad_n_1,1,2,2,ex_dad_n_1_1,根据句子选择目标单词的完整中文释义。,"My dad drives me to school.
+
+句中“dad”是什么意思？",dad,我爸爸开车送我上学。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_dad_n_1_spelling_b8ac55a12644,dad_n_1,1,1,1,ex_dad_n_1_2,Complete the word using the first-letter hint.,d___ is making tea in the kitchen.,dad,爸爸正在厨房里泡茶。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_dad_n_1_cloze_77a4ff91ff52,dad_n_1,1,3,3,ex_dad_n_1_1,爸爸,My ______ drives me to school.,dad,我爸爸开车送我上学。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_husband_n_1_meaning_fe3e25f90bd6,husband_n_1,1,2,2,,Choose the word that matches the meaning.,the man that somebody is married to; a married man,husband,丈夫,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_husband_n_1_context_80be7d77cf12,husband_n_1,1,2,2,ex_husband_n_1_1,根据句子选择目标单词的完整中文释义。,"Her husband works from home.
+
+句中“husband”是什么意思？",husband,她丈夫在家办公。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_husband_n_1_spelling_1f868325f162,husband_n_1,1,1,1,ex_husband_n_1_2,Complete the word using the first-letter hint.,My h______ usually washes the dishes.,husband,我丈夫通常洗碗。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_husband_n_1_cloze_2d51aea23018,husband_n_1,1,3,3,ex_husband_n_1_1,丈夫,Her ______ works from home.,husband,她丈夫在家办公。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_wife_n_1_meaning_30c72c4eca3a,wife_n_1,1,2,2,,Choose the word that matches the meaning.,the woman that somebody is married to; a married woman,wife,妻子；太太,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_wife_n_1_context_1142dfba0bcf,wife_n_1,1,2,2,ex_wife_n_1_1,根据句子选择目标单词的完整中文释义。,"His wife teaches English at a college.
+
+句中“wife”是什么意思？",wife,他的妻子在一所大学教英语。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_wife_n_1_spelling_6c4b33f10468,wife_n_1,1,1,1,ex_wife_n_1_2,Complete the word using the first-letter hint.,My w___ and I share the housework.,wife,我和妻子分担家务。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_wife_n_1_cloze_50f9a7d5b855,wife_n_1,1,3,3,ex_wife_n_1_1,妻子；太太,His ______ teaches English at a college.,wife,他的妻子在一所大学教英语。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_sister_n_1_meaning_10420c3caeaa,sister_n_1,1,2,2,,Choose the word that matches the meaning.,girl or woman who has the same mother and father as another person,sister,姐妹；姐姐；妹妹,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_sister_n_1_context_ccbca93cda24,sister_n_1,1,2,2,ex_sister_n_1_1,根据句子选择目标单词的完整中文释义。,"My sister has long black hair.
+
+句中“sister”是什么意思？",sister,我姐姐留着黑色长发。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_sister_n_1_spelling_9962d5506578,sister_n_1,1,1,1,ex_sister_n_1_2,Complete the word using the first-letter hint.,Her s_____ lives in another city.,sister,她妹妹住在另一个城市。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_sister_n_1_cloze_6e3bda594d52,sister_n_1,1,3,3,ex_sister_n_1_1,姐妹；姐姐；妹妹,My ______ has long black hair.,sister,我姐姐留着黑色长发。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_couple_n_1_meaning_26f1f6a68fc3,couple_n_1,1,2,2,,Choose the word that matches the meaning.,two people who are married or in a romantic relationship,couple,夫妻；情侣,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_couple_n_1_context_415f5be321dd,couple_n_1,1,2,2,ex_couple_n_1_1,根据句子选择目标单词的完整中文释义。,"The couple moved into a new house.
+
+句中“couple”是什么意思？",couple,这对夫妻搬进了一所新房子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_couple_n_1_spelling_62fbb107d349,couple_n_1,1,1,1,ex_couple_n_1_2,Complete the word using the first-letter hint.,An elderly c_____ lives next door.,couple,一对老年夫妇住在隔壁。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_couple_n_1_cloze_5e5aaa1fbf43,couple_n_1,1,3,3,ex_couple_n_1_1,夫妻；情侣,The ______ moved into a new house.,couple,这对夫妻搬进了一所新房子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_married_adj_1_meaning_8625f1fd219b,married_adj_1,1,2,2,,Choose the word that matches the meaning.,having a husband or wife,married,已婚的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_married_adj_1_context_ecb070da9293,married_adj_1,1,2,2,ex_married_adj_1_1,根据句子选择目标单词的完整中文释义。,"They have been married for ten years.
+
+句中“married”是什么意思？",married,他们已经结婚十年了。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_married_adj_1_spelling_1f4bc2093185,married_adj_1,1,1,1,ex_married_adj_1_2,Complete the word using the first-letter hint.,My m______ sister lives in Boston.,married,我已婚的姐姐住在波士顿。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_married_adj_1_cloze_3a230a516d1e,married_adj_1,1,3,3,ex_married_adj_1_1,已婚的,They have been ______ for ten years.,married,他们已经结婚十年了。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_adult_n_1_meaning_e0df58fcb47a,adult_n_1,1,2,2,,Choose the word that matches the meaning.,fully grown person who is legally responsible for their actions,adult,成年人,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_adult_n_1_context_09d6fb7106f4,adult_n_1,1,2,2,ex_adult_n_1_1,根据句子选择目标单词的完整中文释义。,"Every adult needs an identification card.
+
+句中“adult”是什么意思？",adult,每个成年人都需要身份证件。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_adult_n_1_spelling_dd236f478a4c,adult_n_1,1,1,1,ex_adult_n_1_2,Complete the word using the first-letter hint.,An a____ must accompany the young child.,adult,必须有成年人陪同这个小孩。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_adult_n_1_cloze_36facc0c4d22,adult_n_1,1,3,3,ex_adult_n_1_1,成年人,Every ______ needs an identification card.,adult,每个成年人都需要身份证件。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_person_n_1_meaning_91022a3abb4f,person_n_1,1,2,2,,Choose the word that matches the meaning.,human as an individual,person,人；个人,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_person_n_1_context_544f3b54d04d,person_n_1,1,2,2,ex_person_n_1_1,根据句子选择目标单词的完整中文释义。,"Only one person can enter at a time.
+
+句中“person”是什么意思？",person,每次只能有一个人进入。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_person_n_1_spelling_fe1728b88ab0,person_n_1,1,1,1,ex_person_n_1_2,Complete the word using the first-letter hint.,She is a kind and honest p_____.,person,她是一个善良诚实的人。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_person_n_1_cloze_94008e1a1e57,person_n_1,1,3,3,ex_person_n_1_1,人；个人,Only one ______ can enter at a time.,person,每次只能有一个人进入。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_aunt_n_1_meaning_0838285744d1,aunt_n_1,1,2,2,,Choose the word that matches the meaning.,the sister of your father or mother; the wife of your uncle or aunt,aunt,姑妈；姨妈；伯母；婶母,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_aunt_n_1_context_a02ca5a11cf0,aunt_n_1,1,2,2,ex_aunt_n_1_1,根据句子选择目标单词的完整中文释义。,"My aunt visits us every summer.
+
+句中“aunt”是什么意思？",aunt,我姑妈每年夏天来看我们。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_aunt_n_1_spelling_6c34f3cf9330,aunt_n_1,1,1,1,ex_aunt_n_1_2,Complete the word using the first-letter hint.,Her a___ gave her a birthday gift.,aunt,她姨妈送了她一份生日礼物。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_aunt_n_1_cloze_2272a3100dcc,aunt_n_1,1,3,3,ex_aunt_n_1_1,姑妈；姨妈；伯母；婶母,My ______ visits us every summer.,aunt,我姑妈每年夏天来看我们。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_boy_n_1_meaning_d9cd23564426,boy_n_1,1,2,2,,Choose the word that matches the meaning.,male child or a young male person,boy,男孩,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_boy_n_1_context_4b8fa492dcdf,boy_n_1,1,2,2,ex_boy_n_1_1,根据句子选择目标单词的完整中文释义。,"The boy is waiting for the school bus.
+
+句中“boy”是什么意思？",boy,那个男孩正在等校车。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_boy_n_1_spelling_7855bee077fd,boy_n_1,1,1,1,ex_boy_n_1_2,Complete the word using the first-letter hint.,A young b___ found the lost key.,boy,一个小男孩找到了丢失的钥匙。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_boy_n_1_cloze_025aaf0542c5,boy_n_1,1,3,3,ex_boy_n_1_1,男孩,The ______ is waiting for the school bus.,boy,那个男孩正在等校车。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_girl_n_1_meaning_d588dc9859ec,girl_n_1,1,2,2,,Choose the word that matches the meaning.,female child,girl,女孩,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_girl_n_1_context_bb1070990067,girl_n_1,1,2,2,ex_girl_n_1_1,根据句子选择目标单词的完整中文释义。,"The girl smiled at her teacher.
+
+句中“girl”是什么意思？",girl,那个女孩对老师微笑。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_girl_n_1_spelling_08483fb0ac5a,girl_n_1,1,1,1,ex_girl_n_1_2,Complete the word using the first-letter hint.,A little g___ is playing in the garden.,girl,一个小女孩正在花园里玩。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_girl_n_1_cloze_1c6a2ba202f6,girl_n_1,1,3,3,ex_girl_n_1_1,女孩,The ______ smiled at her teacher.,girl,那个女孩对老师微笑。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_marriage_n_1_meaning_aaa59d5e40b1,marriage_n_1,1,2,2,,Choose the word that matches the meaning.,the legal relationship between two people who are married to each other,marriage,婚姻,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_marriage_n_1_context_b2aa11a6e861,marriage_n_1,1,2,2,ex_marriage_n_1_1,根据句子选择目标单词的完整中文释义。,"Trust is important in a marriage.
+
+句中“marriage”是什么意思？",marriage,信任在婚姻中很重要。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_marriage_n_1_spelling_1ce4b9928c2c,marriage_n_1,1,1,1,ex_marriage_n_1_2,Complete the word using the first-letter hint.,Their m_______ has lasted for thirty years.,marriage,他们的婚姻已经持续了三十年。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_marriage_n_1_cloze_6a7881bf75f4,marriage_n_1,1,3,3,ex_marriage_n_1_1,婚姻,Trust is important in a ______.,marriage,信任在婚姻中很重要。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_uncle_n_1_meaning_073ef93858bf,uncle_n_1,1,2,2,,Choose the word that matches the meaning.,the brother of your mother or father; the husband of your aunt or uncle,uncle,叔叔；伯伯；舅舅；姨父,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_uncle_n_1_context_d0d4cc0deca0,uncle_n_1,1,2,2,ex_uncle_n_1_1,根据句子选择目标单词的完整中文释义。,"My uncle owns a small restaurant.
+
+句中“uncle”是什么意思？",uncle,我叔叔经营一家小餐馆。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_uncle_n_1_spelling_0b73c6571fe4,uncle_n_1,1,1,1,ex_uncle_n_1_2,Complete the word using the first-letter hint.,Her u____ taught her to swim.,uncle,她舅舅教她游泳。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_uncle_n_1_cloze_0a2a368b19a9,uncle_n_1,1,3,3,ex_uncle_n_1_1,叔叔；伯伯；舅舅；姨父,My ______ owns a small restaurant.,uncle,我叔叔经营一家小餐馆。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_cousin_n_1_meaning_80a8f96ed770,cousin_n_1,1,2,2,,Choose the word that matches the meaning.,child of your aunt or uncle,cousin,堂兄弟姐妹；表兄弟姐妹,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_cousin_n_1_context_4c1bc8b617e1,cousin_n_1,1,2,2,ex_cousin_n_1_1,根据句子选择目标单词的完整中文释义。,"My cousin and I attend the same school.
+
+句中“cousin”是什么意思？",cousin,我表弟和我上同一所学校。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_cousin_n_1_spelling_22d139c1f6ab,cousin_n_1,1,1,1,ex_cousin_n_1_2,Complete the word using the first-letter hint.,She visited her c_____ during the holiday.,cousin,她假期去看望了表姐。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_cousin_n_1_cloze_b6e9c3b339a2,cousin_n_1,1,3,3,ex_cousin_n_1_1,堂兄弟姐妹；表兄弟姐妹,My ______ and I attend the same school.,cousin,我表弟和我上同一所学校。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_man_n_1_meaning_fece988daeb9,man_n_1,1,2,2,,Choose the word that matches the meaning.,an adult male human,man,成年男子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_man_n_1_context_86c10216724b,man_n_1,1,2,2,ex_man_n_1_1,根据句子选择目标单词的完整中文释义。,"A tall man opened the door.
+
+句中“man”是什么意思？",man,一个高个子男人打开了门。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_man_n_1_spelling_9653de41e03b,man_n_1,1,1,1,ex_man_n_1_2,Complete the word using the first-letter hint.,The m___ carried a heavy box upstairs.,man,那个男人把一个重箱子搬上楼。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_man_n_1_cloze_52b614deeb81,man_n_1,1,3,3,ex_man_n_1_1,成年男子,A tall ______ opened the door.,man,一个高个子男人打开了门。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_woman_n_1_meaning_fd9a168ebcb8,woman_n_1,1,2,2,,Choose the word that matches the meaning.,an adult female human,woman,成年女子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_woman_n_1_context_fbfdf0db3196,woman_n_1,1,2,2,ex_woman_n_1_1,根据句子选择目标单词的完整中文释义。,"The woman works in our local library.
+
+句中“woman”是什么意思？",woman,那位女士在当地的图书馆工作。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_woman_n_1_spelling_2dac6b2b9f5a,woman_n_1,1,1,1,ex_woman_n_1_2,Complete the word using the first-letter hint.,A young w____ answered the phone.,woman,一位年轻女子接了电话。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_woman_n_1_cloze_55173a8341fc,woman_n_1,1,3,3,ex_woman_n_1_1,成年女子,The ______ works in our local library.,woman,那位女士在当地的图书馆工作。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_age_n_1_meaning_2508ffd60c3a,age_n_1,1,2,2,,Choose the word that matches the meaning.,the number of years that a person has lived or a thing has existed,age,年龄,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_age_n_1_context_df65907f3799,age_n_1,1,2,2,ex_age_n_1_1,根据句子选择目标单词的完整中文释义。,"Please write your age on the form.
+
+句中“age”是什么意思？",age,请在表格上填写你的年龄。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_age_n_1_spelling_03fc815dbdd4,age_n_1,1,1,1,ex_age_n_1_2,Complete the word using the first-letter hint.,Children of this a___ learn very quickly.,age,这个年龄的孩子学得很快。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_age_n_1_cloze_ca34a00d4608,age_n_1,1,3,3,ex_age_n_1_1,年龄,Please write your ______ on the form.,age,请在表格上填写你的年龄。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_relative_n_1_meaning_7da6d5bc6c8b,relative_n_1,1,2,2,,Choose the word that matches the meaning.,person who is in the same family as somebody else,relative,亲戚,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_relative_n_1_context_2de1609084cf,relative_n_1,1,2,2,ex_relative_n_1_1,根据句子选择目标单词的完整中文释义。,"A relative came from another city for the wedding.
+
+句中“relative”是什么意思？",relative,一位亲戚从另一个城市来参加婚礼。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_relative_n_1_spelling_66046641a5e6,relative_n_1,1,1,1,ex_relative_n_1_2,Complete the word using the first-letter hint.,She is a close r_______ of mine.,relative,她是我的近亲。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_relative_n_1_cloze_64b0918f7b25,relative_n_1,1,3,3,ex_relative_n_1_1,亲戚,A ______ came from another city for the wedding.,relative,一位亲戚从另一个城市来参加婚礼。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandmother_n_1_meaning_6d92ef74c0e4,grandmother_n_1,1,2,2,,Choose the word that matches the meaning.,the mother of your father or mother,grandmother,祖母；外祖母,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandmother_n_1_context_5131c66d721f,grandmother_n_1,1,2,2,ex_grandmother_n_1_1,根据句子选择目标单词的完整中文释义。,"My grandmother tells wonderful family stories.
+
+句中“grandmother”是什么意思？",grandmother,我祖母会讲精彩的家庭故事。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_grandmother_n_1_spelling_b242a63ac047,grandmother_n_1,1,1,1,ex_grandmother_n_1_2,Complete the word using the first-letter hint.,Her g__________ is eighty years old.,grandmother,她外祖母八十岁了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandmother_n_1_cloze_a0352ddbd0ae,grandmother_n_1,1,3,3,ex_grandmother_n_1_1,祖母；外祖母,My ______ tells wonderful family stories.,grandmother,我祖母会讲精彩的家庭故事。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_people_n_1_meaning_9c08b7aee678,people_n_1,1,2,2,,Choose the word that matches the meaning.,"human beings; men, women and children",people,人们,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_people_n_1_context_0e68a7b07a4c,people_n_1,1,2,2,ex_people_n_1_1,根据句子选择目标单词的完整中文释义。,"Many people use this park every day.
+
+句中“people”是什么意思？",people,许多人每天使用这个公园。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_people_n_1_spelling_48e2972e3da9,people_n_1,1,1,1,ex_people_n_1_2,Complete the word using the first-letter hint.,Young p_____ often learn technology quickly.,people,年轻人通常很快学会使用科技产品。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_people_n_1_cloze_87252168d7ce,people_n_1,1,3,3,ex_people_n_1_1,人们,Many ______ use this park every day.,people,许多人每天使用这个公园。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandfather_n_1_meaning_be8c9337895e,grandfather_n_1,1,2,2,,Choose the word that matches the meaning.,the father of your father or mother,grandfather,祖父；外祖父,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandfather_n_1_context_fab6768d39a2,grandfather_n_1,1,2,2,ex_grandfather_n_1_1,根据句子选择目标单词的完整中文释义。,"My grandfather grows vegetables in his garden.
+
+句中“grandfather”是什么意思？",grandfather,我祖父在花园里种蔬菜。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_grandfather_n_1_spelling_a6daf96a01ab,grandfather_n_1,1,1,1,ex_grandfather_n_1_2,Complete the word using the first-letter hint.,Her g__________ walks every morning.,grandfather,她外祖父每天早上散步。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandfather_n_1_cloze_cb97e1261977,grandfather_n_1,1,3,3,ex_grandfather_n_1_1,祖父；外祖父,My ______ grows vegetables in his garden.,grandfather,我祖父在花园里种蔬菜。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_friend_n_1_meaning_cbcc7fc01c40,friend_n_1,1,2,2,,Choose the word that matches the meaning.,"person you know well and like, and who is not usually a member of your family",friend,朋友,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_friend_n_1_context_ab9168b8d94f,friend_n_1,1,2,2,ex_friend_n_1_1,根据句子选择目标单词的完整中文释义。,"A good friend listens when you need help.
+
+句中“friend”是什么意思？",friend,好朋友会在你需要帮助时倾听。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_friend_n_1_spelling_15a66c726a70,friend_n_1,1,1,1,ex_friend_n_1_2,Complete the word using the first-letter hint.,My f_____ lives near the school.,friend,我的朋友住在学校附近。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_friend_n_1_cloze_fb0cab7fa012,friend_n_1,1,3,3,ex_friend_n_1_1,朋友,A good ______ listens when you need help.,friend,好朋友会在你需要帮助时倾听。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_kid_n_1_meaning_1441407da42b,kid_n_1,1,2,2,,Choose the word that matches the meaning.,child or young person,kid,小孩；孩子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_kid_n_1_context_d1f3037ab0eb,kid_n_1,1,2,2,ex_kid_n_1_1,根据句子选择目标单词的完整中文释义。,"Every kid received a new book.
+
+句中“kid”是什么意思？",kid,每个孩子都收到了一本新书。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_kid_n_1_spelling_2575eba4a762,kid_n_1,1,1,1,ex_kid_n_1_2,Complete the word using the first-letter hint.,The k___ ran home after school.,kid,那个孩子放学后跑回了家。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_kid_n_1_cloze_ec7be02a0409,kid_n_1,1,3,3,ex_kid_n_1_1,小孩；孩子,Every ______ received a new book.,kid,每个孩子都收到了一本新书。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mom_n_1_meaning_591dfdb07a8f,mom_n_1,1,2,2,,Choose the word that matches the meaning.,informal terms for a mother,mom,妈妈,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mom_n_1_context_3c598735a6c7,mom_n_1,1,2,2,ex_mom_n_1_1,根据句子选择目标单词的完整中文释义。,"Mom left breakfast on the table.
+
+句中“mom”是什么意思？",mom,妈妈把早餐放在桌上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_mom_n_1_spelling_d3abfb871485,mom_n_1,1,1,1,ex_mom_n_1_2,Complete the word using the first-letter hint.,My m___ works near our home.,mom,我妈妈在家附近工作。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_mom_n_1_cloze_1562bfba92a0,mom_n_1,1,3,3,ex_mom_n_1_1,妈妈,______ left breakfast on the table.,mom,妈妈把早餐放在桌上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_name_n_1_meaning_15df6f10bd53,name_n_1,1,2,2,,Choose the word that matches the meaning.,"word or words that a particular person, animal, place or thing is known by",name,名字；姓名,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_name_n_1_context_cfdd7382806d,name_n_1,1,2,2,ex_name_n_1_1,根据句子选择目标单词的完整中文释义。,"Please write your full name here.
+
+句中“name”是什么意思？",name,请在这里写下你的全名。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_name_n_1_spelling_63868f47ded3,name_n_1,1,1,1,ex_name_n_1_2,Complete the word using the first-letter hint.,Her n___ is printed on the card.,name,她的名字印在卡片上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_name_n_1_cloze_0aa0fcf1ef66,name_n_1,1,3,3,ex_name_n_1_1,名字；姓名,Please write your full ______ here.,name,请在这里写下你的全名。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_young_adj_1_meaning_6f6765ff3bc8,young_adj_1,1,2,2,,Choose the word that matches the meaning.,having lived or existed for only a short time; not fully developed,young,年轻的；年幼的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_young_adj_1_context_5a9862055bdd,young_adj_1,1,2,2,ex_young_adj_1_1,根据句子选择目标单词的完整中文释义。,"The young child needs help crossing the road.
+
+句中“young”是什么意思？",young,这个年幼的孩子过马路时需要帮助。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_young_adj_1_spelling_3da6d78cb347,young_adj_1,1,1,1,ex_young_adj_1_2,Complete the word using the first-letter hint.,She became a doctor at a y____ age.,young,她很年轻时就成为了医生。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_young_adj_1_cloze_9ebaac4b11e4,young_adj_1,1,3,3,ex_young_adj_1_1,年轻的；年幼的,The ______ child needs help crossing the road.,young,这个年幼的孩子过马路时需要帮助。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandparent_n_1_meaning_5e69ac6de767,grandparent_n_1,1,2,2,,Choose the word that matches the meaning.,the father or mother of your father or mother,grandparent,祖父母；外祖父母,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandparent_n_1_context_751bc37fcb9d,grandparent_n_1,1,2,2,ex_grandparent_n_1_1,根据句子选择目标单词的完整中文释义。,"Each grandparent received a family photo.
+
+句中“grandparent”是什么意思？",grandparent,每位祖父母都收到了一张全家福。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_grandparent_n_1_spelling_6e24e602d8ed,grandparent_n_1,1,1,1,ex_grandparent_n_1_2,Complete the word using the first-letter hint.,A g__________ often shares family history.,grandparent,祖父母常常讲述家族历史。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandparent_n_1_cloze_71076decacf8,grandparent_n_1,1,3,3,ex_grandparent_n_1_1,祖父母；外祖父母,Each ______ received a family photo.,grandparent,每位祖父母都收到了一张全家福。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_old_adj_1_meaning_01a61a092d28,old_adj_1,1,2,2,,Choose the word that matches the meaning.,having lived for many years; no longer young,old,年老的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_old_adj_1_context_661c301e76e2,old_adj_1,1,2,2,ex_old_adj_1_1,根据句子选择目标单词的完整中文释义。,"The old man walks slowly but steadily.
+
+句中“old”是什么意思？",old,那位老人走得慢但很稳。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_old_adj_1_spelling_f31f800dcd8f,old_adj_1,1,1,1,ex_old_adj_1_2,Complete the word using the first-letter hint.,Her dog is o___ but still active.,old,她的狗年纪大了，但仍然很活跃。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_old_adj_1_cloze_8d8aad7e5cb6,old_adj_1,1,3,3,ex_old_adj_1_1,年老的,The ______ man walks slowly but steadily.,old,那位老人走得慢但很稳。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_partner_n_1_meaning_458b711bc966,partner_n_1,1,2,2,,Choose the word that matches the meaning.,a person you do an activity with or share a relationship with,partner,搭档；伴侣,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_partner_n_1_context_898fe7cec07b,partner_n_1,1,2,2,ex_partner_n_1_1,根据句子选择目标单词的完整中文释义。,"My study partner helps me practice English.
+
+句中“partner”是什么意思？",partner,我的学习搭档帮助我练习英语。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_partner_n_1_spelling_c1f4fe61266e,partner_n_1,1,1,1,ex_partner_n_1_2,Complete the word using the first-letter hint.,She discussed the plan with her p______.,partner,她和搭档讨论了这个计划。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_partner_n_1_cloze_fdaca929b94a,partner_n_1,1,3,3,ex_partner_n_1_1,搭档；伴侣,My study ______ helps me practice English.,partner,我的学习搭档帮助我练习英语。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_teenager_n_1_meaning_dbf57fa904a3,teenager_n_1,1,2,2,,Choose the word that matches the meaning.,person who is between 13 and 19 years old,teenager,青少年,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_teenager_n_1_context_f8208c41a4c6,teenager_n_1,1,2,2,ex_teenager_n_1_1,根据句子选择目标单词的完整中文释义。,"The teenager takes the bus to school.
+
+句中“teenager”是什么意思？",teenager,这名青少年乘公共汽车上学。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_teenager_n_1_spelling_44fd9749004e,teenager_n_1,1,1,1,ex_teenager_n_1_2,Complete the word using the first-letter hint.,Every t_______ needs enough sleep.,teenager,每个青少年都需要充足的睡眠。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_teenager_n_1_cloze_31120cbd17bf,teenager_n_1,1,3,3,ex_teenager_n_1_1,青少年,The ______ takes the bus to school.,teenager,这名青少年乘公共汽车上学。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_twin_n_1_meaning_69dd1d9897a4,twin_n_1,1,2,2,,Choose the word that matches the meaning.,one of two children born at the same time to the same mother,twin,双胞胎之一,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_twin_n_1_context_3d44cff5c633,twin_n_1,1,2,2,ex_twin_n_1_1,根据句子选择目标单词的完整中文释义。,"Her twin looks very similar to her.
+
+句中“twin”是什么意思？",twin,她的双胞胎姐妹和她长得很像。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_twin_n_1_spelling_60b51e05a866,twin_n_1,1,1,1,ex_twin_n_1_2,Complete the word using the first-letter hint.,"One t___ likes music, and the other likes sports.",twin,一个双胞胎喜欢音乐，另一个喜欢运动。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_twin_n_1_cloze_af87bb95c9c2,twin_n_1,1,3,3,ex_twin_n_1_1,双胞胎之一,Her ______ looks very similar to her.,twin,她的双胞胎姐妹和她长得很像。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandson_n_1_meaning_e98dee77ef3e,grandson_n_1,1,2,2,,Choose the word that matches the meaning.,a male grandchild,grandson,孙子；外孙,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandson_n_1_context_2454a76a94b1,grandson_n_1,1,2,2,ex_grandson_n_1_1,根据句子选择目标单词的完整中文释义。,"Their grandson visits every weekend.
+
+句中“grandson”是什么意思？",grandson,他们的孙子每个周末都来看望他们。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_grandson_n_1_spelling_fbcec52d43be,grandson_n_1,1,1,1,ex_grandson_n_1_2,Complete the word using the first-letter hint.,My g_______ is learning to read.,grandson,我的外孙正在学习阅读。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_grandson_n_1_cloze_cd570fa7a405,grandson_n_1,1,3,3,ex_grandson_n_1_1,孙子；外孙,Their ______ visits every weekend.,grandson,他们的孙子每个周末都来看望他们。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_granddaughter_n_1_meaning_9ac1436acc72,granddaughter_n_1,1,2,2,,Choose the word that matches the meaning.,a female grandchild,granddaughter,孙女；外孙女,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_granddaughter_n_1_context_99e2452a6a75,granddaughter_n_1,1,2,2,ex_granddaughter_n_1_1,根据句子选择目标单词的完整中文释义。,"Her granddaughter made this birthday card.
+
+句中“granddaughter”是什么意思？",granddaughter,她的孙女制作了这张生日卡。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_granddaughter_n_1_spelling_a540b2278137,granddaughter_n_1,1,1,1,ex_granddaughter_n_1_2,Complete the word using the first-letter hint.,My g____________ starts school next month.,granddaughter,我的外孙女下个月开始上学。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_granddaughter_n_1_cloze_396ed5018097,granddaughter_n_1,1,3,3,ex_granddaughter_n_1_1,孙女；外孙女,Her ______ made this birthday card.,granddaughter,她的孙女制作了这张生日卡。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_nephew_n_1_meaning_ef3e60378151,nephew_n_1,1,2,2,,Choose the word that matches the meaning.,a son of your brother or sister,nephew,侄子；外甥,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_nephew_n_1_context_8a75599ba933,nephew_n_1,1,2,2,ex_nephew_n_1_1,根据句子选择目标单词的完整中文释义。,"My nephew is my sister's son.
+
+句中“nephew”是什么意思？",nephew,我的外甥是我姐姐的儿子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_nephew_n_1_spelling_1abda6c88c41,nephew_n_1,1,1,1,ex_nephew_n_1_2,Complete the word using the first-letter hint.,Her n_____ stayed with her during summer.,nephew,她侄子暑假期间和她住在一起。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_nephew_n_1_cloze_ba7945976317,nephew_n_1,1,3,3,ex_nephew_n_1_1,侄子；外甥,My ______ is my sister's son.,nephew,我的外甥是我姐姐的儿子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_neighbor_n_1_meaning_671bde39c1a9,neighbor_n_1,1,2,2,,Choose the word that matches the meaning.,a person who lives (or is located) near another,neighbor,邻居,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_neighbor_n_1_context_d6bd6112da78,neighbor_n_1,1,2,2,ex_neighbor_n_1_1,根据句子选择目标单词的完整中文释义。,"Our neighbor lives in the house next door.
+
+句中“neighbor”是什么意思？",neighbor,我们的邻居住在隔壁的房子里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_neighbor_n_1_spelling_890c83481469,neighbor_n_1,1,1,1,ex_neighbor_n_1_2,Complete the word using the first-letter hint.,A friendly n_______ helped carry the boxes.,neighbor,一位友好的邻居帮忙搬箱子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_neighbor_n_1_cloze_6dae63ee6379,neighbor_n_1,1,3,3,ex_neighbor_n_1_1,邻居,Our ______ lives in the house next door.,neighbor,我们的邻居住在隔壁的房子里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_niece_n_1_meaning_1467a5a87c09,niece_n_1,1,2,2,,Choose the word that matches the meaning.,a daughter of your brother or sister,niece,侄女；外甥女,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_niece_n_1_context_eac5e76fe3c7,niece_n_1,1,2,2,ex_niece_n_1_1,根据句子选择目标单词的完整中文释义。,"My niece is my brother's daughter.
+
+句中“niece”是什么意思？",niece,我的侄女是我哥哥的女儿。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_1_niece_n_1_spelling_b23506d8ddba,niece_n_1,1,1,1,ex_niece_n_1_2,Complete the word using the first-letter hint.,Her n____ loves drawing animals.,niece,她外甥女喜欢画动物。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_1_niece_n_1_cloze_600ba13b6339,niece_n_1,1,3,3,ex_niece_n_1_1,侄女；外甥女,My ______ is my brother's daughter.,niece,我的侄女是我哥哥的女儿。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_short_adj_1_meaning_de3f389425e2,short_adj_1,2,2,2,,Choose the word that matches the meaning.,having a small height or length,short,矮的；短的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_short_adj_1_context_ebff4a4f3160,short_adj_1,2,2,2,ex_short_adj_1_1,根据句子选择目标单词的完整中文释义。,"He is short but very strong.
+
+句中“short”是什么意思？",short,他个子矮，但很强壮。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_short_adj_1_spelling_d64e3a205f2f,short_adj_1,2,1,1,ex_short_adj_1_2,Complete the word using the first-letter hint.,She has s____ brown hair.,short,她留着棕色短发。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_short_adj_1_cloze_2e54a15ecbf2,short_adj_1,2,3,3,ex_short_adj_1_1,矮的；短的,He is ______ but very strong.,short,他个子矮，但很强壮。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_grow_v_1_meaning_3a7f060588ec,grow_v_1,2,2,2,,Choose the word that matches the meaning.,"to become larger, taller, or more developed",grow,成长；长大,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_grow_v_1_context_bd5e47c5801f,grow_v_1,2,2,2,ex_grow_v_1_1,根据句子选择目标单词的完整中文释义。,"Children grow quickly during their early years.
+
+句中“grow”是什么意思？",grow,孩子在幼年时期成长得很快。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_grow_v_1_spelling_732db6147ffa,grow_v_1,2,1,1,ex_grow_v_1_2,Complete the word using the first-letter hint.,Plants need water and light to g___.,grow,植物需要水和阳光才能生长。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_grow_v_1_cloze_fa808a7d4227,grow_v_1,2,3,3,ex_grow_v_1_1,成长；长大,Children ______ quickly during their early years.,grow,孩子在幼年时期成长得很快。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_birth_n_1_meaning_f5517fda294d,birth_n_1,2,2,2,,Choose the word that matches the meaning.,the time when a baby is born; the process of being born,birth,出生,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_birth_n_1_context_60e7b029e0b8,birth_n_1,2,2,2,ex_birth_n_1_1,根据句子选择目标单词的完整中文释义。,"The baby's birth brought joy to the family.
+
+句中“birth”是什么意思？",birth,婴儿的出生给家庭带来了喜悦。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_birth_n_1_spelling_dbcebd473c08,birth_n_1,2,1,1,ex_birth_n_1_2,Complete the word using the first-letter hint.,Please enter your date of b____.,birth,请输入你的出生日期。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_birth_n_1_cloze_ddb1d329f467,birth_n_1,2,3,3,ex_birth_n_1_1,出生,The baby's ______ brought joy to the family.,birth,婴儿的出生给家庭带来了喜悦。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_heavy_adj_1_meaning_7627dd4c0605,heavy_adj_1,2,2,2,,Choose the word that matches the meaning.,weighing a lot; difficult to lift or move,heavy,重的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_heavy_adj_1_context_ee1f74eb6e39,heavy_adj_1,2,2,2,ex_heavy_adj_1_1,根据句子选择目标单词的完整中文释义。,"This box is too heavy for the child.
+
+句中“heavy”是什么意思？",heavy,这个箱子对孩子来说太重了。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_heavy_adj_1_spelling_88773c0501c8,heavy_adj_1,2,1,1,ex_heavy_adj_1_2,Complete the word using the first-letter hint.,He carried a h____ bag upstairs.,heavy,他把一个重袋子搬上了楼。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_heavy_adj_1_cloze_398c29673137,heavy_adj_1,2,3,3,ex_heavy_adj_1_1,重的,This box is too ______ for the child.,heavy,这个箱子对孩子来说太重了。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_strong_adj_1_meaning_7076b5a15151,strong_adj_1,2,2,2,,Choose the word that matches the meaning.,"having a lot of physical power so that you can lift heavy weights, do hard physical work, etc.",strong,强壮的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_strong_adj_1_context_c332c8c9e086,strong_adj_1,2,2,2,ex_strong_adj_1_1,根据句子选择目标单词的完整中文释义。,"Regular exercise can make your body strong.
+
+句中“strong”是什么意思？",strong,规律运动可以使身体强壮。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_strong_adj_1_spelling_d8a4154beadf,strong_adj_1,2,1,1,ex_strong_adj_1_2,Complete the word using the first-letter hint.,Her s_____ arms lifted the chair easily.,strong,她强壮的手臂轻松举起了椅子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_strong_adj_1_cloze_343bb5035748,strong_adj_1,2,3,3,ex_strong_adj_1_1,强壮的,Regular exercise can make your body ______.,strong,规律运动可以使身体强壮。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_height_n_1_meaning_1edeaa0454b6,height_n_1,2,2,2,,Choose the word that matches the meaning.,the measurement of how tall a person or thing is,height,身高；高度,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_height_n_1_context_8bbd26e034f8,height_n_1,2,2,2,ex_height_n_1_1,根据句子选择目标单词的完整中文释义。,"The nurse measured the child's height.
+
+句中“height”是什么意思？",height,护士测量了孩子的身高。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_height_n_1_spelling_1b302463e595,height_n_1,2,1,1,ex_height_n_1_2,Complete the word using the first-letter hint.,His h_____ is written on the form.,height,他的身高写在表格上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_height_n_1_cloze_73cdcf4e4e9d,height_n_1,2,3,3,ex_height_n_1_1,身高；高度,The nurse measured the child's ______.,height,护士测量了孩子的身高。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_face_n_1_meaning_798ea554a482,face_n_1,2,2,2,,Choose the word that matches the meaning.,"the front part of the head, where the eyes, nose and mouth are",face,脸；面部,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_face_n_1_context_b7e518368982,face_n_1,2,2,2,ex_face_n_1_1,根据句子选择目标单词的完整中文释义。,"She washed her face with warm water.
+
+句中“face”是什么意思？",face,她用温水洗脸。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_face_n_1_spelling_94fff84678a7,face_n_1,2,1,1,ex_face_n_1_2,Complete the word using the first-letter hint.,A smile appeared on his f___.,face,他的脸上露出了微笑。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_face_n_1_cloze_3acaffc8b5c2,face_n_1,2,3,3,ex_face_n_1_1,脸；面部,She washed her ______ with warm water.,face,她用温水洗脸。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beautiful_adj_1_meaning_50e6295907cb,beautiful_adj_1,2,2,2,,Choose the word that matches the meaning.,having beauty; giving pleasure to the senses or to the mind,beautiful,美丽的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beautiful_adj_1_context_96426d59e5fd,beautiful_adj_1,2,2,2,ex_beautiful_adj_1_1,根据句子选择目标单词的完整中文释义。,"The garden looks beautiful in spring.
+
+句中“beautiful”是什么意思？",beautiful,花园在春天看起来很美。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_beautiful_adj_1_spelling_f671c773b8bf,beautiful_adj_1,2,1,1,ex_beautiful_adj_1_2,Complete the word using the first-letter hint.,She wore a b________ blue dress.,beautiful,她穿着一条漂亮的蓝色连衣裙。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beautiful_adj_1_cloze_9efe06649222,beautiful_adj_1,2,3,3,ex_beautiful_adj_1_1,美丽的,The garden looks ______ in spring.,beautiful,花园在春天看起来很美。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_youth_n_1_meaning_bbf8788440d5,youth_n_1,2,2,2,,Choose the word that matches the meaning.,"the time of life when a person is young, especially the time before a child becomes an adult",youth,青春时期；年轻时期,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_youth_n_1_context_66fa1c2557cd,youth_n_1,2,2,2,ex_youth_n_1_1,根据句子选择目标单词的完整中文释义。,"He spent his youth in a small town.
+
+句中“youth”是什么意思？",youth,他的青年时期在一个小镇度过。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_youth_n_1_spelling_2ce5e2454931,youth_n_1,2,1,1,ex_youth_n_1_2,Complete the word using the first-letter hint.,Regular exercise during y____ builds healthy habits.,youth,年轻时经常运动能养成健康习惯。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_youth_n_1_cloze_eae9889dc161,youth_n_1,2,3,3,ex_youth_n_1_1,青春时期；年轻时期,He spent his ______ in a small town.,youth,他的青年时期在一个小镇度过。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_eye_n_1_meaning_84da039d1e4c,eye_n_1,2,2,2,,Choose the word that matches the meaning.,either of the two organs on the face that you see with,eye,眼睛,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_eye_n_1_context_34ac8fafa374,eye_n_1,2,2,2,ex_eye_n_1_1,根据句子选择目标单词的完整中文释义。,"Dust got into my left eye.
+
+句中“eye”是什么意思？",eye,灰尘进了我的左眼。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_eye_n_1_spelling_f6d9980e5da7,eye_n_1,2,1,1,ex_eye_n_1_2,Complete the word using the first-letter hint.,Her e___ was red after swimming.,eye,她游泳后眼睛发红。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_eye_n_1_cloze_2355aabde80f,eye_n_1,2,3,3,ex_eye_n_1_1,眼睛,Dust got into my left ______.,eye,灰尘进了我的左眼。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tall_adj_1_meaning_a2832bf55b32,tall_adj_1,2,2,2,,Choose the word that matches the meaning.,having a greater than average height,tall,高的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tall_adj_1_context_52dd24a25a02,tall_adj_1,2,2,2,ex_tall_adj_1_1,根据句子选择目标单词的完整中文释义。,"The tall student stood at the back.
+
+句中“tall”是什么意思？",tall,那个高个子学生站在后面。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_tall_adj_1_spelling_abd7d2490b47,tall_adj_1,2,1,1,ex_tall_adj_1_2,Complete the word using the first-letter hint.,This building is t___ and narrow.,tall,这栋建筑又高又窄。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tall_adj_1_cloze_17b868273e4d,tall_adj_1,2,3,3,ex_tall_adj_1_1,高的,The ______ student stood at the back.,tall,那个高个子学生站在后面。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_born_v_1_meaning_3e3356ccd068,born_v_1,2,2,2,,Choose the word that matches the meaning.,brought into life by birth,born,出生的；天生的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_born_v_1_context_2b908fd53e41,born_v_1,2,2,2,ex_born_v_1_1,根据句子选择目标单词的完整中文释义。,"She was born in Chicago.
+
+句中“born”是什么意思？",born,她出生在芝加哥。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_born_v_1_spelling_e6eb13899957,born_v_1,2,1,1,ex_born_v_1_2,Complete the word using the first-letter hint.,Their first child was b___ in May.,born,他们的第一个孩子出生在五月。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_born_v_1_cloze_6d0c9264aebf,born_v_1,2,3,3,ex_born_v_1_1,出生的；天生的,She was ______ in Chicago.,born,她出生在芝加哥。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hair_n_1_meaning_54bbeec2db99,hair_n_1,2,2,2,,Choose the word that matches the meaning.,the substance that looks like a mass of fine threads growing on a person's head,hair,头发,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hair_n_1_context_f5312706e67a,hair_n_1,2,2,2,ex_hair_n_1_1,根据句子选择目标单词的完整中文释义。,"Her hair is long and black.
+
+句中“hair”是什么意思？",hair,她的头发又长又黑。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_hair_n_1_spelling_f28a96d82364,hair_n_1,2,1,1,ex_hair_n_1_2,Complete the word using the first-letter hint.,He washes his h___ every morning.,hair,他每天早上洗头。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hair_n_1_cloze_569e583bf02a,hair_n_1,2,3,3,ex_hair_n_1_1,头发,Her ______ is long and black.,hair,她的头发又长又黑。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pretty_adj_1_meaning_8b7aa335ab25,pretty_adj_1,2,2,2,,Choose the word that matches the meaning.,attractive without being very beautiful,pretty,漂亮的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pretty_adj_1_context_3ed531954104,pretty_adj_1,2,2,2,ex_pretty_adj_1_1,根据句子选择目标单词的完整中文释义。,"The child wore a pretty pink coat.
+
+句中“pretty”是什么意思？",pretty,那个孩子穿着一件漂亮的粉色外套。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_pretty_adj_1_spelling_ccfb77276944,pretty_adj_1,2,1,1,ex_pretty_adj_1_2,Complete the word using the first-letter hint.,These flowers look p_____ on the table.,pretty,这些花放在桌上很好看。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pretty_adj_1_cloze_13274fdda2b2,pretty_adj_1,2,3,3,ex_pretty_adj_1_1,漂亮的,The child wore a ______ pink coat.,pretty,那个孩子穿着一件漂亮的粉色外套。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_thin_adj_1_meaning_3ebecf984dcd,thin_adj_1,2,2,2,,Choose the word that matches the meaning.,having little fat on the body,thin,瘦的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_thin_adj_1_context_6c1c46a54be5,thin_adj_1,2,2,2,ex_thin_adj_1_1,根据句子选择目标单词的完整中文释义。,"He became thin after a long illness.
+
+句中“thin”是什么意思？",thin,他久病之后变瘦了。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_thin_adj_1_spelling_ffd774b7caa2,thin_adj_1,2,1,1,ex_thin_adj_1_2,Complete the word using the first-letter hint.,The doctor said she was too t___.,thin,医生说她太瘦了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_thin_adj_1_cloze_b53300468cef,thin_adj_1,2,3,3,ex_thin_adj_1_1,瘦的,He became ______ after a long illness.,thin,他久病之后变瘦了。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_healthy_adj_1_meaning_1ae500af3b53,healthy_adj_1,2,2,2,,Choose the word that matches the meaning.,having good health and not likely to become ill,healthy,健康的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_healthy_adj_1_context_288235defcac,healthy_adj_1,2,2,2,ex_healthy_adj_1_1,根据句子选择目标单词的完整中文释义。,"A healthy child needs food, sleep, and exercise.
+
+句中“healthy”是什么意思？",healthy,健康的孩子需要食物、睡眠和运动。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_healthy_adj_1_spelling_12e5d9ceea11,healthy_adj_1,2,1,1,ex_healthy_adj_1_2,Complete the word using the first-letter hint.,Walking every day keeps her h______.,healthy,每天散步使她保持健康。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_healthy_adj_1_cloze_2ded42e931de,healthy_adj_1,2,3,3,ex_healthy_adj_1_1,健康的,"A ______ child needs food, sleep, and exercise.",healthy,健康的孩子需要食物、睡眠和运动。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_weak_adj_1_meaning_49a0118f9e67,weak_adj_1,2,2,2,,Choose the word that matches the meaning.,not physically strong,weak,虚弱的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_weak_adj_1_context_958cead58551,weak_adj_1,2,2,2,ex_weak_adj_1_1,根据句子选择目标单词的完整中文释义。,"He felt weak after being sick.
+
+句中“weak”是什么意思？",weak,他生病后感到虚弱。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_weak_adj_1_spelling_c393b129d87f,weak_adj_1,2,1,1,ex_weak_adj_1_2,Complete the word using the first-letter hint.,Her legs were too w___ to stand.,weak,她的双腿太虚弱，无法站立。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_weak_adj_1_cloze_3b284b05ae36,weak_adj_1,2,3,3,ex_weak_adj_1_1,虚弱的,He felt ______ after being sick.,weak,他生病后感到虚弱。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hand_n_1_meaning_45acfca9827e,hand_n_1,2,2,2,,Choose the word that matches the meaning.,"the part of the body at the end of the arm, including the fingers and thumb",hand,手,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hand_n_1_context_c9da5f4bc443,hand_n_1,2,2,2,ex_hand_n_1_1,根据句子选择目标单词的完整中文释义。,"Please wash your hand before eating.
+
+句中“hand”是什么意思？",hand,吃饭前请洗手。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_hand_n_1_spelling_93f8f68c5ed9,hand_n_1,2,1,1,ex_hand_n_1_2,Complete the word using the first-letter hint.,She held the cup in one h___.,hand,她一只手拿着杯子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_hand_n_1_cloze_003a185dd7dc,hand_n_1,2,3,3,ex_hand_n_1_1,手,Please wash your ______ before eating.,hand,吃饭前请洗手。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_foot_n_1_meaning_9315aa4959f4,foot_n_1,2,2,2,,Choose the word that matches the meaning.,"the lowest part of the leg, below the ankle, on which a person or an animal stands",foot,脚,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_foot_n_1_context_7860cad56615,foot_n_1,2,2,2,ex_foot_n_1_1,根据句子选择目标单词的完整中文释义。,"He hurt his left foot while running.
+
+句中“foot”是什么意思？",foot,他跑步时伤了左脚。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_foot_n_1_spelling_65e730c735f9,foot_n_1,2,1,1,ex_foot_n_1_2,Complete the word using the first-letter hint.,She put one f___ on the stairs.,foot,她把一只脚放在楼梯上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_foot_n_1_cloze_1829faba5459,foot_n_1,2,3,3,ex_foot_n_1_1,脚,He hurt his left ______ while running.,foot,他跑步时伤了左脚。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_head_n_1_meaning_2dafe133c2f2,head_n_1,2,2,2,,Choose the word that matches the meaning.,"the part of the body on top of the neck containing the eyes, nose, mouth and brain",head,头；头部,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_head_n_1_context_3364a0058cdd,head_n_1,2,2,2,ex_head_n_1_1,根据句子选择目标单词的完整中文释义。,"Wear a hat to protect your head.
+
+句中“head”是什么意思？",head,戴帽子保护头部。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_head_n_1_spelling_8ee0ec3c97d8,head_n_1,2,1,1,ex_head_n_1_2,Complete the word using the first-letter hint.,He turned his h___ toward the door.,head,他把头转向门口。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_head_n_1_cloze_8479c849b26c,head_n_1,2,3,3,ex_head_n_1_1,头；头部,Wear a hat to protect your ______.,head,戴帽子保护头部。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_body_n_1_meaning_35becbeb4d09,body_n_1,2,2,2,,Choose the word that matches the meaning.,the whole physical structure of a human or an animal,body,身体,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_body_n_1_context_676362a62439,body_n_1,2,2,2,ex_body_n_1_1,根据句子选择目标单词的完整中文释义。,"Exercise keeps the body strong and healthy.
+
+句中“body”是什么意思？",body,运动使身体强壮健康。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_body_n_1_spelling_49135706cce4,body_n_1,2,1,1,ex_body_n_1_2,Complete the word using the first-letter hint.,Your b___ needs time to rest.,body,你的身体需要时间休息。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_body_n_1_cloze_e1c2eff05dac,body_n_1,2,3,3,ex_body_n_1_1,身体,Exercise keeps the ______ strong and healthy.,body,运动使身体强壮健康。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_arm_n_1_meaning_88dcf8968992,arm_n_1,2,2,2,,Choose the word that matches the meaning.,either of the two long parts that stick out from the top of the body and connect the shoulders to the hands,arm,手臂,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_arm_n_1_context_4962af1bd1b7,arm_n_1,2,2,2,ex_arm_n_1_1,根据句子选择目标单词的完整中文释义。,"She carried the baby in one arm.
+
+句中“arm”是什么意思？",arm,她用一只手臂抱着婴儿。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_arm_n_1_spelling_02bf5eb35734,arm_n_1,2,1,1,ex_arm_n_1_2,Complete the word using the first-letter hint.,He raised his a___ to ask a question.,arm,他举起手臂提问。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_arm_n_1_cloze_b0d522d24470,arm_n_1,2,3,3,ex_arm_n_1_1,手臂,She carried the baby in one ______.,arm,她用一只手臂抱着婴儿。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_nose_n_1_meaning_4ba74bfc07f1,nose_n_1,2,2,2,,Choose the word that matches the meaning.,"the part of the face that sticks out above the mouth, used for breathing and smelling things",nose,鼻子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_nose_n_1_context_320419df2795,nose_n_1,2,2,2,ex_nose_n_1_1,根据句子选择目标单词的完整中文释义。,"The cold air made my nose red.
+
+句中“nose”是什么意思？",nose,冷空气使我的鼻子发红。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_nose_n_1_spelling_85888b98a963,nose_n_1,2,1,1,ex_nose_n_1_2,Complete the word using the first-letter hint.,She covered her n___ near the smoke.,nose,她在烟雾附近捂住了鼻子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_nose_n_1_cloze_1b184b577aaf,nose_n_1,2,3,3,ex_nose_n_1_1,鼻子,The cold air made my ______ red.,nose,冷空气使我的鼻子发红。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_mouth_n_1_meaning_4abb5ce0dfd6,mouth_n_1,2,2,2,,Choose the word that matches the meaning.,"the opening in the face used for speaking, eating, etc.; the area inside the head behind this opening",mouth,嘴；口腔,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_mouth_n_1_context_20ea8be7f3ff,mouth_n_1,2,2,2,ex_mouth_n_1_1,根据句子选择目标单词的完整中文释义。,"Open your mouth and say ""ah.""
+
+句中“mouth”是什么意思？",mouth,张开嘴说“啊”。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_mouth_n_1_spelling_766b7fbdb416,mouth_n_1,2,1,1,ex_mouth_n_1_2,Complete the word using the first-letter hint.,He covered his m____ when he coughed.,mouth,他咳嗽时捂住了嘴。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_mouth_n_1_cloze_2846d5d62c95,mouth_n_1,2,3,3,ex_mouth_n_1_1,嘴；口腔,"Open your ______ and say ""ah.""",mouth,张开嘴说“啊”。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_childhood_n_1_meaning_13ec8b15ec52,childhood_n_1,2,2,2,,Choose the word that matches the meaning.,the period of somebody’s life when they are a child,childhood,童年,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_childhood_n_1_context_7c0cfa4a4901,childhood_n_1,2,2,2,ex_childhood_n_1_1,根据句子选择目标单词的完整中文释义。,"She spent her childhood near the ocean.
+
+句中“childhood”是什么意思？",childhood,她的童年在海边度过。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_childhood_n_1_spelling_9fe230013ee4,childhood_n_1,2,1,1,ex_childhood_n_1_2,Complete the word using the first-letter hint.,This photo reminds me of my c________.,childhood,这张照片让我想起童年。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_childhood_n_1_cloze_2d044fe962fd,childhood_n_1,2,3,3,ex_childhood_n_1_1,童年,She spent her ______ near the ocean.,childhood,她的童年在海边度过。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_skin_n_1_meaning_99bbb9ac1517,skin_n_1,2,2,2,,Choose the word that matches the meaning.,the layer of tissue that covers the body,skin,皮肤,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_skin_n_1_context_0ee038d041c6,skin_n_1,2,2,2,ex_skin_n_1_1,根据句子选择目标单词的完整中文释义。,"This soap is gentle on the skin.
+
+句中“skin”是什么意思？",skin,这种肥皂对皮肤很温和。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_skin_n_1_spelling_9908fbcc511f,skin_n_1,2,1,1,ex_skin_n_1_2,Complete the word using the first-letter hint.,Drink water to keep your s___ healthy.,skin,喝水有助于保持皮肤健康。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_skin_n_1_cloze_7f709b214197,skin_n_1,2,3,3,ex_skin_n_1_1,皮肤,This soap is gentle on the ______.,skin,这种肥皂对皮肤很温和。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_ear_n_1_meaning_2dac9721a70b,ear_n_1,2,2,2,,Choose the word that matches the meaning.,either of the organs on the sides of the head that you hear with,ear,耳朵,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_ear_n_1_context_b90aab8f457a,ear_n_1,2,2,2,ex_ear_n_1_1,根据句子选择目标单词的完整中文释义。,"The doctor examined the child's ear.
+
+句中“ear”是什么意思？",ear,医生检查了孩子的耳朵。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_ear_n_1_spelling_d81e9233d87f,ear_n_1,2,1,1,ex_ear_n_1_2,Complete the word using the first-letter hint.,She held the phone to her e___.,ear,她把电话贴在耳边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_ear_n_1_cloze_51e5bf0aeca6,ear_n_1,2,3,3,ex_ear_n_1_1,耳朵,The doctor examined the child's ______.,ear,医生检查了孩子的耳朵。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_leg_n_1_meaning_9d3121da4c56,leg_n_1,2,2,2,,Choose the word that matches the meaning.,one of the long parts that connect the feet to the rest of the body,leg,腿,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_leg_n_1_context_bfb14d83a993,leg_n_1,2,2,2,ex_leg_n_1_1,根据句子选择目标单词的完整中文释义。,"He injured his leg during the game.
+
+句中“leg”是什么意思？",leg,他在比赛中伤了腿。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_leg_n_1_spelling_7a721b53adae,leg_n_1,2,1,1,ex_leg_n_1_2,Complete the word using the first-letter hint.,She stood on one l___ for ten seconds.,leg,她单腿站了十秒钟。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_leg_n_1_cloze_c42fba618807,leg_n_1,2,3,3,ex_leg_n_1_1,腿,He injured his ______ during the game.,leg,他在比赛中伤了腿。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tooth_n_1_meaning_96c562190d77,tooth_n_1,2,2,2,,Choose the word that matches the meaning.,any of the hard white structures in the mouth used for biting food,tooth,牙齿,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tooth_n_1_context_496aa6aa772b,tooth_n_1,2,2,2,ex_tooth_n_1_1,根据句子选择目标单词的完整中文释义。,"The dentist checked the broken tooth.
+
+句中“tooth”是什么意思？",tooth,牙医检查了那颗坏牙。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_tooth_n_1_spelling_ec5c4af6c4db,tooth_n_1,2,1,1,ex_tooth_n_1_2,Complete the word using the first-letter hint.,Brush each t____ carefully every day.,tooth,每天认真刷每一颗牙。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_tooth_n_1_cloze_f1a8c00e7f49,tooth_n_1,2,3,3,ex_tooth_n_1_1,牙齿,The dentist checked the broken ______.,tooth,牙医检查了那颗坏牙。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_single_adj_1_meaning_5a15cfdb83fa,single_adj_1,2,2,2,,Choose the word that matches the meaning.,not married or in a romantic relationship,single,单身的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_single_adj_1_context_b7ff5dd99852,single_adj_1,2,2,2,ex_single_adj_1_1,根据句子选择目标单词的完整中文释义。,"He is single and lives alone.
+
+句中“single”是什么意思？",single,他单身并且独自生活。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_single_adj_1_spelling_1c509e89d369,single_adj_1,2,1,1,ex_single_adj_1_2,Complete the word using the first-letter hint.,She remained s_____ throughout her twenties.,single,她二十多岁时一直单身。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_single_adj_1_cloze_36dcb315ca3b,single_adj_1,2,3,3,ex_single_adj_1_1,单身的,He is ______ and lives alone.,single,他单身并且独自生活。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_look_n_1_meaning_53b279498f6b,look_n_1,2,2,2,,Choose the word that matches the meaning.,a person's appearance or the expression on their face,look,外表；神情,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_look_n_1_context_6dcaa89a1810,look_n_1,2,2,2,ex_look_n_1_1,根据句子选择目标单词的完整中文释义。,"Her new haircut changed her look.
+
+句中“look”是什么意思？",look,她的新发型改变了外表。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_look_n_1_spelling_59935d385d9a,look_n_1,2,1,1,ex_look_n_1_2,Complete the word using the first-letter hint.,The worried l___ on his face disappeared.,look,他脸上担忧的神情消失了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_look_n_1_cloze_075fe91de7be,look_n_1,2,3,3,ex_look_n_1_1,外表；神情,Her new haircut changed her ______.,look,她的新发型改变了外表。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_laugh_v_1_meaning_bfab5bb603ee,laugh_v_1,2,2,2,,Choose the word that matches the meaning.,to make the sounds and movements of your face that show you think something is funny or silly,laugh,笑,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_laugh_v_1_context_546c078111e3,laugh_v_1,2,2,2,ex_laugh_v_1_1,根据句子选择目标单词的完整中文释义。,"Children laugh when the story is funny.
+
+句中“laugh”是什么意思？",laugh,故事有趣时孩子们会笑。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_laugh_v_1_spelling_215c246ca18e,laugh_v_1,2,1,1,ex_laugh_v_1_2,Complete the word using the first-letter hint.,We often l____ together at dinner.,laugh,我们吃晚饭时常常一起笑。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_laugh_v_1_cloze_1981aec22387,laugh_v_1,2,3,3,ex_laugh_v_1_1,笑,Children ______ when the story is funny.,laugh,故事有趣时孩子们会笑。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_voice_n_1_meaning_859871b8fddd,voice_n_1,2,2,2,,Choose the word that matches the meaning.,the sound or sounds produced through the mouth by a person speaking or singing,voice,嗓音；声音,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_voice_n_1_context_868b907470df,voice_n_1,2,2,2,ex_voice_n_1_1,根据句子选择目标单词的完整中文释义。,"Her voice is calm and clear.
+
+句中“voice”是什么意思？",voice,她的声音平静而清晰。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_voice_n_1_spelling_c2c9ebf2194f,voice_n_1,2,1,1,ex_voice_n_1_2,Complete the word using the first-letter hint.,I recognized his v____ on the phone.,voice,我在电话里认出了他的声音。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_voice_n_1_cloze_875bed04ef66,voice_n_1,2,3,3,ex_voice_n_1_1,嗓音；声音,Her ______ is calm and clear.,voice,她的声音平静而清晰。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_smile_v_1_meaning_46843cf83219,smile_v_1,2,2,2,,Choose the word that matches the meaning.,to make a smile appear on your face,smile,微笑,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_smile_v_1_context_7fdc567ba055,smile_v_1,2,2,2,ex_smile_v_1_1,根据句子选择目标单词的完整中文释义。,"The baby began to smile at her mother.
+
+句中“smile”是什么意思？",smile,婴儿开始对妈妈微笑。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_smile_v_1_spelling_a96b184e1d09,smile_v_1,2,1,1,ex_smile_v_1_2,Complete the word using the first-letter hint.,She will s____ when she sees the gift.,smile,她看到礼物时会微笑。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_smile_v_1_cloze_11c1b90fccec,smile_v_1,2,3,3,ex_smile_v_1_1,微笑,The baby began to ______ at her mother.,smile,婴儿开始对妈妈微笑。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_appearance_n_1_meaning_6b8f6b7731ee,appearance_n_1,2,2,2,,Choose the word that matches the meaning.,the way that somebody/something looks on the outside; what somebody/something seems to be,appearance,外貌；外表,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_appearance_n_1_context_5206a55b01b9,appearance_n_1,2,2,2,ex_appearance_n_1_1,根据句子选择目标单词的完整中文释义。,"His appearance changed after he grew a beard.
+
+句中“appearance”是什么意思？",appearance,他留胡子后外貌发生了变化。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_appearance_n_1_spelling_4fe742c90dcd,appearance_n_1,2,1,1,ex_appearance_n_1_2,Complete the word using the first-letter hint.,Clothes can affect a person's a_________.,appearance,衣服会影响一个人的外表。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_appearance_n_1_cloze_ec19dbf5f06a,appearance_n_1,2,3,3,ex_appearance_n_1_1,外貌；外表,His ______ changed after he grew a beard.,appearance,他留胡子后外貌发生了变化。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_dead_adj_1_meaning_538990c82c58,dead_adj_1,2,2,2,,Choose the word that matches the meaning.,no longer alive,dead,死的；失去生命的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_dead_adj_1_context_dccf17969c41,dead_adj_1,2,2,2,ex_dead_adj_1_1,根据句子选择目标单词的完整中文释义。,"The bird was dead when we found it.
+
+句中“dead”是什么意思？",dead,我们发现那只鸟时，它已经死了。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_dead_adj_1_spelling_15cbdbb89009,dead_adj_1,2,1,1,ex_dead_adj_1_2,Complete the word using the first-letter hint.,The plant looks d___ without water.,dead,这株植物缺水，看起来已经死了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_dead_adj_1_cloze_bf883e4e22da,dead_adj_1,2,3,3,ex_dead_adj_1_1,死的；失去生命的,The bird was ______ when we found it.,dead,我们发现那只鸟时，它已经死了。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_male_adj_1_meaning_211ef5567fb8,male_adj_1,2,2,2,,Choose the word that matches the meaning.,being a man or boy,male,男性的；雄性的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_male_adj_1_context_83079596342f,male_adj_1,2,2,2,ex_male_adj_1_1,根据句子选择目标单词的完整中文释义。,"The male student entered the room first.
+
+句中“male”是什么意思？",male,那名男学生先走进房间。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_male_adj_1_spelling_32b481d9ad17,male_adj_1,2,1,1,ex_male_adj_1_2,Complete the word using the first-letter hint.,A m___ bird was sitting on the roof.,male,一只雄鸟停在屋顶上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_male_adj_1_cloze_3fac8bceafaa,male_adj_1,2,3,3,ex_male_adj_1_1,男性的；雄性的,The ______ student entered the room first.,male,那名男学生先走进房间。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_female_adj_1_meaning_b20e8b6474a2,female_adj_1,2,2,2,,Choose the word that matches the meaning.,being a woman or a girl,female,女性的；雌性的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_female_adj_1_context_6d65ceb82234,female_adj_1,2,2,2,ex_female_adj_1_1,根据句子选择目标单词的完整中文释义。,"The female doctor spoke to the family.
+
+句中“female”是什么意思？",female,那位女医生和家属交谈。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_female_adj_1_spelling_880e7d977f41,female_adj_1,2,1,1,ex_female_adj_1_2,Complete the word using the first-letter hint.,A f_____ cat was sleeping by the door.,female,一只母猫睡在门边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_female_adj_1_cloze_f4bf4a757447,female_adj_1,2,3,3,ex_female_adj_1_1,女性的；雌性的,The ______ doctor spoke to the family.,female,那位女医生和家属交谈。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_cute_adj_1_meaning_f09eebf7ae88,cute_adj_1,2,2,2,,Choose the word that matches the meaning.,pretty and attractive,cute,可爱的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_cute_adj_1_context_7e7be4e1c343,cute_adj_1,2,2,2,ex_cute_adj_1_1,根据句子选择目标单词的完整中文释义。,"The baby looks cute in that hat.
+
+句中“cute”是什么意思？",cute,婴儿戴着那顶帽子很可爱。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_cute_adj_1_spelling_c862e984f7ba,cute_adj_1,2,1,1,ex_cute_adj_1_2,Complete the word using the first-letter hint.,They adopted a c___ little dog.,cute,他们收养了一只可爱的小狗。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_cute_adj_1_cloze_422953a6972b,cute_adj_1,2,3,3,ex_cute_adj_1_1,可爱的,The baby looks ______ in that hat.,cute,婴儿戴着那顶帽子很可爱。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_alive_adj_1_meaning_022052eb4a8d,alive_adj_1,2,2,2,,Choose the word that matches the meaning.,living; not dead,alive,活着的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_alive_adj_1_context_92a0330de8c0,alive_adj_1,2,2,2,ex_alive_adj_1_1,根据句子选择目标单词的完整中文释义。,"The fish was still alive in the water.
+
+句中“alive”是什么意思？",alive,那条鱼在水里还活着。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_alive_adj_1_spelling_dff6846ca1b0,alive_adj_1,2,1,1,ex_alive_adj_1_2,Complete the word using the first-letter hint.,Doctors worked hard to keep him a____.,alive,医生们努力使他活下来。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_alive_adj_1_cloze_f7afc06c780b,alive_adj_1,2,3,3,ex_alive_adj_1_1,活着的,The fish was still ______ in the water.,alive,那条鱼在水里还活着。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_handsome_adj_1_meaning_e338ede55fbf,handsome_adj_1,2,2,2,,Choose the word that matches the meaning.,pleasing in appearance especially by reason of conformity to ideals of form and proportion,handsome,英俊的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_handsome_adj_1_context_f90780ca9f6d,handsome_adj_1,2,2,2,ex_handsome_adj_1_1,根据句子选择目标单词的完整中文释义。,"He looked handsome in his dark suit.
+
+句中“handsome”是什么意思？",handsome,他穿深色西装显得很英俊。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_handsome_adj_1_spelling_3cf9fd62a62c,handsome_adj_1,2,1,1,ex_handsome_adj_1_2,Complete the word using the first-letter hint.,The h_______ actor smiled at the camera.,handsome,那位英俊的演员对镜头微笑。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_handsome_adj_1_cloze_42a4f2ac414c,handsome_adj_1,2,3,3,ex_handsome_adj_1_1,英俊的,He looked ______ in his dark suit.,handsome,他穿深色西装显得很英俊。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_elderly_adj_1_meaning_1dc5250a2b02,elderly_adj_1,2,2,2,,Choose the word that matches the meaning.,used as a polite word for ‘old’,elderly,年长的；上了年纪的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_elderly_adj_1_context_144d3c93908d,elderly_adj_1,2,2,2,ex_elderly_adj_1_1,根据句子选择目标单词的完整中文释义。,"An elderly woman needed help crossing the street.
+
+句中“elderly”是什么意思？",elderly,一位老年妇女过马路时需要帮助。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_elderly_adj_1_spelling_4ecaa03594a2,elderly_adj_1,2,1,1,ex_elderly_adj_1_2,Complete the word using the first-letter hint.,The center provides meals for e______ people.,elderly,该中心为老年人提供餐食。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_elderly_adj_1_cloze_8d1771e89fa7,elderly_adj_1,2,3,3,ex_elderly_adj_1_1,年长的；上了年纪的,An ______ woman needed help crossing the street.,elderly,一位老年妇女过马路时需要帮助。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pregnant_adj_1_meaning_0350c8e85e95,pregnant_adj_1,2,2,2,,Choose the word that matches the meaning.,having a baby or young animal developing inside her/its body,pregnant,怀孕的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pregnant_adj_1_context_704198a267b9,pregnant_adj_1,2,2,2,ex_pregnant_adj_1_1,根据句子选择目标单词的完整中文释义。,"The pregnant woman attended a medical checkup.
+
+句中“pregnant”是什么意思？",pregnant,那位孕妇参加了产检。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_pregnant_adj_1_spelling_65b5986fc52a,pregnant_adj_1,2,1,1,ex_pregnant_adj_1_2,Complete the word using the first-letter hint.,She was six months p_______ at the time.,pregnant,她当时怀孕六个月。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_pregnant_adj_1_cloze_641df487cda1,pregnant_adj_1,2,3,3,ex_pregnant_adj_1_1,怀孕的,The ______ woman attended a medical checkup.,pregnant,那位孕妇参加了产检。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beard_n_1_meaning_633a0e713fbf,beard_n_1,2,2,2,,Choose the word that matches the meaning.,the hair growing on the lower part of a man's face,beard,胡须；胡子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beard_n_1_context_6b5a1456249b,beard_n_1,2,2,2,ex_beard_n_1_1,根据句子选择目标单词的完整中文释义。,"He grew a beard during the winter.
+
+句中“beard”是什么意思？",beard,他冬天留起了胡子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_beard_n_1_spelling_710a3c23af16,beard_n_1,2,1,1,ex_beard_n_1_2,Complete the word using the first-letter hint.,His b____ is short and gray.,beard,他的胡子又短又灰。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_beard_n_1_cloze_200123d8bb29,beard_n_1,2,3,3,ex_beard_n_1_1,胡须；胡子,He grew a ______ during the winter.,beard,他冬天留起了胡子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_slim_adj_1_meaning_cd9373ab2a97,slim_adj_1,2,2,2,,Choose the word that matches the meaning.,thin in an attractive or healthy-looking way,slim,苗条的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_slim_adj_1_context_c7abe131805e,slim_adj_1,2,2,2,ex_slim_adj_1_1,根据句子选择目标单词的完整中文释义。,"She is slim because she exercises regularly.
+
+句中“slim”是什么意思？",slim,她经常运动，所以身材苗条。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_2_slim_adj_1_spelling_fbf3a990adf8,slim_adj_1,2,1,1,ex_slim_adj_1_2,Complete the word using the first-letter hint.,The s___ athlete runs every morning.,slim,那位身材苗条的运动员每天早上跑步。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_2_slim_adj_1_cloze_4330956cf8fb,slim_adj_1,2,3,3,ex_slim_adj_1_1,苗条的,She is ______ because she exercises regularly.,slim,她经常运动，所以身材苗条。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_care_v_1_meaning_fe0e6599d8c2,care_v_1,3,2,2,,Choose the word that matches the meaning.,to feel that something is important and worth worrying about,care,关心；在意,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_care_v_1_context_4a89aa49dc85,care_v_1,3,2,2,ex_care_v_1_1,根据句子选择目标单词的完整中文释义。,"Good parents care about their children's feelings.
+
+句中“care”是什么意思？",care,好父母关心孩子的感受。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_care_v_1_spelling_4e120dacd13d,care_v_1,3,1,1,ex_care_v_1_2,Complete the word using the first-letter hint.,I c___ about the health of my family.,care,我关心家人的健康。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_care_v_1_cloze_08b5df4ec531,care_v_1,3,3,3,ex_care_v_1_1,关心；在意,Good parents ______ about their children's feelings.,care,好父母关心孩子的感受。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_support_v_1_meaning_13a40af53c0c,support_v_1,3,2,2,,Choose the word that matches the meaning.,"to help someone emotionally, practically, or financially",support,支持；帮助,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_support_v_1_context_92a4f46e198e,support_v_1,3,2,2,ex_support_v_1_1,根据句子选择目标单词的完整中文释义。,"Family members support one another during difficult times.
+
+句中“support”是什么意思？",support,家人在困难时期互相支持。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_support_v_1_spelling_f582782eb630,support_v_1,3,1,1,ex_support_v_1_2,Complete the word using the first-letter hint.,Her parents s______ her decision to study abroad.,support,她父母支持她出国留学的决定。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_support_v_1_cloze_dec372e25d87,support_v_1,3,3,3,ex_support_v_1_1,支持；帮助,Family members ______ one another during difficult times.,support,家人在困难时期互相支持。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_love_v_1_meaning_7f7a3b3721ae,love_v_1,3,2,2,,Choose the word that matches the meaning.,to have very strong feelings of liking and caring for somebody,love,爱；喜爱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_love_v_1_context_d4b3b001b7ee,love_v_1,3,2,2,ex_love_v_1_1,根据句子选择目标单词的完整中文释义。,"Parents love their children deeply.
+
+句中“love”是什么意思？",love,父母深爱自己的孩子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_love_v_1_spelling_c6d70bfc88fb,love_v_1,3,1,1,ex_love_v_1_2,Complete the word using the first-letter hint.,I l___ spending time with my family.,love,我喜欢和家人共度时光。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_love_v_1_cloze_5fb534722388,love_v_1,3,3,3,ex_love_v_1_1,爱；喜爱,Parents ______ their children deeply.,love,父母深爱自己的孩子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_help_v_1_meaning_2452866dc85c,help_v_1,3,2,2,,Choose the word that matches the meaning.,to make it easier or possible for somebody to do something by doing something for them or by giving them something that they need,help,帮助,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_help_v_1_context_081de06842e7,help_v_1,3,2,2,ex_help_v_1_1,根据句子选择目标单词的完整中文释义。,"Older children help with the housework.
+
+句中“help”是什么意思？",help,大一点的孩子帮忙做家务。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_help_v_1_spelling_3b17e3049e3d,help_v_1,3,1,1,ex_help_v_1_2,Complete the word using the first-letter hint.,Please h___ your grandmother carry the bag.,help,请帮奶奶提这个袋子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_help_v_1_cloze_ee1a70970e77,help_v_1,3,3,3,ex_help_v_1_1,帮助,Older children ______ with the housework.,help,大一点的孩子帮忙做家务。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_live_v_1_meaning_80063487f4d7,live_v_1,3,2,2,,Choose the word that matches the meaning.,to have your home in a particular place,live,居住,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_live_v_1_context_91b86994874e,live_v_1,3,2,2,ex_live_v_1_1,根据句子选择目标单词的完整中文释义。,"My grandparents live in a quiet town.
+
+句中“live”是什么意思？",live,我的祖父母住在一个安静的小镇。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_live_v_1_spelling_9437f3ee34c0,live_v_1,3,1,1,ex_live_v_1_2,Complete the word using the first-letter hint.,We l___ near the city center.,live,我们住在市中心附近。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_live_v_1_cloze_eb9de48c851d,live_v_1,3,3,3,ex_live_v_1_1,居住,My grandparents ______ in a quiet town.,live,我的祖父母住在一个安静的小镇。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_share_v_1_meaning_5d9fc6f1fac5,share_v_1,3,2,2,,Choose the word that matches the meaning.,"to have, use or experience something at the same time as somebody else",share,分享；共用,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_share_v_1_context_2d897d2a91da,share_v_1,3,2,2,ex_share_v_1_1,根据句子选择目标单词的完整中文释义。,"The sisters share a bedroom.
+
+句中“share”是什么意思？",share,姐妹俩共用一间卧室。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_share_v_1_spelling_b786ea863b02,share_v_1,3,1,1,ex_share_v_1_2,Complete the word using the first-letter hint.,We s____ family news during dinner.,share,我们吃晚饭时分享家庭近况。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_share_v_1_cloze_967e942b07a0,share_v_1,3,3,3,ex_share_v_1_1,分享；共用,The sisters ______ a bedroom.,share,姐妹俩共用一间卧室。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_visit_v_1_meaning_71ee73d4828a,visit_v_1,3,2,2,,Choose the word that matches the meaning.,to go to see a person or a place for a period of time,visit,拜访；看望,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_visit_v_1_context_c69087169e25,visit_v_1,3,2,2,ex_visit_v_1_1,根据句子选择目标单词的完整中文释义。,"We visit our relatives during the holidays.
+
+句中“visit”是什么意思？",visit,我们假期去看望亲戚。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_visit_v_1_spelling_9e516c75a980,visit_v_1,3,1,1,ex_visit_v_1_2,Complete the word using the first-letter hint.,She plans to v____ her aunt next weekend.,visit,她计划下周末去看望姨妈。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_visit_v_1_cloze_7cfab6f627c4,visit_v_1,3,3,3,ex_visit_v_1_1,拜访；看望,We ______ our relatives during the holidays.,visit,我们假期去看望亲戚。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_meet_v_1_meaning_9c3d96bd3cdd,meet_v_1,3,2,2,,Choose the word that matches the meaning.,"to come together with someone, either by plan or by chance",meet,见面；遇见,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_meet_v_1_context_4c8aa3674f17,meet_v_1,3,2,2,ex_meet_v_1_1,根据句子选择目标单词的完整中文释义。,"Our family will meet at the restaurant tonight.
+
+句中“meet”是什么意思？",meet,我们全家今晚将在餐馆见面。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_meet_v_1_spelling_e5646c117fa0,meet_v_1,3,1,1,ex_meet_v_1_2,Complete the word using the first-letter hint.,I often m___ my neighbor near the bus stop.,meet,我经常在公交车站附近遇到邻居。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_meet_v_1_cloze_2992a9a50451,meet_v_1,3,3,3,ex_meet_v_1_1,见面；遇见,Our family will ______ at the restaurant tonight.,meet,我们全家今晚将在餐馆见面。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_relationship_n_1_meaning_fcf494fe4a8b,relationship_n_1,3,2,2,,Choose the word that matches the meaning.,"the way in which two people, groups or countries behave towards each other or deal with each other",relationship,关系,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_relationship_n_1_context_d048733a4bbc,relationship_n_1,3,2,2,ex_relationship_n_1_1,根据句子选择目标单词的完整中文释义。,"Trust builds a strong relationship.
+
+句中“relationship”是什么意思？",relationship,信任能建立牢固的关系。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_relationship_n_1_spelling_5c7b73b3e5b7,relationship_n_1,3,1,1,ex_relationship_n_1_2,Complete the word using the first-letter hint.,She has a close r___________ with her sister.,relationship,她和姐姐关系亲密。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_relationship_n_1_cloze_4a4466d2d9ba,relationship_n_1,3,3,3,ex_relationship_n_1_1,关系,Trust builds a strong ______.,relationship,信任能建立牢固的关系。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_remember_v_1_meaning_10242e68b47c,remember_v_1,3,2,2,,Choose the word that matches the meaning.,"to have or keep an image in your memory of an event, a person, a place, etc. from the past",remember,记得；记住,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_remember_v_1_context_76fcf91bd29e,remember_v_1,3,2,2,ex_remember_v_1_1,根据句子选择目标单词的完整中文释义。,"Remember to call your parents tonight.
+
+句中“remember”是什么意思？",remember,记得今晚给父母打电话。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_remember_v_1_spelling_09b646e91846,remember_v_1,3,1,1,ex_remember_v_1_2,Complete the word using the first-letter hint.,I r_______ my grandfather's kind voice.,remember,我记得祖父亲切的声音。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_remember_v_1_cloze_60c7ccf86a42,remember_v_1,3,3,3,ex_remember_v_1_1,记得；记住,______ to call your parents tonight.,remember,记得今晚给父母打电话。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_know_v_1_meaning_a807ae3842dc,know_v_1,3,2,2,,Choose the word that matches the meaning.,to have information in your mind as a result of experience or because you have learned or been told it,know,知道；认识,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_know_v_1_context_beae61894b5b,know_v_1,3,2,2,ex_know_v_1_1,根据句子选择目标单词的完整中文释义。,"I know everyone in my family well.
+
+句中“know”是什么意思？",know,我很了解家里的每个人。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_know_v_1_spelling_dc62955d824e,know_v_1,3,1,1,ex_know_v_1_2,Complete the word using the first-letter hint.,Do you k___ the woman at the door?,know,你认识门口的那位女士吗？,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_know_v_1_cloze_1cf993bac07c,know_v_1,3,3,3,ex_know_v_1_1,知道；认识,I ______ everyone in my family well.,know,我很了解家里的每个人。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_nice_adj_1_meaning_1ba8ed705669,nice_adj_1,3,2,2,,Choose the word that matches the meaning.,pleasant or attractive,nice,友好的；令人愉快的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_nice_adj_1_context_1880b516ab60,nice_adj_1,3,2,2,ex_nice_adj_1_1,根据句子选择目标单词的完整中文释义。,"Our new neighbor is very nice.
+
+句中“nice”是什么意思？",nice,我们的新邻居非常友好。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_nice_adj_1_spelling_305f16467a0f,nice_adj_1,3,1,1,ex_nice_adj_1_2,Complete the word using the first-letter hint.,We had a n___ family dinner together.,nice,我们一起吃了一顿愉快的家庭晚餐。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_nice_adj_1_cloze_cb17cddd9b23,nice_adj_1,3,3,3,ex_nice_adj_1_1,友好的；令人愉快的,Our new neighbor is very ______.,nice,我们的新邻居非常友好。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_kind_adj_1_meaning_d01bfddc6eef,kind_adj_1,3,2,2,,Choose the word that matches the meaning.,"caring about others; gentle, friendly and generous",kind,善良的；体贴的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_kind_adj_1_context_fc67c5749c44,kind_adj_1,3,2,2,ex_kind_adj_1_1,根据句子选择目标单词的完整中文释义。,"It was kind of her to help the child.
+
+句中“kind”是什么意思？",kind,她帮助那个孩子，真是善良。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_kind_adj_1_spelling_c4227665521c,kind_adj_1,3,1,1,ex_kind_adj_1_2,Complete the word using the first-letter hint.,Be k___ to elderly family members.,kind,要善待年长的家人。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_kind_adj_1_cloze_c82bda4099fd,kind_adj_1,3,3,3,ex_kind_adj_1_1,善良的；体贴的,It was ______ of her to help the child.,kind,她帮助那个孩子，真是善良。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_respect_v_1_meaning_9173d32ea56b,respect_v_1,3,2,2,,Choose the word that matches the meaning.,to have a very good opinion of somebody/something; to admire somebody/something,respect,尊重,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_respect_v_1_context_0d60e93dc4a8,respect_v_1,3,2,2,ex_respect_v_1_1,根据句子选择目标单词的完整中文释义。,"Children should respect other people's feelings.
+
+句中“respect”是什么意思？",respect,孩子应该尊重他人的感受。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_respect_v_1_spelling_dd6082e6cbaf,respect_v_1,3,1,1,ex_respect_v_1_2,Complete the word using the first-letter hint.,I r______ my grandmother for her honesty.,respect,我敬重祖母的诚实。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_respect_v_1_cloze_6120e833a9e6,respect_v_1,3,3,3,ex_respect_v_1_1,尊重,Children should ______ other people's feelings.,respect,孩子应该尊重他人的感受。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_culture_n_1_meaning_69ff3b0eadf2,culture_n_1,3,2,2,,Choose the word that matches the meaning.,"the customs and beliefs, art, way of life and social organization of a particular country or group",culture,文化,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_culture_n_1_context_cedeb04b058f,culture_n_1,3,2,2,ex_culture_n_1_1,根据句子选择目标单词的完整中文释义。,"Food is an important part of family culture.
+
+句中“culture”是什么意思？",culture,食物是家庭文化的重要组成部分。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_culture_n_1_spelling_01e501c5638c,culture_n_1,3,1,1,ex_culture_n_1_2,Complete the word using the first-letter hint.,Every c______ has different family traditions.,culture,每种文化都有不同的家庭传统。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_culture_n_1_cloze_e843d9f86dc2,culture_n_1,3,3,3,ex_culture_n_1_1,文化,Food is an important part of family ______.,culture,食物是家庭文化的重要组成部分。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_friendly_adj_1_meaning_14d79c1c48df,friendly_adj_1,3,2,2,,Choose the word that matches the meaning.,behaving in a kind and pleasant way because you like somebody or want to help them,friendly,友好的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_friendly_adj_1_context_d5af516d9e01,friendly_adj_1,3,2,2,ex_friendly_adj_1_1,根据句子选择目标单词的完整中文释义。,"The new student was friendly to everyone.
+
+句中“friendly”是什么意思？",friendly,新同学对每个人都很友好。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_friendly_adj_1_spelling_a68ef4255242,friendly_adj_1,3,1,1,ex_friendly_adj_1_2,Complete the word using the first-letter hint.,Our neighbor gave us a f_______ smile.,friendly,邻居友好地对我们微笑。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_friendly_adj_1_cloze_48229f6b59a1,friendly_adj_1,3,3,3,ex_friendly_adj_1_1,友好的,The new student was ______ to everyone.,friendly,新同学对每个人都很友好。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_community_n_1_meaning_69c3e76c2da7,community_n_1,3,2,2,,Choose the word that matches the meaning.,"all the people who live in a particular area, country, etc. when talked about as a group",community,社区,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_community_n_1_context_42ac05f7803d,community_n_1,3,2,2,ex_community_n_1_1,根据句子选择目标单词的完整中文释义。,"Our community has a center for families.
+
+句中“community”是什么意思？",community,我们的社区有一个家庭活动中心。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_community_n_1_spelling_1232814b87e5,community_n_1,3,1,1,ex_community_n_1_2,Complete the word using the first-letter hint.,People in the c________ helped the elderly couple.,community,社区里的人帮助了那对老年夫妇。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_community_n_1_cloze_8bd31c28a377,community_n_1,3,3,3,ex_community_n_1_1,社区,Our ______ has a center for families.,community,我们的社区有一个家庭活动中心。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_quiet_adj_1_meaning_d06602deb574,quiet_adj_1,3,2,2,,Choose the word that matches the meaning.,making very little noise,quiet,安静的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_quiet_adj_1_context_6a7be9ae2f64,quiet_adj_1,3,2,2,ex_quiet_adj_1_1,根据句子选择目标单词的完整中文释义。,"The baby needs a quiet room to sleep.
+
+句中“quiet”是什么意思？",quiet,婴儿需要一个安静的房间睡觉。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_quiet_adj_1_spelling_de30b01f785c,quiet_adj_1,3,1,1,ex_quiet_adj_1_2,Complete the word using the first-letter hint.,Our house is q____ in the morning.,quiet,我们家早上很安静。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_quiet_adj_1_cloze_53f92a0db528,quiet_adj_1,3,3,3,ex_quiet_adj_1_1,安静的,The baby needs a ______ room to sleep.,quiet,婴儿需要一个安静的房间睡觉。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_role_n_1_meaning_304d06310ccd,role_n_1,3,2,2,,Choose the word that matches the meaning.,the function or position someone has in a family or group,role,角色；职责,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_role_n_1_context_954cbb1cfc6c,role_n_1,3,2,2,ex_role_n_1_1,根据句子选择目标单词的完整中文释义。,"Parents have an important role in education.
+
+句中“role”是什么意思？",role,父母在教育中有重要作用。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_role_n_1_spelling_e70c7777db50,role_n_1,3,1,1,ex_role_n_1_2,Complete the word using the first-letter hint.,Each family member has a different r___.,role,每个家庭成员都有不同的职责。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_role_n_1_cloze_1958780bfdaa,role_n_1,3,3,3,ex_role_n_1_1,角色；职责,Parents have an important ______ in education.,role,父母在教育中有重要作用。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_trust_n_1_meaning_0d90b0e5a22f,trust_n_1,3,2,2,,Choose the word that matches the meaning.,"the belief that somebody/something is good, sincere, honest, etc. and will not try to harm or trick you",trust,信任,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_trust_n_1_context_581131014410,trust_n_1,3,2,2,ex_trust_n_1_1,根据句子选择目标单词的完整中文释义。,"Honest communication creates trust in a family.
+
+句中“trust”是什么意思？",trust,诚实沟通能在家庭中建立信任。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_trust_n_1_spelling_93b5eedbde60,trust_n_1,3,1,1,ex_trust_n_1_2,Complete the word using the first-letter hint.,Children need t____ and support from adults.,trust,孩子需要成年人的信任和支持。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_trust_n_1_cloze_bdf58ce071f9,trust_n_1,3,3,3,ex_trust_n_1_1,信任,Honest communication creates ______ in a family.,trust,诚实沟通能在家庭中建立信任。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsibility_n_1_meaning_61207ef11d11,responsibility_n_1,3,2,2,,Choose the word that matches the meaning.,"duty to deal with or take care of somebody/something, so that you may be blamed if something goes wrong",responsibility,责任,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsibility_n_1_context_0e4a7ef040ac,responsibility_n_1,3,2,2,ex_responsibility_n_1_1,根据句子选择目标单词的完整中文释义。,"Caring for the baby is a shared responsibility.
+
+句中“responsibility”是什么意思？",responsibility,照顾婴儿是共同的责任。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_responsibility_n_1_spelling_bb75ac60151e,responsibility_n_1,3,1,1,ex_responsibility_n_1_2,Complete the word using the first-letter hint.,Every parent has r_____________ for a child's safety.,responsibility,每位父母都对孩子的安全负有责任。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsibility_n_1_cloze_0fdbc41475a8,responsibility_n_1,3,3,3,ex_responsibility_n_1_1,责任,Caring for the baby is a shared ______.,responsibility,照顾婴儿是共同的责任。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_active_adj_1_meaning_64deb4e54b49,active_adj_1,3,2,2,,Choose the word that matches the meaning.,"always busy doing things, especially physical activities",active,活跃的；积极的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_active_adj_1_context_b4420e5f7e27,active_adj_1,3,2,2,ex_active_adj_1_1,根据句子选择目标单词的完整中文释义。,"My grandfather remains active at eighty.
+
+句中“active”是什么意思？",active,我祖父八十岁时仍然很活跃。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_active_adj_1_spelling_8a62ba686f25,active_adj_1,3,1,1,ex_active_adj_1_2,Complete the word using the first-letter hint.,a_____ children need plenty of healthy food.,active,活跃的孩子需要充足的健康食物。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_active_adj_1_cloze_02bd38d3e09d,active_adj_1,3,3,3,ex_active_adj_1_1,活跃的；积极的,My grandfather remains ______ at eighty.,active,我祖父八十岁时仍然很活跃。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_independent_adj_1_meaning_43681f03801d,independent_adj_1,3,2,2,,Choose the word that matches the meaning.,able to live or act without depending on other people,independent,独立的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_independent_adj_1_context_e30a58823318,independent_adj_1,3,2,2,ex_independent_adj_1_1,根据句子选择目标单词的完整中文释义。,"Teenagers gradually become more independent.
+
+句中“independent”是什么意思？",independent,青少年会逐渐变得更加独立。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_independent_adj_1_spelling_3148c9d5f3df,independent_adj_1,3,1,1,ex_independent_adj_1_2,Complete the word using the first-letter hint.,She is i__________ and manages her own money.,independent,她很独立，自己管理钱财。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_independent_adj_1_cloze_e057d5f090de,independent_adj_1,3,3,3,ex_independent_adj_1_1,独立的,Teenagers gradually become more ______.,independent,青少年会逐渐变得更加独立。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_honest_adj_1_meaning_15507ba119c3,honest_adj_1,3,2,2,,Choose the word that matches the meaning.,"always telling the truth, and never stealing or cheating",honest,诚实的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_honest_adj_1_context_d8b648907f74,honest_adj_1,3,2,2,ex_honest_adj_1_1,根据句子选择目标单词的完整中文释义。,"An honest person tells the truth.
+
+句中“honest”是什么意思？",honest,诚实的人会说真话。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_honest_adj_1_spelling_77d3a462f330,honest_adj_1,3,1,1,ex_honest_adj_1_2,Complete the word using the first-letter hint.,Please be h_____ with your family.,honest,请对家人诚实。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_honest_adj_1_cloze_dd3c0844d35a,honest_adj_1,3,3,3,ex_honest_adj_1_1,诚实的,An ______ person tells the truth.,honest,诚实的人会说真话。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_raise_v_1_meaning_90768b11fa4b,raise_v_1,3,2,2,,Choose the word that matches the meaning.,to care for a child until the child becomes an adult,raise,抚养；养育,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_raise_v_1_context_aa1ea9999d5b,raise_v_1,3,2,2,ex_raise_v_1_1,根据句子选择目标单词的完整中文释义。,"They raise their children in a small town.
+
+句中“raise”是什么意思？",raise,他们在一个小镇抚养孩子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_raise_v_1_spelling_61983f4c7dc3,raise_v_1,3,1,1,ex_raise_v_1_2,Complete the word using the first-letter hint.,Her grandparents helped r____ her after school.,raise,她的祖父母在课后帮助照顾并养育她。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_raise_v_1_cloze_372d4bc26188,raise_v_1,3,3,3,ex_raise_v_1_1,抚养；养育,They ______ their children in a small town.,raise,他们在一个小镇抚养孩子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_value_n_1_meaning_ee191c9ccff5,value_n_1,3,2,2,,Choose the word that matches the meaning.,a belief about what is important or morally right,value,价值观；准则,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_value_n_1_context_61c39cb6ee56,value_n_1,3,2,2,ex_value_n_1_1,根据句子选择目标单词的完整中文释义。,"Respect is an important family value.
+
+句中“value”是什么意思？",value,尊重是一种重要的家庭价值观。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_value_n_1_spelling_66282711084a,value_n_1,3,1,1,ex_value_n_1_2,Complete the word using the first-letter hint.,Honesty is a v____ shared by the whole family.,value,诚实是全家人共同的价值观。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_value_n_1_cloze_a72b4d615401,value_n_1,3,3,3,ex_value_n_1_1,价值观；准则,Respect is an important family ______.,value,尊重是一种重要的家庭价值观。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_different_adj_1_meaning_15b7b051079e,different_adj_1,3,2,2,,Choose the word that matches the meaning.,not the same as somebody/something; not like somebody/something else,different,不同的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_different_adj_1_context_21c13d13ddeb,different_adj_1,3,2,2,ex_different_adj_1_1,根据句子选择目标单词的完整中文释义。,"The twins have different personalities.
+
+句中“different”是什么意思？",different,这对双胞胎性格不同。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_different_adj_1_spelling_bce9c1e35e2f,different_adj_1,3,1,1,ex_different_adj_1_2,Complete the word using the first-letter hint.,Family members may have d________ opinions.,different,家庭成员可能有不同意见。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_different_adj_1_cloze_2777b62fd5f6,different_adj_1,3,3,3,ex_different_adj_1_1,不同的,The twins have ______ personalities.,different,这对双胞胎性格不同。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_argument_n_1_meaning_cd883f732ef6,argument_n_1,3,2,2,,Choose the word that matches the meaning.,"conversation or discussion in which two or more people disagree, often angrily",argument,争吵；争论,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_argument_n_1_context_7a6f698ad9db,argument_n_1,3,2,2,ex_argument_n_1_1,根据句子选择目标单词的完整中文释义。,"The brothers had an argument about the computer.
+
+句中“argument”是什么意思？",argument,兄弟俩因为电脑发生了争吵。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_argument_n_1_spelling_ab5525d572d2,argument_n_1,3,1,1,ex_argument_n_1_2,Complete the word using the first-letter hint.,A small a_______ should not damage a friendship.,argument,小争执不应该破坏友谊。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_argument_n_1_cloze_0a87cdea4775,argument_n_1,3,3,3,ex_argument_n_1_1,争吵；争论,The brothers had an ______ about the computer.,argument,兄弟俩因为电脑发生了争吵。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_agree_v_1_meaning_86686cd1ba47,agree_v_1,3,2,2,,Choose the word that matches the meaning.,to have the same opinion as somebody; to say that you have the same opinion,agree,同意,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_agree_v_1_context_4fc00dd28186,agree_v_1,3,2,2,ex_agree_v_1_1,根据句子选择目标单词的完整中文释义。,"We agree that family time is important.
+
+句中“agree”是什么意思？",agree,我们同意家庭时间很重要。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_agree_v_1_spelling_f49cdc99d28b,agree_v_1,3,1,1,ex_agree_v_1_2,Complete the word using the first-letter hint.,My parents a____ with my study plan.,agree,我父母赞同我的学习计划。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_agree_v_1_cloze_5892e4ba5e27,agree_v_1,3,3,3,ex_agree_v_1_1,同意,We ______ that family time is important.,agree,我们同意家庭时间很重要。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_similar_adj_1_meaning_25a14c3ebcff,similar_adj_1,3,2,2,,Choose the word that matches the meaning.,like somebody/something but not exactly the same,similar,相似的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_similar_adj_1_context_b40d46290d0b,similar_adj_1,3,2,2,ex_similar_adj_1_1,根据句子选择目标单词的完整中文释义。,"The sisters have similar voices.
+
+句中“similar”是什么意思？",similar,姐妹俩的声音很相似。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_similar_adj_1_spelling_ea1d705261f8,similar_adj_1,3,1,1,ex_similar_adj_1_2,Complete the word using the first-letter hint.,Our family traditions are s______ to theirs.,similar,我们的家庭传统和他们的相似。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_similar_adj_1_cloze_64d399af1c2b,similar_adj_1,3,3,3,ex_similar_adj_1_1,相似的,The sisters have ______ voices.,similar,姐妹俩的声音很相似。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_polite_adj_1_meaning_3ed60ee02468,polite_adj_1,3,2,2,,Choose the word that matches the meaning.,having or showing good manners and respect for the feelings of others,polite,有礼貌的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_polite_adj_1_context_6fc721bab2c3,polite_adj_1,3,2,2,ex_polite_adj_1_1,根据句子选择目标单词的完整中文释义。,"The polite child thanked her aunt.
+
+句中“polite”是什么意思？",polite,那个有礼貌的孩子感谢了姨妈。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_polite_adj_1_spelling_fe135917b735,polite_adj_1,3,1,1,ex_polite_adj_1_2,Complete the word using the first-letter hint.,It is p_____ to listen when others speak.,polite,别人说话时认真倾听是有礼貌的。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_polite_adj_1_cloze_0d44954cbd38,polite_adj_1,3,3,3,ex_polite_adj_1_1,有礼貌的,The ______ child thanked her aunt.,polite,那个有礼貌的孩子感谢了姨妈。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_attitude_n_1_meaning_9e0032c476d7,attitude_n_1,3,2,2,,Choose the word that matches the meaning.,the way that you think and feel about somebody/something; the way that you behave towards somebody/something that shows how you think and feel,attitude,态度,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_attitude_n_1_context_00631d5e7ead,attitude_n_1,3,2,2,ex_attitude_n_1_1,根据句子选择目标单词的完整中文释义。,"A positive attitude can improve family life.
+
+句中“attitude”是什么意思？",attitude,积极的态度可以改善家庭生活。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_attitude_n_1_spelling_aa99976ab390,attitude_n_1,3,1,1,ex_attitude_n_1_2,Complete the word using the first-letter hint.,His a_______ toward housework has changed.,attitude,他对家务的态度已经改变。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_attitude_n_1_cloze_a2903ffe195e,attitude_n_1,3,3,3,ex_attitude_n_1_1,态度,A positive ______ can improve family life.,attitude,积极的态度可以改善家庭生活。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsible_adj_1_meaning_3ab8ad53653a,responsible_adj_1,3,2,2,,Choose the word that matches the meaning.,"having the job or duty of doing something or taking care of somebody/something, so that you may be blamed if something goes wrong",responsible,负责任的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsible_adj_1_context_7999286b98e9,responsible_adj_1,3,2,2,ex_responsible_adj_1_1,根据句子选择目标单词的完整中文释义。,"A responsible adult keeps children safe.
+
+句中“responsible”是什么意思？",responsible,负责任的成年人会保护孩子的安全。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_responsible_adj_1_spelling_aceb4848fa1b,responsible_adj_1,3,1,1,ex_responsible_adj_1_2,Complete the word using the first-letter hint.,She is r__________ for cooking dinner tonight.,responsible,她负责今晚做晚饭。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_responsible_adj_1_cloze_433d6f4ab9ce,responsible_adj_1,3,3,3,ex_responsible_adj_1_1,负责任的,A ______ adult keeps children safe.,responsible,负责任的成年人会保护孩子的安全。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_tradition_n_1_meaning_31e46e66d044,tradition_n_1,3,2,2,,Choose the word that matches the meaning.,"belief, custom or way of doing something that has existed for a long time among a particular group of people; a set of these beliefs or customs",tradition,传统,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_tradition_n_1_context_f26ace2d7c51,tradition_n_1,3,2,2,ex_tradition_n_1_1,根据句子选择目标单词的完整中文释义。,"Eating together on Sundays is a family tradition.
+
+句中“tradition”是什么意思？",tradition,星期天一起吃饭是家庭传统。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_tradition_n_1_spelling_ad4fef207197,tradition_n_1,3,1,1,ex_tradition_n_1_2,Complete the word using the first-letter hint.,This t________ has continued for three generations.,tradition,这个传统已经延续了三代。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_tradition_n_1_cloze_369b3a74d1e9,tradition_n_1,3,3,3,ex_tradition_n_1_1,传统,Eating together on Sundays is a family ______.,tradition,星期天一起吃饭是家庭传统。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_together_adv_1_meaning_7927d5f59600,together_adv_1,3,2,2,,Choose the word that matches the meaning.,with or near to somebody/something else; with each other,together,一起；共同,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_together_adv_1_context_aa5c0994a175,together_adv_1,3,2,2,ex_together_adv_1_1,根据句子选择目标单词的完整中文释义。,"The whole family traveled together.
+
+句中“together”是什么意思？",together,全家人一起旅行。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_together_adv_1_spelling_40aeee3bcc53,together_adv_1,3,1,1,ex_together_adv_1_2,Complete the word using the first-letter hint.,We worked t_______ to clean the house.,together,我们一起打扫房子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_together_adv_1_cloze_a2fd01934dbb,together_adv_1,3,3,3,ex_together_adv_1_1,一起；共同,The whole family traveled ______.,together,全家人一起旅行。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_common_adj_1_meaning_1b9bf0e33cc5,common_adj_1,3,2,2,,Choose the word that matches the meaning.,happening often; existing in large numbers or in many places,common,常见的；共同的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_common_adj_1_context_54af039190f1,common_adj_1,3,2,2,ex_common_adj_1_1,根据句子选择目标单词的完整中文释义。,"Disagreements are common in large families.
+
+句中“common”是什么意思？",common,分歧在大家庭中很常见。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_common_adj_1_spelling_a8fe3feae7a2,common_adj_1,3,1,1,ex_common_adj_1_2,Complete the word using the first-letter hint.,The cousins share a c_____ interest in music.,common,这对表亲都对音乐感兴趣。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_common_adj_1_cloze_e90e4e5382f3,common_adj_1,3,3,3,ex_common_adj_1_1,常见的；共同的,Disagreements are ______ in large families.,common,分歧在大家庭中很常见。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_influence_n_1_meaning_19b56da9352f,influence_n_1,3,2,2,,Choose the word that matches the meaning.,the effect that somebody/something has on the way a person thinks or behaves or on the way that something works or develops,influence,影响,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_influence_n_1_context_07d71aa2b8e6,influence_n_1,3,2,2,ex_influence_n_1_1,根据句子选择目标单词的完整中文释义。,"Parents have a strong influence on young children.
+
+句中“influence”是什么意思？",influence,父母对年幼的孩子有很大影响。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_influence_n_1_spelling_6c39ee844f34,influence_n_1,3,1,1,ex_influence_n_1_2,Complete the word using the first-letter hint.,Her grandmother was an important i________ in her life.,influence,祖母是她人生中的重要影响者。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_influence_n_1_cloze_8621989357fc,influence_n_1,3,3,3,ex_influence_n_1_1,影响,Parents have a strong ______ on young children.,influence,父母对年幼的孩子有很大影响。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_protect_v_1_meaning_d1739d3062b3,protect_v_1,3,2,2,,Choose the word that matches the meaning.,"to make sure that somebody/something is not harmed, injured, damaged, etc.",protect,保护,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_protect_v_1_context_18f58f1d7754,protect_v_1,3,2,2,ex_protect_v_1_1,根据句子选择目标单词的完整中文释义。,"Parents protect their children from danger.
+
+句中“protect”是什么意思？",protect,父母保护孩子免受危险。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_protect_v_1_spelling_c6daca4356ab,protect_v_1,3,1,1,ex_protect_v_1_2,Complete the word using the first-letter hint.,This lock helps p______ the family home.,protect,这把锁有助于保护家庭住宅。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_protect_v_1_cloze_9f5d299fe528,protect_v_1,3,3,3,ex_protect_v_1_1,保护,Parents ______ their children from danger.,protect,父母保护孩子免受危险。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_close_adj_1_meaning_5e55a7489467,close_adj_1,3,2,2,,Choose the word that matches the meaning.,having a strong and friendly relationship,close,亲密的；关系密切的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_close_adj_1_context_2f63fa2b4bcb,close_adj_1,3,2,2,ex_close_adj_1_1,根据句子选择目标单词的完整中文释义。,"She is very close to her older sister.
+
+句中“close”是什么意思？",close,她和姐姐关系非常亲密。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_close_adj_1_spelling_cdd1ddf7ebb5,close_adj_1,3,1,1,ex_close_adj_1_2,Complete the word using the first-letter hint.,We remain c____ despite living far apart.,close,尽管住得很远，我们仍然关系亲密。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_close_adj_1_cloze_0ea3c723f77a,close_adj_1,3,3,3,ex_close_adj_1_1,亲密的；关系密切的,She is very ______ to her older sister.,close,她和姐姐关系非常亲密。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_alone_adj_1_meaning_b51490489fb6,alone_adj_1,3,2,2,,Choose the word that matches the meaning.,without any other people,alone,独自的；单独的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_alone_adj_1_context_7210dfc20f13,alone_adj_1,3,2,2,ex_alone_adj_1_1,根据句子选择目标单词的完整中文释义。,"The child should not stay home alone.
+
+句中“alone”是什么意思？",alone,这个孩子不应该独自在家。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_alone_adj_1_spelling_7b8f9577c54e,alone_adj_1,3,1,1,ex_alone_adj_1_2,Complete the word using the first-letter hint.,She lives a____ but visits family often.,alone,她独自生活，但经常看望家人。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_alone_adj_1_cloze_ce0c34d5c2a2,alone_adj_1,3,3,3,ex_alone_adj_1_1,独自的；单独的,The child should not stay home ______.,alone,这个孩子不应该独自在家。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_generation_n_1_meaning_d653ea3d73a1,generation_n_1,3,2,2,,Choose the word that matches the meaning.,all the people who were born at about the same time,generation,一代人,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_generation_n_1_context_3d786051de65,generation_n_1,3,2,2,ex_generation_n_1_1,根据句子选择目标单词的完整中文释义。,"The oldest generation lives on the first floor.
+
+句中“generation”是什么意思？",generation,最年长的一代住在一楼。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_generation_n_1_spelling_09b5e295a489,generation_n_1,3,1,1,ex_generation_n_1_2,Complete the word using the first-letter hint.,Each g_________ has different experiences.,generation,每一代人都有不同的经历。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_generation_n_1_cloze_f8c1be4cf12e,generation_n_1,3,3,3,ex_generation_n_1_1,一代人,The oldest ______ lives on the first floor.,generation,最年长的一代住在一楼。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_disagree_v_1_meaning_d992a5c7e090,disagree_v_1,3,2,2,,Choose the word that matches the meaning.,"if two people disagree or one person disagrees with another about something, they have a different opinion about it",disagree,不同意；有分歧,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_disagree_v_1_context_052deab42057,disagree_v_1,3,2,2,ex_disagree_v_1_1,根据句子选择目标单词的完整中文释义。,"Siblings sometimes disagree about small things.
+
+句中“disagree”是什么意思？",disagree,兄弟姐妹有时会为小事意见不合。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_disagree_v_1_spelling_415d5bbc289d,disagree_v_1,3,1,1,ex_disagree_v_1_2,Complete the word using the first-letter hint.,I d_______ with my brother's decision.,disagree,我不同意哥哥的决定。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_disagree_v_1_cloze_8e5450484149,disagree_v_1,3,3,3,ex_disagree_v_1_1,不同意；有分歧,Siblings sometimes ______ about small things.,disagree,兄弟姐妹有时会为小事意见不合。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_encourage_v_1_meaning_a8ec4a9dc7f1,encourage_v_1,3,2,2,,Choose the word that matches the meaning.,"to give somebody support, courage or hope",encourage,鼓励,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_encourage_v_1_context_aacc761df141,encourage_v_1,3,2,2,ex_encourage_v_1_1,根据句子选择目标单词的完整中文释义。,"Good parents encourage children to ask questions.
+
+句中“encourage”是什么意思？",encourage,好父母鼓励孩子提问。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_encourage_v_1_spelling_b6b2aea47b8f,encourage_v_1,3,1,1,ex_encourage_v_1_2,Complete the word using the first-letter hint.,Her family will e________ her to continue studying.,encourage,她的家人会鼓励她继续学习。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_encourage_v_1_cloze_3540f29d7c0c,encourage_v_1,3,3,3,ex_encourage_v_1_1,鼓励,Good parents ______ children to ask questions.,encourage,好父母鼓励孩子提问。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_behavior_n_1_meaning_47d00e119d25,behavior_n_1,3,2,2,,Choose the word that matches the meaning.,manner of acting or controlling yourself,behavior,行为；举止,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_behavior_n_1_context_ee8477ffee53,behavior_n_1,3,2,2,ex_behavior_n_1_1,根据句子选择目标单词的完整中文释义。,"Parents can influence a child's behavior.
+
+句中“behavior”是什么意思？",behavior,父母可以影响孩子的行为。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_behavior_n_1_spelling_1b638da85c6e,behavior_n_1,3,1,1,ex_behavior_n_1_2,Complete the word using the first-letter hint.,His polite b_______ impressed the family.,behavior,他有礼貌的举止给家人留下了好印象。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_behavior_n_1_cloze_c3f551ee8133,behavior_n_1,3,3,3,ex_behavior_n_1_1,行为；举止,Parents can influence a child's ______.,behavior,父母可以影响孩子的行为。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_communicate_v_1_meaning_3babcf0ca46c,communicate_v_1,3,2,2,,Choose the word that matches the meaning.,"to share or exchange information, news, ideas, feelings, etc.",communicate,沟通；交流,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_communicate_v_1_context_f3d4731604d4,communicate_v_1,3,2,2,ex_communicate_v_1_1,根据句子选择目标单词的完整中文释义。,"Families should communicate openly about problems.
+
+句中“communicate”是什么意思？",communicate,家人应该坦诚沟通问题。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_3_communicate_v_1_spelling_825355d237e7,communicate_v_1,3,1,1,ex_communicate_v_1_2,Complete the word using the first-letter hint.,We c__________ with our relatives by phone.,communicate,我们通过电话与亲戚交流。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_3_communicate_v_1_cloze_aa20c8fd1d08,communicate_v_1,3,3,3,ex_communicate_v_1_1,沟通；交流,Families should ______ openly about problems.,communicate,家人应该坦诚沟通问题。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_house_n_1_meaning_510232effdf7,house_n_1,4,2,2,,Choose the word that matches the meaning.,"building for people to live in, usually for one family",house,房子；住宅,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_house_n_1_context_41fe32c93969,house_n_1,4,2,2,ex_house_n_1_1,根据句子选择目标单词的完整中文释义。,"Their house has three bedrooms.
+
+句中“house”是什么意思？",house,他们的房子有三间卧室。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_house_n_1_spelling_e8436a65a45b,house_n_1,4,1,1,ex_house_n_1_2,Complete the word using the first-letter hint.,A small garden stands behind the h____.,house,房子后面有一个小花园。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_house_n_1_cloze_846328c7e54a,house_n_1,4,3,3,ex_house_n_1_1,房子；住宅,Their ______ has three bedrooms.,house,他们的房子有三间卧室。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_building_n_1_meaning_24266dcc9de2,building_n_1,4,2,2,,Choose the word that matches the meaning.,structure such as a house or school that has a roof and walls,building,建筑物,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_building_n_1_context_417667869c87,building_n_1,4,2,2,ex_building_n_1_1,根据句子选择目标单词的完整中文释义。,"This building contains twenty apartments.
+
+句中“building”是什么意思？",building,这栋建筑里有二十套公寓。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_building_n_1_spelling_c04806a082d3,building_n_1,4,1,1,ex_building_n_1_2,Complete the word using the first-letter hint.,The school b_______ has a new entrance.,building,学校建筑有一个新入口。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_building_n_1_cloze_5b48c0855599,building_n_1,4,3,3,ex_building_n_1_1,建筑物,This ______ contains twenty apartments.,building,这栋建筑里有二十套公寓。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_room_n_1_meaning_fe905710bdce,room_n_1,4,2,2,,Choose the word that matches the meaning.,"part of a building that has its own walls, floor and ceiling and is usually used for a particular purpose",room,房间,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_room_n_1_context_750ba00782b8,room_n_1,4,2,2,ex_room_n_1_1,根据句子选择目标单词的完整中文释义。,"This room has two large windows.
+
+句中“room”是什么意思？",room,这个房间有两扇大窗户。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_room_n_1_spelling_b6f81a34eeda,room_n_1,4,1,1,ex_room_n_1_2,Complete the word using the first-letter hint.,Please keep your r___ clean.,room,请保持房间整洁。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_room_n_1_cloze_d573a9abab5e,room_n_1,4,3,3,ex_room_n_1_1,房间,This ______ has two large windows.,room,这个房间有两扇大窗户。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_home_n_1_meaning_165c389196ac,home_n_1,4,2,2,,Choose the word that matches the meaning.,the house or apartment where a person lives,home,家；住所,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_home_n_1_context_4f03bea5a404,home_n_1,4,2,2,ex_home_n_1_1,根据句子选择目标单词的完整中文释义。,"Their home has a small garden.
+
+句中“home”是什么意思？",home,他们的家有一个小花园。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_home_n_1_spelling_a5e9546f6753,home_n_1,4,1,1,ex_home_n_1_2,Complete the word using the first-letter hint.,Her h___ is near the train station.,home,她的家在火车站附近。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_home_n_1_cloze_6fdac09fcf52,home_n_1,4,3,3,ex_home_n_1_1,家；住所,Their ______ has a small garden.,home,他们的家有一个小花园。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wall_n_1_meaning_f07349876574,wall_n_1,4,2,2,,Choose the word that matches the meaning.,"long, solid structure that rises straight up from the ground, made of stone, brick or concrete, that surrounds, divides or protects an area of land",wall,墙；墙壁,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wall_n_1_context_115780d66a89,wall_n_1,4,2,2,ex_wall_n_1_1,根据句子选择目标单词的完整中文释义。,"A family photo hangs on the wall.
+
+句中“wall”是什么意思？",wall,一张全家福挂在墙上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_wall_n_1_spelling_7ea38f406405,wall_n_1,4,1,1,ex_wall_n_1_2,Complete the word using the first-letter hint.,They painted the bedroom w___ blue.,wall,他们把卧室的墙刷成了蓝色。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wall_n_1_cloze_53bd5c284c81,wall_n_1,4,3,3,ex_wall_n_1_1,墙；墙壁,A family photo hangs on the ______.,wall,一张全家福挂在墙上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bedroom_n_1_meaning_c236af97d043,bedroom_n_1,4,2,2,,Choose the word that matches the meaning.,room for sleeping in,bedroom,卧室,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bedroom_n_1_context_5dc6a5578d81,bedroom_n_1,4,2,2,ex_bedroom_n_1_1,根据句子选择目标单词的完整中文释义。,"The children share a bedroom.
+
+句中“bedroom”是什么意思？",bedroom,孩子们共用一间卧室。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_bedroom_n_1_spelling_bfe395b5358f,bedroom_n_1,4,1,1,ex_bedroom_n_1_2,Complete the word using the first-letter hint.,Her b______ is on the second floor.,bedroom,她的卧室在二楼。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bedroom_n_1_cloze_432538c63c3b,bedroom_n_1,4,3,3,ex_bedroom_n_1_1,卧室,The children share a ______.,bedroom,孩子们共用一间卧室。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_apartment_n_1_meaning_9c578fe9d48f,apartment_n_1,4,2,2,,Choose the word that matches the meaning.,"set of rooms for living in, usually on one floor of a building",apartment,公寓,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_apartment_n_1_context_e96fbdefbec5,apartment_n_1,4,2,2,ex_apartment_n_1_1,根据句子选择目标单词的完整中文释义。,"They rent a small apartment downtown.
+
+句中“apartment”是什么意思？",apartment,他们在市中心租了一套小公寓。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_apartment_n_1_spelling_665cd1fc91b8,apartment_n_1,4,1,1,ex_apartment_n_1_2,Complete the word using the first-letter hint.,Our a________ has a sunny balcony.,apartment,我们的公寓有一个阳光充足的阳台。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_apartment_n_1_cloze_678353b0794d,apartment_n_1,4,3,3,ex_apartment_n_1_1,公寓,They rent a small ______ downtown.,apartment,他们在市中心租了一套小公寓。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bathroom_n_1_meaning_4371148f4009,bathroom_n_1,4,2,2,,Choose the word that matches the meaning.,"room in which there is a bath, a washbasin and often a toilet",bathroom,浴室；卫生间,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bathroom_n_1_context_df56cdae6419,bathroom_n_1,4,2,2,ex_bathroom_n_1_1,根据句子选择目标单词的完整中文释义。,"The bathroom is next to the bedroom.
+
+句中“bathroom”是什么意思？",bathroom,浴室在卧室旁边。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_bathroom_n_1_spelling_772e939dd249,bathroom_n_1,4,1,1,ex_bathroom_n_1_2,Complete the word using the first-letter hint.,A clean towel hangs inside the b_______.,bathroom,一条干净的毛巾挂在浴室里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bathroom_n_1_cloze_4d96eb7b5143,bathroom_n_1,4,3,3,ex_bathroom_n_1_1,浴室；卫生间,The ______ is next to the bedroom.,bathroom,浴室在卧室旁边。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_kitchen_n_1_meaning_ad3f86cccfda,kitchen_n_1,4,2,2,,Choose the word that matches the meaning.,room in which meals are cooked or prepared,kitchen,厨房,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_kitchen_n_1_context_f96854fa4557,kitchen_n_1,4,2,2,ex_kitchen_n_1_1,根据句子选择目标单词的完整中文释义。,"My father is cooking in the kitchen.
+
+句中“kitchen”是什么意思？",kitchen,我父亲正在厨房做饭。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_kitchen_n_1_spelling_67d7cba91142,kitchen_n_1,4,1,1,ex_kitchen_n_1_2,Complete the word using the first-letter hint.,The k______ has a large refrigerator.,kitchen,厨房里有一台大冰箱。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_kitchen_n_1_cloze_27d18f0d7417,kitchen_n_1,4,3,3,ex_kitchen_n_1_1,厨房,My father is cooking in the ______.,kitchen,我父亲正在厨房做饭。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_window_n_1_meaning_d36920d9801f,window_n_1,4,2,2,,Choose the word that matches the meaning.,"an opening in the wall or roof of a building, car, etc., usually covered with glass, that allows light and air to come in and people to see out; the glass in a window",window,窗户,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_window_n_1_context_044e03e11b92,window_n_1,4,2,2,ex_window_n_1_1,根据句子选择目标单词的完整中文释义。,"Open the window to let in fresh air.
+
+句中“window”是什么意思？",window,打开窗户让新鲜空气进来。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_window_n_1_spelling_18522b34e35c,window_n_1,4,1,1,ex_window_n_1_2,Complete the word using the first-letter hint.,Rain was hitting the bedroom w_____.,window,雨点打在卧室窗户上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_window_n_1_cloze_6fe1427f016d,window_n_1,4,3,3,ex_window_n_1_1,窗户,Open the ______ to let in fresh air.,window,打开窗户让新鲜空气进来。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_floor_n_1_meaning_10296a25381c,floor_n_1,4,2,2,,Choose the word that matches the meaning.,the surface of a room that you walk on,floor,地板,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_floor_n_1_context_a8235b69a2aa,floor_n_1,4,2,2,ex_floor_n_1_1,根据句子选择目标单词的完整中文释义。,"Shoes were scattered across the floor.
+
+句中“floor”是什么意思？",floor,鞋子散落在地板上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_floor_n_1_spelling_bb6c319689a4,floor_n_1,4,1,1,ex_floor_n_1_2,Complete the word using the first-letter hint.,The kitchen f____ needs cleaning.,floor,厨房地板需要清洁。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_floor_n_1_cloze_f02c7bb3ea4b,floor_n_1,4,3,3,ex_floor_n_1_1,地板,Shoes were scattered across the ______.,floor,鞋子散落在地板上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_door_n_1_meaning_e6b3f2373183,door_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of wood, glass, etc. that is opened and closed so that people can get in and out of a room, building, car, etc.; a similar thing in a cupboard",door,门,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_door_n_1_context_3690e03a2e46,door_n_1,4,2,2,ex_door_n_1_1,根据句子选择目标单词的完整中文释义。,"Someone is waiting outside the door.
+
+句中“door”是什么意思？",door,有人在门外等候。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_door_n_1_spelling_80ae43f317da,door_n_1,4,1,1,ex_door_n_1_2,Complete the word using the first-letter hint.,Please close the front d___ quietly.,door,请轻轻关上前门。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_door_n_1_cloze_4f5f6578e7a8,door_n_1,4,3,3,ex_door_n_1_1,门,Someone is waiting outside the ______.,door,有人在门外等候。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garden_n_1_meaning_0652ab56112d,garden_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of land next to or around your house where you can grow flowers, fruit, vegetables, etc., usually with a lawn (= an area of grass)",garden,花园,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garden_n_1_context_736b5fc5ff3a,garden_n_1,4,2,2,ex_garden_n_1_1,根据句子选择目标单词的完整中文释义。,"Flowers grow along the garden wall.
+
+句中“garden”是什么意思？",garden,花沿着花园围墙生长。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_garden_n_1_spelling_5b26bacfe43d,garden_n_1,4,1,1,ex_garden_n_1_2,Complete the word using the first-letter hint.,The children played in the g_____.,garden,孩子们在花园里玩。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garden_n_1_cloze_024a5d7dddb9,garden_n_1,4,3,3,ex_garden_n_1_1,花园,Flowers grow along the ______ wall.,garden,花沿着花园围墙生长。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_table_n_1_meaning_4c9c31346ec8,table_n_1,4,2,2,,Choose the word that matches the meaning.,piece of furniture that consists of a flat top supported by legs,table,桌子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_table_n_1_context_f2ba91f5e02d,table_n_1,4,2,2,ex_table_n_1_1,根据句子选择目标单词的完整中文释义。,"Dinner is ready on the table.
+
+句中“table”是什么意思？",table,晚餐已经摆在桌上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_table_n_1_spelling_c0b24194b72f,table_n_1,4,1,1,ex_table_n_1_2,Complete the word using the first-letter hint.,She put the keys on the t____.,table,她把钥匙放在桌上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_table_n_1_cloze_cbc44b21aac4,table_n_1,4,3,3,ex_table_n_1_1,桌子,Dinner is ready on the ______.,table,晚餐已经摆在桌上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_chair_n_1_meaning_3bf8f6fefece,chair_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of furniture for one person to sit on, with a back, a seat and four legs",chair,椅子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_chair_n_1_context_711e0d13a2f4,chair_n_1,4,2,2,ex_chair_n_1_1,根据句子选择目标单词的完整中文释义。,"Please sit on this chair.
+
+句中“chair”是什么意思？",chair,请坐在这把椅子上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_chair_n_1_spelling_ed7d490fba07,chair_n_1,4,1,1,ex_chair_n_1_2,Complete the word using the first-letter hint.,He moved the c____ near the window.,chair,他把椅子移到窗边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_chair_n_1_cloze_bc0b3981685d,chair_n_1,4,3,3,ex_chair_n_1_1,椅子,Please sit on this ______.,chair,请坐在这把椅子上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_hall_n_1_meaning_8691f6551fe7,hall_n_1,4,2,2,,Choose the word that matches the meaning.,space or passage inside the entrance or front door of a building,hall,门厅；走廊,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_hall_n_1_context_cf1f0dfebfe5,hall_n_1,4,2,2,ex_hall_n_1_1,根据句子选择目标单词的完整中文释义。,"Leave your wet shoes in the hall.
+
+句中“hall”是什么意思？",hall,把湿鞋留在门厅里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_hall_n_1_spelling_591374fc583e,hall_n_1,4,1,1,ex_hall_n_1_2,Complete the word using the first-letter hint.,A narrow h___ connects the two rooms.,hall,一条狭窄的走廊连接着两个房间。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_hall_n_1_cloze_7346a3b495bf,hall_n_1,4,3,3,ex_hall_n_1_1,门厅；走廊,Leave your wet shoes in the ______.,hall,把湿鞋留在门厅里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_roof_n_1_meaning_4aba0a0376d6,roof_n_1,4,2,2,,Choose the word that matches the meaning.,the structure that covers or forms the top of a building or vehicle,roof,屋顶,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_roof_n_1_context_22a4a5ca4688,roof_n_1,4,2,2,ex_roof_n_1_1,根据句子选择目标单词的完整中文释义。,"Rain fell heavily on the roof.
+
+句中“roof”是什么意思？",roof,大雨落在屋顶上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_roof_n_1_spelling_7ede65895797,roof_n_1,4,1,1,ex_roof_n_1_2,Complete the word using the first-letter hint.,Workers repaired the damaged r___.,roof,工人修理了受损的屋顶。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_roof_n_1_cloze_29772ee27a1e,roof_n_1,4,3,3,ex_roof_n_1_1,屋顶,Rain fell heavily on the ______.,roof,大雨落在屋顶上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bed_n_1_meaning_570c06b40941,bed_n_1,4,2,2,,Choose the word that matches the meaning.,piece of furniture for sleeping on,bed,床,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bed_n_1_context_d152040e8a72,bed_n_1,4,2,2,ex_bed_n_1_1,根据句子选择目标单词的完整中文释义。,"The baby is asleep in bed.
+
+句中“bed”是什么意思？",bed,婴儿在床上睡着了。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_bed_n_1_spelling_1931c0fdd606,bed_n_1,4,1,1,ex_bed_n_1_2,Complete the word using the first-letter hint.,She placed a blanket on the b___.,bed,她把一条毯子放在床上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_bed_n_1_cloze_37db7ac348b2,bed_n_1,4,3,3,ex_bed_n_1_1,床,The baby is asleep in ______.,bed,婴儿在床上睡着了。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_yard_n_1_meaning_0eb6c2796c80,yard_n_1,4,2,2,,Choose the word that matches the meaning.,an area of land next to a house,yard,院子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_yard_n_1_context_bf689525f583,yard_n_1,4,2,2,ex_yard_n_1_1,根据句子选择目标单词的完整中文释义。,"The children played in the front yard.
+
+句中“yard”是什么意思？",yard,孩子们在前院玩。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_yard_n_1_spelling_076b6da22021,yard_n_1,4,1,1,ex_yard_n_1_2,Complete the word using the first-letter hint.,We planted a tree in the y___.,yard,我们在院子里种了一棵树。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_yard_n_1_cloze_9ae71f9b71c8,yard_n_1,4,3,3,ex_yard_n_1_1,院子,The children played in the front ______.,yard,孩子们在前院玩。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_furniture_n_1_meaning_42d9b91bea40,furniture_n_1,4,2,2,,Choose the word that matches the meaning.,"objects that can be moved, such as tables, chairs and beds, that are put into a house or an office to make it suitable for living or working in",furniture,家具,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_furniture_n_1_context_f41abc7fcbda,furniture_n_1,4,2,2,ex_furniture_n_1_1,根据句子选择目标单词的完整中文释义。,"The apartment has very little furniture.
+
+句中“furniture”是什么意思？",furniture,这套公寓里的家具很少。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_furniture_n_1_spelling_cfe161563575,furniture_n_1,4,1,1,ex_furniture_n_1_2,Complete the word using the first-letter hint.,They bought new f________ for the living room.,furniture,他们为客厅买了新家具。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_furniture_n_1_cloze_325740ce9fa5,furniture_n_1,4,3,3,ex_furniture_n_1_1,家具,The apartment has very little ______.,furniture,这套公寓里的家具很少。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_ceiling_n_1_meaning_1d961b4f27c2,ceiling_n_1,4,2,2,,Choose the word that matches the meaning.,the top inside surface of a room,ceiling,天花板,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_ceiling_n_1_context_06ca4c4c5b68,ceiling_n_1,4,2,2,ex_ceiling_n_1_1,根据句子选择目标单词的完整中文释义。,"A lamp hangs from the ceiling.
+
+句中“ceiling”是什么意思？",ceiling,一盏灯从天花板上垂下来。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_ceiling_n_1_spelling_575530a91c78,ceiling_n_1,4,1,1,ex_ceiling_n_1_2,Complete the word using the first-letter hint.,The c______ is higher in this room.,ceiling,这个房间的天花板更高。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_ceiling_n_1_cloze_992d4cf7bae6,ceiling_n_1,4,3,3,ex_ceiling_n_1_1,天花板,A lamp hangs from the ______.,ceiling,一盏灯从天花板上垂下来。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_desk_n_1_meaning_bb8e3f7299e0,desk_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of furniture like a table, often with drawers (= parts like boxes in it with handles on the front for pulling them open), that you sit at to read, write, work, etc.",desk,书桌；办公桌,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_desk_n_1_context_fa27f1adc948,desk_n_1,4,2,2,ex_desk_n_1_1,根据句子选择目标单词的完整中文释义。,"Her computer is on the desk.
+
+句中“desk”是什么意思？",desk,她的电脑在书桌上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_desk_n_1_spelling_beab999dbc4a,desk_n_1,4,1,1,ex_desk_n_1_2,Complete the word using the first-letter hint.,He keeps his books inside the d___.,desk,他把书放在书桌里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_desk_n_1_cloze_b5f431da0e56,desk_n_1,4,3,3,ex_desk_n_1_1,书桌；办公桌,Her computer is on the ______.,desk,她的电脑在书桌上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_light_n_1_meaning_d97aa5e4d648,light_n_1,4,2,2,,Choose the word that matches the meaning.,a lamp or other object that produces light,light,灯；光源,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_light_n_1_context_78dd983db3fc,light_n_1,4,2,2,ex_light_n_1_1,根据句子选择目标单词的完整中文释义。,"Turn on the light before entering.
+
+句中“light”是什么意思？",light,进去之前先开灯。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_light_n_1_spelling_3c807d44d89d,light_n_1,4,1,1,ex_light_n_1_2,Complete the word using the first-letter hint.,A small l____ stands beside the bed.,light,床边放着一盏小灯。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_light_n_1_cloze_a21e7946ce33,light_n_1,4,3,3,ex_light_n_1_1,灯；光源,Turn on the ______ before entering.,light,进去之前先开灯。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_entrance_n_1_meaning_070aeaa2ce05,entrance_n_1,4,2,2,,Choose the word that matches the meaning.,"door, gate, passage, etc. used for entering a room, building or place",entrance,入口,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_entrance_n_1_context_909d6cdb1d73,entrance_n_1,4,2,2,ex_entrance_n_1_1,根据句子选择目标单词的完整中文释义。,"Wait for me at the main entrance.
+
+句中“entrance”是什么意思？",entrance,在主入口等我。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_entrance_n_1_spelling_9ff4a9559711,entrance_n_1,4,1,1,ex_entrance_n_1_2,Complete the word using the first-letter hint.,The apartment e_______ has a strong lock.,entrance,公寓入口有一把坚固的锁。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_entrance_n_1_cloze_e52c4cc3779c,entrance_n_1,4,3,3,ex_entrance_n_1_1,入口,Wait for me at the main ______.,entrance,在主入口等我。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garage_n_1_meaning_13150b614e22,garage_n_1,4,2,2,,Choose the word that matches the meaning.,building for keeping one or more cars or other vehicles in,garage,车库,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garage_n_1_context_21de36b472ef,garage_n_1,4,2,2,ex_garage_n_1_1,根据句子选择目标单词的完整中文释义。,"Their car is inside the garage.
+
+句中“garage”是什么意思？",garage,他们的车停在车库里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_garage_n_1_spelling_dd115b6c9fa2,garage_n_1,4,1,1,ex_garage_n_1_2,Complete the word using the first-letter hint.,He stores tools in the g_____.,garage,他把工具存放在车库里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_garage_n_1_cloze_4e9431a09433,garage_n_1,4,3,3,ex_garage_n_1_1,车库,Their car is inside the ______.,garage,他们的车停在车库里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shelf_n_1_meaning_8d7225bf6809,shelf_n_1,4,2,2,,Choose the word that matches the meaning.,"flat board, made of wood, metal, glass, etc., fixed to the wall or forming part of a cupboard, bookcase, etc., for things to be placed on",shelf,架子；搁板,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shelf_n_1_context_cdf5543af4b3,shelf_n_1,4,2,2,ex_shelf_n_1_1,根据句子选择目标单词的完整中文释义。,"The books are on the top shelf.
+
+句中“shelf”是什么意思？",shelf,书在最上面的架子上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_shelf_n_1_spelling_84fa3220b73d,shelf_n_1,4,1,1,ex_shelf_n_1_2,Complete the word using the first-letter hint.,She placed the bowl on a s____.,shelf,她把碗放在架子上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shelf_n_1_cloze_33737a2f73aa,shelf_n_1,4,3,3,ex_shelf_n_1_1,架子；搁板,The books are on the top ______.,shelf,书在最上面的架子上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_key_n_1_meaning_847d8bfa0ae1,key_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of metal with a special shape used for locking a door, starting a car, etc.",key,钥匙,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_key_n_1_context_d2183bc4bacd,key_n_1,4,2,2,ex_key_n_1_1,根据句子选择目标单词的完整中文释义。,"I cannot find the front-door key.
+
+句中“key”是什么意思？",key,我找不到前门钥匙。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_key_n_1_spelling_c481926b4946,key_n_1,4,1,1,ex_key_n_1_2,Complete the word using the first-letter hint.,She keeps a spare k___ in her bag.,key,她在包里放了一把备用钥匙。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_key_n_1_cloze_eb6924c5fcf7,key_n_1,4,3,3,ex_key_n_1_1,钥匙,I cannot find the front-door ______.,key,我找不到前门钥匙。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mirror_n_1_meaning_b79273e3bfc7,mirror_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of special flat glass that reflects images, so that you can see yourself when you look in it",mirror,镜子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mirror_n_1_context_f494682f24fc,mirror_n_1,4,2,2,ex_mirror_n_1_1,根据句子选择目标单词的完整中文释义。,"He looked at his face in the mirror.
+
+句中“mirror”是什么意思？",mirror,他在镜子里看自己的脸。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_mirror_n_1_spelling_63d7bee01147,mirror_n_1,4,1,1,ex_mirror_n_1_2,Complete the word using the first-letter hint.,A large m_____ hangs in the bathroom.,mirror,浴室里挂着一面大镜子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mirror_n_1_cloze_a3535b031dba,mirror_n_1,4,3,3,ex_mirror_n_1_1,镜子,He looked at his face in the ______.,mirror,他在镜子里看自己的脸。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_carpet_n_1_meaning_dfa93876c583,carpet_n_1,4,2,2,,Choose the word that matches the meaning.,"piece of thick woven material made of wool, etc., used to cover the floor of a room or stairs; the material used for carpets",carpet,地毯,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_carpet_n_1_context_5c82359020b8,carpet_n_1,4,2,2,ex_carpet_n_1_1,根据句子选择目标单词的完整中文释义。,"The living room has a soft carpet.
+
+句中“carpet”是什么意思？",carpet,客厅铺着柔软的地毯。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_carpet_n_1_spelling_f5af417b8848,carpet_n_1,4,1,1,ex_carpet_n_1_2,Complete the word using the first-letter hint.,Please remove your shoes from the c_____.,carpet,请不要穿鞋踩地毯。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_carpet_n_1_cloze_43b73169addf,carpet_n_1,4,3,3,ex_carpet_n_1_1,地毯,The living room has a soft ______.,carpet,客厅铺着柔软的地毯。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lamp_n_1_meaning_303900e1e207,lamp_n_1,4,2,2,,Choose the word that matches the meaning.,"device that uses electricity, oil or gas to produce light",lamp,灯,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lamp_n_1_context_4e842962b303,lamp_n_1,4,2,2,ex_lamp_n_1_1,根据句子选择目标单词的完整中文释义。,"She reads beside a desk lamp.
+
+句中“lamp”是什么意思？",lamp,她在书桌灯旁阅读。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_lamp_n_1_spelling_bda56b75c497,lamp_n_1,4,1,1,ex_lamp_n_1_2,Complete the word using the first-letter hint.,This l___ uses very little electricity.,lamp,这盏灯耗电很少。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lamp_n_1_cloze_d0d92648de6a,lamp_n_1,4,3,3,ex_lamp_n_1_1,灯,She reads beside a desk ______.,lamp,她在书桌灯旁阅读。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lock_n_1_meaning_82aeab6b3d5a,lock_n_1,4,2,2,,Choose the word that matches the meaning.,"device that keeps a door, window, box, etc. shut, usually needing a key to open it",lock,锁,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lock_n_1_context_9f6af80ff586,lock_n_1,4,2,2,ex_lock_n_1_1,根据句子选择目标单词的完整中文释义。,"The front door has a new lock.
+
+句中“lock”是什么意思？",lock,前门装了一把新锁。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_lock_n_1_spelling_b44163d8cd61,lock_n_1,4,1,1,ex_lock_n_1_2,Complete the word using the first-letter hint.,Use the key to open the l___.,lock,用钥匙打开这把锁。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_lock_n_1_cloze_783a930e2fb9,lock_n_1,4,3,3,ex_lock_n_1_1,锁,The front door has a new ______.,lock,前门装了一把新锁。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_stairs_n_1_meaning_43f10da310dc,stairs_n_1,4,2,2,,Choose the word that matches the meaning.,a flight of stairs or a flight of steps,stairs,楼梯,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_stairs_n_1_context_f9f518e0af2a,stairs_n_1,4,2,2,ex_stairs_n_1_1,根据句子选择目标单词的完整中文释义。,"The bedrooms are at the top of the stairs.
+
+句中“stairs”是什么意思？",stairs,卧室在楼梯顶端。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_stairs_n_1_spelling_15eb58bf8232,stairs_n_1,4,1,1,ex_stairs_n_1_2,Complete the word using the first-letter hint.,Please walk carefully on the s_____.,stairs,在楼梯上行走时请小心。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_stairs_n_1_cloze_d729c8999e4b,stairs_n_1,4,3,3,ex_stairs_n_1_1,楼梯,The bedrooms are at the top of the ______.,stairs,卧室在楼梯顶端。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shower_n_1_meaning_914d88d2c42f,shower_n_1,4,2,2,,Choose the word that matches the meaning.,equipment that sprays water so a person can wash,shower,淋浴器,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shower_n_1_context_cb2b62aefb57,shower_n_1,4,2,2,ex_shower_n_1_1,根据句子选择目标单词的完整中文释义。,"Water flowed from the shower.
+
+句中“shower”是什么意思？",shower,水从淋浴器中流出。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_shower_n_1_spelling_9c9ec2bcfd2c,shower_n_1,4,1,1,ex_shower_n_1_2,Complete the word using the first-letter hint.,The bathroom has a new s_____.,shower,浴室装了新的淋浴器。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_shower_n_1_cloze_a4c8401ac7a8,shower_n_1,4,3,3,ex_shower_n_1_1,淋浴器,Water flowed from the ______.,shower,水从淋浴器中流出。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_cabinet_n_1_meaning_f105eef43700,cabinet_n_1,4,2,2,,Choose the word that matches the meaning.,a piece of furniture with shelves or drawers used for storage,cabinet,橱柜；储物柜,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_cabinet_n_1_context_db79a9b6cecd,cabinet_n_1,4,2,2,ex_cabinet_n_1_1,根据句子选择目标单词的完整中文释义。,"The cups are inside the kitchen cabinet.
+
+句中“cabinet”是什么意思？",cabinet,杯子在厨房橱柜里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_cabinet_n_1_spelling_8556242c44ac,cabinet_n_1,4,1,1,ex_cabinet_n_1_2,Complete the word using the first-letter hint.,He keeps medicine in a locked c______.,cabinet,他把药放在上锁的柜子里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_cabinet_n_1_cloze_25759fcf6f48,cabinet_n_1,4,3,3,ex_cabinet_n_1_1,橱柜；储物柜,The cups are inside the kitchen ______.,cabinet,杯子在厨房橱柜里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_curtain_n_1_meaning_f8539f3d0dc1,curtain_n_1,4,2,2,,Choose the word that matches the meaning.,piece of cloth that is hung to cover a window,curtain,窗帘,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_curtain_n_1_context_befc6402cf5b,curtain_n_1,4,2,2,ex_curtain_n_1_1,根据句子选择目标单词的完整中文释义。,"She opened the curtain to see outside.
+
+句中“curtain”是什么意思？",curtain,她拉开窗帘看外面。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_curtain_n_1_spelling_54ad542581e0,curtain_n_1,4,1,1,ex_curtain_n_1_2,Complete the word using the first-letter hint.,A blue c______ covers the bedroom window.,curtain,一幅蓝色窗帘遮住卧室窗户。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_curtain_n_1_cloze_c1a62544e8d4,curtain_n_1,4,3,3,ex_curtain_n_1_1,窗帘,She opened the ______ to see outside.,curtain,她拉开窗帘看外面。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_balcony_n_1_meaning_a041653edc5f,balcony_n_1,4,2,2,,Choose the word that matches the meaning.,a platform outside an upper floor of a building,balcony,阳台,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_balcony_n_1_context_b5ecf3234374,balcony_n_1,4,2,2,ex_balcony_n_1_1,根据句子选择目标单词的完整中文释义。,"We grow flowers on the balcony.
+
+句中“balcony”是什么意思？",balcony,我们在阳台上种花。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_balcony_n_1_spelling_05cdc5be2826,balcony_n_1,4,1,1,ex_balcony_n_1_2,Complete the word using the first-letter hint.,The apartment b______ faces the park.,balcony,公寓的阳台朝向公园。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_balcony_n_1_cloze_6d085afecbf6,balcony_n_1,4,3,3,ex_balcony_n_1_1,阳台,We grow flowers on the ______.,balcony,我们在阳台上种花。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_toilet_n_1_meaning_677d86f2fd14,toilet_n_1,4,2,2,,Choose the word that matches the meaning.,large bowl attached to a pipe that you sit on or stand over when you get rid of waste matter from your body,toilet,马桶；厕所,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_toilet_n_1_context_73bc7ede7e29,toilet_n_1,4,2,2,ex_toilet_n_1_1,根据句子选择目标单词的完整中文释义。,"The toilet is beside the shower.
+
+句中“toilet”是什么意思？",toilet,马桶在淋浴旁边。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_toilet_n_1_spelling_29c0604725ce,toilet_n_1,4,1,1,ex_toilet_n_1_2,Complete the word using the first-letter hint.,Please clean the t_____ every week.,toilet,请每周清洁马桶。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_toilet_n_1_cloze_8fbe91d8bb07,toilet_n_1,4,3,3,ex_toilet_n_1_1,马桶；厕所,The ______ is beside the shower.,toilet,马桶在淋浴旁边。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_closet_n_1_meaning_46334a2fddd3,closet_n_1,4,2,2,,Choose the word that matches the meaning.,a small storage space or cupboard for clothes and other things,closet,壁橱；衣橱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_closet_n_1_context_fdd95a2cac95,closet_n_1,4,2,2,ex_closet_n_1_1,根据句子选择目标单词的完整中文释义。,"Her coats are hanging in the closet.
+
+句中“closet”是什么意思？",closet,她的外套挂在衣橱里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_closet_n_1_spelling_0a3096c76434,closet_n_1,4,1,1,ex_closet_n_1_2,Complete the word using the first-letter hint.,The bedroom c_____ is very small.,closet,卧室的壁橱很小。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_closet_n_1_cloze_ae3d1c35179b,closet_n_1,4,3,3,ex_closet_n_1_1,壁橱；衣橱,Her coats are hanging in the ______.,closet,她的外套挂在衣橱里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_drawer_n_1_meaning_7d06ae23abef,drawer_n_1,4,2,2,,Choose the word that matches the meaning.,a boxlike container in a piece of furniture; made so as to slide in and out,drawer,抽屉,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_drawer_n_1_context_d182b8b18b3e,drawer_n_1,4,2,2,ex_drawer_n_1_1,根据句子选择目标单词的完整中文释义。,"The forks are in the top drawer.
+
+句中“drawer”是什么意思？",drawer,叉子在最上面的抽屉里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_drawer_n_1_spelling_ec2de0eff108,drawer_n_1,4,1,1,ex_drawer_n_1_2,Complete the word using the first-letter hint.,She put the letter inside a d_____.,drawer,她把信放进了抽屉。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_drawer_n_1_cloze_82387f05f8bb,drawer_n_1,4,3,3,ex_drawer_n_1_1,抽屉,The forks are in the top ______.,drawer,叉子在最上面的抽屉里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_couch_n_1_meaning_fb60f6af7368,couch_n_1,4,2,2,,Choose the word that matches the meaning.,a long comfortable seat for two or more people,couch,长沙发,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_couch_n_1_context_3746ae254055,couch_n_1,4,2,2,ex_couch_n_1_1,根据句子选择目标单词的完整中文释义。,"The family sat together on the couch.
+
+句中“couch”是什么意思？",couch,全家人一起坐在长沙发上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_couch_n_1_spelling_edee03d6869b,couch_n_1,4,1,1,ex_couch_n_1_2,Complete the word using the first-letter hint.,He fell asleep on the c____.,couch,他在沙发上睡着了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_couch_n_1_cloze_532bc257e049,couch_n_1,4,3,3,ex_couch_n_1_1,长沙发,The family sat together on the ______.,couch,全家人一起坐在长沙发上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wardrobe_n_1_meaning_a02dbc14655f,wardrobe_n_1,4,2,2,,Choose the word that matches the meaning.,a tall piece of furniture that provides storage space for clothes; has a door and rails or hooks for hanging clothes,wardrobe,衣柜；衣橱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wardrobe_n_1_context_55033160a530,wardrobe_n_1,4,2,2,ex_wardrobe_n_1_1,根据句子选择目标单词的完整中文释义。,"Her dresses hang inside the wardrobe.
+
+句中“wardrobe”是什么意思？",wardrobe,她的连衣裙挂在衣柜里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_wardrobe_n_1_spelling_1f056091e7e3,wardrobe_n_1,4,1,1,ex_wardrobe_n_1_2,Complete the word using the first-letter hint.,The w_______ stands beside the bed.,wardrobe,衣柜放在床边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_wardrobe_n_1_cloze_d73d26b56c85,wardrobe_n_1,4,3,3,ex_wardrobe_n_1_1,衣柜；衣橱,Her dresses hang inside the ______.,wardrobe,她的连衣裙挂在衣柜里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_sofa_n_1_meaning_ae191128421f,sofa_n_1,4,2,2,,Choose the word that matches the meaning.,an upholstered seat for more than one person,sofa,沙发,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_sofa_n_1_context_ac0519b3a9f4,sofa_n_1,4,2,2,ex_sofa_n_1_1,根据句子选择目标单词的完整中文释义。,"Three people can sit on the sofa.
+
+句中“sofa”是什么意思？",sofa,三个人可以坐在这张沙发上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_sofa_n_1_spelling_f1704727913c,sofa_n_1,4,1,1,ex_sofa_n_1_2,Complete the word using the first-letter hint.,They bought a comfortable new s___.,sofa,他们买了一张舒适的新沙发。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_sofa_n_1_cloze_84300378bbfe,sofa_n_1,4,3,3,ex_sofa_n_1_1,沙发,Three people can sit on the ______.,sofa,三个人可以坐在这张沙发上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_blanket_n_1_meaning_88658f600964,blanket_n_1,4,2,2,,Choose the word that matches the meaning.,"large cover, often made of wool, used especially on beds to keep people warm",blanket,毯子；毛毯,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_blanket_n_1_context_1fa821c2eade,blanket_n_1,4,2,2,ex_blanket_n_1_1,根据句子选择目标单词的完整中文释义。,"The baby slept under a warm blanket.
+
+句中“blanket”是什么意思？",blanket,婴儿盖着温暖的毯子睡觉。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_blanket_n_1_spelling_e45e0443f3bf,blanket_n_1,4,1,1,ex_blanket_n_1_2,Complete the word using the first-letter hint.,She folded the b______ after waking up.,blanket,她醒来后叠好毯子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_blanket_n_1_cloze_96fb6a3e5823,blanket_n_1,4,3,3,ex_blanket_n_1_1,毯子；毛毯,The baby slept under a warm ______.,blanket,婴儿盖着温暖的毯子睡觉。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_pillow_n_1_meaning_ea1471abb5c3,pillow_n_1,4,2,2,,Choose the word that matches the meaning.,a cushion to support the head of a sleeping person,pillow,枕头,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_pillow_n_1_context_3365dd5ade66,pillow_n_1,4,2,2,ex_pillow_n_1_1,根据句子选择目标单词的完整中文释义。,"He put his head on the pillow.
+
+句中“pillow”是什么意思？",pillow,他把头放在枕头上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_pillow_n_1_spelling_b534b7d1dd19,pillow_n_1,4,1,1,ex_pillow_n_1_2,Complete the word using the first-letter hint.,This soft p_____ supports my neck.,pillow,这个柔软的枕头支撑着我的脖子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_pillow_n_1_cloze_eb9c418a9173,pillow_n_1,4,3,3,ex_pillow_n_1_1,枕头,He put his head on the ______.,pillow,他把头放在枕头上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mattress_n_1_meaning_bdc11ddec984,mattress_n_1,4,2,2,,Choose the word that matches the meaning.,"a large thick pad filled with resilient material and often incorporating coiled springs, used as a bed or part of a bed",mattress,床垫,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mattress_n_1_context_6d0db4648493,mattress_n_1,4,2,2,ex_mattress_n_1_1,根据句子选择目标单词的完整中文释义。,"The mattress is firm but comfortable.
+
+句中“mattress”是什么意思？",mattress,这个床垫结实但舒适。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_4_mattress_n_1_spelling_ba1dad575674,mattress_n_1,4,1,1,ex_mattress_n_1_2,Complete the word using the first-letter hint.,They placed the new m_______ on the bed.,mattress,他们把新床垫放在床上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_4_mattress_n_1_cloze_ce5e66490589,mattress_n_1,4,3,3,ex_mattress_n_1_1,床垫,The ______ is firm but comfortable.,mattress,这个床垫结实但舒适。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cup_n_1_meaning_2c62735b98fa,cup_n_1,5,2,2,,Choose the word that matches the meaning.,"small container that is like a bowl in shape, usually with a handle, used for drinking tea, coffee, etc.",cup,杯子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cup_n_1_context_038afdd79791,cup_n_1,5,2,2,ex_cup_n_1_1,根据句子选择目标单词的完整中文释义。,"She drank tea from a small cup.
+
+句中“cup”是什么意思？",cup,她用一个小杯子喝茶。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_cup_n_1_spelling_7fb6686f32ec,cup_n_1,5,1,1,ex_cup_n_1_2,Complete the word using the first-letter hint.,Please put the clean c___ in the cabinet.,cup,请把干净的杯子放进橱柜。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cup_n_1_cloze_fcea7b2b16e2,cup_n_1,5,3,3,ex_cup_n_1_1,杯子,She drank tea from a small ______.,cup,她用一个小杯子喝茶。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_glass_n_1_meaning_653cd1c2b00a,glass_n_1,5,2,2,,Choose the word that matches the meaning.,a small container made of glass that is used for drinking,glass,玻璃杯,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_glass_n_1_context_27c1d6ff4c7f,glass_n_1,5,2,2,ex_glass_n_1_1,根据句子选择目标单词的完整中文释义。,"He poured water into a glass.
+
+句中“glass”是什么意思？",glass,他把水倒进玻璃杯。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_glass_n_1_spelling_3192b37f004f,glass_n_1,5,1,1,ex_glass_n_1_2,Complete the word using the first-letter hint.,The g____ is beside the bottle.,glass,玻璃杯在瓶子旁边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_glass_n_1_cloze_9154b36f322e,glass_n_1,5,3,3,ex_glass_n_1_1,玻璃杯,He poured water into a ______.,glass,他把水倒进玻璃杯。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_object_n_1_meaning_15261a12f511,object_n_1,5,2,2,,Choose the word that matches the meaning.,"thing that can be seen and touched, but is not alive",object,物体；物品,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_object_n_1_context_1829f73ac5aa,object_n_1,5,2,2,ex_object_n_1_1,根据句子选择目标单词的完整中文释义。,"The museum displays an unusual object.
+
+句中“object”是什么意思？",object,博物馆展出了一件不寻常的物品。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_object_n_1_spelling_f89f8828b4bc,object_n_1,5,1,1,ex_object_n_1_2,Complete the word using the first-letter hint.,Each o_____ on the table has a number.,object,桌上的每件物品都有编号。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_object_n_1_cloze_1be4aee6bed8,object_n_1,5,3,3,ex_object_n_1_1,物体；物品,The museum displays an unusual ______.,object,博物馆展出了一件不寻常的物品。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_thing_n_1_meaning_2ff111855f48,thing_n_1,5,2,2,,Choose the word that matches the meaning.,"an object whose name you do not use because you do not need to or want to, or because you do not know it",thing,东西；事物,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_thing_n_1_context_d0155b3c6e64,thing_n_1,5,2,2,ex_thing_n_1_1,根据句子选择目标单词的完整中文释义。,"What is that thing under the chair?
+
+句中“thing”是什么意思？",thing,椅子下面的那个东西是什么？,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_thing_n_1_spelling_a246fe4af368,thing_n_1,5,1,1,ex_thing_n_1_2,Complete the word using the first-letter hint.,The first t____ I need is a towel.,thing,我首先需要的是一条毛巾。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_thing_n_1_cloze_d18ddf9fd0f3,thing_n_1,5,3,3,ex_thing_n_1_1,东西；事物,What is that ______ under the chair?,thing,椅子下面的那个东西是什么？,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_box_n_1_meaning_b6363be9d9f2,box_n_1,5,2,2,,Choose the word that matches the meaning.,"container made of wood, thick card, metal, etc. with a flat stiff base and sides and often a lid (= cover), used especially for holding solid things",box,盒子；箱子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_box_n_1_context_eec0bde060c0,box_n_1,5,2,2,ex_box_n_1_1,根据句子选择目标单词的完整中文释义。,"The books are packed in a box.
+
+句中“box”是什么意思？",box,书装在一个箱子里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_box_n_1_spelling_cda32a1fa594,box_n_1,5,1,1,ex_box_n_1_2,Complete the word using the first-letter hint.,She opened the b___ with a knife.,box,她用刀打开了箱子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_box_n_1_cloze_f67706b1ce72,box_n_1,5,3,3,ex_box_n_1_1,盒子；箱子,The books are packed in a ______.,box,书装在一个箱子里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bag_n_1_meaning_4c211806d4b3,bag_n_1,5,2,2,,Choose the word that matches the meaning.,"container made of cloth, leather, plastic or paper, used to carry things in, especially when shopping or travelling",bag,袋子；包,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bag_n_1_context_509c1980ec4c,bag_n_1,5,2,2,ex_bag_n_1_1,根据句子选择目标单词的完整中文释义。,"His phone is inside the bag.
+
+句中“bag”是什么意思？",bag,他的电话在包里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_bag_n_1_spelling_76d2a2dcb334,bag_n_1,5,1,1,ex_bag_n_1_2,Complete the word using the first-letter hint.,She carried a heavy shopping b___.,bag,她提着一个沉重的购物袋。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bag_n_1_cloze_17fa48c7e459,bag_n_1,5,3,3,ex_bag_n_1_1,袋子；包,His phone is inside the ______.,bag,他的电话在包里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bottle_n_1_meaning_d442acc838bc,bottle_n_1,5,2,2,,Choose the word that matches the meaning.,"glass or plastic container, usually round with straight sides and a narrow neck, used especially for storing liquids",bottle,瓶子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bottle_n_1_context_b63699142755,bottle_n_1,5,2,2,ex_bottle_n_1_1,根据句子选择目标单词的完整中文释义。,"Fill the bottle with clean water.
+
+句中“bottle”是什么意思？",bottle,把瓶子装满干净的水。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_bottle_n_1_spelling_f1191e66139e,bottle_n_1,5,1,1,ex_bottle_n_1_2,Complete the word using the first-letter hint.,The empty b_____ is on the table.,bottle,空瓶子在桌上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bottle_n_1_cloze_8416f9904076,bottle_n_1,5,3,3,ex_bottle_n_1_1,瓶子,Fill the ______ with clean water.,bottle,把瓶子装满干净的水。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_knife_n_1_meaning_3f912adbb96c,knife_n_1,5,2,2,,Choose the word that matches the meaning.,"sharp blade (= metal edge) with a handle, used for cutting or as a weapon",knife,刀；小刀,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_knife_n_1_context_302156d70d5e,knife_n_1,5,2,2,ex_knife_n_1_1,根据句子选择目标单词的完整中文释义。,"Use a sharp knife to cut the bread.
+
+句中“knife”是什么意思？",knife,用锋利的刀切面包。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_knife_n_1_spelling_0c8800f6a9a2,knife_n_1,5,1,1,ex_knife_n_1_2,Complete the word using the first-letter hint.,Keep the k____ away from children.,knife,把刀放在孩子够不到的地方。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_knife_n_1_cloze_bac69df069dd,knife_n_1,5,3,3,ex_knife_n_1_1,刀；小刀,Use a sharp ______ to cut the bread.,knife,用锋利的刀切面包。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_television_n_1_meaning_acb3201aef21,television_n_1,5,2,2,,Choose the word that matches the meaning.,piece of electrical equipment with a screen on which you can watch programmes with moving pictures and sounds,television,电视机,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_television_n_1_context_3d147dbf68bd,television_n_1,5,2,2,ex_television_n_1_1,根据句子选择目标单词的完整中文释义。,"The television stands beside the cabinet.
+
+句中“television”是什么意思？",television,电视机放在橱柜旁边。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_television_n_1_spelling_90573d122ef3,television_n_1,5,1,1,ex_television_n_1_2,Complete the word using the first-letter hint.,Please turn off the t_________ before bed.,television,睡觉前请关掉电视。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_television_n_1_cloze_e05657d2c7ef,television_n_1,5,3,3,ex_television_n_1_1,电视机,The ______ stands beside the cabinet.,television,电视机放在橱柜旁边。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_dish_n_1_meaning_7772255c1088,dish_n_1,5,2,2,,Choose the word that matches the meaning.,a shallow container used for cooking or serving food,dish,盘；碟,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_dish_n_1_context_e2626d3bb552,dish_n_1,5,2,2,ex_dish_n_1_1,根据句子选择目标单词的完整中文释义。,"She served the vegetables in a large dish.
+
+句中“dish”是什么意思？",dish,她用一个大盘子盛蔬菜。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_dish_n_1_spelling_5020e4314401,dish_n_1,5,1,1,ex_dish_n_1_2,Complete the word using the first-letter hint.,Please place the clean d___ on the shelf.,dish,请把干净的盘子放在架子上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_dish_n_1_cloze_314ebb104bff,dish_n_1,5,3,3,ex_dish_n_1_1,盘；碟,She served the vegetables in a large ______.,dish,她用一个大盘子盛蔬菜。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_computer_n_1_meaning_c99d4f2f9520,computer_n_1,5,2,2,,Choose the word that matches the meaning.,"an electronic machine that can store, organize and find information, do processes with numbers and other data, and control other machines",computer,电脑,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_computer_n_1_context_49b6bbac9122,computer_n_1,5,2,2,ex_computer_n_1_1,根据句子选择目标单词的完整中文释义。,"He uses the computer for schoolwork.
+
+句中“computer”是什么意思？",computer,他用电脑做功课。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_computer_n_1_spelling_452a1a87a56a,computer_n_1,5,1,1,ex_computer_n_1_2,Complete the word using the first-letter hint.,The c_______ is on the bedroom desk.,computer,电脑放在卧室的书桌上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_computer_n_1_cloze_a48cb54b81a2,computer_n_1,5,3,3,ex_computer_n_1_1,电脑,He uses the ______ for schoolwork.,computer,他用电脑做功课。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_plate_n_1_meaning_6d87ebbae2fb,plate_n_1,5,2,2,,Choose the word that matches the meaning.,"flat, usually round, dish that you put food on",plate,盘子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_plate_n_1_context_7a54c7751820,plate_n_1,5,2,2,ex_plate_n_1_1,根据句子选择目标单词的完整中文释义。,"Put the bread on a clean plate.
+
+句中“plate”是什么意思？",plate,把面包放在干净的盘子上。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_plate_n_1_spelling_434a8f90b561,plate_n_1,5,1,1,ex_plate_n_1_2,Complete the word using the first-letter hint.,Each child carried a p____ to the table.,plate,每个孩子端着一个盘子到桌边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_plate_n_1_cloze_33cea975b3a2,plate_n_1,5,3,3,ex_plate_n_1_1,盘子,Put the bread on a clean ______.,plate,把面包放在干净的盘子上。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_phone_n_1_meaning_4f56bb534510,phone_n_1,5,2,2,,Choose the word that matches the meaning.,piece of equipment for talking to people who are not in the same place as you,phone,电话；手机,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_phone_n_1_context_e8e73cff25a8,phone_n_1,5,2,2,ex_phone_n_1_1,根据句子选择目标单词的完整中文释义。,"My phone is charging beside the bed.
+
+句中“phone”是什么意思？",phone,我的手机正在床边充电。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_phone_n_1_spelling_0687f351e76b,phone_n_1,5,1,1,ex_phone_n_1_2,Complete the word using the first-letter hint.,She used the p____ to call her mother.,phone,她用电话给妈妈打电话。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_phone_n_1_cloze_1c2be6f1a945,phone_n_1,5,3,3,ex_phone_n_1_1,电话；手机,My ______ is charging beside the bed.,phone,我的手机正在床边充电。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bowl_n_1_meaning_d9ad7725bed9,bowl_n_1,5,2,2,,Choose the word that matches the meaning.,"deep round dish with a wide open top, used especially for holding food or liquid",bowl,碗,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bowl_n_1_context_75580e77e7ca,bowl_n_1,5,2,2,ex_bowl_n_1_1,根据句子选择目标单词的完整中文释义。,"He ate soup from a large bowl.
+
+句中“bowl”是什么意思？",bowl,他用一个大碗喝汤。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_bowl_n_1_spelling_b5436b657cdc,bowl_n_1,5,1,1,ex_bowl_n_1_2,Complete the word using the first-letter hint.,The fruit b___ is on the kitchen table.,bowl,水果碗在厨房桌上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_bowl_n_1_cloze_1968e5e1bee0,bowl_n_1,5,3,3,ex_bowl_n_1_1,碗,He ate soup from a large ______.,bowl,他用一个大碗喝汤。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clock_n_1_meaning_3d191d226cfc,clock_n_1,5,2,2,,Choose the word that matches the meaning.,"an instrument for measuring and showing time, in a room, on the wall of a building or on a computer screen (not worn or carried like a watch)",clock,时钟,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clock_n_1_context_ce0b65597692,clock_n_1,5,2,2,ex_clock_n_1_1,根据句子选择目标单词的完整中文释义。,"The wall clock shows eight thirty.
+
+句中“clock”是什么意思？",clock,墙上的时钟显示八点半。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_clock_n_1_spelling_aece7b117ad2,clock_n_1,5,1,1,ex_clock_n_1_2,Complete the word using the first-letter hint.,A small c____ stands beside the bed.,clock,床边放着一个小时钟。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clock_n_1_cloze_13775684cb30,clock_n_1,5,3,3,ex_clock_n_1_1,时钟,The wall ______ shows eight thirty.,clock,墙上的时钟显示八点半。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_towel_n_1_meaning_06c17ea2f0c7,towel_n_1,5,2,2,,Choose the word that matches the meaning.,"piece of cloth or paper used for drying things, especially your body",towel,毛巾,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_towel_n_1_context_c4e965ade73a,towel_n_1,5,2,2,ex_towel_n_1_1,根据句子选择目标单词的完整中文释义。,"Dry your hands with this towel.
+
+句中“towel”是什么意思？",towel,用这条毛巾擦干手。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_towel_n_1_spelling_43933ae557a7,towel_n_1,5,1,1,ex_towel_n_1_2,Complete the word using the first-letter hint.,She hung the wet t____ in the bathroom.,towel,她把湿毛巾挂在浴室里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_towel_n_1_cloze_aaee1bc97a83,towel_n_1,5,3,3,ex_towel_n_1_1,毛巾,Dry your hands with this ______.,towel,用这条毛巾擦干手。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_spoon_n_1_meaning_b15d2e922f24,spoon_n_1,5,2,2,,Choose the word that matches the meaning.,"tool that has a handle with a shallow bowl at the end, used for mixing, serving and eating food",spoon,勺子；汤匙,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_spoon_n_1_context_4abcd9e86589,spoon_n_1,5,2,2,ex_spoon_n_1_1,根据句子选择目标单词的完整中文释义。,"Use a spoon to eat the soup.
+
+句中“spoon”是什么意思？",spoon,用勺子喝汤。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_spoon_n_1_spelling_2bc83f4f83b4,spoon_n_1,5,1,1,ex_spoon_n_1_2,Complete the word using the first-letter hint.,He put a clean s____ beside the bowl.,spoon,他把一把干净的勺子放在碗旁边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_spoon_n_1_cloze_991e3623558d,spoon_n_1,5,3,3,ex_spoon_n_1_1,勺子；汤匙,Use a ______ to eat the soup.,spoon,用勺子喝汤。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_carry_v_1_meaning_e0e63237665d,carry_v_1,5,2,2,,Choose the word that matches the meaning.,to support the weight of somebody/something and take them or it from place to place; to take somebody/something from one place to another,carry,搬；携带,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_carry_v_1_context_7137eb824658,carry_v_1,5,2,2,ex_carry_v_1_1,根据句子选择目标单词的完整中文释义。,"Please carry this box into the kitchen.
+
+句中“carry”是什么意思？",carry,请把这个箱子搬进厨房。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_carry_v_1_spelling_b6e9a0bd73e8,carry_v_1,5,1,1,ex_carry_v_1_2,Complete the word using the first-letter hint.,She can c____ the baby safely.,carry,她可以安全地抱着婴儿。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_carry_v_1_cloze_c1bf1e73885d,carry_v_1,5,3,3,ex_carry_v_1_1,搬；携带,Please ______ this box into the kitchen.,carry,请把这个箱子搬进厨房。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fork_n_1_meaning_378e1fc54b2d,fork_n_1,5,2,2,,Choose the word that matches the meaning.,"tool with a handle and three or four sharp points (called prongs), used for picking up and eating food",fork,叉子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fork_n_1_context_186f09f7fcd7,fork_n_1,5,2,2,ex_fork_n_1_1,根据句子选择目标单词的完整中文释义。,"Use a fork to eat the vegetables.
+
+句中“fork”是什么意思？",fork,用叉子吃蔬菜。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_fork_n_1_spelling_cf4d393970bb,fork_n_1,5,1,1,ex_fork_n_1_2,Complete the word using the first-letter hint.,The f___ is beside the plate.,fork,叉子在盘子旁边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fork_n_1_cloze_0ddb8f800e3e,fork_n_1,5,3,3,ex_fork_n_1_1,叉子,Use a ______ to eat the vegetables.,fork,用叉子吃蔬菜。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pot_n_1_meaning_e42c92cc2537,pot_n_1,5,2,2,,Choose the word that matches the meaning.,deep round container used for cooking things in,pot,锅,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pot_n_1_context_64fa583c19c9,pot_n_1,5,2,2,ex_pot_n_1_1,根据句子选择目标单词的完整中文释义。,"The soup is cooking in a large pot.
+
+句中“pot”是什么意思？",pot,汤正在一个大锅里煮。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_pot_n_1_spelling_e70e145ce77e,pot_n_1,5,1,1,ex_pot_n_1_2,Complete the word using the first-letter hint.,She put the p___ on the stove.,pot,她把锅放在炉灶上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pot_n_1_cloze_b3ffa0a5842d,pot_n_1,5,3,3,ex_pot_n_1_1,锅,The soup is cooking in a large ______.,pot,汤正在一个大锅里煮。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_put_v_1_meaning_a8a732b1ae7a,put_v_1,5,2,2,,Choose the word that matches the meaning.,to move something into a particular place or position,put,放；置于,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_put_v_1_context_d7ea36502e34,put_v_1,5,2,2,ex_put_v_1_1,根据句子选择目标单词的完整中文释义。,"Put the clean cups in the cabinet.
+
+句中“put”是什么意思？",put,把干净的杯子放进橱柜。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_put_v_1_spelling_fe0d9cbb4226,put_v_1,5,1,1,ex_put_v_1_2,Complete the word using the first-letter hint.,Please p___ your bag beside the door.,put,请把包放在门边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_put_v_1_cloze_610cf9dd0616,put_v_1,5,3,3,ex_put_v_1_1,放；置于,______ the clean cups in the cabinet.,put,把干净的杯子放进橱柜。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_keep_v_1_meaning_692f826c49f5,keep_v_1,5,2,2,,Choose the word that matches the meaning.,to store something in a particular place or condition,keep,存放；保存,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_keep_v_1_context_fb04d6cd8ac3,keep_v_1,5,2,2,ex_keep_v_1_1,根据句子选择目标单词的完整中文释义。,"Keep the milk in the refrigerator.
+
+句中“keep”是什么意思？",keep,把牛奶保存在冰箱里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_keep_v_1_spelling_5ea14a806e50,keep_v_1,5,1,1,ex_keep_v_1_2,Complete the word using the first-letter hint.,I k___ important papers in this drawer.,keep,我把重要文件保存在这个抽屉里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_keep_v_1_cloze_9d91d6820a1d,keep_v_1,5,3,3,ex_keep_v_1_1,存放；保存,______ the milk in the refrigerator.,keep,把牛奶保存在冰箱里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clean_v_1_meaning_1b2c5aad0a3e,clean_v_1,5,2,2,,Choose the word that matches the meaning.,to remove the dirt or dust from something,clean,清洁；打扫,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clean_v_1_context_683917613017,clean_v_1,5,2,2,ex_clean_v_1_1,根据句子选择目标单词的完整中文释义。,"We clean the kitchen every evening.
+
+句中“clean”是什么意思？",clean,我们每天晚上打扫厨房。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_clean_v_1_spelling_76f9bda93f08,clean_v_1,5,1,1,ex_clean_v_1_2,Complete the word using the first-letter hint.,Please c____ the table after dinner.,clean,晚饭后请清理桌子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_clean_v_1_cloze_9841e6b62d7f,clean_v_1,5,3,3,ex_clean_v_1_1,清洁；打扫,We ______ the kitchen every evening.,clean,我们每天晚上打扫厨房。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pan_n_1_meaning_ffd2d49c7005,pan_n_1,5,2,2,,Choose the word that matches the meaning.,a wide metal container used for cooking food,pan,平底锅,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pan_n_1_context_7b752be2b356,pan_n_1,5,2,2,ex_pan_n_1_1,根据句子选择目标单词的完整中文释义。,"Heat the oil in a large pan.
+
+句中“pan”是什么意思？",pan,在一个大平底锅里加热油。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_pan_n_1_spelling_29ed8f821550,pan_n_1,5,1,1,ex_pan_n_1_2,Complete the word using the first-letter hint.,She cooked the eggs in a p___.,pan,她用平底锅煎鸡蛋。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_pan_n_1_cloze_6ae94ad4cb1f,pan_n_1,5,3,3,ex_pan_n_1_1,平底锅,Heat the oil in a large ______.,pan,在一个大平底锅里加热油。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_open_v_1_meaning_a3fa54d73ab1,open_v_1,5,2,2,,Choose the word that matches the meaning.,"to move a door, window, lid, etc. into a position that is no longer closed; to get into this position",open,打开,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_open_v_1_context_2683b8a00f76,open_v_1,5,2,2,ex_open_v_1_1,根据句子选择目标单词的完整中文释义。,"Open the window for some fresh air.
+
+句中“open”是什么意思？",open,打开窗户让新鲜空气进来。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_open_v_1_spelling_27123ef0ef8c,open_v_1,5,1,1,ex_open_v_1_2,Complete the word using the first-letter hint.,Please o___ the box carefully.,open,请小心打开箱子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_open_v_1_cloze_d1812185a1e6,open_v_1,5,3,3,ex_open_v_1_1,打开,______ the window for some fresh air.,open,打开窗户让新鲜空气进来。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_soap_n_1_meaning_81bb1f0b8d11,soap_n_1,5,2,2,,Choose the word that matches the meaning.,substance that you use with water for washing your body,soap,肥皂,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_soap_n_1_context_95c63d1dabec,soap_n_1,5,2,2,ex_soap_n_1_1,根据句子选择目标单词的完整中文释义。,"Wash your hands with soap and water.
+
+句中“soap”是什么意思？",soap,用肥皂和水洗手。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_soap_n_1_spelling_11d283091a97,soap_n_1,5,1,1,ex_soap_n_1_2,Complete the word using the first-letter hint.,The s___ is beside the bathroom sink.,soap,肥皂在浴室洗手池旁边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_soap_n_1_cloze_80e8f7d01760,soap_n_1,5,3,3,ex_soap_n_1_1,肥皂,Wash your hands with ______ and water.,soap,用肥皂和水洗手。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_brush_n_1_meaning_19b8347ee67d,brush_n_1,5,2,2,,Choose the word that matches the meaning.,"an object made of short stiff hairs (called bristles) or wires set in a block of wood or plastic, usually attached to a handle. Brushes are used for many different jobs, such as cleaning, painting and tidying your hair.",brush,刷子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_brush_n_1_context_dc803df67fc8,brush_n_1,5,2,2,ex_brush_n_1_1,根据句子选择目标单词的完整中文释义。,"Use this brush to clean the floor.
+
+句中“brush”是什么意思？",brush,用这把刷子清洁地板。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_brush_n_1_spelling_4e5d35792ff9,brush_n_1,5,1,1,ex_brush_n_1_2,Complete the word using the first-letter hint.,Her hair b____ is inside the drawer.,brush,她的发刷在抽屉里。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_brush_n_1_cloze_53a87ad3ec03,brush_n_1,5,3,3,ex_brush_n_1_1,刷子,Use this ______ to clean the floor.,brush,用这把刷子清洁地板。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fridge_n_1_meaning_6cee62b094d8,fridge_n_1,5,2,2,,Choose the word that matches the meaning.,piece of electrical equipment in which food is kept cold so that it stays fresh,fridge,冰箱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fridge_n_1_context_056d1635b5cf,fridge_n_1,5,2,2,ex_fridge_n_1_1,根据句子选择目标单词的完整中文释义。,"The juice is in the fridge.
+
+句中“fridge”是什么意思？",fridge,果汁在冰箱里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_fridge_n_1_spelling_bdb741a49396,fridge_n_1,5,1,1,ex_fridge_n_1_2,Complete the word using the first-letter hint.,Please clean the f_____ this weekend.,fridge,请这个周末清洁冰箱。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fridge_n_1_cloze_4b2278c11938,fridge_n_1,5,3,3,ex_fridge_n_1_1,冰箱,The juice is in the ______.,fridge,果汁在冰箱里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_use_v_1_meaning_655d73ea0c5c,use_v_1,5,2,2,,Choose the word that matches the meaning.,"to do something with a machine, a method, an object, etc. for a particular purpose",use,使用,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_use_v_1_context_14aa68b573d8,use_v_1,5,2,2,ex_use_v_1_1,根据句子选择目标单词的完整中文释义。,"We use this knife to cut vegetables.
+
+句中“use”是什么意思？",use,我们用这把刀切蔬菜。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_use_v_1_spelling_59f1923ed2a4,use_v_1,5,1,1,ex_use_v_1_2,Complete the word using the first-letter hint.,Please u___ a towel to dry the dishes.,use,请用毛巾擦干盘子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_use_v_1_cloze_e73413ea3795,use_v_1,5,3,3,ex_use_v_1_1,使用,We ______ this knife to cut vegetables.,use,我们用这把刀切蔬菜。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_need_v_1_meaning_4f75dabe618d,need_v_1,5,2,2,,Choose the word that matches the meaning.,"to require something/somebody because they are essential or very important, not just because you would like to have them",need,需要,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_need_v_1_context_d1cdd7d4bbbb,need_v_1,5,2,2,ex_need_v_1_1,根据句子选择目标单词的完整中文释义。,"I need a key to open this door.
+
+句中“need”是什么意思？",need,我需要钥匙打开这扇门。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_need_v_1_spelling_b26a5ab8aec7,need_v_1,5,1,1,ex_need_v_1_2,Complete the word using the first-letter hint.,Plants n___ water and light.,need,植物需要水和光。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_need_v_1_cloze_ef58f18c43d8,need_v_1,5,3,3,ex_need_v_1_1,需要,I ______ a key to open this door.,need,我需要钥匙打开这扇门。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_water_n_1_meaning_738b69b433b4,water_n_1,5,2,2,,Choose the word that matches the meaning.,"liquid without colour, smell or taste that falls as rain, is in lakes, rivers and seas, and is used for drinking, washing, etc.",water,水,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_water_n_1_context_1177b8ad3de0,water_n_1,5,2,2,ex_water_n_1_1,根据句子选择目标单词的完整中文释义。,"Drink plenty of water every day.
+
+句中“water”是什么意思？",water,每天喝足够的水。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_water_n_1_spelling_921a0617f332,water_n_1,5,1,1,ex_water_n_1_2,Complete the word using the first-letter hint.,The bottle is full of cold w____.,water,瓶子里装满了冷水。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_water_n_1_cloze_d05d7cc0a92a,water_n_1,5,3,3,ex_water_n_1_1,水,Drink plenty of ______ every day.,water,每天喝足够的水。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_wash_v_1_meaning_a309b66ccb30,wash_v_1,5,2,2,,Choose the word that matches the meaning.,to make something/somebody clean using water and usually soap,wash,洗；清洗,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_wash_v_1_context_a3ef3dd65dbb,wash_v_1,5,2,2,ex_wash_v_1_1,根据句子选择目标单词的完整中文释义。,"Wash the cups after breakfast.
+
+句中“wash”是什么意思？",wash,早餐后清洗杯子。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_wash_v_1_spelling_ea00478dc302,wash_v_1,5,1,1,ex_wash_v_1_2,Complete the word using the first-letter hint.,Please w___ your hands before cooking.,wash,做饭前请洗手。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_wash_v_1_cloze_05a268f74f3c,wash_v_1,5,3,3,ex_wash_v_1_1,洗；清洗,______ the cups after breakfast.,wash,早餐后清洗杯子。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cook_v_1_meaning_4a9f51513f3c,cook_v_1,5,2,2,,Choose the word that matches the meaning.,"to prepare food by heating it, for example by boiling, baking or frying it",cook,烹饪；做饭,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cook_v_1_context_5b13ef620eff,cook_v_1,5,2,2,ex_cook_v_1_1,根据句子选择目标单词的完整中文释义。,"My father likes to cook dinner.
+
+句中“cook”是什么意思？",cook,我父亲喜欢做晚饭。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_cook_v_1_spelling_428328468970,cook_v_1,5,1,1,ex_cook_v_1_2,Complete the word using the first-letter hint.,We c___ vegetables in a large pot.,cook,我们用大锅煮蔬菜。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_cook_v_1_cloze_2a810b7c0380,cook_v_1,5,3,3,ex_cook_v_1_1,烹饪；做饭,My father likes to ______ dinner.,cook,我父亲喜欢做晚饭。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_oven_n_1_meaning_662b11a88993,oven_n_1,5,2,2,,Choose the word that matches the meaning.,"the part of a cooker that is like a box with a door on the front, in which food is cooked or heated",oven,烤箱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_oven_n_1_context_bd3361035975,oven_n_1,5,2,2,ex_oven_n_1_1,根据句子选择目标单词的完整中文释义。,"The bread is baking in the oven.
+
+句中“oven”是什么意思？",oven,面包正在烤箱里烘烤。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_oven_n_1_spelling_31d3d180d70f,oven_n_1,5,1,1,ex_oven_n_1_2,Complete the word using the first-letter hint.,She put the dish inside the o___.,oven,她把盘子放进烤箱。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_oven_n_1_cloze_9a0b9792ef3b,oven_n_1,5,3,3,ex_oven_n_1_1,烤箱,The bread is baking in the ______.,oven,面包正在烤箱里烘烤。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_move_v_1_meaning_296e9c9f02dc,move_v_1,5,2,2,,Choose the word that matches the meaning.,"to change position or make somebody/something change position in a way that can be seen, heard or felt",move,移动；搬动,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_move_v_1_context_fb7fb2cbb3df,move_v_1,5,2,2,ex_move_v_1_1,根据句子选择目标单词的完整中文释义。,"Please move the chair near the table.
+
+句中“move”是什么意思？",move,请把椅子移到桌边。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_move_v_1_spelling_c1459739d3e6,move_v_1,5,1,1,ex_move_v_1_2,Complete the word using the first-letter hint.,They will m___ the sofa into the hall.,move,他们会把沙发搬进门厅。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_move_v_1_cloze_b639a328431e,move_v_1,5,3,3,ex_move_v_1_1,移动；搬动,Please ______ the chair near the table.,move,请把椅子移到桌边。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_own_v_1_meaning_e8ed4568c64f,own_v_1,5,2,2,,Choose the word that matches the meaning.,"to have something that belongs to you, especially because you have bought it",own,拥有,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_own_v_1_context_45b58e210018,own_v_1,5,2,2,ex_own_v_1_1,根据句子选择目标单词的完整中文释义。,"They own a small apartment downtown.
+
+句中“own”是什么意思？",own,他们在市中心拥有一套小公寓。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_own_v_1_spelling_0518634fe6aa,own_v_1,5,1,1,ex_own_v_1_2,Complete the word using the first-letter hint.,We o___ the house but rent the garage.,own,我们拥有这所房子，但出租车库。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_own_v_1_cloze_efa3c29194db,own_v_1,5,3,3,ex_own_v_1_1,拥有,They ______ a small apartment downtown.,own,他们在市中心拥有一套小公寓。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_repair_v_1_meaning_a8bc41487a85,repair_v_1,5,2,2,,Choose the word that matches the meaning.,"to fix something that is broken, damaged or torn",repair,修理,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_repair_v_1_context_ec5f4406f489,repair_v_1,5,2,2,ex_repair_v_1_1,根据句子选择目标单词的完整中文释义。,"A worker came to repair the broken door.
+
+句中“repair”是什么意思？",repair,一名工人来修理坏门。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_repair_v_1_spelling_f804b00a3dee,repair_v_1,5,1,1,ex_repair_v_1_2,Complete the word using the first-letter hint.,They need to r_____ the kitchen floor.,repair,他们需要修理厨房地板。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_repair_v_1_cloze_dfc55d7c4468,repair_v_1,5,3,3,ex_repair_v_1_1,修理,A worker came to ______ the broken door.,repair,一名工人来修理坏门。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_electricity_n_1_meaning_c0c5ef62334f,electricity_n_1,5,2,2,,Choose the word that matches the meaning.,"form of energy from charged elementary particles, usually supplied as electric current through cables, wires, etc. for lighting, heating, driving machines, etc.",electricity,电；电力,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_electricity_n_1_context_c301bc217b93,electricity_n_1,5,2,2,ex_electricity_n_1_1,根据句子选择目标单词的完整中文释义。,"The lamp uses very little electricity.
+
+句中“electricity”是什么意思？",electricity,这盏灯用电很少。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_electricity_n_1_spelling_44a438940369,electricity_n_1,5,1,1,ex_electricity_n_1_2,Complete the word using the first-letter hint.,The house lost e__________ during the storm.,electricity,暴风雨期间房子停电了。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_electricity_n_1_cloze_80a423edbda8,electricity_n_1,5,3,3,ex_electricity_n_1_1,电；电力,The lamp uses very little ______.,electricity,这盏灯用电很少。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fix_v_1_meaning_5e9eac3324b9,fix_v_1,5,2,2,,Choose the word that matches the meaning.,to repair or correct something,fix,修理；修好,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fix_v_1_context_bcd31a414b6b,fix_v_1,5,2,2,ex_fix_v_1_1,根据句子选择目标单词的完整中文释义。,"Can you fix the broken lamp?
+
+句中“fix”是什么意思？",fix,你能修好坏掉的灯吗？,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_fix_v_1_spelling_1dd8b0e5590c,fix_v_1,5,1,1,ex_fix_v_1_2,Complete the word using the first-letter hint.,He will f___ the loose shelf tomorrow.,fix,他明天会修理松动的架子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_fix_v_1_cloze_3324964b1fae,fix_v_1,5,3,3,ex_fix_v_1_1,修理；修好,Can you ______ the broken lamp?,fix,你能修好坏掉的灯吗？,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_basket_n_1_meaning_800233e3465b,basket_n_1,5,2,2,,Choose the word that matches the meaning.,"container for holding or carrying things. Baskets are made of long thin pieces of material that bends and twists easily, for example plastic, wire or wicker.",basket,篮子,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_basket_n_1_context_027b3b0f943e,basket_n_1,5,2,2,ex_basket_n_1_1,根据句子选择目标单词的完整中文释义。,"She carried the towels in a basket.
+
+句中“basket”是什么意思？",basket,她用篮子装着毛巾。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_basket_n_1_spelling_8b09ae2f0489,basket_n_1,5,1,1,ex_basket_n_1_2,Complete the word using the first-letter hint.,The fruit b_____ is on the table.,basket,水果篮在桌上。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_basket_n_1_cloze_febe0302320e,basket_n_1,5,3,3,ex_basket_n_1_1,篮子,She carried the towels in a ______.,basket,她用篮子装着毛巾。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_comfortable_adj_1_meaning_abfd39511726,comfortable_adj_1,5,2,2,,Choose the word that matches the meaning.,"making you feel physically relaxed; pleasant to wear, sit on, etc.",comfortable,舒适的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_comfortable_adj_1_context_7484a0e0935a,comfortable_adj_1,5,2,2,ex_comfortable_adj_1_1,根据句子选择目标单词的完整中文释义。,"This couch is soft and comfortable.
+
+句中“comfortable”是什么意思？",comfortable,这张长沙发柔软舒适。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_comfortable_adj_1_spelling_777505d6eae5,comfortable_adj_1,5,1,1,ex_comfortable_adj_1_2,Complete the word using the first-letter hint.,The new mattress feels c__________.,comfortable,新床垫感觉很舒服。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_comfortable_adj_1_cloze_aa88215aa037,comfortable_adj_1,5,3,3,ex_comfortable_adj_1_1,舒适的,This couch is soft and ______.,comfortable,这张长沙发柔软舒适。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_safe_adj_1_meaning_c2838d1f4e8e,safe_adj_1,5,2,2,,Choose the word that matches the meaning.,"protected from any danger, harm or loss",safe,安全的,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_safe_adj_1_context_ead9f8a326b5,safe_adj_1,5,2,2,ex_safe_adj_1_1,根据句子选择目标单词的完整中文释义。,"Keep medicine in a safe place.
+
+句中“safe”是什么意思？",safe,把药放在安全的地方。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_safe_adj_1_spelling_854e435b131b,safe_adj_1,5,1,1,ex_safe_adj_1_2,Complete the word using the first-letter hint.,The children feel s___ at home.,safe,孩子们在家感到安全。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_safe_adj_1_cloze_2c7876f49f3d,safe_adj_1,5,3,3,ex_safe_adj_1_1,安全的,Keep medicine in a ______ place.,safe,把药放在安全的地方。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_rent_v_1_meaning_7ff778654919,rent_v_1,5,2,2,,Choose the word that matches the meaning.,"to pay money to use a home, room, or object for a period of time",rent,租用；租住,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_rent_v_1_context_138622f8c5d9,rent_v_1,5,2,2,ex_rent_v_1_1,根据句子选择目标单词的完整中文释义。,"They rent an apartment near the university.
+
+句中“rent”是什么意思？",rent,他们在大学附近租了一套公寓。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_rent_v_1_spelling_c98f8a272e51,rent_v_1,5,1,1,ex_rent_v_1_2,Complete the word using the first-letter hint.,We r___ this house from a local family.,rent,我们向当地一家人租这所房子。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_rent_v_1_cloze_0b30669c6164,rent_v_1,5,3,3,ex_rent_v_1_1,租用；租住,They ______ an apartment near the university.,rent,他们在大学附近租了一套公寓。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_refrigerator_n_1_meaning_be14eb39d72e,refrigerator_n_1,5,2,2,,Choose the word that matches the meaning.,white goods in which food can be stored at low temperatures,refrigerator,冰箱,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_refrigerator_n_1_context_cada3772eca9,refrigerator_n_1,5,2,2,ex_refrigerator_n_1_1,根据句子选择目标单词的完整中文释义。,"Keep fresh food in the refrigerator.
+
+句中“refrigerator”是什么意思？",refrigerator,把新鲜食物放在冰箱里。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_refrigerator_n_1_spelling_aab742d9ac5d,refrigerator_n_1,5,1,1,ex_refrigerator_n_1_2,Complete the word using the first-letter hint.,The r___________ stands beside the cabinet.,refrigerator,冰箱放在橱柜旁边。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_refrigerator_n_1_cloze_7b08badec81a,refrigerator_n_1,5,3,3,ex_refrigerator_n_1_1,冰箱,Keep fresh food in the ______.,refrigerator,把新鲜食物放在冰箱里。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_stove_n_1_meaning_0d3cb33f0343,stove_n_1,5,2,2,,Choose the word that matches the meaning.,a kitchen appliance with burners used for cooking food,stove,炉灶,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_stove_n_1_context_88f3d3dc013a,stove_n_1,5,2,2,ex_stove_n_1_1,根据句子选择目标单词的完整中文释义。,"The pot is heating on the stove.
+
+句中“stove”是什么意思？",stove,锅正在炉灶上加热。,4.0,15000,T,level_1_5_reviewed_v1,F,approved,T,F
+q_5_stove_n_1_spelling_4a869e5db4d0,stove_n_1,5,1,1,ex_stove_n_1_2,Complete the word using the first-letter hint.,Turn off the s____ after cooking.,stove,做完饭后关掉炉灶。,4.0,18000,T,level_1_5_reviewed_v1,F,approved,F,F
+q_5_stove_n_1_cloze_b541cb706ca8,stove_n_1,5,3,3,ex_stove_n_1_1,炉灶,The pot is heating on the ______.,stove,锅正在炉灶上加热。,4.0,12000,T,level_1_5_reviewed_v1,F,approved,F,F

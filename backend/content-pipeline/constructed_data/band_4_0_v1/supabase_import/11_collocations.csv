@@ -1,0 +1,35 @@
+﻿id,sense_id,collocation,translation_zh,difficulty_band,source_id,human_review,review_status
+58629a4d-55ed-59e2-bd70-49e94cab889c,a21ce8dc-720e-597f-b69f-1230eec33f6a,family member,家庭成员,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+3bcdbebf-0da6-585a-9144-8a7b07e3215b,59201284-fb3a-54a7-9a11-bb0827260e87,close relative,近亲,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+07b0bea4-8f41-579f-94b4-04357c8c79bb,464a2429-5933-547e-8a0a-b02f137222c7,married couple,已婚夫妇,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+bdb62848-9000-53b9-b160-a546316130fe,3c6d20e2-e4f3-5afc-8058-e75033bf5972,young child,年幼的孩子,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+d9c82ec4-8d56-5b95-81a4-71eb9ddb960b,dc20cba3-d589-5996-a220-bab69f868f9b,full name,全名,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+21a4a99a-ed07-504b-af04-5545c189b86e,7b0b962f-ca73-5289-8ab7-b1b27d15b765,elderly grandparent,年长的祖父母,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+82fdf29e-95f4-550f-8bc0-2f9427fdd493,56dcf74b-2a92-52cb-a03d-4203ecb35e10,date of birth,出生日期,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+3349d77e-f3a0-5c5d-8ce2-a8df1d3ba5fe,6f9ef7f1-5b8f-595d-82e6-b87eb07ba92d,short hair,短发,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+a579b4ad-c08c-57aa-afef-a9afb6c0ee99,7bae26df-f96b-5fbc-93fa-34436a3a6998,physical appearance,外貌,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+c9bc5331-54e8-53b2-88ed-898ede5820b7,4d821d2d-3e86-5b54-b816-520d416ff979,healthy body,健康的身体,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+4eb87ec0-9ee9-57fd-9f05-e31fb61b27c9,67d7c662-bb72-5c82-96ce-d131dfd0e97f,calm voice,平静的声音,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+6d637033-3107-542d-9366-e095213aac01,5bafa0f3-f622-58da-ab90-bedc0ea45dd1,round face,圆脸,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+6b0ce529-4fda-5f55-8710-0d42e509d846,d8aa4592-9f8d-50ee-989b-e391761ce82c,care about,关心,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+fe58a7e6-324f-5a16-be9f-e8e1c7d5d43b,de4404c1-3d3b-502d-9b7a-42b14ee4769b,support a decision,支持一个决定,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+0bfbf855-5c2e-5160-8e09-91f22110a2e2,9cccae4b-b7b3-5314-8da7-7391d887755a,close relationship,亲密关系,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+435621ee-2888-5407-a18a-112d138d10f8,c55f6b0b-4bde-5b39-99a7-745e348d9db4,shared responsibility,共同责任,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+0bc1bbd3-76b6-5989-a8c0-400e63436dfa,8fca57d7-e961-5345-8c62-efcd8547fb2d,positive attitude,积极态度,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+991a54cb-98ed-533f-b279-35c59efb4b4e,35f3e46f-2ee2-5633-b76f-913627996ef4,communicate openly,坦诚沟通,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+70669a58-e11f-5f79-a067-e5c13720952b,1a9a484a-415f-5492-8606-7840b49fcae2,protect from danger,保护免受危险,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+7bfd21c2-da68-5dfc-8520-25977b9aaab2,62022b79-e181-5f12-b36f-1122b06a39eb,front door,前门,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+7b59119b-cbf0-5802-90d0-c548d0e340f1,f4f5f7d2-f617-52c9-9573-821b8760381b,kitchen cabinet,厨房橱柜,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+2fd3b19f-3a38-5385-a995-c9dd0e73e0e4,f339465f-0d68-51be-b427-85744f6b240c,bedroom window,卧室窗户,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+e518b015-2460-503f-a8ad-a7d4d720527a,be9dca37-5b5b-5e38-8eed-8398b73fdc35,desk lamp,书桌灯,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+07841bb9-84b8-523c-be3c-b9a09158c21c,cf6ef38b-038a-5963-a4c2-7c215991126e,front yard,前院,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+b37e425e-ecf9-553f-8022-7b0f4e7b62c6,8d080aba-a26c-5884-a573-203e6db37b15,apartment building,公寓楼,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+1002b224-8fe2-5cf2-8883-f73e0ed140df,cc42946e-04e2-5c81-93ff-755711ec1eb3,comfortable sofa,舒适的沙发,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+c5821121-7fd6-53a4-9f50-8527f51f9284,bc42250d-e9b0-5548-8520-507905032ee7,glass of water,一杯水,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+3633e3c0-5f1d-5b06-b3e7-33d663eddac9,d72f5974-0fe6-5201-ab69-c00e17c4de24,kitchen knife,菜刀,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+611c4fa8-9dc4-5d47-96a6-1a949d88de2e,e1d0b281-bd1d-5357-8c29-6bf28b878198,wash the dishes,洗碗,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+1b736aee-1470-5416-a5bd-ba784277cf20,d138c02e-250d-5173-81f2-a28ae44637f6,cook dinner,做晚饭,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+297f1063-8993-5bab-b253-470391277210,dc445442-7ec6-5d43-bf3c-6022e778dfcb,repair a door,修门,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+78ecf4c5-33fa-56f8-8631-7b6729f45a46,4e5508d3-8261-59db-a090-20056046533f,rent an apartment,租公寓,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+f7fd57a0-9742-509b-8bd0-0587e8779ff3,28aec5ee-e0db-58bb-b954-41d155a94b31,turn off the stove,关掉炉灶,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved
+eed77e38-d6fb-57cd-9068-38a026dacb46,f8384550-fef8-5c67-ab11-463e0ad8888d,shopping basket,购物篮,4.0,b3335777-dc5f-5448-a777-923e6115c08c,false,approved

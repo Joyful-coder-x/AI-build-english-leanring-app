@@ -1,6 +1,9 @@
 package com.example.firsttest.data.repository
 
 import com.example.firsttest.data.model.Level
+import com.example.firsttest.data.model.BandUpgradeAnswerResult
+import com.example.firsttest.data.model.BandUpgradeExam
+import com.example.firsttest.data.model.BandUpgradeQuestion
 import com.example.firsttest.data.model.LevelPracticeAnswerResult
 import com.example.firsttest.data.model.LevelPracticeQuestion
 import com.example.firsttest.data.model.LevelPracticeRound
@@ -21,6 +24,11 @@ class FakeVocabRepository : VocabRepository {
 
     private var activeRound: PracticeRound? = null
     private var correctCount = 0
+    private var levelOverrides: List<Level>? = null
+
+    fun replaceLevelsForTest(levels: List<Level>) {
+        levelOverrides = levels
+    }
 
     override suspend fun startPracticeRound(levelNumber: Int): PracticeRound =
         activeRound ?: PracticeRound(
@@ -53,6 +61,25 @@ class FakeVocabRepository : VocabRepository {
     }
 
     override suspend fun completePracticeRound(roundId: String): PracticeRoundResult {
+        activeLevelRound?.takeIf { it.roundId == roundId }?.let { round ->
+            val result = PracticeRoundResult(
+                correctCount = levelRoundCorrectCount,
+                questionCount = round.questions.size,
+                starRating = com.example.firsttest.ui.practice.calcStars(
+                    levelRoundCorrectCount,
+                    round.questions.size,
+                ),
+                duckPowerEarned = levelRoundCorrectCount,
+                levelCompleted = false,
+            )
+            activeLevelRound = null
+            levelRoundCorrectAnswers.clear()
+            levelRoundCorrectCount = 0
+            levelRoundAttemptCounts.clear()
+            levelRoundRevealedPositions.clear()
+            return result
+        }
+
         val round = requireNotNull(activeRound)
         val result = PracticeRoundResult(
             correctCount = correctCount,
@@ -68,17 +95,138 @@ class FakeVocabRepository : VocabRepository {
         return result
     }
 
-    override suspend fun getLevelWordStatuses(levelNumber: Int): List<LevelWordStatus> =
-        getMeaningChoiceQuestionsForLevel(levelNumber, 3).mapIndexed { index, question ->
+    override suspend fun getLevelWordStatuses(levelNumber: Int): List<LevelWordStatus> {
+        val words = listOf(
+            "achieve", "evidence", "significant", "analyze", "approach",
+            "assume", "authority", "benefit", "concept", "consist",
+            "context", "contract", "create", "data", "define",
+            "derive", "distribute", "economy", "environment", "establish",
+            "evaluate", "evident", "export", "factor", "finance",
+            "function", "identify", "income", "indicate", "individual",
+            "interpret", "involve", "issue", "labor", "legal",
+            "major", "method", "occur", "percent", "period",
+            "policy", "principle", "procedure", "process", "require",
+        )
+        val definitions = listOf(
+            "实现；达到", "证据；证明", "重要的；显著的", "分析", "方法；接近",
+            "假设", "权威；当局", "利益；好处", "概念", "由…组成",
+            "背景；情境", "合同；合约", "创造；创建", "数据", "定义",
+            "源于；衍生", "分配；分布", "经济；经济学", "环境", "建立；确立",
+            "评估；评价", "明显的；显然的", "出口；输出", "因素", "金融；资金",
+            "功能；作用", "识别；确认", "收入；收益", "表明；指示", "个人；个体",
+            "解释；说明", "涉及；包含", "问题；事项", "劳动力", "法律的",
+            "主要的；重大的", "方法；手段", "发生；出现", "百分比", "时期；阶段",
+            "政策", "原则；原理", "程序；步骤", "过程；进程", "需要；要求",
+        )
+        // 5 mastered, 7 reviewing, 8 started, 25 not started
+        val statuses = List(45) { index ->
+            when {
+                index < 5 -> "已掌握"
+                index < 12 -> "复习中"
+                index < 20 -> "学习中"
+                else -> "未学习"
+            }
+        }
+        return words.mapIndexed { index, word ->
             LevelWordStatus(
-                senseId = question.senseId,
-                word = question.wordText,
-                definitionZh = question.definitionZh,
-                status = if (index == 0) "复习中" else "未学习",
-                wrongCount = 0,
-                isDue = false,
+                senseId = "fake_s${levelNumber}_${index + 1}",
+                word = word,
+                definitionZh = definitions[index],
+                status = statuses[index],
+                wrongCount = if (statuses[index] != "未学习") (0..3).random() else 0,
+                isDue = statuses[index] == "复习中",
             )
         }
+    }
+
+    private var activeBandExam: BandUpgradeExam? = null
+    private val bandExamAnswers = mutableMapOf<Int, Boolean>()
+
+    override suspend fun startBandUpgradeExam(targetBand: Double): BandUpgradeExam {
+        activeBandExam?.let { return it }
+        val questions = (1..40).map { position ->
+            val type = when ((position - 1) % 4) {
+                0 -> "meaning_choice"
+                1 -> "listening_choice"
+                2 -> "sentence_cloze_typing"
+                else -> "speaking_repeat"
+            }
+            BandUpgradeQuestion(
+                position = position,
+                questionId = "fake-band-exam-$position",
+                questionTypeKey = type,
+                category = when (type) {
+                    "listening_choice" -> "listening"
+                    "sentence_cloze_typing" -> "spelling"
+                    "speaking_repeat" -> "speaking"
+                    else -> "meaning"
+                },
+                answerForm = if (type == "sentence_cloze_typing") "keyboard" else "option",
+                stem = if (type == "sentence_cloze_typing") "Type the word for: evidence" else "evidence",
+                promptHint = "Band upgrade question",
+                translationZh = "evidence; proof",
+                headword = "evidence",
+                options = if (type == "sentence_cloze_typing") emptyList() else listOf(
+                    MeaningChoiceOption("fake-${position}-a", "", "evidence", false),
+                    MeaningChoiceOption("fake-${position}-b", "", "method", false),
+                    MeaningChoiceOption("fake-${position}-c", "", "policy", false),
+                    MeaningChoiceOption("fake-${position}-d", "", "factor", false),
+                ),
+                answered = false,
+                isCorrect = null,
+            )
+        }
+        return BandUpgradeExam(
+            attemptId = "fake-band-exam",
+            sourceBand = targetBand - 0.5,
+            targetBand = targetBand,
+            status = "started",
+            questionCount = questions.size,
+            correctCount = null,
+            accuracy = null,
+            passed = null,
+            categoryCounts = mapOf("meaning" to 10, "listening" to 10, "spelling" to 10, "speaking" to 10),
+            questions = questions,
+        ).also {
+            activeBandExam = it
+            bandExamAnswers.clear()
+        }
+    }
+
+    override suspend fun saveBandUpgradeAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): BandUpgradeAnswerResult {
+        val isCorrect = answer.equals("evidence", ignoreCase = true) ||
+            answer.startsWith("fake-$position-a") ||
+            answer == "I said it clearly."
+        bandExamAnswers[position] = isCorrect
+        return BandUpgradeAnswerResult(
+            alreadySaved = false,
+            position = position,
+            isCorrect = isCorrect,
+        )
+    }
+
+    override suspend fun completeBandUpgradeExam(attemptId: String): BandUpgradeExam {
+        val exam = requireNotNull(activeBandExam)
+        val correct = bandExamAnswers.values.count { it }
+        val accuracy = correct.toDouble() / exam.questionCount.toDouble() * 100.0
+        return exam.copy(
+            status = "completed",
+            correctCount = correct,
+            accuracy = accuracy,
+            passed = correct >= 37,
+            questions = exam.questions.map { question ->
+                question.copy(
+                    answered = bandExamAnswers.containsKey(question.position),
+                    isCorrect = bandExamAnswers[question.position],
+                )
+            },
+        ).also { activeBandExam = null }
+    }
 
     override suspend fun saveMeaningChoiceAnswer(
         levelNumber: Int, senseId: String, selectedSenseId: String,
@@ -91,6 +239,10 @@ class FakeVocabRepository : VocabRepository {
     ) { /* no-op */ }
 
     override suspend fun getLevels(numbers: List<Int>): List<Level> =
+        levelOverrides
+            ?.filter { it.number in numbers }
+            ?.sortedBy { it.number }
+            ?:
         numbers.sorted().map { n ->
             Level(
                 number = n,
@@ -173,6 +325,9 @@ class FakeVocabRepository : VocabRepository {
     private var activeLevelRound: LevelPracticeRound? = null
     // Maps position → correct answer (option id or typed word)
     private val levelRoundCorrectAnswers = mutableMapOf<Int, String>()
+    private var levelRoundCorrectCount = 0
+    private val levelRoundAttemptCounts = mutableMapOf<Int, Int>()
+    private val levelRoundRevealedPositions = mutableSetOf<Int>()
 
     override suspend fun startLevelPracticeRound(levelNumber: Int): LevelPracticeRound {
         val questions = buildList {
@@ -225,42 +380,33 @@ class FakeVocabRepository : VocabRepository {
                 ),
             ))
             add(LevelPracticeQuestion(
-                questionId      = "lp_${levelNumber}_6", senseId = "s3", position = 6,
-                promptHint      = "用英语描述这个词的含义，然后自评",
-                stem            = "证据；有助于证明某事为真的事实或信息",
-                answerForm      = "option", questionTypeKey = "open_speaking",
-                translationZh   = "evidence",
-                options         = listOf(
-                    MeaningChoiceOption("sp6a", "s3", "✅ 我说出了核心含义", true),
-                    MeaningChoiceOption("sp6b", "s3", "🤔 我说了部分内容", true),
-                    MeaningChoiceOption("sp6c", "s3", "❌ 我没有说出来", false),
-                ),
-            ))
-            add(LevelPracticeQuestion(
-                questionId      = "lp_${levelNumber}_7", senseId = "s1", position = 7,
+                questionId      = "lp_${levelNumber}_6", senseId = "s1", position = 6,
                 promptHint      = "写出 achieve 的名词形式",
                 stem            = "His ___ in the exam was outstanding. (achieve → 名词)",
                 answerForm      = "keyboard", questionTypeKey = "word_form",
                 translationZh   = "实现；成就 (achievement)", options = emptyList(), letterCount = 11,
             ))
             add(LevelPracticeQuestion(
-                questionId      = "lp_${levelNumber}_8", senseId = "s3", position = 8,
+                questionId      = "lp_${levelNumber}_7", senseId = "s3", position = 7,
                 promptHint      = "阅读短文，回答问题",
                 stem            = "Scientists have found new evidence that climate change is accelerating faster than expected. " +
                     "The data, collected over 20 years, provides significant proof of rising global temperatures.\n\n" +
-                    "问题：文中 "evidence" 的中文含义最接近？",
+                    "问题：文中 \"evidence\" 的中文含义最接近？",
                 answerForm      = "option", questionTypeKey = "reading_comprehension",
                 translationZh   = "证据；证明",
                 options         = listOf(
-                    MeaningChoiceOption("rc8a", "s3", "证据；证明", true),
-                    MeaningChoiceOption("rc8b", "s5", "论点；争议", false),
-                    MeaningChoiceOption("rc8c", "s6", "假设；猜测", false),
-                    MeaningChoiceOption("rc8d", "s7", "实验；测试", false),
+                    MeaningChoiceOption("rc7a", "s3", "证据；证明", true),
+                    MeaningChoiceOption("rc7b", "s5", "论点；争议", false),
+                    MeaningChoiceOption("rc7c", "s6", "假设；猜测", false),
+                    MeaningChoiceOption("rc7d", "s7", "实验；测试", false),
                 ).shuffled(),
             ))
         }
 
         levelRoundCorrectAnswers.clear()
+        levelRoundCorrectCount = 0
+        levelRoundAttemptCounts.clear()
+        levelRoundRevealedPositions.clear()
         questions.forEach { q ->
             when {
                 q.answerForm == "keyboard" -> levelRoundCorrectAnswers[q.position] = when (q.questionTypeKey) {
@@ -287,8 +433,94 @@ class FakeVocabRepository : VocabRepository {
         answer: String,
         responseTimeMs: Int,
     ): LevelPracticeAnswerResult {
+        val question = activeLevelRound?.questions?.firstOrNull { it.position == position }
         val correct = levelRoundCorrectAnswers[position] ?: ""
-        val isCorrect = answer.trim().lowercase() == correct.trim().lowercase()
+        val isCorrect = answer.trim().equals(correct.trim(), ignoreCase = true)
+
+        if (question?.questionTypeKey == "sentence_cloze_typing") {
+            val attemptCount = levelRoundAttemptCounts[position] ?: 0
+            val normalized = answer.trim().lowercase()
+
+            if (normalized in setOf("reach", "complete", "succeed")) {
+                return LevelPracticeAnswerResult(
+                    isCorrect = false,
+                    answerOutcome = "wrong",
+                    correctOptionId = null,
+                    correctAnswer = null,
+                    learningState = null,
+                    reviewStage = null,
+                    action = "near_meaning",
+                    attemptCount = attemptCount,
+                    feedback = "Close meaning, but type the target word for this level.",
+                )
+            }
+
+            if (position in levelRoundRevealedPositions) {
+                return if (isCorrect) {
+                    LevelPracticeAnswerResult(
+                        isCorrect = false,
+                        answerOutcome = "remediation_completed",
+                        correctOptionId = null,
+                        correctAnswer = correct,
+                        learningState = null,
+                        reviewStage = null,
+                    )
+                } else {
+                    LevelPracticeAnswerResult(
+                        isCorrect = false,
+                        answerOutcome = "wrong",
+                        correctOptionId = null,
+                        correctAnswer = correct,
+                        learningState = null,
+                        reviewStage = null,
+                    )
+                }
+            }
+
+            if (!isCorrect) {
+                val nextAttemptCount = attemptCount + 1
+                levelRoundAttemptCounts[position] = nextAttemptCount
+                return if (nextAttemptCount == 1) {
+                    LevelPracticeAnswerResult(
+                        isCorrect = false,
+                        answerOutcome = "wrong",
+                        correctOptionId = null,
+                        correctAnswer = null,
+                        learningState = null,
+                        reviewStage = null,
+                        action = "retry_with_hint",
+                        attemptCount = nextAttemptCount,
+                        letterCount = correct.length,
+                    )
+                } else {
+                    levelRoundRevealedPositions += position
+                    LevelPracticeAnswerResult(
+                        isCorrect = false,
+                        answerOutcome = "wrong",
+                        correctOptionId = null,
+                        correctAnswer = correct,
+                        learningState = null,
+                        reviewStage = null,
+                        action = "reveal_answer",
+                        attemptCount = nextAttemptCount,
+                        revealedAnswer = correct,
+                    )
+                }
+            }
+
+            levelRoundCorrectCount++
+            return LevelPracticeAnswerResult(
+                isCorrect = true,
+                answerOutcome = if (attemptCount > 0) "assisted_correct" else "full_correct",
+                correctOptionId = null,
+                correctAnswer = correct,
+                learningState = null,
+                reviewStage = null,
+                attemptCount = attemptCount,
+            )
+        }
+
+        if (isCorrect) levelRoundCorrectCount++
         return LevelPracticeAnswerResult(
             isCorrect       = isCorrect,
             answerOutcome   = if (isCorrect) "full_correct" else "wrong",

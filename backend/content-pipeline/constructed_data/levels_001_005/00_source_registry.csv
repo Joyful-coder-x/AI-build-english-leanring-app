@@ -1,0 +1,7 @@
+﻿source_id,repository,role,license,used_in_levels_001_005,human_review,review_reason
+ecdict,skywind3000/ECDICT,"primary bilingual dictionary, frequency, tags, forms",MIT,T,F,
+oxford_repo,winterdl/oxford-5000-vocabulary-audio-definition,"CEFR, American IPA, definition/example/audio cross-check",not declared for scraped content,T,T,Personal-study use only; confirm rights before any public release.
+ielts_word_trainer,Abubokkor98/ielts-word-trainer,product/schema and spaced-review reference only,personal and educational use only,F,T,No portable production vocabulary dataset found.
+cc_cedict,SilentByte/cc-cedict-structurizer,optional Chinese translation QA,CC BY-SA 3.0 data; MIT code,F,T,Chinese-to-English direction is unsuitable for automatic primary joins.
+webster_open_source,CloudBytes-Academy/English-Dictionary-Open-Source,public-domain fallback definition,MIT code; public-domain Webster 1913 source,T,T,Historical definitions require modernization and sense review.
+webster_csv,manassharma07/English-Dictionary-CSV,duplicate Webster 1913 fallback; coverage comparison only,public-domain OPTED/Webster source,F,T,Duplicate historical source; not used when CloudBytes copy is available.

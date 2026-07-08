@@ -66,33 +66,32 @@ import kotlin.math.sin
 
 @Composable
 fun ProfileScreen(
-    onReassessClick: () -> Unit = {},
     onSignOut: () -> Unit = {},
     viewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory),
     accountViewModel: AccountViewModel = viewModel(factory = AccountViewModel.Factory),
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val accountState by accountViewModel.uiState.collectAsState()
+
     Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0)) { innerPadding ->
         when (val state = uiState) {
-            is ProfileUiState.Loading ->
-                Box(
-                    modifier = Modifier.fillMaxSize().padding(innerPadding),
-                    contentAlignment = Alignment.Center,
-                ) { Text("加载中…") }
+            is ProfileUiState.Loading -> Box(
+                modifier = Modifier.fillMaxSize().padding(innerPadding),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text("Loading profile...")
+            }
 
-            is ProfileUiState.Success ->
-                ProfileContent(
-                    user = state.user,
-                    sessionDates = state.sessionDates,
-                    onReassessClick = onReassessClick,
-                    onSignOut = onSignOut,
-                    accountState = accountState,
-                    onCurrentPasswordChanged = accountViewModel::setCurrentPassword,
-                    onNewPasswordChanged = accountViewModel::setNewPassword,
-                    onChangePassword = accountViewModel::changePassword,
-                    modifier = Modifier.padding(innerPadding),
-                )
+            is ProfileUiState.Success -> ProfileContent(
+                user = state.user,
+                sessionDates = state.sessionDates,
+                onSignOut = onSignOut,
+                accountState = accountState,
+                onCurrentPasswordChanged = accountViewModel::setCurrentPassword,
+                onNewPasswordChanged = accountViewModel::setNewPassword,
+                onChangePassword = accountViewModel::changePassword,
+                modifier = Modifier.padding(innerPadding),
+            )
         }
     }
 }
@@ -101,7 +100,6 @@ fun ProfileScreen(
 private fun ProfileContent(
     user: User,
     sessionDates: List<LocalDate>,
-    onReassessClick: () -> Unit,
     onSignOut: () -> Unit,
     accountState: AccountUiState,
     onCurrentPasswordChanged: (String) -> Unit,
@@ -110,17 +108,14 @@ private fun ProfileContent(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
+        modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         HeroCard(user)
         QuickStatsRow(user)
         StreakCard(user.streak)
         PracticeHeatmapCard(sessionDates)
-        RadarCard(user, onReassessClick)
+        RadarCard(user)
         if (user.props.isNotEmpty()) PropsCard(user.props)
         AccountSecurityCard(
             state = accountState,
@@ -129,13 +124,11 @@ private fun ProfileContent(
             onChangePassword = onChangePassword,
         )
         OutlinedButton(onClick = onSignOut, modifier = Modifier.fillMaxWidth()) {
-            Text("退出登录")
+            Text("Sign out")
         }
         Spacer(Modifier.height(8.dp))
     }
 }
-
-// ── Hero card ───────────────────────────────────────────────────────────────
 
 @Composable
 private fun HeroCard(user: User) {
@@ -144,26 +137,14 @@ private fun HeroCard(user: User) {
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
     ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp),
-        ) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                Text("⚙️", fontSize = 22.sp)
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-            ) {
+        Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Box(
-                    modifier = Modifier
-                        .size(72.dp)
-                        .clip(CircleShape)
+                    modifier = Modifier.size(72.dp).clip(CircleShape)
                         .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text("🦆", fontSize = 38.sp)
+                    Text(user.nickname.take(1).uppercase(), fontSize = 32.sp, fontWeight = FontWeight.Bold)
                 }
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Text(
@@ -177,7 +158,7 @@ private fun HeroCard(user: User) {
                         shape = MaterialTheme.shapes.small,
                     ) {
                         Text(
-                            text = user.duckTitle.displayName,
+                            text = titleLabel(user.duckTitle),
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.primary,
@@ -192,46 +173,27 @@ private fun HeroCard(user: User) {
                 }
             }
 
-            // Duck power progress to next title
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Row(
                     Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text("⚡", fontSize = 15.sp)
-                        Text(
-                            text = "${user.duckPower} 鸭力值",
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
-                    }
-                    if (nextTitle != null) {
-                        Text(
-                            text = "→ ${nextTitle.displayName} (${nextTitle.minDuckPower})",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.65f),
-                        )
-                    } else {
-                        Text(
-                            text = "已达最高称号！",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.SemiBold,
-                        )
-                    }
+                    Text(
+                        text = "${user.duckPower} power",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
+                    Text(
+                        text = nextTitle?.let { "Next: ${titleLabel(it)} (${it.minDuckPower})" } ?: "Top title reached",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.65f),
+                    )
                 }
                 LinearProgressIndicator(
                     progress = { progress },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(8.dp)
-                        .clip(MaterialTheme.shapes.small),
+                    modifier = Modifier.fillMaxWidth().height(8.dp).clip(MaterialTheme.shapes.small),
                     color = MaterialTheme.colorScheme.primary,
                     trackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.2f),
                 )
@@ -240,40 +202,24 @@ private fun HeroCard(user: User) {
     }
 }
 
-// ── Quick stats row (3 chips) ────────────────────────────────────────────────
-
 @Composable
 private fun QuickStatsRow(user: User) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        QuickStat(Modifier.weight(1f), "🎓", "LV ${user.userLevel.levelNumber}", user.userLevel.levelName)
-        QuickStat(Modifier.weight(1f), "🔥", "${user.streak.currentDays}天", "连胜")
-        QuickStat(Modifier.weight(1f), "📚", "${user.userLevel.ieltsBand}分", "雅思难度")
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
+        QuickStat(Modifier.weight(1f), "LV ${user.userLevel.levelNumber}", user.userLevel.levelName)
+        QuickStat(Modifier.weight(1f), "${user.streak.currentDays} days", "Streak")
+        QuickStat(Modifier.weight(1f), "Band ${user.userLevel.ieltsBand}", "IELTS target")
     }
 }
 
 @Composable
-private fun QuickStat(modifier: Modifier, icon: String, value: String, label: String) {
-    Card(
-        modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-    ) {
+private fun QuickStat(modifier: Modifier, value: String, label: String) {
+    Card(modifier = modifier, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
         Column(
-            modifier = Modifier
-                .padding(10.dp)
-                .fillMaxWidth(),
+            modifier = Modifier.padding(10.dp).fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
-            Text(icon, fontSize = 20.sp)
-            Text(
-                text = value,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-            )
+            Text(text = value, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
             Text(
                 text = label,
                 style = MaterialTheme.typography.labelSmall,
@@ -284,70 +230,41 @@ private fun QuickStat(modifier: Modifier, icon: String, value: String, label: St
     }
 }
 
-// ── Streak card with week dots ───────────────────────────────────────────────
-
 @Composable
 private fun StreakCard(streak: StreakInfo) {
-    // Mon=0 … Sun=6; dayOfWeek: Sun=1 Mon=2 … Sat=7
     val todayIndex = remember {
         val dow = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
         (dow + 5) % 7
     }
-    val dayLabels = listOf("一", "二", "三", "四", "五", "六", "日")
+    val dayLabels = listOf("M", "T", "W", "T", "F", "S", "S")
 
     Card(Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text("🔥", fontSize = 20.sp)
-                    Text(
-                        text = "夸夸连胜",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                    )
-                }
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "Daily streak", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Text(
-                    text = "${streak.currentDays} 天",
+                    text = "${streak.currentDays} days",
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.ExtraBold,
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
 
-            // Weekly dot view (Duolingo-style)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
                 dayLabels.forEachIndexed { index, label ->
                     val daysAgo = todayIndex - index
                     val practiced = daysAgo in 0 until streak.currentDays
                     val isToday = daysAgo == 0
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
-                    ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Box(
-                            modifier = Modifier
-                                .size(36.dp)
-                                .clip(CircleShape)
-                                .background(
-                                    if (practiced) MaterialTheme.colorScheme.primary
-                                    else MaterialTheme.colorScheme.surfaceVariant
-                                ),
+                            modifier = Modifier.size(36.dp).clip(CircleShape).background(
+                                if (practiced) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,
+                            ),
                             contentAlignment = Alignment.Center,
                         ) {
                             Text(
                                 text = if (practiced) "✓" else "",
-                                color = if (practiced) MaterialTheme.colorScheme.onPrimary
-                                        else MaterialTheme.colorScheme.onSurfaceVariant,
+                                color = if (practiced) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant,
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
                             )
@@ -355,79 +272,39 @@ private fun StreakCard(streak: StreakInfo) {
                         Text(
                             text = label,
                             style = MaterialTheme.typography.labelSmall,
-                            color = if (isToday) MaterialTheme.colorScheme.primary
-                                    else MaterialTheme.colorScheme.onSurfaceVariant,
+                            color = if (isToday) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
                             fontWeight = if (isToday) FontWeight.Bold else FontWeight.Normal,
                         )
                     }
                 }
             }
 
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text(
-                        text = "目标 ${streak.goalDays} 天连胜",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(
-                        text = "${streak.currentDays}/${streak.goalDays}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                LinearProgressIndicator(
-                    progress = { (streak.currentDays.toFloat() / streak.goalDays).coerceIn(0f, 1f) },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
+            LinearProgressIndicator(
+                progress = { (streak.currentDays.toFloat() / streak.goalDays).coerceIn(0f, 1f) },
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }
 
-// ── Practice contribution heatmap ────────────────────────────────────────────
-
-/**
- * GitHub-style 12-week practice heatmap.
- * Columns = weeks (oldest left → newest right), rows = Mon–Sun.
- */
 @Composable
 private fun PracticeHeatmapCard(sessionDates: List<LocalDate>) {
     val today = remember { LocalDate.now() }
     val dateSet = remember(sessionDates) { sessionDates.toHashSet() }
-
-    // Start from the Monday of the week 12 weeks ago
-    val todayDow = today.dayOfWeek.value          // ISO: Mon=1 … Sun=7
+    val todayDow = today.dayOfWeek.value
     val thisMonday = today.minusDays((todayDow - 1).toLong())
     val windowStart = thisMonday.minusWeeks(11)
-
     val activeCellColor = MaterialTheme.colorScheme.primary
     val emptyCellColor = MaterialTheme.colorScheme.surfaceVariant
 
     Card(Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    "练习记录",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-                Text(
-                    "近12周打卡",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Text("Practice history", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text("Last 12 weeks", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
 
-            // Grid: 7 rows (Mon–Sun top-to-bottom) × 12 columns (weeks left-to-right)
-            val rowLabels = listOf("一", "", "三", "", "五", "", "日")
+            val rowLabels = listOf("M", "", "W", "", "F", "", "S")
             Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 for (dayOfWeek in 0..6) {
                     Row(
@@ -435,7 +312,6 @@ private fun PracticeHeatmapCard(sessionDates: List<LocalDate>) {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        // Day-of-week label (show Mon/Wed/Fri/Sun only for space)
                         Text(
                             text = rowLabels[dayOfWeek],
                             style = MaterialTheme.typography.labelSmall,
@@ -450,138 +326,58 @@ private fun PracticeHeatmapCard(sessionDates: List<LocalDate>) {
                             val practiced = !isFuture && date in dateSet
 
                             Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .aspectRatio(1f)
-                                    .clip(RoundedCornerShape(2.dp))
-                                    .background(
-                                        when {
-                                            isFuture -> emptyCellColor.copy(alpha = 0.3f)
-                                            practiced || isToday -> activeCellColor.copy(
-                                                alpha = if (isToday) 1f else 0.7f,
-                                            )
-                                            else -> emptyCellColor
-                                        }
-                                    ),
+                                modifier = Modifier.weight(1f).aspectRatio(1f).clip(RoundedCornerShape(2.dp)).background(
+                                    when {
+                                        isFuture -> emptyCellColor.copy(alpha = 0.3f)
+                                        practiced || isToday -> activeCellColor.copy(alpha = if (isToday) 1f else 0.7f)
+                                        else -> emptyCellColor
+                                    },
+                                ),
                             )
                         }
                     }
                 }
             }
-
-            // Legend
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    "少",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.width(4.dp))
-                listOf(0.15f, 0.4f, 0.7f, 1.0f).forEach { alpha ->
-                    Spacer(Modifier.width(2.dp))
-                    Box(
-                        modifier = Modifier
-                            .size(10.dp)
-                            .clip(RoundedCornerShape(2.dp))
-                            .background(activeCellColor.copy(alpha = alpha)),
-                    )
-                }
-                Spacer(Modifier.width(4.dp))
-                Text(
-                    "多",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
         }
     }
 }
-
-// ── Vocabulary radar card ────────────────────────────────────────────────────
 
 @Composable
-private fun RadarCard(user: User, onReassessClick: () -> Unit) {
+private fun RadarCard(user: User) {
     Card(Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Row(
-                Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(
-                        text = "词汇雷达",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = "达到雅思 ${user.abilityRadar.ieltsScore} 分水平",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                OutlinedButton(onClick = onReassessClick) { Text("评测报告") }
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(text = "IELTS readiness", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(
+                    text = "Estimated Band ${user.abilityRadar.ieltsScore}. Skill axes are informational in Phase 1.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
-            AbilityRadarChart(
-                radar = user.abilityRadar,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-            )
+            AbilityRadarChart(radar = user.abilityRadar, modifier = Modifier.fillMaxWidth().height(200.dp))
         }
     }
 }
-
-// ── Props card ───────────────────────────────────────────────────────────────
 
 @Composable
 private fun PropsCard(props: List<Prop>) {
     Card(Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Text(
-                text = "我的道具",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text(text = "Items", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 props.forEach { prop ->
-                    val icon = when (prop.type) {
-                        PropType.STREAK_PROTECTION -> "🛡️"
-                        PropType.CHALLENGE_KEY -> "🔑"
-                    }
                     Card(
                         modifier = Modifier.weight(1f),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                        ),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                     ) {
                         Column(
-                            modifier = Modifier
-                                .padding(12.dp)
-                                .fillMaxWidth(),
+                            modifier = Modifier.padding(12.dp).fillMaxWidth(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(4.dp),
                         ) {
-                            Text(icon, fontSize = 28.sp)
+                            Text(text = "x${prop.count}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                             Text(
-                                text = "x${prop.count}",
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                text = prop.type.displayName,
+                                text = itemLabel(prop.type),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center,
@@ -594,8 +390,6 @@ private fun PropsCard(props: List<Prop>) {
     }
 }
 
-// ── Account security card ────────────────────────────────────────────────────
-
 @Composable
 private fun AccountSecurityCard(
     state: AccountUiState,
@@ -604,19 +398,12 @@ private fun AccountSecurityCard(
     onChangePassword: () -> Unit,
 ) {
     Card(Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            Text(
-                text = "账户安全",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(text = "Account security", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             OutlinedTextField(
                 value = state.currentPassword,
                 onValueChange = onCurrentPasswordChanged,
-                label = { Text("当前密码") },
+                label = { Text("Current password") },
                 visualTransformation = PasswordVisualTransformation(),
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
@@ -624,33 +411,27 @@ private fun AccountSecurityCard(
             OutlinedTextField(
                 value = state.newPassword,
                 onValueChange = onNewPasswordChanged,
-                label = { Text("新密码") },
+                label = { Text("New password") },
                 visualTransformation = PasswordVisualTransformation(),
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
             )
             state.message?.let { Text(it) }
-            Button(
-                onClick = onChangePassword,
-                enabled = !state.isLoading,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(if (state.isLoading) "修改中..." else "修改密码")
+            Button(onClick = onChangePassword, enabled = !state.isLoading, modifier = Modifier.fillMaxWidth()) {
+                Text(if (state.isLoading) "Changing..." else "Change password")
             }
         }
     }
 }
 
-// ── Ability radar chart ──────────────────────────────────────────────────────
-
 @Composable
 private fun AbilityRadarChart(radar: AbilityRadar, modifier: Modifier = Modifier) {
     val axes = listOf(
-        "单词" to radar.vocabulary,
-        "听力" to radar.listening,
-        "阅读" to radar.reading,
-        "口语" to radar.speaking,
-        "写作" to radar.writing,
+        "Vocab" to radar.vocabulary,
+        "Listen" to radar.listening,
+        "Read" to radar.reading,
+        "Speak" to radar.speaking,
+        "Write" to radar.writing,
     )
     val maxValue = 10f
     val currentColor = MaterialTheme.colorScheme.primary
@@ -708,19 +489,30 @@ private fun AbilityRadarChart(radar: AbilityRadar, modifier: Modifier = Modifier
     }
 }
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
-
 private fun nextTitleProgress(duckPower: Int, currentTitle: DuckTitle): Pair<Float, DuckTitle?> {
-    val all = DuckTitle.values()
+    val all = DuckTitle.entries
     val idx = all.indexOf(currentTitle)
     if (idx == all.size - 1) return 1f to null
     val next = all[idx + 1]
-    val progress = (duckPower - currentTitle.minDuckPower).toFloat() /
-                   (next.minDuckPower - currentTitle.minDuckPower)
+    val progress = (duckPower - currentTitle.minDuckPower).toFloat() / (next.minDuckPower - currentTitle.minDuckPower)
     return progress.coerceIn(0f, 1f) to next
 }
 
-// ── Preview ──────────────────────────────────────────────────────────────────
+private fun titleLabel(title: DuckTitle): String = when (title) {
+    DuckTitle.BEGINNER -> "Beginner"
+    DuckTitle.HARD_WORKING -> "Hard-working"
+    DuckTitle.PROGRESSING -> "Progressing"
+    DuckTitle.SKILLED -> "Skilled"
+    DuckTitle.SUPER -> "Advanced"
+    DuckTitle.EXCELLENT -> "Excellent"
+    DuckTitle.INVINCIBLE -> "Expert"
+    DuckTitle.MASTER -> "Master"
+}
+
+private fun itemLabel(type: PropType): String = when (type) {
+    PropType.STREAK_PROTECTION -> "Streak protection"
+    PropType.CHALLENGE_KEY -> "Challenge key"
+}
 
 @Preview(showBackground = true, heightDp = 1400)
 @Composable
@@ -729,10 +521,12 @@ private fun ProfileContentPreview() {
         ProfileContent(
             user = previewUser,
             sessionDates = listOf(
-                LocalDate.now(), LocalDate.now().minusDays(1), LocalDate.now().minusDays(3),
-                LocalDate.now().minusDays(7), LocalDate.now().minusDays(14),
+                LocalDate.now(),
+                LocalDate.now().minusDays(1),
+                LocalDate.now().minusDays(3),
+                LocalDate.now().minusDays(7),
+                LocalDate.now().minusDays(14),
             ),
-            onReassessClick = {},
             onSignOut = {},
             accountState = AccountUiState(),
             onCurrentPasswordChanged = {},
@@ -744,11 +538,11 @@ private fun ProfileContentPreview() {
 
 private val previewUser = User(
     id = "ksdfj76239skd",
-    nickname = "leoninebess",
+    nickname = "demo_student",
     avatarUrl = null,
     phone = null,
     duckPower = 450,
-    userLevel = UserLevel(levelNumber = 20, ieltsBand = 5.5, levelName = "脆皮新生", progress = 0.4f),
+    userLevel = UserLevel(levelNumber = 20, ieltsBand = 5.5, levelName = "IELTS Core", progress = 0.4f),
     abilityRadar = AbilityRadar(
         ieltsScore = 5.5,
         vocabulary = AbilityRadar.Axis(7f, 5f),

@@ -6,13 +6,18 @@ import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.model.StreakInfo
 import com.example.firsttest.data.model.User
 import com.example.firsttest.data.model.UserLevel
+import com.example.firsttest.data.remote.DbGrantPropParams
+import com.example.firsttest.data.remote.DbGrantPropResult
 import com.example.firsttest.data.remote.DbLevelNumber
 import com.example.firsttest.data.remote.DbProfile
+import com.example.firsttest.data.remote.DbUserProp
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.from
+import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.rpc
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -55,9 +60,16 @@ class SupabaseUserRepository(
             }
             .decodeSingleOrNull<DbLevelNumber>()
 
+        val propRows = client.from("user_props")
+            .select(Columns.list("prop_type, count")) {
+                filter { eq("user_id", authUser.id) }
+            }
+            .decodeList<DbUserProp>()
+
         state.value = p.toDomain(
             email = authUser.email?.takeUnless(SupabaseAuthRepository::isInternalEmail),
             highestLevel = highestUnlocked,
+            propRows = propRows,
         )
     }
 
@@ -75,10 +87,14 @@ class SupabaseUserRepository(
     }
 
     override suspend fun addProp(type: PropType, count: Int) {
+        val result = client.postgrest.rpc(
+            "grant_prop",
+            DbGrantPropParams(propType = type.dbValue, count = count),
+        ).decodeAs<DbGrantPropResult>()
         state.update { user ->
             val existing = user.props.firstOrNull { it.type == type }
-            val props = if (existing == null) user.props + Prop(type, count) else {
-                user.props.map { if (it.type == type) it.copy(count = it.count + count) else it }
+            val props = if (existing == null) user.props + Prop(type, result.count) else {
+                user.props.map { if (it.type == type) it.copy(count = result.count) else it }
             }
             user.copy(props = props)
         }
@@ -88,7 +104,11 @@ class SupabaseUserRepository(
         error("Onboarding finalization is server-owned. Use the placement RPC.")
     }
 
-    private fun DbProfile.toDomain(email: String?, highestLevel: DbLevelNumber?) = User(
+    private fun DbProfile.toDomain(
+        email: String?,
+        highestLevel: DbLevelNumber?,
+        propRows: List<DbUserProp>,
+    ) = User(
         id = publicUserCode,
         nickname = nickname,
         avatarUrl = avatarPath,
@@ -101,7 +121,9 @@ class SupabaseUserRepository(
             currentDays = currentStreakDays,
             goalDays = nextStreakGoal(currentStreakDays),
         ),
-        props = emptyList(), // TODO: add user_props table to Supabase to persist props
+        props = propRows.mapNotNull { row ->
+            PropType.fromDbValue(row.propType)?.let { Prop(it, row.count) }
+        },
         onboardingCompleted = onboardingStatus == "completed" || onboardingStatus == "skipped",
         username = username,
         email = email,

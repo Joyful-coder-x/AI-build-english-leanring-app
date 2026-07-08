@@ -1,5 +1,8 @@
+**/__pycache__/
+/.tmp_pycache/
 *.iml
 .gradle
+.kotlin/
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -13,3 +16,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+backend/content-pipeline/output/
+backend/content-pipeline/audio/
+backend/content-pipeline/.env
+backend/content-pipeline/*service_role*
+backend/content-pipeline/*google*credentials*
+backend/content-pipeline/*.key.json
+/backend/content-pipeline/sources/

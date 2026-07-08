@@ -25,16 +25,41 @@ begin;
 
 -- 1. question_type_key on questions -----------------------------------------
 
+update public.question_types
+set category = 'new_word',
+    name = 'sentence_cloze_typing',
+    name_zh = '句子填空输入',
+    answer_form = 'keyboard',
+    skill_type = 'spelling',
+    notes = 'Sentence blank with Chinese hint and staged memory retype'
+where type_code = 3;
+
 alter table public.questions
   add column if not exists question_type_key text;
 
 -- Derive question_type_key for existing rows.
 update public.questions
 set question_type_key = case
-  when answer_form::text = 'keyboard' then 'sentence_cloze_typing'
+  when type_code = 3 then 'sentence_cloze_typing'
+  when answer_form::text = 'keyboard' then 'keyboard_recall'
   else 'option_recognition'
 end
 where question_type_key is null;
+
+alter table public.practice_round_questions
+  add column if not exists cumulative_response_time_ms integer not null default 0,
+  add column if not exists near_meaning_count smallint not null default 0,
+  add column if not exists duck_points numeric(4,2);
+
+-- Migration 012's option-selection trigger predates keyboard rounds. Keep it
+-- for option rows, but never let it replace a selected cloze snapshot.
+drop trigger if exists practice_round_question_context_hint
+  on public.practice_round_questions;
+create trigger practice_round_question_context_hint
+before insert on public.practice_round_questions
+for each row
+when (new.answer_form is distinct from 'keyboard')
+execute function public.enforce_conditional_context_hint();
 
 comment on column public.questions.question_type_key is
   'Identifies question type: option_recognition, sentence_cloze_typing, etc.';
@@ -303,7 +328,12 @@ begin
   )
   values (
     v_user_id, v_round.session_id, v_item.question_id, v_item.sense_id,
-    case when v_q_answer_form = 'keyboard' then 'spelling' else 'multiple_choice' end,
+    (
+      case when v_q_answer_form = 'keyboard'
+        then 'spelling'
+        else 'multiple_choice'
+      end
+    )::public.learning_skill_enum,
     p_answer, v_is_correct, p_response_time_ms, v_now
   )
   on conflict (session_id, question_id) do nothing;
@@ -318,6 +348,235 @@ begin
     'learning_state',    v_new_state,
     'review_stage',      v_new_stage,
     'next_due_at',       v_next_due
+  );
+end;
+$$;
+
+-- 3b. Staged type-3 dispatcher ----------------------------------------------
+--
+-- Keep the terminal persistence/mastery implementation above under an
+-- internal name. The public function below handles intermediate cloze states
+-- and calls it exactly once when a formal outcome is reached.
+
+alter function public.save_practice_answer(uuid, integer, text, integer)
+  rename to finalize_practice_answer;
+
+create or replace function public.save_practice_answer(
+  p_round_id uuid,
+  p_position integer,
+  p_answer text,
+  p_response_time_ms integer
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_round public.practice_rounds%rowtype;
+  v_item public.practice_round_questions%rowtype;
+  v_question public.questions%rowtype;
+  v_answer text := public.normalize_cloze_answer(coalesce(p_answer, ''));
+  v_correct text;
+  v_result jsonb;
+  v_total_response integer;
+  v_is_near boolean;
+begin
+  if v_user_id is null then
+    raise exception 'Authentication required';
+  end if;
+  if p_response_time_ms < 0 then
+    raise exception 'response_time_ms must be non-negative';
+  end if;
+
+  select * into v_round
+  from public.practice_rounds
+  where id = p_round_id and user_id = v_user_id
+  for update;
+  if not found or v_round.status <> 'started' then
+    raise exception 'Practice round is not active';
+  end if;
+
+  select * into v_item
+  from public.practice_round_questions
+  where round_id = p_round_id and position = p_position
+  for update;
+  if not found then
+    raise exception 'Question position not found';
+  end if;
+
+  select * into v_question
+  from public.questions
+  where id = v_item.question_id;
+
+  -- Option questions retain the migration-015 behavior.
+  if v_item.answer_form <> 'keyboard'
+     or v_item.question_type_key <> 'sentence_cloze_typing' then
+    return public.finalize_practice_answer(
+      p_round_id, p_position, p_answer, p_response_time_ms
+    );
+  end if;
+
+  if v_answer = '' then
+    raise exception 'Answer must not be blank';
+  end if;
+
+  v_correct := public.normalize_cloze_answer(v_question.correct_answer);
+
+  if v_item.answered_at is not null then
+    return jsonb_build_object(
+      'position', p_position,
+      'action', 'completed',
+      'answer_outcome', v_item.answer_outcome,
+      'is_correct', v_item.is_correct,
+      'attempt_count', least(v_item.attempt_count, 2),
+      'revealed_answer', case when v_item.revealed_answer_at is not null
+        then v_question.correct_answer else null end,
+      'already_saved', true
+    );
+  end if;
+
+  select exists (
+    select 1
+    from public.question_options qo
+    where qo.question_id = v_item.question_id
+      and not qo.is_correct
+      and public.normalize_cloze_answer(qo.option_text) = v_answer
+  )
+  into v_is_near;
+
+  if v_item.revealed_answer_at is null
+     and v_answer <> v_correct
+     and v_is_near then
+    update public.practice_round_questions
+    set near_meaning_count = near_meaning_count + 1,
+        cumulative_response_time_ms =
+          cumulative_response_time_ms + p_response_time_ms
+    where round_id = p_round_id and position = p_position;
+
+    return jsonb_build_object(
+      'position', p_position,
+      'action', 'near_meaning',
+      'attempt_count', v_item.attempt_count,
+      'feedback', '意思接近，但本题练的是本关目标词。',
+      'already_saved', false
+    );
+  end if;
+
+  if v_item.revealed_answer_at is null and v_answer <> v_correct then
+    if v_item.attempt_count = 0 then
+      update public.practice_round_questions
+      set attempt_count = 1,
+          hint_used = true,
+          cumulative_response_time_ms =
+            cumulative_response_time_ms + p_response_time_ms
+      where round_id = p_round_id and position = p_position;
+
+      return jsonb_build_object(
+        'position', p_position,
+        'action', 'retry_with_hint',
+        'attempt_count', 1,
+        'letter_count', char_length(v_question.correct_answer),
+        'already_saved', false
+      );
+    end if;
+
+    update public.practice_round_questions
+    set attempt_count = 2,
+        revealed_answer_at = clock_timestamp(),
+        cumulative_response_time_ms =
+          cumulative_response_time_ms + p_response_time_ms
+    where round_id = p_round_id and position = p_position;
+
+    return jsonb_build_object(
+      'position', p_position,
+      'action', 'reveal_answer',
+      'attempt_count', 2,
+      'revealed_answer', v_question.correct_answer,
+      'already_saved', false
+    );
+  end if;
+
+  v_total_response := v_item.cumulative_response_time_ms + p_response_time_ms;
+
+  if v_item.revealed_answer_at is not null then
+    -- Remediation never becomes a formal correct result. A correct memory
+    -- retype is stored as remediation_completed after the formal wrong update.
+    v_result := public.finalize_practice_answer(
+      p_round_id,
+      p_position,
+      case when v_answer = v_correct then '__remediation__' else p_answer end,
+      v_total_response
+    );
+
+    if v_answer = v_correct then
+      update public.practice_round_questions
+      set answer_given = p_answer,
+          normalized_answer = v_answer,
+          answer_outcome = 'remediation_completed',
+          score_points = 0,
+          duck_points = 0,
+          attempt_count = 2,
+          cumulative_response_time_ms = v_total_response
+      where round_id = p_round_id and position = p_position;
+
+      update public.practice_answers
+      set answer_given = p_answer
+      where session_id = v_round.session_id
+        and question_id = v_item.question_id;
+
+      return jsonb_build_object(
+        'position', p_position,
+        'action', 'completed',
+        'answer_outcome', 'remediation_completed',
+        'is_correct', false,
+        'attempt_count', 2,
+        'revealed_answer', v_question.correct_answer,
+        'already_saved', false
+      );
+    end if;
+
+    update public.practice_round_questions
+    set attempt_count = 2,
+        cumulative_response_time_ms = v_total_response
+    where round_id = p_round_id and position = p_position;
+
+    return v_result || jsonb_build_object(
+      'action', 'completed',
+      'attempt_count', 2,
+      'revealed_answer', v_question.correct_answer
+    );
+  end if;
+
+  -- Correct before reveal: first try is full; hint try is assisted.
+  v_result := public.finalize_practice_answer(
+    p_round_id, p_position, p_answer, v_total_response
+  );
+
+  if v_item.attempt_count = 1 then
+    update public.practice_round_questions
+    set answer_outcome = 'assisted_correct',
+        score_points = 0.5,
+        duck_points = 0.5,
+        cumulative_response_time_ms = v_total_response
+    where round_id = p_round_id and position = p_position;
+
+    return v_result || jsonb_build_object(
+      'action', 'completed',
+      'answer_outcome', 'assisted_correct',
+      'attempt_count', 1
+    );
+  end if;
+
+  update public.practice_round_questions
+  set cumulative_response_time_ms = v_total_response
+  where round_id = p_round_id and position = p_position;
+
+  return v_result || jsonb_build_object(
+    'action', 'completed',
+    'answer_outcome', 'full_correct',
+    'attempt_count', 0
   );
 end;
 $$;
@@ -430,7 +689,9 @@ begin
         '{}'::uuid[]          as option_ids
       from public.questions q
       where q.is_active
+        and q.type_code = 3
         and q.answer_form = 'keyboard'
+        and q.question_type_key = 'sentence_cloze_typing'
         and q.sense_id is not null
         and not q.human_review
     ),
@@ -543,8 +804,12 @@ begin
         where candidate.sense_id = l.sense_id
           -- New senses: option only.
           and (not l.is_new or candidate.answer_form = 'option')
-          -- Cloze only for seen senses.
-          and (candidate.answer_form = 'option' or l.seen_count >= 1)
+          -- Cloze only for seen senses, capped before selection so rows beyond
+          -- the cap fall back to option questions instead of disappearing.
+          and (
+            candidate.answer_form = 'option'
+            or (l.seen_count >= 1 and l.type_rank <= 8)
+          )
           -- Context hint eligibility.
           and (
             not candidate.is_context_hint
@@ -552,6 +817,12 @@ begin
             or l.wrong_count >= 3
           )
         order by
+          case
+            when candidate.answer_form = 'keyboard'
+             and l.seen_count >= 1
+             and l.type_rank <= 8 then 0
+            else 1
+          end,
           -- Favour context hint when appropriate.
           case when candidate.is_context_hint
                and (candidate.context_for_multiple_meaning or l.wrong_count >= 3)
@@ -570,7 +841,7 @@ begin
       from chosen_raw
     ),
     chosen as (
-      -- Keep all option questions; cap cloze at 8 (40% of 20).
+      -- Cloze was capped during per-sense selection; retain every chosen row.
       select
         sense_id, is_new, question_id, answer_form, question_type_key,
         correct_option_id, option_ids,
@@ -578,7 +849,6 @@ begin
           order by raw_position
         )::smallint as position
       from cloze_numbered
-      where answer_form = 'option' or form_rank <= 8
     )
     insert into public.practice_round_questions (
       round_id, position, question_id, sense_id,
@@ -642,8 +912,20 @@ begin
           'prompt_hint',      q.prompt_hint,
           'translation_zh',   q.translation_zh,
           'question_skill',   rq.question_skill,
+          'type_code',        q.type_code,
           'answer_form',      rq.answer_form,
           'question_type_key', rq.question_type_key,
+          'expected_time_ms', q.expected_time_ms,
+          'attempt_count',    rq.attempt_count,
+          'hint_used',        rq.hint_used,
+          'letter_count',     case
+            when rq.hint_used then char_length(q.correct_answer)
+            else null
+          end,
+          'revealed_answer',  case
+            when rq.revealed_answer_at is not null then q.correct_answer
+            else null
+          end,
           'options',
             case when rq.answer_form = 'option' then (
               select jsonb_agg(
@@ -677,5 +959,9 @@ $$;
 -- 5. Security -----------------------------------------------------------------
 
 revoke all on function public.normalize_cloze_answer(text) from public, anon, authenticated;
+revoke all on function public.finalize_practice_answer(uuid, integer, text, integer)
+  from public, anon, authenticated;
+grant execute on function public.save_practice_answer(uuid, integer, text, integer)
+  to authenticated;
 
 commit;

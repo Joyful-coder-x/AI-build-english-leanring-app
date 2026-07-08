@@ -2,6 +2,7 @@ package com.example.firsttest.ui.profile
 
 import com.example.firsttest.data.model.DuckTitle
 import com.example.firsttest.data.repository.FakeUserRepository
+import com.example.firsttest.data.repository.FakeVocabRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -26,13 +27,13 @@ class ProfileViewModelTest {
     @Test
     fun startsInLoadingState() {
         // stateIn(Eagerly) hasn't had a chance to emit yet (dispatcher not advanced).
-        val vm = ProfileViewModel(FakeUserRepository())
+        val vm = ProfileViewModel(FakeUserRepository(), FakeVocabRepository())
         assertEquals(ProfileUiState.Loading, vm.uiState.value)
     }
 
     @Test
     fun emitsSuccessWithFakeUser() = runTest(dispatcher) {
-        val vm = ProfileViewModel(FakeUserRepository())
+        val vm = ProfileViewModel(FakeUserRepository(), FakeVocabRepository())
         advanceUntilIdle()
         val state = vm.uiState.value
         assertTrue("expected Success but was $state", state is ProfileUiState.Success)
@@ -47,7 +48,7 @@ class ProfileViewModelTest {
     @Test
     fun duckPowerUpdateReflectsOnFlow() = runTest(dispatcher) {
         val repo = FakeUserRepository()
-        val vm = ProfileViewModel(repo)
+        val vm = ProfileViewModel(repo, FakeVocabRepository())
         advanceUntilIdle()
 
         repo.addDuckPower(100)

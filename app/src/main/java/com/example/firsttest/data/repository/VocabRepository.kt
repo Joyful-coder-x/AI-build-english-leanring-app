@@ -1,6 +1,8 @@
 package com.example.firsttest.data.repository
 
 import com.example.firsttest.data.model.Level
+import com.example.firsttest.data.model.BandUpgradeAnswerResult
+import com.example.firsttest.data.model.BandUpgradeExam
 import com.example.firsttest.data.model.LevelPracticeAnswerResult
 import com.example.firsttest.data.model.LevelPracticeRound
 import com.example.firsttest.data.model.LevelWordStatus
@@ -29,6 +31,15 @@ interface VocabRepository {
     ): PracticeAnswerResult
     suspend fun completePracticeRound(roundId: String): PracticeRoundResult
     suspend fun getLevelWordStatuses(levelNumber: Int): List<LevelWordStatus>
+
+    suspend fun startBandUpgradeExam(targetBand: Double): BandUpgradeExam
+    suspend fun saveBandUpgradeAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): BandUpgradeAnswerResult
+    suspend fun completeBandUpgradeExam(attemptId: String): BandUpgradeExam
 
     /** Unified level practice: server-created round supporting option + cloze questions. */
     suspend fun startLevelPracticeRound(levelNumber: Int): LevelPracticeRound

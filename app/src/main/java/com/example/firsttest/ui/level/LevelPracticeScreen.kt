@@ -34,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -103,6 +104,7 @@ fun LevelPracticeScreen(
                 ErrorContent(state.message, viewModel::retry, onBack)
 
             is LevelPracticeUiState.Answering -> {
+                var showHint by remember(state.question.questionId) { mutableStateOf(false) }
                 TopBar(
                     levelNumber = levelNumber,
                     current = state.questionIndex + 1,
@@ -119,9 +121,30 @@ fun LevelPracticeScreen(
                         onSubmit = viewModel::onSubmit,
                         enabled = !state.isSubmitting,
                         letterCount = state.letterCount,
+                        lastWrongAnswer = state.lastWrongAnswer,
                         feedback = state.feedback,
-                        label = "请输入空格中的目标词",
                     )
+                    if (showHint && state.question.translationZh.isNotBlank()) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                            ),
+                        ) {
+                            Text(
+                                state.question.translationZh,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer,
+                            )
+                        }
+                    }
+                    TextButton(
+                        onClick = { showHint = !showHint },
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                    ) {
+                        Text(if (showHint) "隐藏提示" else "查看中文提示")
+                    }
                 } else {
                     OptionList(
                         options = state.question.options,
@@ -139,56 +162,34 @@ fun LevelPracticeScreen(
                 ) { Text("提交") }
             }
 
-            is LevelPracticeUiState.ShowingClozeAnswer -> {
+            is LevelPracticeUiState.SpellingCorrection -> {
                 TopBar(
-                    levelNumber,
-                    state.questionIndex + 1,
-                    state.totalQuestions,
-                    state.comboCount,
-                    onBack,
+                    levelNumber = levelNumber,
+                    current = state.questionIndex + 1,
+                    total = state.totalQuestions,
+                    comboCount = state.comboCount,
+                    onBack = onBack,
                 )
                 QuestionCard(state.question, tts = ttsEngine)
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    ),
-                ) {
-                    Column(
-                        Modifier.padding(20.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        Text("目标词", style = MaterialTheme.typography.labelLarge)
-                        Text(
-                            state.answer,
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                    }
+                SpellingCorrectionPanel(
+                    lastWrongAnswer = state.lastWrongAnswer,
+                    correctAnswer = state.correctAnswer,
+                )
+                if (state.retryWrongAnswer.isNotBlank()) {
+                    RetryFeedbackPanel(
+                        retryWrongAnswer = state.retryWrongAnswer,
+                        correctAnswer = state.correctAnswer,
+                        tooManyTypos = state.retryTooManyTypos,
+                    )
                 }
-                Button(
-                    onClick = viewModel::onClozeAnswerSeen,
-                    modifier = Modifier.fillMaxWidth(),
-                ) { Text("我记住了，继续") }
-            }
-
-            is LevelPracticeUiState.ClozeMemoryRetype -> {
-                TopBar(
-                    levelNumber,
-                    state.questionIndex + 1,
-                    state.totalQuestions,
-                    state.comboCount,
-                    onBack,
-                )
-                QuestionCard(state.question, tts = ttsEngine)
                 ClozeInput(
                     value = state.typedAnswer,
                     onValueChange = viewModel::onTypedAnswerChanged,
                     onSubmit = viewModel::onSubmit,
                     enabled = !state.isSubmitting,
                     letterCount = null,
+                    lastWrongAnswer = "",
                     feedback = "",
-                    label = "现在从记忆中作答",
                 )
                 Button(
                     onClick = viewModel::onSubmit,
@@ -211,7 +212,7 @@ fun LevelPracticeScreen(
                     ClozeReview(
                         submittedAnswer = state.submittedAnswer,
                         correctAnswer   = state.correctAnswer ?: "",
-                        isCorrect       = state.isCorrect,
+                        answerOutcome   = state.answerOutcome,
                     )
                 } else {
                     OptionList(
@@ -283,14 +284,18 @@ private fun QuestionCard(
     tts: TextToSpeech? = null,
     autoSpeak: Boolean = false,
 ) {
-    // For listening_choice: stem is 'Listening demo: your tester says "WORD". ...'
-    // Extract just the word to speak; fall back to speaking the full stem.
-    val listeningWord: String? = when (question.questionTypeKey) {
-        "listening_choice" ->
-            Regex("says \"([^\"]+)\"").find(question.stem)?.groupValues?.get(1)
-                ?: question.stem
-        "listening_fill" -> null   // word not embedded in stem; no TTS for this type
-        else -> null
+    val questionTypeKey = effectiveQuestionTypeKey(question)
+    val listeningWord = listeningSpeechText(question, questionTypeKey)
+    val replayAudio = {
+        listeningWord?.let { speechText ->
+            tts?.speak(
+                speechText,
+                TextToSpeech.QUEUE_FLUSH,
+                null,
+                question.questionId + "_replay",
+            )
+        }
+        Unit
     }
 
     // Auto-speak when the question first appears (Answering state only)
@@ -307,9 +312,9 @@ private fun QuestionCard(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(questionTypeIcon(question.questionTypeKey), fontSize = 16.sp)
+                Text(questionTypeIcon(questionTypeKey), fontSize = 16.sp)
                 Text(
-                    text = questionTypeTitle(question.questionTypeKey),
+                    text = questionTypeTitle(questionTypeKey),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.SemiBold,
@@ -317,13 +322,13 @@ private fun QuestionCard(
             }
 
             Text(
-                text = question.promptHint.ifBlank { questionTypeInstruction(question.questionTypeKey, question.answerForm) },
+                text = question.promptHint.ifBlank { questionTypeInstruction(questionTypeKey, question.answerForm) },
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
             // Type-specific content area
-            when (question.questionTypeKey) {
+            when (questionTypeKey) {
                 "listening_choice" -> {
                     Card(
                         colors = CardDefaults.cardColors(
@@ -343,19 +348,11 @@ private fun QuestionCard(
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
                             )
-                            if (listeningWord != null) {
-                                OutlinedButton(
-                                    onClick = {
-                                        tts?.speak(
-                                            listeningWord,
-                                            TextToSpeech.QUEUE_FLUSH,
-                                            null,
-                                            question.questionId + "_replay",
-                                        )
-                                    },
-                                ) {
-                                    Text("🔊 再听一次")
-                                }
+                            OutlinedButton(
+                                onClick = replayAudio,
+                                enabled = listeningWord != null && tts != null,
+                            ) {
+                                Text("🔊 再听一次")
                             }
                         }
                     }
@@ -383,10 +380,16 @@ private fun QuestionCard(
                                 )
                             }
                             Text(
-                                "根据中文含义，拼写对应的英文单词",
+                                "听语音，拼写你听到的英文单词",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.6f),
                             )
+                            OutlinedButton(
+                                onClick = replayAudio,
+                                enabled = listeningWord != null && tts != null,
+                            ) {
+                                Text("🔊 再听一次")
+                            }
                         }
                     }
                 }
@@ -413,37 +416,6 @@ private fun QuestionCard(
                     }
                 }
 
-                "open_speaking" -> {
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                        ),
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(12.dp),
-                            verticalArrangement = Arrangement.spacedBy(6.dp),
-                        ) {
-                            Row(
-                                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Text("🗣", fontSize = 20.sp)
-                                Text(
-                                    "用英语描述这个词：",
-                                    style = MaterialTheme.typography.labelMedium,
-                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f),
-                                )
-                            }
-                            Text(
-                                text = question.stem,
-                                style = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                            )
-                        }
-                    }
-                }
-
                 "reading_comprehension" -> {
                     Card(
                         colors = CardDefaults.cardColors(
@@ -452,8 +424,8 @@ private fun QuestionCard(
                     ) {
                         Text(
                             text = question.stem,
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.padding(12.dp),
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(16.dp),
                         )
                     }
                 }
@@ -470,13 +442,56 @@ private fun QuestionCard(
     }
 }
 
+private fun effectiveQuestionTypeKey(question: LevelPracticeQuestion): String {
+    if (question.questionTypeKey == "listening_choice" || question.questionTypeKey == "listening_fill") {
+        return question.questionTypeKey
+    }
+
+    val text = "${question.promptHint} ${question.stem}".lowercase()
+    val isListeningPrompt = "listen" in text || "heard word" in text || "word you hear" in text
+    if (!isListeningPrompt) return question.questionTypeKey
+
+    return if (question.answerForm == "keyboard" || "type" in text || "spell" in text) {
+        "listening_fill"
+    } else {
+        "listening_choice"
+    }
+}
+
+private fun listeningSpeechText(
+    question: LevelPracticeQuestion,
+    questionTypeKey: String,
+): String? {
+    if (questionTypeKey != "listening_choice" && questionTypeKey != "listening_fill") return null
+
+    val quotedWord = Regex("says\\s+\"([^\"]+)\"", RegexOption.IGNORE_CASE)
+        .find(question.stem)
+        ?.groupValues
+        ?.get(1)
+
+    return (
+        question.audioText
+            ?: quotedWord
+            ?: question.revealedAnswer
+            ?: question.stem.takeIf { it.isSingleEnglishWord() }
+        )?.englishOnly()
+}
+
+private fun String.englishOnly(): String? =
+    replace(Regex("[^\\x00-\\x7F]+"), " ")
+        .replace(Regex("\\s+"), " ")
+        .trim()
+        .takeIf { it.isNotBlank() }
+
+private fun String.isSingleEnglishWord(): Boolean =
+    trim().matches(Regex("[A-Za-z][A-Za-z'-]*"))
+
 private fun questionTypeIcon(questionTypeKey: String): String = when (questionTypeKey) {
     "meaning_choice", "option_recognition" -> "📖"
     "sentence_cloze_typing" -> "✍️"
     "listening_choice" -> "🔊"
     "listening_fill" -> "🎧"
     "speaking_repeat" -> "🎤"
-    "open_speaking" -> "🗣"
     "word_form" -> "🔤"
     "reading_comprehension" -> "📄"
     else -> "❓"
@@ -488,7 +503,6 @@ private fun questionTypeTitle(questionTypeKey: String): String = when (questionT
     "listening_choice" -> "听力选词"
     "listening_fill" -> "听力拼写"
     "speaking_repeat" -> "口语复读"
-    "open_speaking" -> "口语表达"
     "word_form" -> "词形变换"
     "reading_comprehension" -> "阅读理解"
     else -> questionTypeKey.replace('_', ' ').replaceFirstChar { it.uppercase() }
@@ -501,11 +515,115 @@ private fun questionTypeInstruction(questionTypeKey: String, answerForm: String)
         "listening_choice" -> "听完后选择你听到的单词"
         "listening_fill" -> "听完后拼写你听到的单词"
         "speaking_repeat" -> "朗读以下单词，然后自评"
-        "open_speaking" -> "用英语解释这个词的意思，然后自评"
         "word_form" -> "写出目标词的正确词形"
         "reading_comprehension" -> "阅读短文，回答问题"
         else -> if (answerForm == "keyboard") "填写正确的单词" else "选择正确的选项"
     }
+
+@Composable
+private fun RetryFeedbackPanel(
+    retryWrongAnswer: String,
+    correctAnswer: String,
+    tooManyTypos: Boolean,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.errorContainer,
+        ),
+    ) {
+        Column(
+            Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            if (tooManyTypos) {
+                Text(
+                    "相差太多，请重新拼写一遍",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
+            } else {
+                Text(
+                    "出错的字母已高亮，请再试一次",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
+                LetterDiff(attempted = retryWrongAnswer, correct = correctAnswer)
+            }
+        }
+    }
+}
+
+@Composable
+private fun SpellingCorrectionPanel(lastWrongAnswer: String, correctAnswer: String) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+    ) {
+        Column(
+            Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(
+                "✏️ 拼写一遍来加深记忆",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (lastWrongAnswer.isNotBlank()) {
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(
+                        "你的答案",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    LetterDiff(attempted = lastWrongAnswer, correct = correctAnswer)
+                }
+            }
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    "正确拼写",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(
+                    correctAnswer,
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun LetterDiff(attempted: String, correct: String) {
+    Row(horizontalArrangement = Arrangement.spacedBy(1.dp)) {
+        attempted.forEachIndexed { index, char ->
+            val matches = index < correct.length &&
+                char.lowercaseChar() == correct[index].lowercaseChar()
+            Text(
+                char.toString(),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                color = if (matches) Color(0xFF4CAF50) else MaterialTheme.colorScheme.error,
+            )
+        }
+        // Show remaining correct letters as grey underscores if attempted is shorter
+        if (attempted.length < correct.length) {
+            repeat(correct.length - attempted.length) {
+                Text(
+                    "_",
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f),
+                )
+            }
+        }
+    }
+}
 
 @Composable
 private fun ClozeInput(
@@ -514,14 +632,46 @@ private fun ClozeInput(
     onSubmit: () -> Unit,
     enabled: Boolean,
     letterCount: Int?,
+    lastWrongAnswer: String,
     feedback: String,
-    label: String,
 ) {
-    letterCount?.let {
-        Text("提示：$it 个字母", color = MaterialTheme.colorScheme.primary)
+    // Visual letter slots
+    if (letterCount != null) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(3.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            repeat(letterCount) {
+                Text(
+                    "_",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Light,
+                )
+            }
+            Text(
+                "  ($letterCount 个字母)",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
+    // Previous wrong attempt
+    if (lastWrongAnswer.isNotBlank()) {
+        Text(
+            "✗  $lastWrongAnswer",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.error,
+            fontWeight = FontWeight.SemiBold,
+        )
+    }
+    // Server message (near_meaning, etc.)
     if (feedback.isNotBlank()) {
-        Text(feedback, color = MaterialTheme.colorScheme.tertiary)
+        Text(
+            feedback,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.tertiary,
+        )
     }
     OutlinedTextField(
         value = value,
@@ -539,10 +689,15 @@ private fun ClozeInput(
 private fun ClozeReview(
     submittedAnswer: String,
     correctAnswer: String,
-    isCorrect: Boolean,
+    answerOutcome: String,
 ) {
-    val labelColor = if (isCorrect) MaterialTheme.colorScheme.primary
-                     else MaterialTheme.colorScheme.error
+    val isFullCorrect = answerOutcome == "full_correct" || answerOutcome == "assisted_correct"
+    val isRemediation = answerOutcome == "remediation_completed"
+    val labelColor = when {
+        isFullCorrect  -> MaterialTheme.colorScheme.primary
+        isRemediation  -> MaterialTheme.colorScheme.tertiary
+        else           -> MaterialTheme.colorScheme.error
+    }
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(
             text = "你的答案：$submittedAnswer",
@@ -550,7 +705,8 @@ private fun ClozeReview(
             color = labelColor,
             fontWeight = FontWeight.SemiBold,
         )
-        if (!isCorrect) {
+        // Only show correct answer when the user genuinely got it wrong (not remediation)
+        if (!isFullCorrect && !isRemediation && correctAnswer.isNotBlank()) {
             Text(
                 text = "正确答案：$correctAnswer",
                 style = MaterialTheme.typography.bodyMedium,
@@ -612,14 +768,21 @@ private fun OptionButton(
 @Composable
 private fun ReviewPanel(answerOutcome: String, translationZh: String) {
     val isCorrect = answerOutcome == "full_correct" || answerOutcome == "assisted_correct"
-    val bgColor = if (isCorrect) MaterialTheme.colorScheme.primaryContainer
-                  else MaterialTheme.colorScheme.errorContainer
-    val textColor = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer
-                    else MaterialTheme.colorScheme.onErrorContainer
+    val isRemediation = answerOutcome == "remediation_completed"
+    val bgColor = when {
+        isCorrect     -> MaterialTheme.colorScheme.primaryContainer
+        isRemediation -> MaterialTheme.colorScheme.tertiaryContainer
+        else          -> MaterialTheme.colorScheme.errorContainer
+    }
+    val textColor = when {
+        isCorrect     -> MaterialTheme.colorScheme.onPrimaryContainer
+        isRemediation -> MaterialTheme.colorScheme.onTertiaryContainer
+        else          -> MaterialTheme.colorScheme.onErrorContainer
+    }
     val headline = when (answerOutcome) {
         "full_correct"          -> "✅ 回答正确！"
         "assisted_correct"      -> "✅ 辅助正确"
-        "remediation_completed" -> "📖 已复习"
+        "remediation_completed" -> "✅ 拼写正确"
         else                    -> "❌ 回答错误"
     }
 

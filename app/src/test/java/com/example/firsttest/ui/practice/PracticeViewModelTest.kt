@@ -33,10 +33,10 @@ class PracticeViewModelTest {
     fun startsLoading() = assertEquals(PracticeUiState.Loading, newVm().uiState.value)
 
     @Test
-    fun loadsThreeQuestions() = runTest(dispatcher) {
+    fun loadsFourQuestions() = runTest(dispatcher) {
         val vm = newVm(); advanceUntilIdle()
         val s = vm.uiState.value as PracticeUiState.Answering
-        assertEquals(3, s.totalQuestions)
+        assertEquals(4, s.totalQuestions)
         assertEquals(0, s.questionIndex)
     }
 
@@ -94,7 +94,7 @@ class PracticeViewModelTest {
     @Test
     fun afterLastQuestionEmitsFinished() = runTest(dispatcher) {
         val vm = newVm(); advanceUntilIdle()
-        repeat(3) {
+        repeat(4) {
             val s = vm.uiState.value as PracticeUiState.Answering
             vm.onAnswerChanged(s.question.correctAnswer); vm.onSubmit(); vm.onNext()
         }
@@ -108,7 +108,7 @@ class PracticeViewModelTest {
         val vm = PracticeViewModel(userRepo, FakePracticeRepository(), "dt2")
         advanceUntilIdle()
 
-        repeat(3) {
+        repeat(4) {
             val s = vm.uiState.value as PracticeUiState.Answering
             vm.onAnswerChanged(s.question.correctAnswer); vm.onSubmit(); vm.onNext()
         }
@@ -116,10 +116,9 @@ class PracticeViewModelTest {
 
         val f = vm.uiState.value as PracticeUiState.Finished
         assertEquals(3, f.starRating)
-        assertEquals(8, f.duckPowerEarned) // 3 correct + 5 all-correct bonus
-
-        // Duck power must have been applied to the user repository.
-        assertEquals(450 + 8, userRepo.getCurrentUser().duckPower)
+        // 4 correct + 5 all-correct bonus + 5 speed bonus.
+        assertEquals(14, f.duckPowerEarned)
+        assertEquals(450 + 14, userRepo.getCurrentUser().duckPower)
     }
 
     @Test
@@ -128,7 +127,19 @@ class PracticeViewModelTest {
         val vm = PracticeViewModel(userRepo, FakePracticeRepository(), "dt2")
         advanceUntilIdle()
 
-        repeat(3) { vm.onAnswerChanged("__wrong__"); vm.onSubmit(); vm.onNext() }
+        repeat(4) {
+            val answering = vm.uiState.value as PracticeUiState.Answering
+            vm.onAnswerChanged("__wrong__")
+            vm.onSubmit()
+            if (answering.question.typeCode == 3) {
+                vm.onAnswerChanged("__wrong_again__")
+                vm.onSubmit()
+                vm.onClozeAnswerSeen()
+                vm.onAnswerChanged("__still_wrong__")
+                vm.onSubmit()
+            }
+            vm.onNext()
+        }
         advanceUntilIdle()
 
         val f = vm.uiState.value as PracticeUiState.Finished
@@ -141,7 +152,7 @@ class PracticeViewModelTest {
 
     @Test
     fun comboBonus_triggersAboveFive() = runTest(dispatcher) {
-        // Fake repo has 3 questions — combo can only reach 3 with current data.
+        // Fake repo has 4 questions — combo cannot reach the bonus threshold.
         // Verify the bonus logic directly: >5 correct in a row → +1 each
         val comboAtSix = 6
         val bonus = when {
@@ -169,6 +180,78 @@ class PracticeViewModelTest {
             val bonus = when { combo > 10 -> 2; combo > 5 -> 1; else -> 0 }
             assertEquals("combo=$combo should give 0 bonus", 0, bonus)
         }
+    }
+
+    // ---- Type 3 (sentence_cloze_typing) flow --------------------------------
+
+    private fun newVmAtClozeQuestion(): PracticeViewModel {
+        val vm = newVm()
+        return vm // caller must advanceUntilIdle() then skip Q1-Q3
+    }
+
+    private suspend fun kotlinx.coroutines.test.TestScope.advanceToQ4(vm: PracticeViewModel) {
+        advanceUntilIdle()
+        repeat(3) {
+            val s = vm.uiState.value as PracticeUiState.Answering
+            vm.onAnswerChanged(s.question.correctAnswer); vm.onSubmit(); vm.onNext()
+        }
+    }
+
+    @Test
+    fun cloze_firstTryCorrectGoesDirectlyToReviewing() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("mother"); vm.onSubmit()
+        val s = vm.uiState.value as PracticeUiState.Reviewing
+        assertTrue(s.isCorrect)
+        assertEquals(ClozeResult.FIRST_TRY_CORRECT, s.clozeResult)
+    }
+
+    @Test
+    fun cloze_firstWrongShowsLetterHint() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("wrong"); vm.onSubmit()
+        val s = vm.uiState.value as PracticeUiState.Answering
+        assertTrue(s.showLetterHint)
+        assertEquals(1, s.clozeAttemptCount)
+    }
+
+    @Test
+    fun cloze_nearMeaningDoesNotConsumeAttempt() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("mom"); vm.onSubmit() // "mom" is in nearMeaningAnswers
+        val s = vm.uiState.value as PracticeUiState.Answering
+        assertEquals(0, s.clozeAttemptCount) // attempt not consumed
+        assertTrue(s.nearMeaningFeedback != null)
+    }
+
+    @Test
+    fun cloze_secondWrongRevealsAnswer() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("wrong"); vm.onSubmit()
+        vm.onAnswerChanged("wrong"); vm.onSubmit()
+        assertTrue(vm.uiState.value is PracticeUiState.ShowingClozeAnswer)
+    }
+
+    @Test
+    fun cloze_memoryRetypeCorrectIsNotSessionCorrect() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("wrong"); vm.onSubmit()
+        vm.onAnswerChanged("wrong"); vm.onSubmit()
+        vm.onClozeAnswerSeen()
+        vm.onAnswerChanged("mother"); vm.onSubmit()
+        val s = vm.uiState.value as PracticeUiState.Reviewing
+        assertFalse(s.isCorrect) // doesn't count as session correct
+        assertEquals(ClozeResult.MEMORY_RETYPE_CORRECT, s.clozeResult)
+    }
+
+    @Test
+    fun cloze_hintCorrectCounts() = runTest(dispatcher) {
+        val vm = newVm(); advanceToQ4(vm)
+        vm.onAnswerChanged("wrong"); vm.onSubmit()  // attempt 1 wrong → letter hint
+        vm.onAnswerChanged("mother"); vm.onSubmit() // attempt 2 correct with hint
+        val s = vm.uiState.value as PracticeUiState.Reviewing
+        assertTrue(s.isCorrect)
+        assertEquals(ClozeResult.HINT_CORRECT, s.clozeResult)
     }
 
     // ---- Scoring helpers ---------------------------------------------------

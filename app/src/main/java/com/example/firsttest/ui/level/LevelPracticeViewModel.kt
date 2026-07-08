@@ -30,6 +30,7 @@ sealed interface LevelPracticeUiState {
         val attemptCount: Int = question.attemptCount,
         val letterCount: Int? = question.letterCount,
         val feedback: String = "",
+        val lastWrongAnswer: String = "",
         val questionStartMs: Long = System.currentTimeMillis(),
         val isSubmitting: Boolean = false,
     ) : LevelPracticeUiState {
@@ -39,20 +40,22 @@ sealed interface LevelPracticeUiState {
         }
     }
 
-    data class ShowingClozeAnswer(
+    /**
+     * Shown after the backend reveals the correct answer (attempt_count == 2, wrong).
+     * Displays a letter-by-letter diff so the user sees exactly what was wrong, then
+     * requires one correct retype to finalize the backend question before Reviewing.
+     */
+    data class SpellingCorrection(
         val question: LevelPracticeQuestion,
         val questionIndex: Int,
         val totalQuestions: Int,
         val comboCount: Int,
-        val answer: String,
-    ) : LevelPracticeUiState
-
-    data class ClozeMemoryRetype(
-        val question: LevelPracticeQuestion,
-        val questionIndex: Int,
-        val totalQuestions: Int,
-        val comboCount: Int,
+        val lastWrongAnswer: String,
+        val correctAnswer: String,
         val typedAnswer: String = "",
+        // Set after each wrong retype attempt — drives inline feedback without hitting backend
+        val retryWrongAnswer: String = "",
+        val retryTooManyTypos: Boolean = false,
         val questionStartMs: Long = System.currentTimeMillis(),
         val isSubmitting: Boolean = false,
     ) : LevelPracticeUiState {
@@ -127,11 +130,9 @@ class LevelPracticeViewModel(
     }
 
     fun onTypedAnswerChanged(text: String) {
-        when (val state = _uiState.value) {
-            is LevelPracticeUiState.Answering ->
-                _uiState.value = state.copy(typedAnswer = text, feedback = "")
-            is LevelPracticeUiState.ClozeMemoryRetype ->
-                _uiState.value = state.copy(typedAnswer = text)
+        when (val s = _uiState.value) {
+            is LevelPracticeUiState.Answering -> _uiState.value = s.copy(typedAnswer = text, feedback = "")
+            is LevelPracticeUiState.SpellingCorrection -> _uiState.value = s.copy(typedAnswer = text)
             else -> Unit
         }
     }
@@ -144,29 +145,31 @@ class LevelPracticeViewModel(
                     else -> state.selectedOptionId ?: return
                 }
                 submitStagedAnswer(
-                    state.question,
-                    state.questionIndex,
-                    state.totalQuestions,
-                    answer,
+                    state.question, state.questionIndex, state.totalQuestions, answer,
                     elapsed(state.questionStartMs),
                     { _uiState.value = state.copy(isSubmitting = true) },
                 ) { result -> handleAnsweringResult(state, answer, result) }
             }
-            is LevelPracticeUiState.ClozeMemoryRetype -> submitStagedAnswer(
-                state.question,
-                state.questionIndex,
-                state.totalQuestions,
-                state.typedAnswer.trim(),
-                elapsed(state.questionStartMs),
-                { _uiState.value = state.copy(isSubmitting = true) },
-            ) { result ->
-                showReview(
-                    state.question,
-                    state.questionIndex,
-                    state.totalQuestions,
-                    state.typedAnswer,
-                    result,
-                )
+            is LevelPracticeUiState.SpellingCorrection -> {
+                val answer = state.typedAnswer.trim().ifBlank { return }
+                val typos = countTypos(answer, state.correctAnswer)
+                if (typos == 0) {
+                    // Correct — finalize with backend
+                    submitStagedAnswer(
+                        state.question, state.questionIndex, state.totalQuestions, answer,
+                        elapsed(state.questionStartMs),
+                        { _uiState.value = state.copy(isSubmitting = true) },
+                    ) { result ->
+                        showReview(state.question, state.questionIndex, state.totalQuestions, answer, result)
+                    }
+                } else {
+                    // Wrong — stay in SpellingCorrection with inline feedback, don't hit backend
+                    _uiState.value = state.copy(
+                        typedAnswer = "",
+                        retryWrongAnswer = answer,
+                        retryTooManyTypos = typos > 3,
+                    )
+                }
             }
             else -> Unit
         }
@@ -203,35 +206,31 @@ class LevelPracticeViewModel(
         when (result.action) {
             "near_meaning" -> _uiState.value = state.copy(
                 typedAnswer = "",
+                lastWrongAnswer = answer,
                 feedback = result.feedback.ifBlank { "意思接近，但本题练的是本关目标词。" },
                 questionStartMs = System.currentTimeMillis(),
                 isSubmitting = false,
             )
             "retry_with_hint" -> _uiState.value = state.copy(
                 typedAnswer = "",
+                lastWrongAnswer = answer,
                 attemptCount = result.attemptCount,
                 letterCount = result.letterCount,
                 questionStartMs = System.currentTimeMillis(),
                 isSubmitting = false,
             )
-            "reveal_answer" -> _uiState.value = LevelPracticeUiState.ShowingClozeAnswer(
-                state.question,
-                state.questionIndex,
-                state.totalQuestions,
-                state.comboCount,
-                requireNotNull(result.revealedAnswer),
+            "reveal_answer" -> _uiState.value = LevelPracticeUiState.SpellingCorrection(
+                question = state.question,
+                questionIndex = state.questionIndex,
+                totalQuestions = state.totalQuestions,
+                comboCount = state.comboCount,
+                lastWrongAnswer = answer,
+                correctAnswer = requireNotNull(result.revealedAnswer),
             )
             else -> showReview(
                 state.question, state.questionIndex, state.totalQuestions, answer, result,
             )
         }
-    }
-
-    fun onClozeAnswerSeen() {
-        val state = _uiState.value as? LevelPracticeUiState.ShowingClozeAnswer ?: return
-        _uiState.value = LevelPracticeUiState.ClozeMemoryRetype(
-            state.question, state.questionIndex, state.totalQuestions, state.comboCount,
-        )
     }
 
     private fun showReview(
@@ -252,45 +251,6 @@ class LevelPracticeViewModel(
             answerOutcome = result.answerOutcome,
             comboCount = comboCount,
         )
-    }
-
-    @Suppress("unused")
-    private fun submitLegacy() {
-        val s = _uiState.value as? LevelPracticeUiState.Answering ?: return
-        val answer = when (s.question.answerForm) {
-            "keyboard" -> s.typedAnswer.trim().ifBlank { return }
-            else -> s.selectedOptionId ?: return
-        }
-        val responseMs = (System.currentTimeMillis() - s.questionStartMs).coerceAtLeast(0).toInt()
-        _uiState.value = s.copy(isSubmitting = true)
-
-        viewModelScope.launch {
-            try {
-                val result = vocabRepository.saveLevelPracticeAnswer(
-                    roundId        = roundId,
-                    position       = s.question.position,
-                    answer         = answer,
-                    responseTimeMs = responseMs,
-                )
-                // Only full_correct continues combo; everything else breaks it.
-                if (result.answerOutcome == "full_correct") comboCount++ else comboCount = 0
-
-                _uiState.value = LevelPracticeUiState.Reviewing(
-                    question        = s.question,
-                    questionIndex   = s.questionIndex,
-                    totalQuestions  = s.totalQuestions,
-                    submittedAnswer = answer,
-                    correctOptionId = result.correctOptionId,
-                    correctAnswer   = result.correctAnswer,
-                    answerOutcome   = result.answerOutcome,
-                    comboCount      = comboCount,
-                )
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                _uiState.value = LevelPracticeUiState.Error(e.message ?: "保存答案失败，请重试")
-            }
-        }
     }
 
     fun onNext() {
@@ -331,24 +291,20 @@ class LevelPracticeViewModel(
         }
     }
 
-    private fun buildAnswering(index: Int): LevelPracticeUiState {
+    private fun buildAnswering(index: Int): LevelPracticeUiState.Answering {
         val question = questions[index]
-        return if (
-            question.answerForm == "keyboard" &&
-            question.revealedAnswer != null &&
-            question.attemptCount >= 2
-        ) {
-            LevelPracticeUiState.ShowingClozeAnswer(
-                question, index, questions.size, comboCount, question.revealedAnswer,
-            )
-        } else {
-            LevelPracticeUiState.Answering(
-                question = question,
-                questionIndex = index,
-                totalQuestions = questions.size,
-                comboCount = comboCount,
-            )
-        }
+        return LevelPracticeUiState.Answering(
+            question = question,
+            questionIndex = index,
+            totalQuestions = questions.size,
+            comboCount = comboCount,
+        )
+    }
+
+    private fun countTypos(attempted: String, correct: String): Int {
+        val a = attempted.trim().lowercase()
+        val b = correct.trim().lowercase()
+        return (0 until maxOf(a.length, b.length)).count { i -> a.getOrNull(i) != b.getOrNull(i) }
     }
 
     private fun elapsed(startMs: Long): Int =

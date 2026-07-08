@@ -40,7 +40,7 @@ data class BandSection(
 }
 
 /**
- * Drives the Home / 首页 level-select screen.
+ * Drives the Home level-select screen.
  *
  * Loads all 240 levels and groups them into learner-facing IELTS difficulty
  * sections. Level state comes from user_level_progress.
@@ -96,7 +96,7 @@ class HomeViewModel(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                _loadError.value = e.message ?: "加载失败，请重试"
+                _loadError.value = e.message ?: "Unable to load levels. Please retry."
             }
         }
     }
@@ -126,11 +126,10 @@ internal fun buildBandSections(levels: List<Level>): List<BandSection> {
             BandSection(
                 score = score,
                 label = buildString {
-                    append("雅思")
+                    append("IELTS Band ")
                     append(formatBandScore(score))
-                    append("分难度")
                     if (sectionNames.size == 1) {
-                        append("：")
+                        append(": ")
                         append(sectionNames.single())
                     }
                 },

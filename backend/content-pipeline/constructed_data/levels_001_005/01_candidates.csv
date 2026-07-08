@@ -1,0 +1,232 @@
+﻿candidate_id,headword,level_number,topic_id,level_focus,selection_rank,selection_score,status,cefr_levels,ecdict_tags,ecdict_bnc_rank,ecdict_frq_rank,source_coverage,human_review,review_reason
+l001_family,family,1,daily_life_people_and_family,core family members and relationships,1,1155,approved,A1,zk gk ielts,200,147,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_parent,parent,1,daily_life_people_and_family,core family members and relationships,2,1152,approved,A1,zk gk ielts,494,327,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_mother,mother,1,daily_life_people_and_family,core family members and relationships,3,1149,approved,A1,zk gk ielts,306,229,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_child,child,1,daily_life_people_and_family,core family members and relationships,4,1137,approved,A1,zk gk ielts,114,115,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_father,father,1,daily_life_people_and_family,core family members and relationships,5,1126,approved,A1,zk gk,364,267,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_son,son,1,daily_life_people_and_family,core family members and relationships,6,1111,approved,A1,zk gk,599,481,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_daughter,daughter,1,daily_life_people_and_family,core family members and relationships,7,1108,approved,A1,zk gk,871,634,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_baby,baby,1,daily_life_people_and_family,core family members and relationships,8,1102,approved,A1,zk gk,869,588,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_brother,brother,1,daily_life_people_and_family,core family members and relationships,9,1102,approved,A1,zk gk,827,614,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_dad,dad,1,daily_life_people_and_family,core family members and relationships,10,1094,approved,A1,zk,1311,1814,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_husband,husband,1,daily_life_people_and_family,core family members and relationships,11,1093,approved,A1,zk gk gre,826,637,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_wife,wife,1,daily_life_people_and_family,core family members and relationships,12,1093,approved,A1,zk gk,531,466,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_sister,sister,1,daily_life_people_and_family,core family members and relationships,13,1089,approved,A1,zk gk,1049,823,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_couple,couple,1,daily_life_people_and_family,core family members and relationships,14,1071,approved,A2,zk gk cet4 ky toefl,727,531,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_married,married,1,daily_life_people_and_family,core family members and relationships,15,1064,approved,A1,gk cet4 cet6 ky,1742,1610,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_adult,adult,1,daily_life_people_and_family,core family members and relationships,16,1061,approved,A1|A2,gk cet4 ky ielts,1236,969,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_person,person,1,daily_life_people_and_family,core family members and relationships,17,1053,approved,A1,zk gk ielts,308,345,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_aunt,aunt,1,daily_life_people_and_family,core family members and relationships,18,1045,approved,A1,zk gk,2569,4166,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_boy,boy,1,daily_life_people_and_family,core family members and relationships,19,1045,approved,A1,zk gk,462,382,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_girl,girl,1,daily_life_people_and_family,core family members and relationships,20,1042,approved,A1,zk gk,362,363,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_marriage,marriage,1,daily_life_people_and_family,core family members and relationships,21,1039,approved,B1,zk gk cet4 cet6 ky,1154,1011,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_uncle,uncle,1,daily_life_people_and_family,core family members and relationships,22,1039,approved,A1,zk gk,2301,3345,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_cousin,cousin,1,daily_life_people_and_family,core family members and relationships,23,1039,approved,A1,zk gk cet4 cet6 ky,3010,2714,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_man,man,1,daily_life_people_and_family,core family members and relationships,24,1039,approved,A1,zk gk,91,94,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_woman,woman,1,daily_life_people_and_family,core family members and relationships,25,1036,approved,A1,zk gk,130,111,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_age,age,1,daily_life_people_and_family,core family members and relationships,26,1035,approved,A1|B1,zk gk toefl ielts,363,386,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_relative,relative,1,daily_life_people_and_family,core family members and relationships,27,1030,approved,B1,gk cet4 cet6 ky,2255,2428,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_grandmother,grandmother,1,daily_life_people_and_family,core family members and relationships,28,1030,approved,A1,zk cet4 cet6 ky,4338,2495,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_people,people,1,daily_life_people_and_family,core family members and relationships,29,1030,approved,A1,zk gk,75,62,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_grandfather,grandfather,1,daily_life_people_and_family,core family members and relationships,30,1027,approved,A1,zk cet4 cet6,4184,2950,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_friend,friend,1,daily_life_people_and_family,core family members and relationships,31,1027,approved,A1,zk gk,281,265,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_kid,kid,1,daily_life_people_and_family,core family members and relationships,32,1025,approved,A2,zk gk cet4 ky,1572,312,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_mom,mom,1,daily_life_people_and_family,core family members and relationships,33,1024,approved,,zk,13335,1609,ECDICT,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_name,name,1,daily_life_people_and_family,core family members and relationships,34,1018,approved,A1,zk gk,271,298,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_young,young,1,daily_life_people_and_family,core family members and relationships,35,1012,approved,A1|B1,zk gk,228,234,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_grandparent,grandparent,1,daily_life_people_and_family,core family members and relationships,36,1011,approved,A1,zk,7634,4679,ECDICT|OXFORD_REPO,F,
+l001_old,old,1,daily_life_people_and_family,core family members and relationships,37,1009,approved,A1,zk gk,126,152,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_partner,partner,1,daily_life_people_and_family,core family members and relationships,38,998,approved,A1,gk cet4 cet6 ky,1144,1048,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_teenager,teenager,1,daily_life_people_and_family,core family members and relationships,39,985,approved,A1,gk cet4 cet6 ky,3812,2440,ECDICT|OXFORD_REPO,F,
+l001_twin,twin,1,daily_life_people_and_family,core family members and relationships,40,970,approved,A2,gk cet4 cet6 ky,2884,2376,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l001_grandson,grandson,1,daily_life_people_and_family,core family members and relationships,41,948,approved,,zk gk cet4 cet6,6942,6641,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_granddaughter,granddaughter,1,daily_life_people_and_family,core family members and relationships,42,945,approved,,zk gk cet4 cet6,11766,8528,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_nephew,nephew,1,daily_life_people_and_family,core family members and relationships,43,891,approved,,gk cet4 cet6 ky,6440,6362,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_neighbor,neighbor,1,daily_life_people_and_family,core family members and relationships,44,889,approved,,ky toefl,,1424,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l001_niece,niece,1,daily_life_people_and_family,core family members and relationships,45,888,approved,,gk cet4 cet6 ky,7967,7475,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_short,short,2,daily_life_people_and_family,life stages appearance and personal description,1,1125,approved,A1,zk gk ielts,500,627,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_grow,grow,2,daily_life_people_and_family,life stages appearance and personal description,2,1123,approved,A1,zk gk,524,353,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_birth,birth,2,daily_life_people_and_family,life stages appearance and personal description,3,1119,approved,A2,zk gk cet4 ky ielts,1590,1499,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_heavy,heavy,2,daily_life_people_and_family,life stages appearance and personal description,4,1105,approved,A2,zk gk ielts,943,1005,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_strong,strong,2,daily_life_people_and_family,life stages appearance and personal description,5,1105,approved,A1,zk gk,506,458,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_height,height,2,daily_life_people_and_family,life stages appearance and personal description,6,1104,approved,A2,zk gk cet4 cet6 ky toefl ielts,1913,2040,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_face,face,2,daily_life_people_and_family,life stages appearance and personal description,7,1104,approved,A1|B1,zk gk toefl ielts,282,330,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_beautiful,beautiful,2,daily_life_people_and_family,life stages appearance and personal description,8,1103,approved,A1,zk gk ielts,1161,992,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_youth,youth,2,daily_life_people_and_family,life stages appearance and personal description,9,1098,approved,B1,gk cet4 cet6 ky ielts,1508,1397,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_eye,eye,2,daily_life_people_and_family,life stages appearance and personal description,10,1098,approved,A1,zk gk ielts,219,242,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_tall,tall,2,daily_life_people_and_family,life stages appearance and personal description,11,1091,approved,A1,zk gk,1757,1524,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_born,born,2,daily_life_people_and_family,life stages appearance and personal description,12,1079,approved,A1,zk gk cet4 ky,1206,1088,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_hair,hair,2,daily_life_people_and_family,life stages appearance and personal description,13,1078,approved,A1,zk gk,668,602,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_pretty,pretty,2,daily_life_people_and_family,life stages appearance and personal description,14,1077,approved,A1,zk gk cet4 cet6 ky,1782,797,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_thin,thin,2,daily_life_people_and_family,life stages appearance and personal description,15,1075,approved,A2,zk gk toefl,1670,1621,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_healthy,healthy,2,daily_life_people_and_family,life stages appearance and personal description,16,1073,approved,A1,zk gk,2199,1468,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_weak,weak,2,daily_life_people_and_family,life stages appearance and personal description,17,1069,approved,A2,zk gk cet4 cet6 ky,1990,2070,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_hand,hand,2,daily_life_people_and_family,life stages appearance and personal description,18,1065,approved,A1|B1,zk gk ielts,163,174,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_foot,foot,2,daily_life_people_and_family,life stages appearance and personal description,19,1062,approved,A1,zk gk ielts,459,380,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_head,head,2,daily_life_people_and_family,life stages appearance and personal description,20,1057,approved,A1|B1,zk gk toefl,209,251,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_body,body,2,daily_life_people_and_family,life stages appearance and personal description,21,1054,approved,A1,zk,274,313,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_arm,arm,2,daily_life_people_and_family,life stages appearance and personal description,22,1051,approved,A1|C1,zk gk,491,491,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_nose,nose,2,daily_life_people_and_family,life stages appearance and personal description,23,1049,approved,A1,zk gk,1887,1735,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_mouth,mouth,2,daily_life_people_and_family,life stages appearance and personal description,24,1049,approved,A1,zk gk toefl,1011,1060,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_childhood,childhood,2,daily_life_people_and_family,life stages appearance and personal description,25,1048,approved,B1,gk cet4 ky,2746,2107,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_skin,skin,2,daily_life_people_and_family,life stages appearance and personal description,26,1047,approved,A2,gk cet4 cet6 ky ielts,1289,1019,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_ear,ear,2,daily_life_people_and_family,life stages appearance and personal description,27,1043,approved,A1,zk gk,1599,1337,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_leg,leg,2,daily_life_people_and_family,life stages appearance and personal description,28,1042,approved,A1,zk gk,851,856,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_tooth,tooth,2,daily_life_people_and_family,life stages appearance and personal description,29,1040,approved,A1,zk gk,1747,1854,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_single,single,2,daily_life_people_and_family,life stages appearance and personal description,30,1031,approved,A2,zk gk ielts,569,632,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_look,look,2,daily_life_people_and_family,life stages appearance and personal description,31,1027,approved,A1|A2,zk gk,82,85,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_laugh,laugh,2,daily_life_people_and_family,life stages appearance and personal description,32,1023,approved,A1,zk gk,1021,861,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_voice,voice,2,daily_life_people_and_family,life stages appearance and personal description,33,1017,approved,A2,zk gk cet4 cet6 ky,487,465,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_smile,smile,2,daily_life_people_and_family,life stages appearance and personal description,34,1013,approved,A2,zk gk,892,1068,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_appearance,appearance,2,daily_life_people_and_family,life stages appearance and personal description,35,1011,approved,A2,gk cet4 ky ielts,1435,1684,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_dead,dead,2,daily_life_people_and_family,life stages appearance and personal description,36,999,approved,A2,zk gk toefl,877,726,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_male,male,2,daily_life_people_and_family,life stages appearance and personal description,37,990,approved,A2,gk cet4 ky ielts,1126,1530,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_female,female,2,daily_life_people_and_family,life stages appearance and personal description,38,987,approved,A2,gk cet4 cet6 ky ielts,1563,1396,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_cute,cute,2,daily_life_people_and_family,life stages appearance and personal description,39,980,approved,B2,ielts,11929,4345,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_alive,alive,2,daily_life_people_and_family,life stages appearance and personal description,40,979,approved,A2,zk gk cet4 cet6 ky,2080,1532,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l002_handsome,handsome,2,daily_life_people_and_family,life stages appearance and personal description,41,974,approved,,zk gk cet4 cet6 ky ielts,4033,3838,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_elderly,elderly,2,daily_life_people_and_family,life stages appearance and personal description,42,958,approved,B2,cet4 ky ielts,1837,2907,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_pregnant,pregnant,2,daily_life_people_and_family,life stages appearance and personal description,43,957,approved,B2,gk cet6 ky toefl ielts gre,3276,2629,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_beard,beard,2,daily_life_people_and_family,life stages appearance and personal description,44,908,approved,,gk cet4 ky toefl ielts,5605,4690,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l002_slim,slim,2,daily_life_people_and_family,life stages appearance and personal description,45,878,approved,,gk cet6 ky toefl ielts,4710,5312,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_care,care,3,daily_life_people_and_family,relationships behavior and family life,1,1142,approved,A2,zk gk ielts,505,434,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_support,support,3,daily_life_people_and_family,relationships behavior and family life,2,1136,approved,A2,gk cet4 cet6 ky ielts,481,524,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_love,love,3,daily_life_people_and_family,relationships behavior and family life,3,1135,approved,A1,zk gk,670,390,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_help,help,3,daily_life_people_and_family,relationships behavior and family life,4,1129,approved,A1,zk gk,204,167,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_live,live,3,daily_life_people_and_family,relationships behavior and family life,5,1128,approved,A1|B1,zk gk ielts,267,210,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_share,share,3,daily_life_people_and_family,relationships behavior and family life,6,1117,approved,A1|B1,zk gk cet4 cet6 ky,620,711,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_visit,visit,3,daily_life_people_and_family,relationships behavior and family life,7,1111,approved,A1,zk gk,867,905,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_meet,meet,3,daily_life_people_and_family,relationships behavior and family life,8,1108,approved,A1,zk gk gre,259,288,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_relationship,relationship,3,daily_life_people_and_family,relationships behavior and family life,9,1106,approved,A2,gk cet4 cet6 ky ielts,532,486,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_remember,remember,3,daily_life_people_and_family,relationships behavior and family life,10,1102,approved,A1,zk gk,346,379,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_know,know,3,daily_life_people_and_family,relationships behavior and family life,11,1099,approved,A1,zk gk,49,47,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_nice,nice,3,daily_life_people_and_family,relationships behavior and family life,12,1087,approved,A1,zk gk gre,750,897,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_kind,kind,3,daily_life_people_and_family,relationships behavior and family life,13,1084,approved,A1|B1,zk gk,337,250,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_respect,respect,3,daily_life_people_and_family,relationships behavior and family life,14,1075,approved,B1,gk cet4 cet6 ky toefl,1476,1554,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_culture,culture,3,daily_life_people_and_family,relationships behavior and family life,15,1074,approved,A1,zk gk cet4 cet6 ky toefl ielts,983,611,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_friendly,friendly,3,daily_life_people_and_family,relationships behavior and family life,16,1070,approved,A1,zk gk,2241,2760,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_community,community,3,daily_life_people_and_family,relationships behavior and family life,17,1064,approved,A2,cet4 cet6 ky toefl ielts,335,296,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_quiet,quiet,3,daily_life_people_and_family,relationships behavior and family life,18,1058,approved,A1,zk gk,1437,1435,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_role,role,3,daily_life_people_and_family,relationships behavior and family life,19,1058,approved,A2,zk gk cet4 cet6 ky toefl ielts,468,451,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_trust,trust,3,daily_life_people_and_family,relationships behavior and family life,20,1052,approved,B2,zk gk cet4 cet6 ky,1160,1841,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_responsibility,responsibility,3,daily_life_people_and_family,relationships behavior and family life,21,1051,approved,B1,gk cet4 cet6 ky toefl ielts,830,1067,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_active,active,3,daily_life_people_and_family,relationships behavior and family life,22,1045,approved,A2,zk gk cet4 ky toefl,1316,1444,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_independent,independent,3,daily_life_people_and_family,relationships behavior and family life,23,1045,approved,A2,gk cet4 cet6 ky toefl,1013,1265,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_honest,honest,3,daily_life_people_and_family,relationships behavior and family life,24,1036,approved,B1,zk gk cet4 ky,2681,2530,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_raise,raise,3,daily_life_people_and_family,relationships behavior and family life,25,1035,approved,A2,zk gk toefl,510,433,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_value,value,3,daily_life_people_and_family,relationships behavior and family life,26,1034,approved,B1|B2,zk gk cet4 cet6 ky ielts,367,499,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_different,different,3,daily_life_people_and_family,relationships behavior and family life,27,1032,approved,A1,zk gk ielts,177,237,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_argument,argument,3,daily_life_people_and_family,relationships behavior and family life,28,1030,approved,A2,gk cet4 ky ielts,832,1185,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_agree,agree,3,daily_life_people_and_family,relationships behavior and family life,29,1030,approved,A1,zk gk,401,514,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_similar,similar,3,daily_life_people_and_family,relationships behavior and family life,30,1026,approved,A1,zk gk ielts,543,720,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_polite,polite,3,daily_life_people_and_family,relationships behavior and family life,31,1025,approved,A2,zk gk,4976,5492,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_attitude,attitude,3,daily_life_people_and_family,relationships behavior and family life,32,1025,approved,B1,gk cet4 ky,920,1155,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_responsible,responsible,3,daily_life_people_and_family,relationships behavior and family life,33,1024,approved,B1,cet4 cet6 ky toefl,1054,1365,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_tradition,tradition,3,daily_life_people_and_family,relationships behavior and family life,34,1024,approved,A2,gk cet4 cet6 ky,1417,1243,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_together,together,3,daily_life_people_and_family,relationships behavior and family life,35,1024,approved,A1,zk gk,288,324,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_common,common,3,daily_life_people_and_family,relationships behavior and family life,36,1023,approved,A1,zk gk cet4 cet6 ky ielts,554,710,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_influence,influence,3,daily_life_people_and_family,relationships behavior and family life,37,1014,approved,B1,zk gk cet4 cet6 ky ielts,1061,1392,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_protect,protect,3,daily_life_people_and_family,relationships behavior and family life,38,1013,approved,A2,zk gk cet4 cet6 ky,1151,749,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_close,close,3,daily_life_people_and_family,relationships behavior and family life,39,1012,approved,A1|A2|B1|B2,zk gk toefl,647,649,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_alone,alone,3,daily_life_people_and_family,relationships behavior and family life,40,1008,approved,A2,zk gk cet4 ky toefl ielts,1297,1097,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_generation,generation,3,daily_life_people_and_family,relationships behavior and family life,41,1003,approved,B1,gk cet4 cet6 ky gre,1344,1026,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_disagree,disagree,3,daily_life_people_and_family,relationships behavior and family life,42,978,approved,A2,gk cet4 cet6,4677,2679,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_encourage,encourage,3,daily_life_people_and_family,relationships behavior and family life,43,965,approved,B1,zk gk cet4 cet6 ky toefl,881,1184,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l003_behavior,behavior,3,daily_life_people_and_family,relationships behavior and family life,44,961,approved,,cet4 cet6 ky toefl ielts,28403,658,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l003_communicate,communicate,3,daily_life_people_and_family,relationships behavior and family life,45,960,approved,A2,zk gk cet4 cet6 ky toefl gre,3006,2672,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_house,house,4,daily_life_home_and_objects,rooms furniture and parts of a home,1,1152,approved,A1|B2,zk gk toefl ielts,148,257,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_building,building,4,daily_life_home_and_objects,rooms furniture and parts of a home,2,1146,approved,A1,zk gk ielts,420,501,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_room,room,4,daily_life_home_and_objects,rooms furniture and parts of a home,3,1143,approved,A1,zk gk ielts,240,227,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_home,home,4,daily_life_home_and_objects,rooms furniture and parts of a home,4,1123,approved,A1|A2,zk gk,222,224,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_wall,wall,4,daily_life_home_and_objects,rooms furniture and parts of a home,5,1122,approved,A1,zk gk ielts,577,571,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_bedroom,bedroom,4,daily_life_home_and_objects,rooms furniture and parts of a home,6,1114,approved,A1,zk gk ielts,1570,1869,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_apartment,apartment,4,daily_life_home_and_objects,rooms furniture and parts of a home,7,1113,approved,A1,gk cet4 ky ielts,3711,1273,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_bathroom,bathroom,4,daily_life_home_and_objects,rooms furniture and parts of a home,8,1111,approved,A1,zk gk cet4 ky ielts,2821,2404,ECDICT|OXFORD_REPO,F,
+l004_kitchen,kitchen,4,daily_life_home_and_objects,rooms furniture and parts of a home,9,1111,approved,A1,zk gk toefl ielts,1124,1051,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_window,window,4,daily_life_home_and_objects,rooms furniture and parts of a home,10,1107,approved,A1,zk gk ielts,517,607,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_floor,floor,4,daily_life_home_and_objects,rooms furniture and parts of a home,11,1102,approved,A1,zk gk,791,639,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_door,door,4,daily_life_home_and_objects,rooms furniture and parts of a home,12,1093,approved,A1,zk gk,300,343,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_garden,garden,4,daily_life_home_and_objects,rooms furniture and parts of a home,13,1091,approved,A1,zk gk ielts,700,1043,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_table,table,4,daily_life_home_and_objects,rooms furniture and parts of a home,14,1080,approved,A1,zk gk ielts gre,410,539,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_chair,chair,4,daily_life_home_and_objects,rooms furniture and parts of a home,15,1067,approved,A1|B2,zk gk ielts,1029,946,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_hall,hall,4,daily_life_home_and_objects,rooms furniture and parts of a home,16,1066,approved,A2,zk gk cet4 cet6 ky toefl ielts,800,1839,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_roof,roof,4,daily_life_home_and_objects,rooms furniture and parts of a home,17,1060,approved,A2,gk cet4 cet6 ky toefl,1879,2135,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_bed,bed,4,daily_life_home_and_objects,rooms furniture and parts of a home,18,1054,approved,A1,zk gk,563,683,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_yard,yard,4,daily_life_home_and_objects,rooms furniture and parts of a home,19,1053,approved,B1,zk gk cet4 cet6 ky ielts,1370,1035,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_furniture,furniture,4,daily_life_home_and_objects,rooms furniture and parts of a home,20,1050,approved,A2,zk gk cet4 cet6 ky toefl ielts,2428,2669,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_ceiling,ceiling,4,daily_life_home_and_objects,rooms furniture and parts of a home,21,1045,approved,B1,zk gk cet4 cet6 ky toefl,2874,2641,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_desk,desk,4,daily_life_home_and_objects,rooms furniture and parts of a home,22,1045,approved,A1,zk gk ielts,1862,1659,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_light,light,4,daily_life_home_and_objects,rooms furniture and parts of a home,23,1038,approved,A1|A2,zk gk ielts,529,464,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_entrance,entrance,4,daily_life_home_and_objects,rooms furniture and parts of a home,24,1032,approved,B1,gk cet4 cet6 ky toefl ielts gre,2465,2877,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_garage,garage,4,daily_life_home_and_objects,rooms furniture and parts of a home,25,1024,approved,B1,gk cet4 cet6 ky ielts,3113,3208,ECDICT|OXFORD_REPO,F,
+l004_shelf,shelf,4,daily_life_home_and_objects,rooms furniture and parts of a home,26,1011,approved,B1,zk gk cet4 cet6 ky toefl ielts,2930,2947,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_key,key,4,daily_life_home_and_objects,rooms furniture and parts of a home,27,1003,approved,A1|B1,zk gk ielts,1267,1093,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_mirror,mirror,4,daily_life_home_and_objects,rooms furniture and parts of a home,28,994,approved,A2,zk gk cet4 cet6 ky,2086,1853,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_carpet,carpet,4,daily_life_home_and_objects,rooms furniture and parts of a home,29,992,approved,A2,gk cet4 cet6 ky ielts,2484,4112,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_lamp,lamp,4,daily_life_home_and_objects,rooms furniture and parts of a home,30,988,approved,A2,zk gk cet4 cet6 ky toefl ielts,3340,3936,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_lock,lock,4,daily_life_home_and_objects,rooms furniture and parts of a home,31,987,approved,A2,zk gk cet4 ky ielts,2332,2221,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_stairs,stairs,4,daily_life_home_and_objects,rooms furniture and parts of a home,32,972,approved,,zk ielts,2222,13908,ECDICT,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_shower,shower,4,daily_life_home_and_objects,rooms furniture and parts of a home,33,971,approved,A1,zk gk cet4 cet6 ky toefl ielts,3712,3204,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_cabinet,cabinet,4,daily_life_home_and_objects,rooms furniture and parts of a home,34,969,approved,C1,cet4 cet6 ky toefl ielts gre,1378,2693,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_curtain,curtain,4,daily_life_home_and_objects,rooms furniture and parts of a home,35,957,approved,B1,gk cet4 cet6 ky toefl,2492,3622,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_balcony,balcony,4,daily_life_home_and_objects,rooms furniture and parts of a home,36,956,approved,,gk cet4 cet6 ky toefl ielts,5402,5799,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_toilet,toilet,4,daily_life_home_and_objects,rooms furniture and parts of a home,37,948,approved,A1,zk gk cet4 cet6 ky,3550,3983,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l004_closet,closet,4,daily_life_home_and_objects,rooms furniture and parts of a home,38,947,approved,,cet6 ky ielts gre,11999,3473,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_drawer,drawer,4,daily_life_home_and_objects,rooms furniture and parts of a home,39,944,approved,,zk gk cet4 cet6 ky toefl ielts,4175,4212,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_couch,couch,4,daily_life_home_and_objects,rooms furniture and parts of a home,40,932,approved,,cet6 ky ielts,8083,3375,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_wardrobe,wardrobe,4,daily_life_home_and_objects,rooms furniture and parts of a home,41,917,approved,,cet6 ky ielts gre,5424,7918,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_sofa,sofa,4,daily_life_home_and_objects,rooms furniture and parts of a home,42,915,approved,,zk gk cet6 ky,5140,4782,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_blanket,blanket,4,daily_life_home_and_objects,rooms furniture and parts of a home,43,908,approved,B2,gk cet4 ky toefl ielts,3938,3306,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_pillow,pillow,4,daily_life_home_and_objects,rooms furniture and parts of a home,44,896,approved,,gk cet4 cet6 ky toefl ielts,5447,4017,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l004_mattress,mattress,4,daily_life_home_and_objects,rooms furniture and parts of a home,45,867,approved,,gre,7193,6001,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_cup,cup,5,daily_life_home_and_objects,household objects chores and daily home routines,1,1140,approved,A1,zk gk ielts,749,780,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_glass,glass,5,daily_life_home_and_objects,household objects chores and daily home routines,2,1134,approved,A1,zk gk ielts,844,820,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_object,object,5,daily_life_home_and_objects,household objects chores and daily home routines,3,1132,approved,A1|B2,zk gk cet4 cet6 ky ielts,1028,1153,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_thing,thing,5,daily_life_home_and_objects,household objects chores and daily home routines,4,1132,approved,A1,zk gk,106,97,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_box,box,5,daily_life_home_and_objects,household objects chores and daily home routines,5,1126,approved,A1,zk gk,874,795,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_bag,bag,5,daily_life_home_and_objects,household objects chores and daily home routines,6,1103,approved,A1,zk gk,1292,1008,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_bottle,bottle,5,daily_life_home_and_objects,household objects chores and daily home routines,7,1100,approved,A1,zk gk,1584,1740,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_knife,knife,5,daily_life_home_and_objects,household objects chores and daily home routines,8,1083,approved,A2,zk gk ielts,2471,2240,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_television,television,5,daily_life_home_and_objects,household objects chores and daily home routines,9,1083,approved,A1,zk gk ielts,978,794,ECDICT|OXFORD_REPO,F,
+l005_dish,dish,5,daily_life_home_and_objects,household objects chores and daily home routines,10,1082,approved,A1,zk gk,2709,1935,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_computer,computer,5,daily_life_home_and_objects,household objects chores and daily home routines,11,1080,approved,A1,zk gk ielts,580,589,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_plate,plate,5,daily_life_home_and_objects,household objects chores and daily home routines,12,1078,approved,A2,zk gk toefl,1494,1525,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_phone,phone,5,daily_life_home_and_objects,household objects chores and daily home routines,13,1076,approved,A1,zk cet4 ky ielts,1346,557,ECDICT|OXFORD_REPO,F,
+l005_bowl,bowl,5,daily_life_home_and_objects,household objects chores and daily home routines,14,1075,approved,A2,zk gk cet4 ky toefl,2707,1829,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_clock,clock,5,daily_life_home_and_objects,household objects chores and daily home routines,15,1066,approved,A1,zk gk cet4 ky ielts,2543,2635,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_towel,towel,5,daily_life_home_and_objects,household objects chores and daily home routines,16,1048,approved,A2,zk gk cet4 cet6 ky toefl ielts,4814,3682,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_spoon,spoon,5,daily_life_home_and_objects,household objects chores and daily home routines,17,1046,approved,A2,zk gk cet4 cet6 ky toefl,6114,4339,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_carry,carry,5,daily_life_home_and_objects,household objects chores and daily home routines,18,1044,approved,A1,zk gk ielts,283,487,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_fork,fork,5,daily_life_home_and_objects,household objects chores and daily home routines,19,1043,approved,A2,zk gk cet4 cet6 ky,5592,3758,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_pot,pot,5,daily_life_home_and_objects,household objects chores and daily home routines,20,1042,approved,B1,gk cet4 cet6 ky toefl,2782,2235,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_put,put,5,daily_life_home_and_objects,household objects chores and daily home routines,21,1041,approved,A1,zk gk ielts,116,151,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_keep,keep,5,daily_life_home_and_objects,household objects chores and daily home routines,22,1038,approved,A1,zk gk ielts,171,156,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_clean,clean,5,daily_life_home_and_objects,household objects chores and daily home routines,23,1036,approved,A1,zk gk toefl ielts,1780,1514,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_pan,pan,5,daily_life_home_and_objects,household objects chores and daily home routines,24,1035,approved,B1,gk cet4 cet6 ky gre,4319,2479,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_open,open,5,daily_life_home_and_objects,household objects chores and daily home routines,25,1030,approved,A1,zk gk,403,355,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_soap,soap,5,daily_life_home_and_objects,household objects chores and daily home routines,26,1025,approved,A2,zk gk cet4 cet6 ky toefl,4288,4344,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_brush,brush,5,daily_life_home_and_objects,household objects chores and daily home routines,27,1025,approved,A2,zk gk,3418,3223,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_fridge,fridge,5,daily_life_home_and_objects,household objects chores and daily home routines,28,1018,approved,A2,zk cet4 cet6 ky ielts,5453,9318,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_use,use,5,daily_life_home_and_objects,household objects chores and daily home routines,29,1012,approved,A1|A2,zk gk,87,92,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_need,need,5,daily_life_home_and_objects,household objects chores and daily home routines,30,1012,approved,A1|A2|B1,zk gk,132,132,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_water,water,5,daily_life_home_and_objects,household objects chores and daily home routines,31,1011,approved,A1|B1,zk gk ielts,236,226,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_wash,wash,5,daily_life_home_and_objects,household objects chores and daily home routines,32,1010,approved,A1|A2,zk gk,1853,2143,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_cook,cook,5,daily_life_home_and_objects,household objects chores and daily home routines,33,1010,approved,A1|A2,zk gk,2338,1419,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_oven,oven,5,daily_life_home_and_objects,household objects chores and daily home routines,34,1005,approved,A2,cet4 cet6 ky toefl,4188,2920,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_move,move,5,daily_life_home_and_objects,household objects chores and daily home routines,35,1003,approved,A1|B1,zk gk,220,207,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_own,own,5,daily_life_home_and_objects,household objects chores and daily home routines,36,997,approved,A1|A2,zk gk,118,148,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_repair,repair,5,daily_life_home_and_objects,household objects chores and daily home routines,37,980,approved,A2|B1,zk gk cet4 cet6 ky toefl ielts,2940,3874,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_electricity,electricity,5,daily_life_home_and_objects,household objects chores and daily home routines,38,978,approved,A2,gk cet4 cet6 ky ielts,2296,2719,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_fix,fix,5,daily_life_home_and_objects,household objects chores and daily home routines,39,973,approved,A2|B2,zk gk cet4 cet6 ky,1954,1850,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_basket,basket,5,daily_life_home_and_objects,household objects chores and daily home routines,40,966,approved,B2,zk gk,3828,3255,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_comfortable,comfortable,5,daily_life_home_and_objects,household objects chores and daily home routines,41,960,approved,A2,zk gk cet4 cet6 ky ielts,2195,1701,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_safe,safe,5,daily_life_home_and_objects,household objects chores and daily home routines,42,960,approved,A2,zk gk cet4 cet6 ky ielts gre,1244,1058,ECDICT|OXFORD_REPO|WEBSTER_1913,F,
+l005_rent,rent,5,daily_life_home_and_objects,household objects chores and daily home routines,43,959,approved,B1,gk cet4 cet6 ky toefl ielts gre,2386,3433,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_refrigerator,refrigerator,5,daily_life_home_and_objects,household objects chores and daily home routines,44,948,approved,,gk cet4 cet6 toefl,9857,4133,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_stove,stove,5,daily_life_home_and_objects,household objects chores and daily home routines,45,936,approved,,gk cet4 cet6 ky toefl,6609,4388,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_vacuum,vacuum,5,daily_life_home_and_objects,household objects chores and daily home routines,46,913,reserve,C1,cet4 cet6 ky toefl ielts,5526,4930,ECDICT|OXFORD_REPO|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_microwave,microwave,5,daily_life_home_and_objects,household objects chores and daily home routines,47,912,reserve,,gk cet6 toefl,7268,5846,ECDICT,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_garbage,garbage,5,daily_life_home_and_objects,household objects chores and daily home routines,48,893,reserve,,gk cet4 cet6 ky toefl ielts,12130,3934,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_laundry,laundry,5,daily_life_home_and_objects,household objects chores and daily home routines,49,860,reserve,,gk cet4 cet6 ky toefl ielts,7707,4940,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_chore,chore,5,daily_life_home_and_objects,household objects chores and daily home routines,50,857,reserve,,toefl ielts gre,9514,6028,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.
+l005_trash,trash,5,daily_life_home_and_objects,household objects chores and daily home routines,51,846,reserve,,ky toefl,16241,4408,ECDICT|WEBSTER_1913,T,Check sense/POS/level placement or missing cross-source evidence.

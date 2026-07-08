@@ -26,7 +26,7 @@ sealed interface ProfileUiState {
 }
 
 /**
- * Holds the Profile / 个人中心 screen state.
+ * Holds the Profile screen state.
  *
  * Collects [UserRepository.userFlow] reactively, and loads practice session
  * dates once on init for the contribution heatmap.

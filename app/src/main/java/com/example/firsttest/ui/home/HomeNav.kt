@@ -29,4 +29,5 @@ sealed interface HomeNav {
         val levelNumber: Int,
         val attemptId: Long,
     ) : HomeNav
+    data class LevelProgress(val levelNumber: Int) : HomeNav
 }

@@ -1,0 +1,211 @@
+﻿review_id,record_type,record_id,headword,priority,review_reason,human_review,review_status
+review_family_n_1,word_sense,family_n_1,family,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_parent_n_1,word_sense,parent_n_1,parent,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_mother_n_1,word_sense,mother_n_1,mother,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_child_n_1,word_sense,child_n_1,child,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_father_n_1,word_sense,father_n_1,father,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_son_n_1,word_sense,son_n_1,son,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_dad_n_1,word_sense,dad_n_1,dad,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_husband_n_1,word_sense,husband_n_1,husband,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_wife_n_1,word_sense,wife_n_1,wife,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_sister_n_1,word_sense,sister_n_1,sister,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_couple_n_1,word_sense,couple_n_1,couple,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_married_adj_1,word_sense,married_adj_1,married,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_adult_n_1,word_sense,adult_n_1,adult,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_person_n_1,word_sense,person_n_1,person,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_aunt_n_1,word_sense,aunt_n_1,aunt,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_girl_n_1,word_sense,girl_n_1,girl,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_marriage_n_1,word_sense,marriage_n_1,marriage,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_uncle_n_1,word_sense,uncle_n_1,uncle,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_cousin_n_1,word_sense,cousin_n_1,cousin,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_man_n_1,word_sense,man_n_1,man,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_woman_n_1,word_sense,woman_n_1,woman,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_age_n_1,word_sense,age_n_1,age,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_relative_n_1,word_sense,relative_n_1,relative,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_grandmother_n_1,word_sense,grandmother_n_1,grandmother,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_people_n_1,word_sense,people_n_1,people,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_grandfather_n_1,word_sense,grandfather_n_1,grandfather,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_friend_n_1,word_sense,friend_n_1,friend,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_kid_n_1,word_sense,kid_n_1,kid,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_mom_n_1,word_sense,mom_n_1,mom,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_name_n_1,word_sense,name_n_1,name,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_young_adj_1,word_sense,young_adj_1,young,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_old_adj_1,word_sense,old_adj_1,old,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_partner_n_1,word_sense,partner_n_1,partner,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_twin_n_1,word_sense,twin_n_1,twin,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_grandson_n_1,word_sense,grandson_n_1,grandson,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_granddaughter_n_1,word_sense,granddaughter_n_1,granddaughter,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_nephew_n_1,word_sense,nephew_n_1,nephew,high,Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_neighbor_n_1,word_sense,neighbor_n_1,neighbor,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_niece_n_1,word_sense,niece_n_1,niece,high,Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_short_adj_1,word_sense,short_adj_1,short,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_grow_v_1,word_sense,grow_v_1,grow,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_birth_n_1,word_sense,birth_n_1,birth,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_heavy_adj_1,word_sense,heavy_adj_1,heavy,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_strong_adj_1,word_sense,strong_adj_1,strong,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_height_n_1,word_sense,height_n_1,height,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_face_n_1,word_sense,face_n_1,face,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_youth_n_1,word_sense,youth_n_1,youth,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_eye_n_1,word_sense,eye_n_1,eye,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_tall_adj_1,word_sense,tall_adj_1,tall,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_born_v_1,word_sense,born_v_1,born,medium,Human-selected adjective sense used in the pattern 'be born'. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_hair_n_1,word_sense,hair_n_1,hair,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_pretty_adj_1,word_sense,pretty_adj_1,pretty,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_thin_adj_1,word_sense,thin_adj_1,thin,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_healthy_adj_1,word_sense,healthy_adj_1,healthy,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_weak_adj_1,word_sense,weak_adj_1,weak,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_hand_n_1,word_sense,hand_n_1,hand,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_foot_n_1,word_sense,foot_n_1,foot,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_head_n_1,word_sense,head_n_1,head,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_body_n_1,word_sense,body_n_1,body,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_arm_n_1,word_sense,arm_n_1,arm,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_nose_n_1,word_sense,nose_n_1,nose,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_mouth_n_1,word_sense,mouth_n_1,mouth,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_skin_n_1,word_sense,skin_n_1,skin,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_ear_n_1,word_sense,ear_n_1,ear,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_leg_n_1,word_sense,leg_n_1,leg,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_tooth_n_1,word_sense,tooth_n_1,tooth,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_single_adj_1,word_sense,single_adj_1,single,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_look_n_1,word_sense,look_n_1,look,high,Human-selected appearance sense for personal description. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_laugh_v_1,word_sense,laugh_v_1,laugh,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_voice_n_1,word_sense,voice_n_1,voice,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_smile_v_1,word_sense,smile_v_1,smile,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_appearance_n_1,word_sense,appearance_n_1,appearance,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_dead_adj_1,word_sense,dead_adj_1,dead,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_male_adj_1,word_sense,male_adj_1,male,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_female_adj_1,word_sense,female_adj_1,female,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_cute_adj_1,word_sense,cute_adj_1,cute,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_alive_adj_1,word_sense,alive_adj_1,alive,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_handsome_adj_1,word_sense,handsome_adj_1,handsome,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_elderly_adj_1,word_sense,elderly_adj_1,elderly,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_pregnant_adj_1,word_sense,pregnant_adj_1,pregnant,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_beard_n_1,word_sense,beard_n_1,beard,high,Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_slim_adj_1,word_sense,slim_adj_1,slim,high,AI-assisted adjective sense from ECDICT coverage; verify manually. | Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_care_v_1,word_sense,care_v_1,care,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_support_v_1,word_sense,support_v_1,support,high,Human-selected family-help sense. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_love_v_1,word_sense,love_v_1,love,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_help_v_1,word_sense,help_v_1,help,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_live_v_1,word_sense,live_v_1,live,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_share_v_1,word_sense,share_v_1,share,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_visit_v_1,word_sense,visit_v_1,visit,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_meet_v_1,word_sense,meet_v_1,meet,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_relationship_n_1,word_sense,relationship_n_1,relationship,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_remember_v_1,word_sense,remember_v_1,remember,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_know_v_1,word_sense,know_v_1,know,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_nice_adj_1,word_sense,nice_adj_1,nice,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_kind_adj_1,word_sense,kind_adj_1,kind,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_respect_v_1,word_sense,respect_v_1,respect,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_culture_n_1,word_sense,culture_n_1,culture,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_friendly_adj_1,word_sense,friendly_adj_1,friendly,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_community_n_1,word_sense,community_n_1,community,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_quiet_adj_1,word_sense,quiet_adj_1,quiet,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_role_n_1,word_sense,role_n_1,role,high,Human-selected social-function sense rather than theater. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_trust_n_1,word_sense,trust_n_1,trust,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation. | High CEFR for an introductory level.,T,pending
+review_responsibility_n_1,word_sense,responsibility_n_1,responsibility,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_active_adj_1,word_sense,active_adj_1,active,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_independent_adj_1,word_sense,independent_adj_1,independent,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_honest_adj_1,word_sense,honest_adj_1,honest,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_raise_v_1,word_sense,raise_v_1,raise,high,AI-assisted sense drafted from ECDICT Chinese coverage; verify manually. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_value_n_1,word_sense,value_n_1,value,high,AI-assisted moral-values sense; verify manually. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_argument_n_1,word_sense,argument_n_1,argument,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_agree_v_1,word_sense,agree_v_1,agree,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_similar_adj_1,word_sense,similar_adj_1,similar,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_polite_adj_1,word_sense,polite_adj_1,polite,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_attitude_n_1,word_sense,attitude_n_1,attitude,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_responsible_adj_1,word_sense,responsible_adj_1,responsible,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_tradition_n_1,word_sense,tradition_n_1,tradition,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_together_adv_1,word_sense,together_adv_1,together,medium,Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_common_adj_1,word_sense,common_adj_1,common,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_influence_n_1,word_sense,influence_n_1,influence,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_protect_v_1,word_sense,protect_v_1,protect,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_close_adj_1,word_sense,close_adj_1,close,high,Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_alone_adj_1,word_sense,alone_adj_1,alone,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_generation_n_1,word_sense,generation_n_1,generation,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_disagree_v_1,word_sense,disagree_v_1,disagree,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_encourage_v_1,word_sense,encourage_v_1,encourage,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_behavior_n_1,word_sense,behavior_n_1,behavior,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_communicate_v_1,word_sense,communicate_v_1,communicate,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_house_n_1,word_sense,house_n_1,house,high,Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_building_n_1,word_sense,building_n_1,building,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_room_n_1,word_sense,room_n_1,room,high,Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_home_n_1,word_sense,home_n_1,home,high,Human-selected home/place-of-residence sense. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_wall_n_1,word_sense,wall_n_1,wall,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_apartment_n_1,word_sense,apartment_n_1,apartment,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_bathroom_n_1,word_sense,bathroom_n_1,bathroom,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_kitchen_n_1,word_sense,kitchen_n_1,kitchen,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_window_n_1,word_sense,window_n_1,window,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_floor_n_1,word_sense,floor_n_1,floor,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_garden_n_1,word_sense,garden_n_1,garden,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_table_n_1,word_sense,table_n_1,table,high,Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_chair_n_1,word_sense,chair_n_1,chair,high,Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_hall_n_1,word_sense,hall_n_1,hall,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_roof_n_1,word_sense,roof_n_1,roof,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_bed_n_1,word_sense,bed_n_1,bed,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_yard_n_1,word_sense,yard_n_1,yard,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_furniture_n_1,word_sense,furniture_n_1,furniture,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_desk_n_1,word_sense,desk_n_1,desk,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_light_n_1,word_sense,light_n_1,light,high,Human-selected household-object sense. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_entrance_n_1,word_sense,entrance_n_1,entrance,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_garage_n_1,word_sense,garage_n_1,garage,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_shelf_n_1,word_sense,shelf_n_1,shelf,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_key_n_1,word_sense,key_n_1,key,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_mirror_n_1,word_sense,mirror_n_1,mirror,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_carpet_n_1,word_sense,carpet_n_1,carpet,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_lock_n_1,word_sense,lock_n_1,lock,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_stairs_n_1,word_sense,stairs_n_1,stairs,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_shower_n_1,word_sense,shower_n_1,shower,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_cabinet_n_1,word_sense,cabinet_n_1,cabinet,medium,Human-selected furniture sense rather than government. | Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_curtain_n_1,word_sense,curtain_n_1,curtain,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_balcony_n_1,word_sense,balcony_n_1,balcony,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_toilet_n_1,word_sense,toilet_n_1,toilet,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_closet_n_1,word_sense,closet_n_1,closet,high,AI-assisted modern American household sense; verify manually. | Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_drawer_n_1,word_sense,drawer_n_1,drawer,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_couch_n_1,word_sense,couch_n_1,couch,high,AI-assisted modern household sense; verify manually. | Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_wardrobe_n_1,word_sense,wardrobe_n_1,wardrobe,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_sofa_n_1,word_sense,sofa_n_1,sofa,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates.,T,pending
+review_blanket_n_1,word_sense,blanket_n_1,blanket,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_pillow_n_1,word_sense,pillow_n_1,pillow,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_mattress_n_1,word_sense,mattress_n_1,mattress,high,Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_cup_n_1,word_sense,cup_n_1,cup,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_glass_n_1,word_sense,glass_n_1,glass,high,Human-selected drinking-container sense. | Polysemous word; confirm selected sense boundary.,T,pending
+review_object_n_1,word_sense,object_n_1,object,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_thing_n_1,word_sense,thing_n_1,thing,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_box_n_1,word_sense,box_n_1,box,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_bag_n_1,word_sense,bag_n_1,bag,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_bottle_n_1,word_sense,bottle_n_1,bottle,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_knife_n_1,word_sense,knife_n_1,knife,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_dish_n_1,word_sense,dish_n_1,dish,high,Human-selected household-container sense. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_computer_n_1,word_sense,computer_n_1,computer,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_plate_n_1,word_sense,plate_n_1,plate,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_phone_n_1,word_sense,phone_n_1,phone,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_bowl_n_1,word_sense,bowl_n_1,bowl,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_clock_n_1,word_sense,clock_n_1,clock,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_towel_n_1,word_sense,towel_n_1,towel,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_spoon_n_1,word_sense,spoon_n_1,spoon,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_carry_v_1,word_sense,carry_v_1,carry,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_fork_n_1,word_sense,fork_n_1,fork,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_pot_n_1,word_sense,pot_n_1,pot,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_put_v_1,word_sense,put_v_1,put,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_keep_v_1,word_sense,keep_v_1,keep,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_clean_v_1,word_sense,clean_v_1,clean,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_pan_n_1,word_sense,pan_n_1,pan,medium,Human-selected ECDICT cooking-utensil sense. | Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_open_v_1,word_sense,open_v_1,open,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_soap_n_1,word_sense,soap_n_1,soap,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_brush_n_1,word_sense,brush_n_1,brush,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_use_v_1,word_sense,use_v_1,use,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_need_v_1,word_sense,need_v_1,need,medium,Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_water_n_1,word_sense,water_n_1,water,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_wash_v_1,word_sense,wash_v_1,wash,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_cook_v_1,word_sense,cook_v_1,cook,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_oven_n_1,word_sense,oven_n_1,oven,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_move_v_1,word_sense,move_v_1,move,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_own_v_1,word_sense,own_v_1,own,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_repair_v_1,word_sense,repair_v_1,repair,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_electricity_n_1,word_sense,electricity_n_1,electricity,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_fix_v_1,word_sense,fix_v_1,fix,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_basket_n_1,word_sense,basket_n_1,basket,medium,Curriculum CEFR estimate overrides unreliable/missing source level. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_comfortable_adj_1,word_sense,comfortable_adj_1,comfortable,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_safe_adj_1,word_sense,safe_adj_1,safe,medium,ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_rent_v_1,word_sense,rent_v_1,rent,high,AI-assisted verb sense; verify manually. | Polysemous word; confirm selected sense boundary. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_refrigerator_n_1,word_sense,refrigerator_n_1,refrigerator,high,Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending
+review_stove_n_1,word_sense,stove_n_1,stove,high,Curriculum CEFR estimate overrides unreliable/missing source level. | Oxford entry missing; definition/IPA use ECDICT fallback. | Multiple or mismatched POS/sense candidates. | ECDICT Chinese field contains multiple glosses; select only the target-sense translation.,T,pending

@@ -1,0 +1,451 @@
+﻿id,sense_id,sentence_en,translation_zh,target_span,origin,difficulty_band,source_id,review_status,human_review,audio_path,sort_order
+03921bcb-bedc-5934-9ffe-2dfc1f837789,a21ce8dc-720e-597f-b69f-1230eec33f6a,My family eats dinner together every evening.,我的家人每天晚上一起吃晚饭。,family,human_written,4.0,,approved,false,,1
+600984ae-dd52-54be-bf83-c038c810af03,a21ce8dc-720e-597f-b69f-1230eec33f6a,Her family lives in a small apartment.,她的家人住在一套小公寓里。,family,human_written,4.0,,approved,false,,2
+3b8512af-a511-5174-af40-f5218e36eaa1,52f765e5-e468-5d65-9e23-32fe2e05d59a,Each parent signed the school form.,每位家长都在学校表格上签了字。,parent,human_written,4.0,,approved,false,,1
+a1fb9e7f-24a3-5be2-86c7-d14e1f515412,52f765e5-e468-5d65-9e23-32fe2e05d59a,A parent should listen carefully to a child.,父母应该认真倾听孩子说话。,parent,human_written,4.0,,approved,false,,2
+4c0fa520-e3bb-59ae-8d7a-b18b888571e3,4f6ac419-d836-541b-ae0d-76642b0975f9,His mother works at the local hospital.,他的母亲在当地医院工作。,mother,human_written,4.0,,approved,false,,1
+7f76f350-123c-59ef-9538-60ac3aaa9f59,4f6ac419-d836-541b-ae0d-76642b0975f9,My mother calls me every Sunday.,我妈妈每个星期天给我打电话。,mother,human_written,4.0,,approved,false,,2
+37376f92-58bd-5b78-8686-b2b14b1bbe4b,3c6d20e2-e4f3-5afc-8058-e75033bf5972,The child held his father's hand.,那个孩子牵着父亲的手。,child,human_written,4.0,,approved,false,,1
+85fd4a13-185e-5613-9a40-fdae1d556995,3c6d20e2-e4f3-5afc-8058-e75033bf5972,Every child needs a safe place to learn.,每个孩子都需要一个安全的学习场所。,child,human_written,4.0,,approved,false,,2
+6c1a16bb-113d-584e-8369-39436c51edbd,3020574e-73de-51f6-a10f-bc5ac51d3680,Her father cooks breakfast on weekends.,她父亲周末做早餐。,father,human_written,4.0,,approved,false,,1
+8ba52a6c-7d74-576f-9e1f-8f6100c2ea63,3020574e-73de-51f6-a10f-bc5ac51d3680,My father taught me how to ride a bike.,我爸爸教我骑自行车。,father,human_written,4.0,,approved,false,,2
+55a07baa-7554-587b-9609-beb76cd3c10c,df621dde-0b01-5bdf-a9b5-6d99ec8cc815,Their son started school this year.,他们的儿子今年开始上学。,son,human_written,4.0,,approved,false,,1
+240cc669-a4f0-50e4-8a2e-fc1b617aa6e6,df621dde-0b01-5bdf-a9b5-6d99ec8cc815,She has one son and two daughters.,她有一个儿子和两个女儿。,son,human_written,4.0,,approved,false,,2
+752a4ff3-3fee-5976-8106-cb4315490522,c87a4cda-23e1-5c98-8efe-0ec654a4be4c,His daughter loves reading before bed.,他的女儿喜欢睡前阅读。,daughter,human_written,4.0,,approved,false,,1
+74b7c5ee-9444-5546-b98d-f807bbf95f41,c87a4cda-23e1-5c98-8efe-0ec654a4be4c,Their daughter is studying at college.,他们的女儿正在上大学。,daughter,human_written,4.0,,approved,false,,2
+385046d4-1de3-5412-a10b-d67b75cc895e,ea790ea2-3091-590a-9382-4a34110050b5,The baby is sleeping in the bedroom.,婴儿正在卧室里睡觉。,baby,human_written,4.0,,approved,false,,1
+b766c7c7-4c3a-578b-9014-4283bd441c06,ea790ea2-3091-590a-9382-4a34110050b5,Please hold the baby carefully.,请小心抱着婴儿。,baby,human_written,4.0,,approved,false,,2
+31a34c8c-bc3d-5a0b-b205-5329e8e99554,bab89739-8d84-56fd-bae0-7b57f736aa43,My brother is three years younger than me.,我弟弟比我小三岁。,brother,human_written,4.0,,approved,false,,1
+08662480-53ee-5ae3-8b76-6d052805d71b,bab89739-8d84-56fd-bae0-7b57f736aa43,Her brother plays basketball after school.,她哥哥放学后打篮球。,brother,human_written,4.0,,approved,false,,2
+a4fb4928-f8ba-51d6-bf61-6a97a26ed860,ab1e57cb-ae3e-580e-a4f3-30f59714de7c,My dad drives me to school.,我爸爸开车送我上学。,dad,human_written,4.0,,approved,false,,1
+0b49b2ad-d558-56df-b4f9-78a717c28a2c,ab1e57cb-ae3e-580e-a4f3-30f59714de7c,Dad is making tea in the kitchen.,爸爸正在厨房里泡茶。,dad,human_written,4.0,,approved,false,,2
+a90bb11e-2679-5b78-801a-b246826b21fe,f1d7dd00-b6f5-5c36-8884-74d7a1a5a48b,Her husband works from home.,她丈夫在家办公。,husband,human_written,4.0,,approved,false,,1
+4ed848d5-cf48-546c-b3ca-a3052f79e0c3,f1d7dd00-b6f5-5c36-8884-74d7a1a5a48b,My husband usually washes the dishes.,我丈夫通常洗碗。,husband,human_written,4.0,,approved,false,,2
+4d378faa-e59e-5652-8331-4803ab2f10bf,c64a79e5-483d-5352-b614-92ed0ffb6196,His wife teaches English at a college.,他的妻子在一所大学教英语。,wife,human_written,4.0,,approved,false,,1
+790895a4-9863-5962-8c5f-1a2e0de4d37d,c64a79e5-483d-5352-b614-92ed0ffb6196,My wife and I share the housework.,我和妻子分担家务。,wife,human_written,4.0,,approved,false,,2
+72569797-77c6-5600-a843-e716aca578ed,984a8d58-de7e-54cf-96cf-391d0991b6eb,My sister has long black hair.,我姐姐留着黑色长发。,sister,human_written,4.0,,approved,false,,1
+0631e2de-c145-562c-a39c-aa3fa70c4286,984a8d58-de7e-54cf-96cf-391d0991b6eb,Her sister lives in another city.,她妹妹住在另一个城市。,sister,human_written,4.0,,approved,false,,2
+aa772e08-d634-5193-915b-12f4a4b8b9c6,464a2429-5933-547e-8a0a-b02f137222c7,The couple moved into a new house.,这对夫妻搬进了一所新房子。,couple,human_written,4.0,,approved,false,,1
+89808d4c-63dc-5f05-8d15-a351649cd53d,464a2429-5933-547e-8a0a-b02f137222c7,An elderly couple lives next door.,一对老年夫妇住在隔壁。,couple,human_written,4.0,,approved,false,,2
+0ff8cbd8-9728-55dc-b770-9282c874095f,2581a8bc-9c9d-594a-8d91-454f0788f557,They have been married for ten years.,他们已经结婚十年了。,married,human_written,4.0,,approved,false,,1
+4cdeed9e-17ae-52f4-9507-5a9dd735d092,2581a8bc-9c9d-594a-8d91-454f0788f557,My married sister lives in Boston.,我已婚的姐姐住在波士顿。,married,human_written,4.0,,approved,false,,2
+2cf1d49a-1041-58be-b5db-5c88c17d29ee,409986c8-ffcc-53b7-aace-b384482ff18c,Every adult needs an identification card.,每个成年人都需要身份证件。,adult,human_written,4.0,,approved,false,,1
+69a140db-022b-57f0-b271-9a107e32a61a,409986c8-ffcc-53b7-aace-b384482ff18c,An adult must accompany the young child.,必须有成年人陪同这个小孩。,adult,human_written,4.0,,approved,false,,2
+31357da7-0403-5dba-8317-bff64813fb1f,e1bcf777-956c-5d38-a71e-250e52b99b59,Only one person can enter at a time.,每次只能有一个人进入。,person,human_written,4.0,,approved,false,,1
+4d3603ce-141e-5be3-a0fd-849d70debdf3,e1bcf777-956c-5d38-a71e-250e52b99b59,She is a kind and honest person.,她是一个善良诚实的人。,person,human_written,4.0,,approved,false,,2
+995ce595-ea67-57c8-a2d1-a5311ef7d569,c6e0f7e8-2f18-5d03-b237-ea25fc5107e4,My aunt visits us every summer.,我姑妈每年夏天来看我们。,aunt,human_written,4.0,,approved,false,,1
+971c7928-349f-5454-93c5-4930119dfe9f,c6e0f7e8-2f18-5d03-b237-ea25fc5107e4,Her aunt gave her a birthday gift.,她姨妈送了她一份生日礼物。,aunt,human_written,4.0,,approved,false,,2
+d55d2015-803a-569e-b287-c191a3047cb0,69792b86-17a5-5f99-9911-cf5c1bd0aa3d,The boy is waiting for the school bus.,那个男孩正在等校车。,boy,human_written,4.0,,approved,false,,1
+b9c0fa9c-1bde-5041-85cf-b35d047626c2,69792b86-17a5-5f99-9911-cf5c1bd0aa3d,A young boy found the lost key.,一个小男孩找到了丢失的钥匙。,boy,human_written,4.0,,approved,false,,2
+ca08c362-3be6-5b3f-9067-6252e4c5b5af,458a2405-f0ad-53a0-a1c5-663fbd569b0a,The girl smiled at her teacher.,那个女孩对老师微笑。,girl,human_written,4.0,,approved,false,,1
+f557041f-575e-5d43-9c61-b9a61ca9ebe9,458a2405-f0ad-53a0-a1c5-663fbd569b0a,A little girl is playing in the garden.,一个小女孩正在花园里玩。,girl,human_written,4.0,,approved,false,,2
+677620d8-41cd-5aa3-b09d-421a1e5e8649,4c80dff6-1e30-561b-9f6c-6d34609a9b22,Trust is important in a marriage.,信任在婚姻中很重要。,marriage,human_written,4.0,,approved,false,,1
+5904a7d3-2d98-5e9b-bb1c-143be71dfbd9,4c80dff6-1e30-561b-9f6c-6d34609a9b22,Their marriage has lasted for thirty years.,他们的婚姻已经持续了三十年。,marriage,human_written,4.0,,approved,false,,2
+90ec7be2-1680-5d45-bbce-4c7c8551f70f,0befb6d0-3c67-523f-9830-41b1ba30d733,My uncle owns a small restaurant.,我叔叔经营一家小餐馆。,uncle,human_written,4.0,,approved,false,,1
+76f00454-d409-552f-99af-88d1ff3d83b3,0befb6d0-3c67-523f-9830-41b1ba30d733,Her uncle taught her to swim.,她舅舅教她游泳。,uncle,human_written,4.0,,approved,false,,2
+8420a0cf-6bad-5eb4-8d4e-4a92e8c4a2d9,30cf9efc-ebe2-5a85-853c-4789e422407d,My cousin and I attend the same school.,我表弟和我上同一所学校。,cousin,human_written,4.0,,approved,false,,1
+d0cf39f1-87ec-5b07-911b-b7691abe3bb2,30cf9efc-ebe2-5a85-853c-4789e422407d,She visited her cousin during the holiday.,她假期去看望了表姐。,cousin,human_written,4.0,,approved,false,,2
+5a09ed18-9e68-53d4-8807-fe82107a8737,6f670f3e-dc90-5273-967f-5e1d0e4fb54a,A tall man opened the door.,一个高个子男人打开了门。,man,human_written,4.0,,approved,false,,1
+de5846f9-541f-5a13-a343-21998456ba1f,6f670f3e-dc90-5273-967f-5e1d0e4fb54a,The man carried a heavy box upstairs.,那个男人把一个重箱子搬上楼。,man,human_written,4.0,,approved,false,,2
+348f4f2f-3bac-57c1-adfc-47a26886d12f,f9592995-d353-53be-8469-a7ea8dbc5de1,The woman works in our local library.,那位女士在当地的图书馆工作。,woman,human_written,4.0,,approved,false,,1
+afcc92e5-750c-51c1-8fd9-709448282f34,f9592995-d353-53be-8469-a7ea8dbc5de1,A young woman answered the phone.,一位年轻女子接了电话。,woman,human_written,4.0,,approved,false,,2
+b9c2b0da-d58f-58ca-9f41-eb40e556fe74,ec9f082c-42d4-56e9-a7a3-7ad8e038728d,Please write your age on the form.,请在表格上填写你的年龄。,age,human_written,4.0,,approved,false,,1
+f040428e-5bb8-508d-adcd-affc876316ed,ec9f082c-42d4-56e9-a7a3-7ad8e038728d,Children of this age learn very quickly.,这个年龄的孩子学得很快。,age,human_written,4.0,,approved,false,,2
+aad8c12d-dbe2-5ac9-9e34-7ddf3220e2ab,59201284-fb3a-54a7-9a11-bb0827260e87,A relative came from another city for the wedding.,一位亲戚从另一个城市来参加婚礼。,relative,human_written,4.0,,approved,false,,1
+f077f9b1-5353-50fd-b1bf-bff0c377851d,59201284-fb3a-54a7-9a11-bb0827260e87,She is a close relative of mine.,她是我的近亲。,relative,human_written,4.0,,approved,false,,2
+4a0b6006-9865-590e-8e57-db70a463c02e,b9d1927f-8156-53f9-ab7e-a03dd49a3ec8,My grandmother tells wonderful family stories.,我祖母会讲精彩的家庭故事。,grandmother,human_written,4.0,,approved,false,,1
+af1b945e-957f-50b9-b123-00e6467959b3,b9d1927f-8156-53f9-ab7e-a03dd49a3ec8,Her grandmother is eighty years old.,她外祖母八十岁了。,grandmother,human_written,4.0,,approved,false,,2
+59349a57-18b2-56fa-9853-42516aa8d84e,3da1f81f-cbe2-5a81-9acf-5cd9451bf93d,Many people use this park every day.,许多人每天使用这个公园。,people,human_written,4.0,,approved,false,,1
+9625902c-d75e-5cd4-a0ef-30ccc41d6030,3da1f81f-cbe2-5a81-9acf-5cd9451bf93d,Young people often learn technology quickly.,年轻人通常很快学会使用科技产品。,people,human_written,4.0,,approved,false,,2
+58ebe6c4-f503-554b-93a5-198dfd70a95f,4c1c4ca1-9c12-5d99-9a7a-945083c7efaa,My grandfather grows vegetables in his garden.,我祖父在花园里种蔬菜。,grandfather,human_written,4.0,,approved,false,,1
+cbc3b831-6648-5448-ba0b-b0a26aaa28cd,4c1c4ca1-9c12-5d99-9a7a-945083c7efaa,Her grandfather walks every morning.,她外祖父每天早上散步。,grandfather,human_written,4.0,,approved,false,,2
+14544292-710c-5d04-a4b5-6df37408cf54,3f4c9516-cf61-5007-8264-385a2c38c3ca,A good friend listens when you need help.,好朋友会在你需要帮助时倾听。,friend,human_written,4.0,,approved,false,,1
+bde73c52-8586-526d-9bb2-45fffda90730,3f4c9516-cf61-5007-8264-385a2c38c3ca,My friend lives near the school.,我的朋友住在学校附近。,friend,human_written,4.0,,approved,false,,2
+e9f93192-00ba-598f-a725-5f3ba451af69,0b3f2002-c5a5-52d9-b4ca-c72d24e495a9,Every kid received a new book.,每个孩子都收到了一本新书。,kid,human_written,4.0,,approved,false,,1
+d20a10dc-7b4a-5270-b81b-7cff73dd5e22,0b3f2002-c5a5-52d9-b4ca-c72d24e495a9,The kid ran home after school.,那个孩子放学后跑回了家。,kid,human_written,4.0,,approved,false,,2
+745ddc59-92e2-5095-823e-dc5cc0313a6b,90c36f21-c660-586d-844c-44e84b41534f,Mom left breakfast on the table.,妈妈把早餐放在桌上。,mom,human_written,4.0,,approved,false,,1
+f0ff1907-cc99-543e-a24e-9d7c15a1b198,90c36f21-c660-586d-844c-44e84b41534f,My mom works near our home.,我妈妈在家附近工作。,mom,human_written,4.0,,approved,false,,2
+dbc539e6-6b9f-5884-aa2a-6c4ee4631eb0,dc20cba3-d589-5996-a220-bab69f868f9b,Please write your full name here.,请在这里写下你的全名。,name,human_written,4.0,,approved,false,,1
+5e8253c4-f5f3-5c25-b7f1-1bb1de6b3264,dc20cba3-d589-5996-a220-bab69f868f9b,Her name is printed on the card.,她的名字印在卡片上。,name,human_written,4.0,,approved,false,,2
+8e30dc39-b107-5ac9-bdde-94c71d308bea,3b4751c0-c42d-58a3-8492-fef90debae3a,The young child needs help crossing the road.,这个年幼的孩子过马路时需要帮助。,young,human_written,4.0,,approved,false,,1
+0df74881-8656-52ec-b9a0-0b992fdabf5b,3b4751c0-c42d-58a3-8492-fef90debae3a,She became a doctor at a young age.,她很年轻时就成为了医生。,young,human_written,4.0,,approved,false,,2
+08e72299-462d-527d-878f-01e5ba899ba3,7b0b962f-ca73-5289-8ab7-b1b27d15b765,Each grandparent received a family photo.,每位祖父母都收到了一张全家福。,grandparent,human_written,4.0,,approved,false,,1
+ceadfc61-f0aa-5f9e-a948-b19132cc1883,7b0b962f-ca73-5289-8ab7-b1b27d15b765,A grandparent often shares family history.,祖父母常常讲述家族历史。,grandparent,human_written,4.0,,approved,false,,2
+4fc87f2f-3490-5850-9f38-46cc0952f3fb,8d767542-c08d-5124-a263-af8ed8093e72,The old man walks slowly but steadily.,那位老人走得慢但很稳。,old,human_written,4.0,,approved,false,,1
+92286361-a368-587a-ac28-644b9d238408,8d767542-c08d-5124-a263-af8ed8093e72,Her dog is old but still active.,她的狗年纪大了，但仍然很活跃。,old,human_written,4.0,,approved,false,,2
+1a899a6d-d658-589b-8f2b-f0ff21b7607e,4d9bca1a-6d25-574d-86a9-c33b0a5ad9ff,My study partner helps me practice English.,我的学习搭档帮助我练习英语。,partner,human_written,4.0,,approved,false,,1
+8bf030e3-244e-515d-9634-eafe6cd58880,4d9bca1a-6d25-574d-86a9-c33b0a5ad9ff,She discussed the plan with her partner.,她和搭档讨论了这个计划。,partner,human_written,4.0,,approved,false,,2
+b386aeda-e31d-569d-8305-e0e18528d8fc,08dd3a2f-4c5f-5224-a479-788cb15b004f,The teenager takes the bus to school.,这名青少年乘公共汽车上学。,teenager,human_written,4.0,,approved,false,,1
+997f4888-c7b8-5c52-afcd-ff2b2721ab3e,08dd3a2f-4c5f-5224-a479-788cb15b004f,Every teenager needs enough sleep.,每个青少年都需要充足的睡眠。,teenager,human_written,4.0,,approved,false,,2
+523e2ed7-742e-5d01-b02d-525c90c58495,2281d0a2-880f-5a04-8370-dd0703af0688,Her twin looks very similar to her.,她的双胞胎姐妹和她长得很像。,twin,human_written,4.0,,approved,false,,1
+19558e3b-ba7f-5fc5-8fbf-3da3c2773921,2281d0a2-880f-5a04-8370-dd0703af0688,"One twin likes music, and the other likes sports.",一个双胞胎喜欢音乐，另一个喜欢运动。,twin,human_written,4.0,,approved,false,,2
+25525334-f092-554d-8144-b5368a9a1d24,2ab36c75-6ca0-5b18-912d-66b49c27aca6,Their grandson visits every weekend.,他们的孙子每个周末都来看望他们。,grandson,human_written,4.0,,approved,false,,1
+30292946-a597-5ca4-99b8-077692f65dd5,2ab36c75-6ca0-5b18-912d-66b49c27aca6,My grandson is learning to read.,我的外孙正在学习阅读。,grandson,human_written,4.0,,approved,false,,2
+0bfa390f-2909-5dd2-9250-1a8a4e84615c,7bead368-6855-512e-b445-1973a2a9ab8a,Her granddaughter made this birthday card.,她的孙女制作了这张生日卡。,granddaughter,human_written,4.0,,approved,false,,1
+4f07b1c3-6623-58ed-8729-ad88c02e8b88,7bead368-6855-512e-b445-1973a2a9ab8a,My granddaughter starts school next month.,我的外孙女下个月开始上学。,granddaughter,human_written,4.0,,approved,false,,2
+0bbf551b-665e-54e5-81ab-81a8bb1a1266,2044a5e1-74c9-5b65-a8cd-d0ff3cdbe70c,My nephew is my sister's son.,我的外甥是我姐姐的儿子。,nephew,human_written,4.0,,approved,false,,1
+f690ff50-2886-539e-895e-4f3ca4165647,2044a5e1-74c9-5b65-a8cd-d0ff3cdbe70c,Her nephew stayed with her during summer.,她侄子暑假期间和她住在一起。,nephew,human_written,4.0,,approved,false,,2
+443383c4-e386-59be-9099-48eafa818d17,dfd86877-919a-5fa2-a026-bb346e510e25,Our neighbor lives in the house next door.,我们的邻居住在隔壁的房子里。,neighbor,human_written,4.0,,approved,false,,1
+64dc0f6b-ff04-5e78-850f-288035b8a57e,dfd86877-919a-5fa2-a026-bb346e510e25,A friendly neighbor helped carry the boxes.,一位友好的邻居帮忙搬箱子。,neighbor,human_written,4.0,,approved,false,,2
+2c33bcb4-0895-536b-9891-e088b15f9f0a,bead0702-e45d-5604-8202-988dafe1c562,My niece is my brother's daughter.,我的侄女是我哥哥的女儿。,niece,human_written,4.0,,approved,false,,1
+5c19713c-a787-51b3-95d3-d3dddd810907,bead0702-e45d-5604-8202-988dafe1c562,Her niece loves drawing animals.,她外甥女喜欢画动物。,niece,human_written,4.0,,approved,false,,2
+03243229-e46b-50ed-b47d-3abddfbf6f7b,538f9710-2133-5372-9d79-c0975840a82d,He is short but very strong.,他个子矮，但很强壮。,short,human_written,4.0,,approved,false,,1
+8faef4f7-032f-5616-b03f-41fe2bb2c315,538f9710-2133-5372-9d79-c0975840a82d,She has short brown hair.,她留着棕色短发。,short,human_written,4.0,,approved,false,,2
+78f5e18a-9129-5446-83b8-3a28f7a2b7c4,52411c24-8286-5f2d-8caf-2e2c3c6a948a,Children grow quickly during their early years.,孩子在幼年时期成长得很快。,grow,human_written,4.0,,approved,false,,1
+77faefc0-ba84-5b22-9b1a-e4847cae5e11,52411c24-8286-5f2d-8caf-2e2c3c6a948a,Plants need water and light to grow.,植物需要水和阳光才能生长。,grow,human_written,4.0,,approved,false,,2
+a168db31-8a47-526f-b551-66eaf94a943e,56dcf74b-2a92-52cb-a03d-4203ecb35e10,The baby's birth brought joy to the family.,婴儿的出生给家庭带来了喜悦。,birth,human_written,4.0,,approved,false,,1
+f4e08d61-7a92-54de-87d7-e4366ed169e9,56dcf74b-2a92-52cb-a03d-4203ecb35e10,Please enter your date of birth.,请输入你的出生日期。,birth,human_written,4.0,,approved,false,,2
+4082e533-6b06-5ae0-aa23-317218ac0f54,04cba3c7-2e01-5920-9389-9d285c7ef90a,This box is too heavy for the child.,这个箱子对孩子来说太重了。,heavy,human_written,4.0,,approved,false,,1
+3d1a5796-7f1d-57bb-904f-9e669129df6d,04cba3c7-2e01-5920-9389-9d285c7ef90a,He carried a heavy bag upstairs.,他把一个重袋子搬上了楼。,heavy,human_written,4.0,,approved,false,,2
+2a1b0cdc-c41a-5f9c-9f61-ff597286fb1b,edeaa218-22a5-5fb1-96ad-d20f771264ec,Regular exercise can make your body strong.,规律运动可以使身体强壮。,strong,human_written,4.0,,approved,false,,1
+d6090fe2-be1f-51cb-b58c-b16ae6b630aa,edeaa218-22a5-5fb1-96ad-d20f771264ec,Her strong arms lifted the chair easily.,她强壮的手臂轻松举起了椅子。,strong,human_written,4.0,,approved,false,,2
+14f385d7-d977-5317-b13e-aaebf5fa81bc,ee9fa651-a20f-58d4-949e-c37d68ce5e16,The nurse measured the child's height.,护士测量了孩子的身高。,height,human_written,4.0,,approved,false,,1
+d738b848-051a-5b2c-a83a-36703412d923,ee9fa651-a20f-58d4-949e-c37d68ce5e16,His height is written on the form.,他的身高写在表格上。,height,human_written,4.0,,approved,false,,2
+6d99e78b-607c-53d5-b513-e9de6af447dc,5bafa0f3-f622-58da-ab90-bedc0ea45dd1,She washed her face with warm water.,她用温水洗脸。,face,human_written,4.0,,approved,false,,1
+21ed8d36-610b-59a2-aac8-58686934443d,5bafa0f3-f622-58da-ab90-bedc0ea45dd1,A smile appeared on his face.,他的脸上露出了微笑。,face,human_written,4.0,,approved,false,,2
+1d0e7c0f-ec50-5006-b665-3b01d88d3e1c,14c7a9c7-ca1f-5177-9799-bd2e2ddfb43b,The garden looks beautiful in spring.,花园在春天看起来很美。,beautiful,human_written,4.0,,approved,false,,1
+8f0245e9-5302-5350-933f-8dea9ad761c7,14c7a9c7-ca1f-5177-9799-bd2e2ddfb43b,She wore a beautiful blue dress.,她穿着一条漂亮的蓝色连衣裙。,beautiful,human_written,4.0,,approved,false,,2
+cca812ec-4d81-5533-bf9d-fc176f656f71,f1900b28-2319-5819-b280-3b931566c3a2,He spent his youth in a small town.,他的青年时期在一个小镇度过。,youth,human_written,4.0,,approved,false,,1
+7b954843-240a-5f60-bcf8-d307c22cef0c,f1900b28-2319-5819-b280-3b931566c3a2,Regular exercise during youth builds healthy habits.,年轻时经常运动能养成健康习惯。,youth,human_written,4.0,,approved,false,,2
+3051d454-357b-5c20-b2e7-ff61dedfe4ec,e2ea3ab6-9341-51b3-8d40-ff47c6858f40,Dust got into my left eye.,灰尘进了我的左眼。,eye,human_written,4.0,,approved,false,,1
+ae3ebb73-cb5a-5e2b-9b91-6243843e05d7,e2ea3ab6-9341-51b3-8d40-ff47c6858f40,Her eye was red after swimming.,她游泳后眼睛发红。,eye,human_written,4.0,,approved,false,,2
+38741fa9-d52d-59d8-8ef3-bd9b75024d09,899cf71a-9d34-55ac-972b-fd2f3cb32203,The tall student stood at the back.,那个高个子学生站在后面。,tall,human_written,4.0,,approved,false,,1
+debc9d8d-3c5f-57e6-a952-7a096f47fd2d,899cf71a-9d34-55ac-972b-fd2f3cb32203,This building is tall and narrow.,这栋建筑又高又窄。,tall,human_written,4.0,,approved,false,,2
+9e672828-6b44-59a8-a85e-ee5d4e07e286,9805e16b-0483-5d86-a2b7-9c9a95d8e8bc,She was born in Chicago.,她出生在芝加哥。,born,human_written,4.0,,approved,false,,1
+d4a8dbc3-9e20-587f-b119-b864b59fb206,9805e16b-0483-5d86-a2b7-9c9a95d8e8bc,Their first child was born in May.,他们的第一个孩子出生在五月。,born,human_written,4.0,,approved,false,,2
+f39e1c11-18bf-5aab-9c15-1134778ea3d3,6f9ef7f1-5b8f-595d-82e6-b87eb07ba92d,Her hair is long and black.,她的头发又长又黑。,hair,human_written,4.0,,approved,false,,1
+9542849e-343a-500d-9836-e9b56fd8c992,6f9ef7f1-5b8f-595d-82e6-b87eb07ba92d,He washes his hair every morning.,他每天早上洗头。,hair,human_written,4.0,,approved,false,,2
+6169cf15-16ee-5122-ba5d-06f2fac95a38,02e65940-25cc-5ab2-82f5-766056214ab1,The child wore a pretty pink coat.,那个孩子穿着一件漂亮的粉色外套。,pretty,human_written,4.0,,approved,false,,1
+d87a14e3-3508-58a2-a5dc-dcedb1300706,02e65940-25cc-5ab2-82f5-766056214ab1,These flowers look pretty on the table.,这些花放在桌上很好看。,pretty,human_written,4.0,,approved,false,,2
+ce2d1dcc-ef82-59a5-afa4-1dec1d71c188,619174b4-e9f0-507f-98ae-45d7fc7f7c5c,He became thin after a long illness.,他久病之后变瘦了。,thin,human_written,4.0,,approved,false,,1
+5e875c79-4a8e-5cbd-9681-b4aade575e95,619174b4-e9f0-507f-98ae-45d7fc7f7c5c,The doctor said she was too thin.,医生说她太瘦了。,thin,human_written,4.0,,approved,false,,2
+48796b1b-3165-5ba1-95d1-b4b9fb52edb6,3da62256-c643-5307-9958-89b6f43ba525,"A healthy child needs food, sleep, and exercise.",健康的孩子需要食物、睡眠和运动。,healthy,human_written,4.0,,approved,false,,1
+ec45f532-7a95-5c62-a21d-2ded0b169ef0,3da62256-c643-5307-9958-89b6f43ba525,Walking every day keeps her healthy.,每天散步使她保持健康。,healthy,human_written,4.0,,approved,false,,2
+29b5a188-5213-5f7b-aa45-88b455188d89,f8470e60-0e8c-56bd-914e-c557612687d7,He felt weak after being sick.,他生病后感到虚弱。,weak,human_written,4.0,,approved,false,,1
+c4fbc3c5-afe9-5f53-a427-31a3eb3cd5a8,f8470e60-0e8c-56bd-914e-c557612687d7,Her legs were too weak to stand.,她的双腿太虚弱，无法站立。,weak,human_written,4.0,,approved,false,,2
+4019b6b9-90f5-5e03-9c3a-f1e412897fc1,35493e1c-2884-5b0e-af70-68914b90ef25,Please wash your hand before eating.,吃饭前请洗手。,hand,human_written,4.0,,approved,false,,1
+467d9838-99f0-5a91-945d-5931f4b739ea,35493e1c-2884-5b0e-af70-68914b90ef25,She held the cup in one hand.,她一只手拿着杯子。,hand,human_written,4.0,,approved,false,,2
+348d393b-2e47-5cba-b67d-03a245d7df3a,6e64c985-ff2a-5a01-9124-ecbc3646c82f,He hurt his left foot while running.,他跑步时伤了左脚。,foot,human_written,4.0,,approved,false,,1
+7cbaf600-9f50-5fb3-a189-782301703ea7,6e64c985-ff2a-5a01-9124-ecbc3646c82f,She put one foot on the stairs.,她把一只脚放在楼梯上。,foot,human_written,4.0,,approved,false,,2
+73008f9c-1379-5156-9875-c0bba6f2af3e,d1ed4a9c-7842-5414-9de5-8f400b5662f6,Wear a hat to protect your head.,戴帽子保护头部。,head,human_written,4.0,,approved,false,,1
+5e8cd0fb-7362-5f42-a886-832aca4f6f62,d1ed4a9c-7842-5414-9de5-8f400b5662f6,He turned his head toward the door.,他把头转向门口。,head,human_written,4.0,,approved,false,,2
+f0a5c59c-c23a-5e08-87db-26f0e33966ed,4d821d2d-3e86-5b54-b816-520d416ff979,Exercise keeps the body strong and healthy.,运动使身体强壮健康。,body,human_written,4.0,,approved,false,,1
+6e17c5ab-1a38-5faa-92a7-571971041b51,4d821d2d-3e86-5b54-b816-520d416ff979,Your body needs time to rest.,你的身体需要时间休息。,body,human_written,4.0,,approved,false,,2
+e9beae35-3a0b-522d-8f4d-4bad4dc1077a,947e0e3a-a3f0-5bf0-af58-dc9480d04017,She carried the baby in one arm.,她用一只手臂抱着婴儿。,arm,human_written,4.0,,approved,false,,1
+e87c2372-1ee9-5704-aa7a-e3cdd21d33e3,947e0e3a-a3f0-5bf0-af58-dc9480d04017,He raised his arm to ask a question.,他举起手臂提问。,arm,human_written,4.0,,approved,false,,2
+0a1d0e31-5638-58f8-8821-0dd44d2f04e1,b484ebee-6873-5b66-94a7-25f82a549c06,The cold air made my nose red.,冷空气使我的鼻子发红。,nose,human_written,4.0,,approved,false,,1
+36b45ebd-ff4a-5993-a8fb-d9436343abdf,b484ebee-6873-5b66-94a7-25f82a549c06,She covered her nose near the smoke.,她在烟雾附近捂住了鼻子。,nose,human_written,4.0,,approved,false,,2
+35c841f1-24ac-54bc-bd96-275fd5299cc6,7c0ffc26-c970-5638-94ad-7d256b25dd8d,"Open your mouth and say ""ah.""",张开嘴说“啊”。,mouth,human_written,4.0,,approved,false,,1
+0312c48b-9d4a-5530-b1aa-c2f51724a818,7c0ffc26-c970-5638-94ad-7d256b25dd8d,He covered his mouth when he coughed.,他咳嗽时捂住了嘴。,mouth,human_written,4.0,,approved,false,,2
+de30d841-6f11-5295-b236-8f7535ce27b8,53ad78bd-d644-5575-8cca-9fb1a76d6fcb,She spent her childhood near the ocean.,她的童年在海边度过。,childhood,human_written,4.0,,approved,false,,1
+26c25328-e365-59d1-8e20-052c9c0c79c8,53ad78bd-d644-5575-8cca-9fb1a76d6fcb,This photo reminds me of my childhood.,这张照片让我想起童年。,childhood,human_written,4.0,,approved,false,,2
+9341bbee-51b7-5623-9321-66f5aab241bb,26738ba2-e2d0-5ccf-b434-9a93f1d9b439,This soap is gentle on the skin.,这种肥皂对皮肤很温和。,skin,human_written,4.0,,approved,false,,1
+d650704c-8ff7-5c37-8ad7-8be4d970b7db,26738ba2-e2d0-5ccf-b434-9a93f1d9b439,Drink water to keep your skin healthy.,喝水有助于保持皮肤健康。,skin,human_written,4.0,,approved,false,,2
+c832ed5e-e7eb-5c5a-a823-e7a15ffba833,f35b3ef4-4f5c-5ac8-bdc5-585516c726c0,The doctor examined the child's ear.,医生检查了孩子的耳朵。,ear,human_written,4.0,,approved,false,,1
+acc02cd7-0b11-500c-9726-a636431d7746,f35b3ef4-4f5c-5ac8-bdc5-585516c726c0,She held the phone to her ear.,她把电话贴在耳边。,ear,human_written,4.0,,approved,false,,2
+94b20485-e6d2-518e-abb9-5844d5a07e4b,93cf2c78-8fd9-57e9-939e-2b9da00cd239,He injured his leg during the game.,他在比赛中伤了腿。,leg,human_written,4.0,,approved,false,,1
+f81a1e6d-bb77-5d9a-ba7b-f7f535cdb25a,93cf2c78-8fd9-57e9-939e-2b9da00cd239,She stood on one leg for ten seconds.,她单腿站了十秒钟。,leg,human_written,4.0,,approved,false,,2
+dce66897-bd2b-5fbf-9463-769e96df6e5c,450550ba-e299-5612-a11b-89aa0b30f03f,The dentist checked the broken tooth.,牙医检查了那颗坏牙。,tooth,human_written,4.0,,approved,false,,1
+4a028be0-ae13-55f7-bb3b-53b256a39420,450550ba-e299-5612-a11b-89aa0b30f03f,Brush each tooth carefully every day.,每天认真刷每一颗牙。,tooth,human_written,4.0,,approved,false,,2
+5ff2c55d-2bc3-5d9b-9831-f665ffb1a939,9235cae8-7063-56ae-b9ab-674542ddf5db,He is single and lives alone.,他单身并且独自生活。,single,human_written,4.0,,approved,false,,1
+36890fab-fe3b-559f-85b3-c15af2b5a713,9235cae8-7063-56ae-b9ab-674542ddf5db,She remained single throughout her twenties.,她二十多岁时一直单身。,single,human_written,4.0,,approved,false,,2
+a4420ee7-7b35-5868-92d3-26185cb3dc44,244be9df-1d0d-5f95-99fc-c3a34f45c3f2,Her new haircut changed her look.,她的新发型改变了外表。,look,human_written,4.0,,approved,false,,1
+03bd0e57-608c-540d-bb27-7d9ce1d8125c,244be9df-1d0d-5f95-99fc-c3a34f45c3f2,The worried look on his face disappeared.,他脸上担忧的神情消失了。,look,human_written,4.0,,approved,false,,2
+1aba401d-e544-5b13-b956-7552b39b2987,81d3908d-2fed-5641-8960-ca7e2f7e01f8,Children laugh when the story is funny.,故事有趣时孩子们会笑。,laugh,human_written,4.0,,approved,false,,1
+6c57981b-067e-5812-a74e-330f35a3fd8d,81d3908d-2fed-5641-8960-ca7e2f7e01f8,We often laugh together at dinner.,我们吃晚饭时常常一起笑。,laugh,human_written,4.0,,approved,false,,2
+8ca74248-c77e-53dd-ad47-79ba7a412bd2,67d7c662-bb72-5c82-96ce-d131dfd0e97f,Her voice is calm and clear.,她的声音平静而清晰。,voice,human_written,4.0,,approved,false,,1
+9b025e75-71b3-52e7-9582-c114ee52e5c2,67d7c662-bb72-5c82-96ce-d131dfd0e97f,I recognized his voice on the phone.,我在电话里认出了他的声音。,voice,human_written,4.0,,approved,false,,2
+56efb44f-6e97-58ba-aa54-831472e1b38f,5c515fef-fdba-5716-a3e1-f539ab48cdd9,The baby began to smile at her mother.,婴儿开始对妈妈微笑。,smile,human_written,4.0,,approved,false,,1
+94e4c283-e3f9-5975-a127-85d52bcb538d,5c515fef-fdba-5716-a3e1-f539ab48cdd9,She will smile when she sees the gift.,她看到礼物时会微笑。,smile,human_written,4.0,,approved,false,,2
+84d0e276-aa6c-5ccd-a0db-e411e6a9bfa6,7bae26df-f96b-5fbc-93fa-34436a3a6998,His appearance changed after he grew a beard.,他留胡子后外貌发生了变化。,appearance,human_written,4.0,,approved,false,,1
+f557fc7b-b6c9-5e31-a055-7728ff5aebf5,7bae26df-f96b-5fbc-93fa-34436a3a6998,Clothes can affect a person's appearance.,衣服会影响一个人的外表。,appearance,human_written,4.0,,approved,false,,2
+cd5a66eb-7895-595d-b107-81d581aec5a2,21d515a3-1065-5124-92a7-0d45d5f10410,The bird was dead when we found it.,我们发现那只鸟时，它已经死了。,dead,human_written,4.0,,approved,false,,1
+3b917145-91c3-53cf-b944-9ba51309aa59,21d515a3-1065-5124-92a7-0d45d5f10410,The plant looks dead without water.,这株植物缺水，看起来已经死了。,dead,human_written,4.0,,approved,false,,2
+cbce6a02-fcf1-5743-997f-3b9fe506e96e,8eddbebf-1e55-5bce-8af8-889314c768ed,The male student entered the room first.,那名男学生先走进房间。,male,human_written,4.0,,approved,false,,1
+ab5df916-bdf0-5ceb-8f9b-a5659e3623f5,8eddbebf-1e55-5bce-8af8-889314c768ed,A male bird was sitting on the roof.,一只雄鸟停在屋顶上。,male,human_written,4.0,,approved,false,,2
+9569d783-cc06-5267-a3eb-550af6aee3b6,9b3bbdf2-cf96-580c-a86d-84d98a4e0dae,The female doctor spoke to the family.,那位女医生和家属交谈。,female,human_written,4.0,,approved,false,,1
+af36339e-8af9-52a4-bd0a-336c174d5057,9b3bbdf2-cf96-580c-a86d-84d98a4e0dae,A female cat was sleeping by the door.,一只母猫睡在门边。,female,human_written,4.0,,approved,false,,2
+81d39072-f8b5-547d-b70f-2807cb9db6d8,a2f63f21-8d8b-50ad-bebf-8eccc7a44ad4,The baby looks cute in that hat.,婴儿戴着那顶帽子很可爱。,cute,human_written,4.0,,approved,false,,1
+4defba9a-99cc-5971-8a5d-3cceb46a5e71,a2f63f21-8d8b-50ad-bebf-8eccc7a44ad4,They adopted a cute little dog.,他们收养了一只可爱的小狗。,cute,human_written,4.0,,approved,false,,2
+32c13ec3-fb11-518b-806d-1670ab7dcab8,6c5438ae-7a6f-50c2-8c81-304c517555a0,The fish was still alive in the water.,那条鱼在水里还活着。,alive,human_written,4.0,,approved,false,,1
+72a01d9f-4860-5246-b35b-28972222ee44,6c5438ae-7a6f-50c2-8c81-304c517555a0,Doctors worked hard to keep him alive.,医生们努力使他活下来。,alive,human_written,4.0,,approved,false,,2
+b180b826-4f5b-546a-b3c1-d1ad84f0975b,03331618-dfd4-56c7-b9cc-44ef66b709db,He looked handsome in his dark suit.,他穿深色西装显得很英俊。,handsome,human_written,4.0,,approved,false,,1
+e7d92aa0-1909-5fd7-9f8e-e3daec05a946,03331618-dfd4-56c7-b9cc-44ef66b709db,The handsome actor smiled at the camera.,那位英俊的演员对镜头微笑。,handsome,human_written,4.0,,approved,false,,2
+e1394191-2f1a-513f-9194-26536b781abe,8c630363-cd17-5ef2-a84d-cb971c0caf07,An elderly woman needed help crossing the street.,一位老年妇女过马路时需要帮助。,elderly,human_written,4.0,,approved,false,,1
+0a7c5928-c4b0-53d9-8e01-7f11a9c7472d,8c630363-cd17-5ef2-a84d-cb971c0caf07,The center provides meals for elderly people.,该中心为老年人提供餐食。,elderly,human_written,4.0,,approved,false,,2
+b2ead082-3092-56ca-a7dc-cfa19506c544,1aca7022-2f75-5faf-a8be-707a311376d1,The pregnant woman attended a medical checkup.,那位孕妇参加了产检。,pregnant,human_written,4.0,,approved,false,,1
+e4af05e3-0740-5dd5-8673-b85a3f1faeba,1aca7022-2f75-5faf-a8be-707a311376d1,She was six months pregnant at the time.,她当时怀孕六个月。,pregnant,human_written,4.0,,approved,false,,2
+05100b15-46b0-5fec-b041-6d6503f2d5df,f977eef8-e770-5a99-871c-37d92284bc0c,He grew a beard during the winter.,他冬天留起了胡子。,beard,human_written,4.0,,approved,false,,1
+e0984ab0-a455-51a4-be6b-c3a1959386b6,f977eef8-e770-5a99-871c-37d92284bc0c,His beard is short and gray.,他的胡子又短又灰。,beard,human_written,4.0,,approved,false,,2
+26a7935a-b06d-529c-a732-1c4caa261613,10b7ebce-3330-5b7b-854a-3c42d11900f0,She is slim because she exercises regularly.,她经常运动，所以身材苗条。,slim,human_written,4.0,,approved,false,,1
+5291a8b2-6a1e-51ee-b2b6-832a0998bf71,10b7ebce-3330-5b7b-854a-3c42d11900f0,The slim athlete runs every morning.,那位身材苗条的运动员每天早上跑步。,slim,human_written,4.0,,approved,false,,2
+d0ba6a17-5fbc-5fca-91a7-521edb7d1f98,d8aa4592-9f8d-50ee-989b-e391761ce82c,Good parents care about their children's feelings.,好父母关心孩子的感受。,care,human_written,4.0,,approved,false,,1
+b47b89b1-1b60-5de1-b230-6dab26ef495d,d8aa4592-9f8d-50ee-989b-e391761ce82c,I care about the health of my family.,我关心家人的健康。,care,human_written,4.0,,approved,false,,2
+1c4c40e9-4be3-5f7c-b38b-2917cec2b309,de4404c1-3d3b-502d-9b7a-42b14ee4769b,Family members support one another during difficult times.,家人在困难时期互相支持。,support,human_written,4.0,,approved,false,,1
+830fe640-cc36-5a46-8b3f-dc0be4307495,de4404c1-3d3b-502d-9b7a-42b14ee4769b,Her parents support her decision to study abroad.,她父母支持她出国留学的决定。,support,human_written,4.0,,approved,false,,2
+86bdef6d-6f68-58a8-b961-7484f951e316,a06bfa59-3158-5c65-b3e4-7f4201fd2174,Parents love their children deeply.,父母深爱自己的孩子。,love,human_written,4.0,,approved,false,,1
+62482fff-0d7e-525c-bfe7-25f0017469c6,a06bfa59-3158-5c65-b3e4-7f4201fd2174,I love spending time with my family.,我喜欢和家人共度时光。,love,human_written,4.0,,approved,false,,2
+c0d00aeb-e8b0-54e5-9830-2febdd58d18f,12de099a-b401-5b0a-ab98-9c5893ee52fa,Older children help with the housework.,大一点的孩子帮忙做家务。,help,human_written,4.0,,approved,false,,1
+33c6e333-6f83-5ee1-bd21-5623c70461e1,12de099a-b401-5b0a-ab98-9c5893ee52fa,Please help your grandmother carry the bag.,请帮奶奶提这个袋子。,help,human_written,4.0,,approved,false,,2
+1c3c44f9-1bf9-5702-b331-6e97849b08df,819d1b9f-2dfb-576c-b3fc-237c007c878f,My grandparents live in a quiet town.,我的祖父母住在一个安静的小镇。,live,human_written,4.0,,approved,false,,1
+faedcfa1-6b7c-57d6-be0c-9b7df88078cd,819d1b9f-2dfb-576c-b3fc-237c007c878f,We live near the city center.,我们住在市中心附近。,live,human_written,4.0,,approved,false,,2
+6c1dd7d5-fc02-56c0-8367-979ccf4a7e69,4eec6b22-7589-5961-9701-51cfa1aafedc,The sisters share a bedroom.,姐妹俩共用一间卧室。,share,human_written,4.0,,approved,false,,1
+825d6cf5-96d3-5e6f-9cdb-d7d63c87e44e,4eec6b22-7589-5961-9701-51cfa1aafedc,We share family news during dinner.,我们吃晚饭时分享家庭近况。,share,human_written,4.0,,approved,false,,2
+df505a2e-0215-5997-b97b-29d779f3b0ea,28173cca-fd95-5304-9bb6-3ddf5957ee80,We visit our relatives during the holidays.,我们假期去看望亲戚。,visit,human_written,4.0,,approved,false,,1
+ec5a6bc7-49fd-545c-a3b7-ec269d7d7e28,28173cca-fd95-5304-9bb6-3ddf5957ee80,She plans to visit her aunt next weekend.,她计划下周末去看望姨妈。,visit,human_written,4.0,,approved,false,,2
+706002d7-c9a4-5cae-8dad-51e4c47809ac,04c7333b-d3de-5584-8bde-2e79d26e259c,Our family will meet at the restaurant tonight.,我们全家今晚将在餐馆见面。,meet,human_written,4.0,,approved,false,,1
+6cfffe4c-e709-530c-abf5-b7d4ac05f240,04c7333b-d3de-5584-8bde-2e79d26e259c,I often meet my neighbor near the bus stop.,我经常在公交车站附近遇到邻居。,meet,human_written,4.0,,approved,false,,2
+f056fc1d-f067-54d3-8a39-35a1e610b5b2,9cccae4b-b7b3-5314-8da7-7391d887755a,Trust builds a strong relationship.,信任能建立牢固的关系。,relationship,human_written,4.0,,approved,false,,1
+14c957fb-548c-5b55-99b7-9da1fb783283,9cccae4b-b7b3-5314-8da7-7391d887755a,She has a close relationship with her sister.,她和姐姐关系亲密。,relationship,human_written,4.0,,approved,false,,2
+ddc18988-5973-5662-8220-8884ce624ff1,dfbbd175-590c-52bf-999a-4ad8d527b299,Remember to call your parents tonight.,记得今晚给父母打电话。,remember,human_written,4.0,,approved,false,,1
+9e4a2a70-5e28-508f-a74e-7ddb131b11db,dfbbd175-590c-52bf-999a-4ad8d527b299,I remember my grandfather's kind voice.,我记得祖父亲切的声音。,remember,human_written,4.0,,approved,false,,2
+f6744255-bc60-51c9-92a0-c86afcbad2b0,a2580559-3afa-52ce-ab17-e8d73a0014d3,I know everyone in my family well.,我很了解家里的每个人。,know,human_written,4.0,,approved,false,,1
+def0333f-175b-5891-9406-578fc109070b,a2580559-3afa-52ce-ab17-e8d73a0014d3,Do you know the woman at the door?,你认识门口的那位女士吗？,know,human_written,4.0,,approved,false,,2
+22761dcd-667a-561f-9b3f-464d3ea89333,c9ffc9fe-0c71-5d2d-9fb6-f3a5a48f31e9,Our new neighbor is very nice.,我们的新邻居非常友好。,nice,human_written,4.0,,approved,false,,1
+f4997d0f-9ec9-5f8e-b61e-1f5efe645d7e,c9ffc9fe-0c71-5d2d-9fb6-f3a5a48f31e9,We had a nice family dinner together.,我们一起吃了一顿愉快的家庭晚餐。,nice,human_written,4.0,,approved,false,,2
+41c67837-a1ff-56ed-87a4-6e14e0d7b95d,09d6b176-d0ed-5f51-a970-4380fe06c1ee,It was kind of her to help the child.,她帮助那个孩子，真是善良。,kind,human_written,4.0,,approved,false,,1
+3c19f5c4-1195-521a-82d2-27eafd6eb34e,09d6b176-d0ed-5f51-a970-4380fe06c1ee,Be kind to elderly family members.,要善待年长的家人。,kind,human_written,4.0,,approved,false,,2
+32c4462f-e93c-5be7-ad5d-6daabb0e0b93,5b922210-27ca-57be-abda-0340508cbd33,Children should respect other people's feelings.,孩子应该尊重他人的感受。,respect,human_written,4.0,,approved,false,,1
+c1026137-67de-5cfd-b9ca-58da9ed0ca76,5b922210-27ca-57be-abda-0340508cbd33,I respect my grandmother for her honesty.,我敬重祖母的诚实。,respect,human_written,4.0,,approved,false,,2
+dcc20bdc-4f63-5da7-b98e-5f5e87223319,5819dd44-6b1e-5b80-a5eb-5db36f865d87,Food is an important part of family culture.,食物是家庭文化的重要组成部分。,culture,human_written,4.0,,approved,false,,1
+84adc8c4-47f5-5545-9613-20bd1a2a4788,5819dd44-6b1e-5b80-a5eb-5db36f865d87,Every culture has different family traditions.,每种文化都有不同的家庭传统。,culture,human_written,4.0,,approved,false,,2
+86706367-3369-59a2-b2fc-21ac0824b712,65dd96a0-5d8d-55f8-803f-a93132aebd14,The new student was friendly to everyone.,新同学对每个人都很友好。,friendly,human_written,4.0,,approved,false,,1
+3fe3d2db-37f2-565e-a1c0-e6f4a0806361,65dd96a0-5d8d-55f8-803f-a93132aebd14,Our neighbor gave us a friendly smile.,邻居友好地对我们微笑。,friendly,human_written,4.0,,approved,false,,2
+56fbccad-e376-5426-b1dc-d6d86baed8c4,f07dcc86-acbc-5353-bc8c-3eb0a9a2bf72,Our community has a center for families.,我们的社区有一个家庭活动中心。,community,human_written,4.0,,approved,false,,1
+abd723bf-059e-59d6-a050-70daddf74c60,f07dcc86-acbc-5353-bc8c-3eb0a9a2bf72,People in the community helped the elderly couple.,社区里的人帮助了那对老年夫妇。,community,human_written,4.0,,approved,false,,2
+123656a7-e28e-5580-b91c-00da2ab2e4c8,26d32391-3e37-53b4-b891-29c1d9285b65,The baby needs a quiet room to sleep.,婴儿需要一个安静的房间睡觉。,quiet,human_written,4.0,,approved,false,,1
+ad1241d9-6001-5b94-83a5-22964f05a053,26d32391-3e37-53b4-b891-29c1d9285b65,Our house is quiet in the morning.,我们家早上很安静。,quiet,human_written,4.0,,approved,false,,2
+fbf9d030-c28a-5caa-afe5-6d7d85c3ea6a,e2b2450f-c8e9-50dd-ae7b-bfbc36ca2900,Parents have an important role in education.,父母在教育中有重要作用。,role,human_written,4.0,,approved,false,,1
+19079b10-2ce1-57bf-a360-50b2443ca5f5,e2b2450f-c8e9-50dd-ae7b-bfbc36ca2900,Each family member has a different role.,每个家庭成员都有不同的职责。,role,human_written,4.0,,approved,false,,2
+c35bd4c2-7b11-5b8b-8c08-da27545d3d96,545c08d8-78da-578e-b39f-0baf3e9cee15,Honest communication creates trust in a family.,诚实沟通能在家庭中建立信任。,trust,human_written,4.0,,approved,false,,1
+2eebfcb9-accf-5d34-9316-119594ddc61f,545c08d8-78da-578e-b39f-0baf3e9cee15,Children need trust and support from adults.,孩子需要成年人的信任和支持。,trust,human_written,4.0,,approved,false,,2
+970b0b3d-32f8-59e8-9b5d-62163e561d94,c55f6b0b-4bde-5b39-99a7-745e348d9db4,Caring for the baby is a shared responsibility.,照顾婴儿是共同的责任。,responsibility,human_written,4.0,,approved,false,,1
+65bf3419-38e9-5b8b-9694-457066ed0cbd,c55f6b0b-4bde-5b39-99a7-745e348d9db4,Every parent has responsibility for a child's safety.,每位父母都对孩子的安全负有责任。,responsibility,human_written,4.0,,approved,false,,2
+fe73ddac-4f1b-5f8c-9f5e-b0ec5e4b0b3b,5bfdb0db-9c36-5e0f-84f3-86fe8bbdb91e,My grandfather remains active at eighty.,我祖父八十岁时仍然很活跃。,active,human_written,4.0,,approved,false,,1
+88103846-1d28-5c98-9627-b67a83ce54fb,5bfdb0db-9c36-5e0f-84f3-86fe8bbdb91e,Active children need plenty of healthy food.,活跃的孩子需要充足的健康食物。,active,human_written,4.0,,approved,false,,2
+90efbbf4-9f1e-5664-bbaa-80db784f3c3d,aa51a16a-4923-5993-a543-1001db85c04e,Teenagers gradually become more independent.,青少年会逐渐变得更加独立。,independent,human_written,4.0,,approved,false,,1
+06a550fa-67b6-5041-baee-868620ee0d9a,aa51a16a-4923-5993-a543-1001db85c04e,She is independent and manages her own money.,她很独立，自己管理钱财。,independent,human_written,4.0,,approved,false,,2
+5f4e4199-e608-5228-8154-04b2cc8038c6,5ef3bfcc-5e1b-5724-8ceb-6fe824e02e3f,An honest person tells the truth.,诚实的人会说真话。,honest,human_written,4.0,,approved,false,,1
+48b306df-68d9-5db4-a7ab-0cab39abdabb,5ef3bfcc-5e1b-5724-8ceb-6fe824e02e3f,Please be honest with your family.,请对家人诚实。,honest,human_written,4.0,,approved,false,,2
+93aea31f-8415-5c55-ba54-64fbf026c6a7,2e267928-e248-5cee-a064-2071f96b0d6e,They raise their children in a small town.,他们在一个小镇抚养孩子。,raise,human_written,4.0,,approved,false,,1
+9934c444-a2d9-5f8b-abf2-3aeb84743d4a,2e267928-e248-5cee-a064-2071f96b0d6e,Her grandparents helped raise her after school.,她的祖父母在课后帮助照顾并养育她。,raise,human_written,4.0,,approved,false,,2
+12485022-33b1-5699-9ce3-2f5d131a0a55,a2c6a537-f34a-53d5-94c1-902d7253394a,Respect is an important family value.,尊重是一种重要的家庭价值观。,value,human_written,4.0,,approved,false,,1
+2f5c24bb-966f-5275-bcf0-6f2d6bdae002,a2c6a537-f34a-53d5-94c1-902d7253394a,Honesty is a value shared by the whole family.,诚实是全家人共同的价值观。,value,human_written,4.0,,approved,false,,2
+7c47dbd9-8bdb-5f25-99f7-ac7d81abd736,53dd57d1-b7b4-5869-aed6-69088fe5e829,The twins have different personalities.,这对双胞胎性格不同。,different,human_written,4.0,,approved,false,,1
+1631620d-ae43-55ee-acea-eeefe0c8dbac,53dd57d1-b7b4-5869-aed6-69088fe5e829,Family members may have different opinions.,家庭成员可能有不同意见。,different,human_written,4.0,,approved,false,,2
+71d0ee92-762f-59ff-b58b-9e7d325cb123,432fbebf-fa75-5935-afbc-822855110a52,The brothers had an argument about the computer.,兄弟俩因为电脑发生了争吵。,argument,human_written,4.0,,approved,false,,1
+78503f67-9be5-58c6-b3b6-950b4f326fcb,432fbebf-fa75-5935-afbc-822855110a52,A small argument should not damage a friendship.,小争执不应该破坏友谊。,argument,human_written,4.0,,approved,false,,2
+d207da01-ec91-50b8-b95b-ef0089483266,3cca23d8-b659-56ce-8d2f-54e666f47509,We agree that family time is important.,我们同意家庭时间很重要。,agree,human_written,4.0,,approved,false,,1
+0ac36ba7-5f18-5b1e-957f-569dc42ccd89,3cca23d8-b659-56ce-8d2f-54e666f47509,My parents agree with my study plan.,我父母赞同我的学习计划。,agree,human_written,4.0,,approved,false,,2
+b1645a6c-3a28-59f7-9a97-330d35fb1e27,690c73c3-ac3a-5a11-b9d2-106e445659cd,The sisters have similar voices.,姐妹俩的声音很相似。,similar,human_written,4.0,,approved,false,,1
+06f06f94-c30e-55a2-bb71-5f1b5e6282e5,690c73c3-ac3a-5a11-b9d2-106e445659cd,Our family traditions are similar to theirs.,我们的家庭传统和他们的相似。,similar,human_written,4.0,,approved,false,,2
+1872f14f-a86e-546d-8955-413f3fc58de3,4c11242b-bbca-53e4-aa08-210282140112,The polite child thanked her aunt.,那个有礼貌的孩子感谢了姨妈。,polite,human_written,4.0,,approved,false,,1
+d2974547-5138-5e40-a713-8c782cfaabc8,4c11242b-bbca-53e4-aa08-210282140112,It is polite to listen when others speak.,别人说话时认真倾听是有礼貌的。,polite,human_written,4.0,,approved,false,,2
+21926aff-cdac-521c-b9d0-55b14fb17ace,8fca57d7-e961-5345-8c62-efcd8547fb2d,A positive attitude can improve family life.,积极的态度可以改善家庭生活。,attitude,human_written,4.0,,approved,false,,1
+a75d2522-cfb0-530a-b850-5cf5934ad28a,8fca57d7-e961-5345-8c62-efcd8547fb2d,His attitude toward housework has changed.,他对家务的态度已经改变。,attitude,human_written,4.0,,approved,false,,2
+d7ddac0c-31ae-58cd-a979-47399d2a7f12,832f7619-e297-5c5c-8e3e-548c821c84ff,A responsible adult keeps children safe.,负责任的成年人会保护孩子的安全。,responsible,human_written,4.0,,approved,false,,1
+230d45f2-4c23-5d3e-91d6-a8cbff8863c9,832f7619-e297-5c5c-8e3e-548c821c84ff,She is responsible for cooking dinner tonight.,她负责今晚做晚饭。,responsible,human_written,4.0,,approved,false,,2
+10433af2-78bb-5e52-9ece-c577b083e471,4fed3d1a-de2a-5b8f-91e7-5e8af12eb8d1,Eating together on Sundays is a family tradition.,星期天一起吃饭是家庭传统。,tradition,human_written,4.0,,approved,false,,1
+ea25d0a9-46cc-5383-b59b-3727b7744f04,4fed3d1a-de2a-5b8f-91e7-5e8af12eb8d1,This tradition has continued for three generations.,这个传统已经延续了三代。,tradition,human_written,4.0,,approved,false,,2
+cf732872-4817-5db0-8abe-e3e08beab7d6,f8763aac-31ee-5aa7-8b15-5aa09dc5f0ad,The whole family traveled together.,全家人一起旅行。,together,human_written,4.0,,approved,false,,1
+47382207-c4b4-5937-be37-7a852fae36a6,f8763aac-31ee-5aa7-8b15-5aa09dc5f0ad,We worked together to clean the house.,我们一起打扫房子。,together,human_written,4.0,,approved,false,,2
+d29e5a9b-9940-5832-9618-53332c71a7db,5867aca3-b11d-5a2d-bd7c-54a346c4931e,Disagreements are common in large families.,分歧在大家庭中很常见。,common,human_written,4.0,,approved,false,,1
+f8ebb070-d9d1-5105-9206-3956ecae3194,5867aca3-b11d-5a2d-bd7c-54a346c4931e,The cousins share a common interest in music.,这对表亲都对音乐感兴趣。,common,human_written,4.0,,approved,false,,2
+628a7a74-f1d9-5425-8767-9e3c65020ac0,6ef06b39-d11e-5274-97ce-8f9492303d9b,Parents have a strong influence on young children.,父母对年幼的孩子有很大影响。,influence,human_written,4.0,,approved,false,,1
+68e7901c-abab-5245-adea-3e4c2b4dfe0a,6ef06b39-d11e-5274-97ce-8f9492303d9b,Her grandmother was an important influence in her life.,祖母是她人生中的重要影响者。,influence,human_written,4.0,,approved,false,,2
+ee678ae9-2db1-5750-ba65-71f71f774f39,1a9a484a-415f-5492-8606-7840b49fcae2,Parents protect their children from danger.,父母保护孩子免受危险。,protect,human_written,4.0,,approved,false,,1
+06e65d95-ccb0-5fa5-8ac3-4921396faf40,1a9a484a-415f-5492-8606-7840b49fcae2,This lock helps protect the family home.,这把锁有助于保护家庭住宅。,protect,human_written,4.0,,approved,false,,2
+ba7adb50-5082-5511-b948-4fe48578e499,a29b0548-680f-5fd6-a4e7-339e7d3faf9c,She is very close to her older sister.,她和姐姐关系非常亲密。,close,human_written,4.0,,approved,false,,1
+805827d9-5eb2-5770-8b49-3a266be4cbab,a29b0548-680f-5fd6-a4e7-339e7d3faf9c,We remain close despite living far apart.,尽管住得很远，我们仍然关系亲密。,close,human_written,4.0,,approved,false,,2
+a28a06c0-8484-5876-90d3-7643145a9e51,6b53dbc5-4550-561d-80e7-72dd51d34524,The child should not stay home alone.,这个孩子不应该独自在家。,alone,human_written,4.0,,approved,false,,1
+4d035cdb-834b-59d0-96ae-f69fec213ee2,6b53dbc5-4550-561d-80e7-72dd51d34524,She lives alone but visits family often.,她独自生活，但经常看望家人。,alone,human_written,4.0,,approved,false,,2
+19de019f-085f-589b-a393-a154b6282b67,cafe6556-95dd-516b-b85c-c9fcf54b3058,The oldest generation lives on the first floor.,最年长的一代住在一楼。,generation,human_written,4.0,,approved,false,,1
+381619f6-c094-5b96-8123-cc032c3c29e3,cafe6556-95dd-516b-b85c-c9fcf54b3058,Each generation has different experiences.,每一代人都有不同的经历。,generation,human_written,4.0,,approved,false,,2
+b89acb0c-1769-5b45-801d-7d5a7dbddaf8,d12d2447-6bad-5894-aa41-5eb96f68c1db,Siblings sometimes disagree about small things.,兄弟姐妹有时会为小事意见不合。,disagree,human_written,4.0,,approved,false,,1
+f2de86f3-9fac-551d-b4ff-971938372f81,d12d2447-6bad-5894-aa41-5eb96f68c1db,I disagree with my brother's decision.,我不同意哥哥的决定。,disagree,human_written,4.0,,approved,false,,2
+f2ed1de4-4733-50ec-94bb-738bf0805c54,5484abcb-b70f-52de-8b99-c02d92a98de4,Good parents encourage children to ask questions.,好父母鼓励孩子提问。,encourage,human_written,4.0,,approved,false,,1
+3cffadb2-3ac9-5ffc-b75e-88b88402422c,5484abcb-b70f-52de-8b99-c02d92a98de4,Her family will encourage her to continue studying.,她的家人会鼓励她继续学习。,encourage,human_written,4.0,,approved,false,,2
+f3d7a78c-669b-5cfb-bfe5-d93a9e973d72,a11a509b-9425-59f7-895b-81cb2c03bc71,Parents can influence a child's behavior.,父母可以影响孩子的行为。,behavior,human_written,4.0,,approved,false,,1
+7de6f717-80c3-5cbb-8b39-2645eaa22e85,a11a509b-9425-59f7-895b-81cb2c03bc71,His polite behavior impressed the family.,他有礼貌的举止给家人留下了好印象。,behavior,human_written,4.0,,approved,false,,2
+9fd4e0a1-5c34-5e34-951d-eb8e92b8c281,35f3e46f-2ee2-5633-b76f-913627996ef4,Families should communicate openly about problems.,家人应该坦诚沟通问题。,communicate,human_written,4.0,,approved,false,,1
+66ae7c11-2565-5edb-960a-2ef95eed08dc,35f3e46f-2ee2-5633-b76f-913627996ef4,We communicate with our relatives by phone.,我们通过电话与亲戚交流。,communicate,human_written,4.0,,approved,false,,2
+085bb147-6630-5897-b3df-7324a0f225a8,9c91b6cf-0620-51a6-8c90-9e3924e15894,Their house has three bedrooms.,他们的房子有三间卧室。,house,human_written,4.0,,approved,false,,1
+dd8e8668-9fd5-5c39-830a-906806489e7b,9c91b6cf-0620-51a6-8c90-9e3924e15894,A small garden stands behind the house.,房子后面有一个小花园。,house,human_written,4.0,,approved,false,,2
+f22fb8e8-0b7a-5a1b-a980-c7c971f8373a,8d080aba-a26c-5884-a573-203e6db37b15,This building contains twenty apartments.,这栋建筑里有二十套公寓。,building,human_written,4.0,,approved,false,,1
+71256620-ccf1-532a-bde9-279d6dca47b5,8d080aba-a26c-5884-a573-203e6db37b15,The school building has a new entrance.,学校建筑有一个新入口。,building,human_written,4.0,,approved,false,,2
+cbbd2581-4b40-56bb-ab44-bb754e7235d0,3421d574-f85a-5b57-9930-7196ab6d060e,This room has two large windows.,这个房间有两扇大窗户。,room,human_written,4.0,,approved,false,,1
+18a82be2-d83c-5622-bdd2-aa58edae2241,3421d574-f85a-5b57-9930-7196ab6d060e,Please keep your room clean.,请保持房间整洁。,room,human_written,4.0,,approved,false,,2
+fbb610ac-045d-5df2-924e-5778626101bd,908bc68b-7a2b-5b47-9562-e4db3ab060ee,Their home has a small garden.,他们的家有一个小花园。,home,human_written,4.0,,approved,false,,1
+a07caddc-058e-5c40-a425-1388f0feded2,908bc68b-7a2b-5b47-9562-e4db3ab060ee,Her home is near the train station.,她的家在火车站附近。,home,human_written,4.0,,approved,false,,2
+6402acf1-b865-5f80-95c5-e6b4921a7568,b48a70c8-740a-5e50-b06b-618dcfca49ac,A family photo hangs on the wall.,一张全家福挂在墙上。,wall,human_written,4.0,,approved,false,,1
+fa129a24-5f71-5170-b49c-92cb94a88daf,b48a70c8-740a-5e50-b06b-618dcfca49ac,They painted the bedroom wall blue.,他们把卧室的墙刷成了蓝色。,wall,human_written,4.0,,approved,false,,2
+ba9b3278-fda9-533e-b033-7a8452f70349,28814bd9-11b1-5227-86c9-7bccba77715e,The children share a bedroom.,孩子们共用一间卧室。,bedroom,human_written,4.0,,approved,false,,1
+aaa48c83-e755-5291-9c60-8445329979a5,28814bd9-11b1-5227-86c9-7bccba77715e,Her bedroom is on the second floor.,她的卧室在二楼。,bedroom,human_written,4.0,,approved,false,,2
+7212c431-779a-5563-8920-6695c32d1a7d,8ffa69c9-a924-5217-b2b2-62b3bbe3447b,They rent a small apartment downtown.,他们在市中心租了一套小公寓。,apartment,human_written,4.0,,approved,false,,1
+17c6fee5-fab1-5d11-9a13-a4e84c13d77a,8ffa69c9-a924-5217-b2b2-62b3bbe3447b,Our apartment has a sunny balcony.,我们的公寓有一个阳光充足的阳台。,apartment,human_written,4.0,,approved,false,,2
+541c59f9-6748-5261-a447-177a28e33295,4a669547-f687-5e9f-9390-bcc9459b275b,The bathroom is next to the bedroom.,浴室在卧室旁边。,bathroom,human_written,4.0,,approved,false,,1
+f6190ae2-ace2-5690-b681-8696b3f09b51,4a669547-f687-5e9f-9390-bcc9459b275b,A clean towel hangs inside the bathroom.,一条干净的毛巾挂在浴室里。,bathroom,human_written,4.0,,approved,false,,2
+7e2c0487-0f00-524e-a293-020c42aa0199,7c3e1b70-804c-5d57-aa90-7964b15a4e80,My father is cooking in the kitchen.,我父亲正在厨房做饭。,kitchen,human_written,4.0,,approved,false,,1
+9dc82932-cef2-5206-9187-0eb0084d038a,7c3e1b70-804c-5d57-aa90-7964b15a4e80,The kitchen has a large refrigerator.,厨房里有一台大冰箱。,kitchen,human_written,4.0,,approved,false,,2
+d9e80045-6862-567e-a4dd-cc76b3101f86,f339465f-0d68-51be-b427-85744f6b240c,Open the window to let in fresh air.,打开窗户让新鲜空气进来。,window,human_written,4.0,,approved,false,,1
+ef8d6ea0-b9e4-588c-a2c7-e9528799c5b2,f339465f-0d68-51be-b427-85744f6b240c,Rain was hitting the bedroom window.,雨点打在卧室窗户上。,window,human_written,4.0,,approved,false,,2
+a60ecbdb-d097-5930-b828-a37e6ca56454,2acb17cf-3800-575e-ad3e-1c9e2209de9e,Shoes were scattered across the floor.,鞋子散落在地板上。,floor,human_written,4.0,,approved,false,,1
+c708e9e6-1658-5da5-a3a2-88116e9e01d6,2acb17cf-3800-575e-ad3e-1c9e2209de9e,The kitchen floor needs cleaning.,厨房地板需要清洁。,floor,human_written,4.0,,approved,false,,2
+89aba5ba-5d76-541e-be77-60bdba9571e5,62022b79-e181-5f12-b36f-1122b06a39eb,Someone is waiting outside the door.,有人在门外等候。,door,human_written,4.0,,approved,false,,1
+d7b09b16-c316-5178-b591-94cf63d29638,62022b79-e181-5f12-b36f-1122b06a39eb,Please close the front door quietly.,请轻轻关上前门。,door,human_written,4.0,,approved,false,,2
+fc08dbb0-2e83-55d0-a632-d9822e325bfd,c3ea42f2-ffd7-5df3-ab80-c02db8e2b321,Flowers grow along the garden wall.,花沿着花园围墙生长。,garden,human_written,4.0,,approved,false,,1
+ea1d62b2-1df9-5e74-9a92-a4cc1861a7bc,c3ea42f2-ffd7-5df3-ab80-c02db8e2b321,The children played in the garden.,孩子们在花园里玩。,garden,human_written,4.0,,approved,false,,2
+e5305cf4-05ee-5152-a268-714a2a94b4e3,ac1edc3b-12f9-5774-b9af-0cd90d10e74a,Dinner is ready on the table.,晚餐已经摆在桌上。,table,human_written,4.0,,approved,false,,1
+63b5e33b-2f1e-5490-be03-e9fa6ad89e38,ac1edc3b-12f9-5774-b9af-0cd90d10e74a,She put the keys on the table.,她把钥匙放在桌上。,table,human_written,4.0,,approved,false,,2
+721cbf8c-4256-5ced-a9f8-5f7ad3230b5c,2628492b-2e66-5114-a0cd-3d2c20550c3a,Please sit on this chair.,请坐在这把椅子上。,chair,human_written,4.0,,approved,false,,1
+b2b0543b-4848-54ca-b2f0-0659e4bbf426,2628492b-2e66-5114-a0cd-3d2c20550c3a,He moved the chair near the window.,他把椅子移到窗边。,chair,human_written,4.0,,approved,false,,2
+187550e3-a478-5973-a9f0-d0a9726632f0,3e0354f7-edc7-52ec-bfd5-2d1c3d2a7e08,Leave your wet shoes in the hall.,把湿鞋留在门厅里。,hall,human_written,4.0,,approved,false,,1
+93a6cc5d-764a-5517-8d57-3363298f87a1,3e0354f7-edc7-52ec-bfd5-2d1c3d2a7e08,A narrow hall connects the two rooms.,一条狭窄的走廊连接着两个房间。,hall,human_written,4.0,,approved,false,,2
+3da03fd3-c9f7-5aad-9331-fcc8a461cd2a,50e7edee-0e71-5f2f-a891-79fd91fd69ab,Rain fell heavily on the roof.,大雨落在屋顶上。,roof,human_written,4.0,,approved,false,,1
+d9c529a1-59f3-571a-9475-75ae94ef35ce,50e7edee-0e71-5f2f-a891-79fd91fd69ab,Workers repaired the damaged roof.,工人修理了受损的屋顶。,roof,human_written,4.0,,approved,false,,2
+179ee44b-41ee-50ff-bf0d-15a830c5a760,28783f02-bf7d-5a98-a195-da9227a2328b,The baby is asleep in bed.,婴儿在床上睡着了。,bed,human_written,4.0,,approved,false,,1
+70bb40e7-41b5-56ab-b674-18e3f585aba7,28783f02-bf7d-5a98-a195-da9227a2328b,She placed a blanket on the bed.,她把一条毯子放在床上。,bed,human_written,4.0,,approved,false,,2
+419cb017-43a3-5dbb-9457-f49781be9f18,cf6ef38b-038a-5963-a4c2-7c215991126e,The children played in the front yard.,孩子们在前院玩。,yard,human_written,4.0,,approved,false,,1
+8bf3c321-b844-537d-bc6f-e9f9b7a2b87b,cf6ef38b-038a-5963-a4c2-7c215991126e,We planted a tree in the yard.,我们在院子里种了一棵树。,yard,human_written,4.0,,approved,false,,2
+8b5c15ab-4e3e-5fde-bb64-8c3fe933da61,f6f7609c-979f-5203-906d-1bd5335371c5,The apartment has very little furniture.,这套公寓里的家具很少。,furniture,human_written,4.0,,approved,false,,1
+dec24926-751f-522a-9314-79af7f139585,f6f7609c-979f-5203-906d-1bd5335371c5,They bought new furniture for the living room.,他们为客厅买了新家具。,furniture,human_written,4.0,,approved,false,,2
+3d4ed357-ed63-59e5-b414-cc4b72292b97,0bea869e-55d5-5432-8492-fab23f31a7d7,A lamp hangs from the ceiling.,一盏灯从天花板上垂下来。,ceiling,human_written,4.0,,approved,false,,1
+9ee42798-c6d7-5337-9d40-652484f71ec3,0bea869e-55d5-5432-8492-fab23f31a7d7,The ceiling is higher in this room.,这个房间的天花板更高。,ceiling,human_written,4.0,,approved,false,,2
+a82d2c4c-10dd-5d3b-9a71-aa1982388a41,fa8e1c15-49dd-5896-ae6b-50b3268f1f51,Her computer is on the desk.,她的电脑在书桌上。,desk,human_written,4.0,,approved,false,,1
+7a5c72d8-c847-51b0-9669-7f011e45b462,fa8e1c15-49dd-5896-ae6b-50b3268f1f51,He keeps his books inside the desk.,他把书放在书桌里。,desk,human_written,4.0,,approved,false,,2
+a2f69f28-0431-5c51-b027-a5bfc4ee787f,821d3dbb-8437-5380-ab95-e010784c056b,Turn on the light before entering.,进去之前先开灯。,light,human_written,4.0,,approved,false,,1
+d0d9a425-5d80-507c-bba4-c9abd8320bb3,821d3dbb-8437-5380-ab95-e010784c056b,A small light stands beside the bed.,床边放着一盏小灯。,light,human_written,4.0,,approved,false,,2
+5f7b2fd7-2b30-5c3d-aa94-3f8bf2f7428f,bd52f273-01cb-58c1-95e2-e426cd2b7657,Wait for me at the main entrance.,在主入口等我。,entrance,human_written,4.0,,approved,false,,1
+5a3524dc-89ea-5acc-a16b-af5d35da5686,bd52f273-01cb-58c1-95e2-e426cd2b7657,The apartment entrance has a strong lock.,公寓入口有一把坚固的锁。,entrance,human_written,4.0,,approved,false,,2
+b16a4cb1-5344-520a-99d1-c31a337cd969,b9696101-7cce-54dc-a5a1-dc68debe1d4a,Their car is inside the garage.,他们的车停在车库里。,garage,human_written,4.0,,approved,false,,1
+258fe98e-e2fa-513b-88f7-74a86703d00b,b9696101-7cce-54dc-a5a1-dc68debe1d4a,He stores tools in the garage.,他把工具存放在车库里。,garage,human_written,4.0,,approved,false,,2
+085b9e69-c329-55c4-9d7e-fb6e00e73ee8,facb9455-ee61-59c3-a2c8-2d1134657c98,The books are on the top shelf.,书在最上面的架子上。,shelf,human_written,4.0,,approved,false,,1
+212d1d19-4abf-5988-86a3-9f1130124bc1,facb9455-ee61-59c3-a2c8-2d1134657c98,She placed the bowl on a shelf.,她把碗放在架子上。,shelf,human_written,4.0,,approved,false,,2
+5e238592-f009-5a9a-b48f-49f6321a58e5,db37b4c7-cdf7-54f3-b0a3-bf7ca614a41e,I cannot find the front-door key.,我找不到前门钥匙。,key,human_written,4.0,,approved,false,,1
+6d8afd47-c8fd-5001-a408-0c2ff83c88cb,db37b4c7-cdf7-54f3-b0a3-bf7ca614a41e,She keeps a spare key in her bag.,她在包里放了一把备用钥匙。,key,human_written,4.0,,approved,false,,2
+7bd0ea78-fffb-5dbe-8a5c-d89cc102a600,6117a01c-3a8a-517b-9785-75a8156bf93b,He looked at his face in the mirror.,他在镜子里看自己的脸。,mirror,human_written,4.0,,approved,false,,1
+0ca2daa5-a736-5c64-9707-d528053b2499,6117a01c-3a8a-517b-9785-75a8156bf93b,A large mirror hangs in the bathroom.,浴室里挂着一面大镜子。,mirror,human_written,4.0,,approved,false,,2
+0dfe41a9-47bd-55d5-8720-6eddec818cfa,bc770f57-02cb-5102-a533-187888350484,The living room has a soft carpet.,客厅铺着柔软的地毯。,carpet,human_written,4.0,,approved,false,,1
+085e3e3e-50b4-5b15-b2d3-04a016cd4db6,bc770f57-02cb-5102-a533-187888350484,Please remove your shoes from the carpet.,请不要穿鞋踩地毯。,carpet,human_written,4.0,,approved,false,,2
+f29d4e00-9ae4-5676-a0c1-cfb8f369e5e4,be9dca37-5b5b-5e38-8eed-8398b73fdc35,She reads beside a desk lamp.,她在书桌灯旁阅读。,lamp,human_written,4.0,,approved,false,,1
+5f83ec49-fe1e-56e2-ad46-30bbfbed712f,be9dca37-5b5b-5e38-8eed-8398b73fdc35,This lamp uses very little electricity.,这盏灯耗电很少。,lamp,human_written,4.0,,approved,false,,2
+7e2d0bfd-d5a6-5dc2-b342-5a9b31e34807,fff00b10-9f9f-5939-a689-b166d010f7f2,The front door has a new lock.,前门装了一把新锁。,lock,human_written,4.0,,approved,false,,1
+f4875297-9195-53aa-ac9b-784f6f4a0f97,fff00b10-9f9f-5939-a689-b166d010f7f2,Use the key to open the lock.,用钥匙打开这把锁。,lock,human_written,4.0,,approved,false,,2
+4718d533-d355-5cc8-9ae2-82fb89bd6368,ac727e9c-e501-5d2a-8ded-2633e9cad846,The bedrooms are at the top of the stairs.,卧室在楼梯顶端。,stairs,human_written,4.0,,approved,false,,1
+e9e532c5-7a5c-5da7-9e0e-199973809b9c,ac727e9c-e501-5d2a-8ded-2633e9cad846,Please walk carefully on the stairs.,在楼梯上行走时请小心。,stairs,human_written,4.0,,approved,false,,2
+d452b26a-5e65-533d-97d8-cb2f1da06965,485a271d-db79-53d8-94d3-453525035d29,Water flowed from the shower.,水从淋浴器中流出。,shower,human_written,4.0,,approved,false,,1
+4f6620e3-a9b5-5b94-8dd8-c9f1e0d451e7,485a271d-db79-53d8-94d3-453525035d29,The bathroom has a new shower.,浴室装了新的淋浴器。,shower,human_written,4.0,,approved,false,,2
+5838d3e1-cf74-566e-ab03-18a6496d464d,f4f5f7d2-f617-52c9-9573-821b8760381b,The cups are inside the kitchen cabinet.,杯子在厨房橱柜里。,cabinet,human_written,4.0,,approved,false,,1
+db7da0c2-b8e7-5efc-9242-904ad0cd7291,f4f5f7d2-f617-52c9-9573-821b8760381b,He keeps medicine in a locked cabinet.,他把药放在上锁的柜子里。,cabinet,human_written,4.0,,approved,false,,2
+aca16432-2297-5dfc-a1bb-872f2933d178,be53a7fa-e882-5845-b0b7-c2f2710747d8,She opened the curtain to see outside.,她拉开窗帘看外面。,curtain,human_written,4.0,,approved,false,,1
+740147ae-1aad-562c-b6fd-794f5d8a52ac,be53a7fa-e882-5845-b0b7-c2f2710747d8,A blue curtain covers the bedroom window.,一幅蓝色窗帘遮住卧室窗户。,curtain,human_written,4.0,,approved,false,,2
+2c04ed34-ddf6-5e02-a316-94604970a5e5,3573551b-5f6f-5814-804d-144f3a92ca50,We grow flowers on the balcony.,我们在阳台上种花。,balcony,human_written,4.0,,approved,false,,1
+9de33bbf-c791-5702-8e2b-4b5821e01520,3573551b-5f6f-5814-804d-144f3a92ca50,The apartment balcony faces the park.,公寓的阳台朝向公园。,balcony,human_written,4.0,,approved,false,,2
+094cddd6-061b-5714-bd60-cda0701db783,abacf929-c9b5-5085-bf71-74ab473fc856,The toilet is beside the shower.,马桶在淋浴旁边。,toilet,human_written,4.0,,approved,false,,1
+0955971b-c8fa-5cd8-8866-86310f575194,abacf929-c9b5-5085-bf71-74ab473fc856,Please clean the toilet every week.,请每周清洁马桶。,toilet,human_written,4.0,,approved,false,,2
+fd221016-8517-5e87-a76e-ccc63ea6c96d,60446f91-64ef-5646-91fe-d0feaf5831e8,Her coats are hanging in the closet.,她的外套挂在衣橱里。,closet,human_written,4.0,,approved,false,,1
+9e3b7aec-a079-50da-bcbb-e23475bb1318,60446f91-64ef-5646-91fe-d0feaf5831e8,The bedroom closet is very small.,卧室的壁橱很小。,closet,human_written,4.0,,approved,false,,2
+57a3fd5e-6ea8-58f4-b1f6-38642f32d41a,bdfa0d4e-3a50-50ac-8d6d-560aa48c9d9c,The forks are in the top drawer.,叉子在最上面的抽屉里。,drawer,human_written,4.0,,approved,false,,1
+a8bec6b2-67f1-52e0-93bb-b6df6b7a53c4,bdfa0d4e-3a50-50ac-8d6d-560aa48c9d9c,She put the letter inside a drawer.,她把信放进了抽屉。,drawer,human_written,4.0,,approved,false,,2
+2c3cc4c6-4f3c-5bf7-bf86-92f3739f71a3,13ff5cbd-b3ff-58f9-be7a-9a057e50a121,The family sat together on the couch.,全家人一起坐在长沙发上。,couch,human_written,4.0,,approved,false,,1
+9ba38e89-7ee1-5607-8d7d-2eacc2e5536d,13ff5cbd-b3ff-58f9-be7a-9a057e50a121,He fell asleep on the couch.,他在沙发上睡着了。,couch,human_written,4.0,,approved,false,,2
+638e4a8f-78f4-5ccd-b999-3d1471120911,92a4eba4-9647-51f0-a1e5-dacfc3120f07,Her dresses hang inside the wardrobe.,她的连衣裙挂在衣柜里。,wardrobe,human_written,4.0,,approved,false,,1
+7e6d54c2-8f33-5e27-802f-6863d5cf12d9,92a4eba4-9647-51f0-a1e5-dacfc3120f07,The wardrobe stands beside the bed.,衣柜放在床边。,wardrobe,human_written,4.0,,approved,false,,2
+92176cdc-32b1-51e4-8926-5e94af4dbbf8,cc42946e-04e2-5c81-93ff-755711ec1eb3,Three people can sit on the sofa.,三个人可以坐在这张沙发上。,sofa,human_written,4.0,,approved,false,,1
+d0b61ed4-277a-5b3a-aee9-99b448e8ec63,cc42946e-04e2-5c81-93ff-755711ec1eb3,They bought a comfortable new sofa.,他们买了一张舒适的新沙发。,sofa,human_written,4.0,,approved,false,,2
+8300f74f-1556-5275-9992-7070c68cab2e,e5eb51fc-589d-5de4-95ef-f69798950514,The baby slept under a warm blanket.,婴儿盖着温暖的毯子睡觉。,blanket,human_written,4.0,,approved,false,,1
+ebba3ba6-a0fe-5b48-a468-7d59a434a77e,e5eb51fc-589d-5de4-95ef-f69798950514,She folded the blanket after waking up.,她醒来后叠好毯子。,blanket,human_written,4.0,,approved,false,,2
+7cefdbea-5589-50ab-ac3b-1104d5b50c11,a1d71cd6-efc8-56ba-929c-9ccbe0e8a8c8,He put his head on the pillow.,他把头放在枕头上。,pillow,human_written,4.0,,approved,false,,1
+5e2b0fa2-6eb1-55e0-ab59-5afd954a2779,a1d71cd6-efc8-56ba-929c-9ccbe0e8a8c8,This soft pillow supports my neck.,这个柔软的枕头支撑着我的脖子。,pillow,human_written,4.0,,approved,false,,2
+45c2e88d-6c2e-50ef-96bc-5fbe49769702,1808e73c-bfa8-54fe-887b-5a9968e5ac09,The mattress is firm but comfortable.,这个床垫结实但舒适。,mattress,human_written,4.0,,approved,false,,1
+fa62e555-a671-584e-942c-b389c2451269,1808e73c-bfa8-54fe-887b-5a9968e5ac09,They placed the new mattress on the bed.,他们把新床垫放在床上。,mattress,human_written,4.0,,approved,false,,2
+e7efc299-b361-56fd-9869-7cb4d8c9ea14,a8ea1c95-01ae-5057-81f8-4409cf602f64,She drank tea from a small cup.,她用一个小杯子喝茶。,cup,human_written,4.0,,approved,false,,1
+464227d1-b87f-5b9c-bbee-d22d6ffcacb4,a8ea1c95-01ae-5057-81f8-4409cf602f64,Please put the clean cup in the cabinet.,请把干净的杯子放进橱柜。,cup,human_written,4.0,,approved,false,,2
+ab0be334-42a8-52b5-ba95-b15ddabd7345,29c332d7-3a49-5787-9d57-768be089b097,He poured water into a glass.,他把水倒进玻璃杯。,glass,human_written,4.0,,approved,false,,1
+a28305e4-19ed-5bf6-9c02-8970108802aa,29c332d7-3a49-5787-9d57-768be089b097,The glass is beside the bottle.,玻璃杯在瓶子旁边。,glass,human_written,4.0,,approved,false,,2
+0ac22d1e-db4a-536b-b705-8a3c37a87a45,76121aaf-3118-575b-b0a2-cb8ef52c2d81,The museum displays an unusual object.,博物馆展出了一件不寻常的物品。,object,human_written,4.0,,approved,false,,1
+a9fddce2-6ccb-5aa0-81e6-905b10843661,76121aaf-3118-575b-b0a2-cb8ef52c2d81,Each object on the table has a number.,桌上的每件物品都有编号。,object,human_written,4.0,,approved,false,,2
+7c23696a-c5ed-5204-b249-6d2ac7fbc1de,9eae686b-e2ac-52f8-96d4-d2e5211f06d7,What is that thing under the chair?,椅子下面的那个东西是什么？,thing,human_written,4.0,,approved,false,,1
+5044e737-f6c6-57c9-8b6d-50bb733ebf09,9eae686b-e2ac-52f8-96d4-d2e5211f06d7,The first thing I need is a towel.,我首先需要的是一条毛巾。,thing,human_written,4.0,,approved,false,,2
+8db35ffc-3224-5b31-9a58-8fe48b02388b,af2adaf9-f92c-5b26-9316-155cbf59aeb1,The books are packed in a box.,书装在一个箱子里。,box,human_written,4.0,,approved,false,,1
+5e3e9aad-c040-5683-a5fd-7bf309a8a63b,af2adaf9-f92c-5b26-9316-155cbf59aeb1,She opened the box with a knife.,她用刀打开了箱子。,box,human_written,4.0,,approved,false,,2
+bd6b590a-e157-591c-b80a-805895084ebe,043a44f7-5e86-5d72-8d2a-0be91ec50c2d,His phone is inside the bag.,他的电话在包里。,bag,human_written,4.0,,approved,false,,1
+ea48a299-9fc7-5769-9d99-30a670b8d125,043a44f7-5e86-5d72-8d2a-0be91ec50c2d,She carried a heavy shopping bag.,她提着一个沉重的购物袋。,bag,human_written,4.0,,approved,false,,2
+e96ebd77-1f87-5ade-940a-571b775655da,3d9ca351-58f6-500f-bc0f-4920217bd308,Fill the bottle with clean water.,把瓶子装满干净的水。,bottle,human_written,4.0,,approved,false,,1
+cf292c1f-4805-57de-9471-0d9bde90fac6,3d9ca351-58f6-500f-bc0f-4920217bd308,The empty bottle is on the table.,空瓶子在桌上。,bottle,human_written,4.0,,approved,false,,2
+e36a08f1-767c-587e-bbd4-965a9ffb3fff,d72f5974-0fe6-5201-ab69-c00e17c4de24,Use a sharp knife to cut the bread.,用锋利的刀切面包。,knife,human_written,4.0,,approved,false,,1
+06770977-5792-5429-a4b4-65b9b7b7bde7,d72f5974-0fe6-5201-ab69-c00e17c4de24,Keep the knife away from children.,把刀放在孩子够不到的地方。,knife,human_written,4.0,,approved,false,,2
+04fe54da-554e-5f5e-9cd1-473d3419b7ce,1ce943f7-0587-512d-92c4-d5d3fe7cc08f,The television stands beside the cabinet.,电视机放在橱柜旁边。,television,human_written,4.0,,approved,false,,1
+50dbefe8-e3d7-547a-9586-6ba9f4ff9f8a,1ce943f7-0587-512d-92c4-d5d3fe7cc08f,Please turn off the television before bed.,睡觉前请关掉电视。,television,human_written,4.0,,approved,false,,2
+72117a6f-77d8-547c-b897-9b3ef66f393a,4e31994e-d60f-5cca-bc5c-127665b1691f,She served the vegetables in a large dish.,她用一个大盘子盛蔬菜。,dish,human_written,4.0,,approved,false,,1
+17bbe138-a2e2-5fc3-b259-dd6c90c6efe7,4e31994e-d60f-5cca-bc5c-127665b1691f,Please place the clean dish on the shelf.,请把干净的盘子放在架子上。,dish,human_written,4.0,,approved,false,,2
+c375d012-f38a-5554-add4-443f9d5a6a76,5d22e84f-c938-50e7-918c-08315568619f,He uses the computer for schoolwork.,他用电脑做功课。,computer,human_written,4.0,,approved,false,,1
+06ac0e6b-9019-50ed-9338-1e0e9ee36327,5d22e84f-c938-50e7-918c-08315568619f,The computer is on the bedroom desk.,电脑放在卧室的书桌上。,computer,human_written,4.0,,approved,false,,2
+4bad5511-f228-557b-bb27-faa41ca0c976,bd4498c3-9c24-5711-b706-16a7fef62636,Put the bread on a clean plate.,把面包放在干净的盘子上。,plate,human_written,4.0,,approved,false,,1
+80192ad4-47d0-5c8c-a628-a056159de754,bd4498c3-9c24-5711-b706-16a7fef62636,Each child carried a plate to the table.,每个孩子端着一个盘子到桌边。,plate,human_written,4.0,,approved,false,,2
+52631605-2086-53fd-996c-f31b9702a121,84d8676f-0cda-5c55-b0a8-7f1ecee97a9b,My phone is charging beside the bed.,我的手机正在床边充电。,phone,human_written,4.0,,approved,false,,1
+447d544b-f475-5245-a202-595648a3d68a,84d8676f-0cda-5c55-b0a8-7f1ecee97a9b,She used the phone to call her mother.,她用电话给妈妈打电话。,phone,human_written,4.0,,approved,false,,2
+618e7deb-fc74-5b68-b879-5b13af6ccfb2,78c5a796-46ad-58bb-b9eb-0a3c35724818,He ate soup from a large bowl.,他用一个大碗喝汤。,bowl,human_written,4.0,,approved,false,,1
+b7d5fd06-5088-52a5-85e4-a5ec43687f78,78c5a796-46ad-58bb-b9eb-0a3c35724818,The fruit bowl is on the kitchen table.,水果碗在厨房桌上。,bowl,human_written,4.0,,approved,false,,2
+d8a184b9-0f22-5259-ac0b-5777eaad4bea,54397d1c-217e-5203-b81e-a8095a484ad1,The wall clock shows eight thirty.,墙上的时钟显示八点半。,clock,human_written,4.0,,approved,false,,1
+a3d35744-f4a9-5f0d-a8d9-7f640fe9ba51,54397d1c-217e-5203-b81e-a8095a484ad1,A small clock stands beside the bed.,床边放着一个小时钟。,clock,human_written,4.0,,approved,false,,2
+8976354e-8ec2-5218-9d0a-332c6217f433,395628aa-0e09-528d-a863-b4bd1e5bfd5c,Dry your hands with this towel.,用这条毛巾擦干手。,towel,human_written,4.0,,approved,false,,1
+648bcb94-788c-5be3-a7b8-26751daa7d27,395628aa-0e09-528d-a863-b4bd1e5bfd5c,She hung the wet towel in the bathroom.,她把湿毛巾挂在浴室里。,towel,human_written,4.0,,approved,false,,2
+71cdf482-5210-591a-80b6-03a83153e6a5,00f98913-7627-5f23-b9b9-e3e0888b1724,Use a spoon to eat the soup.,用勺子喝汤。,spoon,human_written,4.0,,approved,false,,1
+06512c58-04b0-5b1a-bc4e-060a3cbe9557,00f98913-7627-5f23-b9b9-e3e0888b1724,He put a clean spoon beside the bowl.,他把一把干净的勺子放在碗旁边。,spoon,human_written,4.0,,approved,false,,2
+d90ae9f1-5bf3-5017-a74e-d0ac6a16d457,bd6f02e9-0b78-5a58-b189-2e0bafab05f1,Please carry this box into the kitchen.,请把这个箱子搬进厨房。,carry,human_written,4.0,,approved,false,,1
+94b5a246-ca20-5928-8020-421f742f762d,bd6f02e9-0b78-5a58-b189-2e0bafab05f1,She can carry the baby safely.,她可以安全地抱着婴儿。,carry,human_written,4.0,,approved,false,,2
+0d69e52b-5ecb-58e4-b1f7-fe0f10002b57,14326a65-1325-5f40-bd88-112ca54f0a68,Use a fork to eat the vegetables.,用叉子吃蔬菜。,fork,human_written,4.0,,approved,false,,1
+003ea085-0112-582b-b723-aa08557ec463,14326a65-1325-5f40-bd88-112ca54f0a68,The fork is beside the plate.,叉子在盘子旁边。,fork,human_written,4.0,,approved,false,,2
+46fa722f-b51e-55c3-8ec4-faabb7b56d06,b60e3677-eb65-5c4b-b501-c411445a032b,The soup is cooking in a large pot.,汤正在一个大锅里煮。,pot,human_written,4.0,,approved,false,,1
+0885a26a-8dcd-5b34-aaf6-7679d732cead,b60e3677-eb65-5c4b-b501-c411445a032b,She put the pot on the stove.,她把锅放在炉灶上。,pot,human_written,4.0,,approved,false,,2
+fc96200d-c7c5-5990-aeb8-03c49d89f05a,38339116-bfe9-5e8a-9ad6-966235b5c0cb,Put the clean cups in the cabinet.,把干净的杯子放进橱柜。,put,human_written,4.0,,approved,false,,1
+78d3d75e-d458-560e-9e10-f9079b04ad62,38339116-bfe9-5e8a-9ad6-966235b5c0cb,Please put your bag beside the door.,请把包放在门边。,put,human_written,4.0,,approved,false,,2
+17d4ea98-a732-58cf-a1c7-62c5bc74aaeb,186a8908-8616-5f13-be8d-c35fc82d0d40,Keep the milk in the refrigerator.,把牛奶保存在冰箱里。,keep,human_written,4.0,,approved,false,,1
+42c271b0-01df-52b9-9337-b4b37e2a3c02,186a8908-8616-5f13-be8d-c35fc82d0d40,I keep important papers in this drawer.,我把重要文件保存在这个抽屉里。,keep,human_written,4.0,,approved,false,,2
+916ddca3-3eb5-5219-8e5c-30295b44e44d,a9c8a60d-d533-50e6-81ff-208c58e178b5,We clean the kitchen every evening.,我们每天晚上打扫厨房。,clean,human_written,4.0,,approved,false,,1
+b1f5075e-716c-5a96-9a77-56ec7976c040,a9c8a60d-d533-50e6-81ff-208c58e178b5,Please clean the table after dinner.,晚饭后请清理桌子。,clean,human_written,4.0,,approved,false,,2
+2744e41b-d0df-54b1-b892-c25e34d1087d,e41acab7-29ad-5332-a22d-ddd58491371a,Heat the oil in a large pan.,在一个大平底锅里加热油。,pan,human_written,4.0,,approved,false,,1
+83b4a474-b278-5566-9327-2c531df63a7d,e41acab7-29ad-5332-a22d-ddd58491371a,She cooked the eggs in a pan.,她用平底锅煎鸡蛋。,pan,human_written,4.0,,approved,false,,2
+ed7feac6-1b28-5a85-8726-5e5602bc21e1,2b3a7d07-e381-5801-9a40-fcf9ca8a3a5f,Open the window for some fresh air.,打开窗户让新鲜空气进来。,open,human_written,4.0,,approved,false,,1
+93908d30-edc4-570b-af30-8ff2a1ebc8f9,2b3a7d07-e381-5801-9a40-fcf9ca8a3a5f,Please open the box carefully.,请小心打开箱子。,open,human_written,4.0,,approved,false,,2
+0361e630-3e8e-56ab-b7d5-76edb28e1725,1c416ba5-b361-5d7a-a275-00df117c4efa,Wash your hands with soap and water.,用肥皂和水洗手。,soap,human_written,4.0,,approved,false,,1
+de97cc06-7cb1-5487-b1d0-5a017cd38a0e,1c416ba5-b361-5d7a-a275-00df117c4efa,The soap is beside the bathroom sink.,肥皂在浴室洗手池旁边。,soap,human_written,4.0,,approved,false,,2
+4d32f0b3-0e95-5465-84da-697a672b42da,2fe546f1-a3ad-51a6-b787-7723b73baaf0,Use this brush to clean the floor.,用这把刷子清洁地板。,brush,human_written,4.0,,approved,false,,1
+efc4bd10-cdc7-5cd6-9b7c-8cef482e223e,2fe546f1-a3ad-51a6-b787-7723b73baaf0,Her hair brush is inside the drawer.,她的发刷在抽屉里。,brush,human_written,4.0,,approved,false,,2
+75b486bb-144c-5099-8ff6-c97940a477e1,ed6777b0-b091-5ae9-9c69-efdced3ed10a,The juice is in the fridge.,果汁在冰箱里。,fridge,human_written,4.0,,approved,false,,1
+63808118-0368-563b-b580-03377d3a6e07,ed6777b0-b091-5ae9-9c69-efdced3ed10a,Please clean the fridge this weekend.,请这个周末清洁冰箱。,fridge,human_written,4.0,,approved,false,,2
+351290b9-9f87-53b8-90e2-385d18975e0f,b222da87-ad35-5af3-a97b-fe79d711e640,We use this knife to cut vegetables.,我们用这把刀切蔬菜。,use,human_written,4.0,,approved,false,,1
+ddce699f-764c-56f2-ba6f-cc3217a1c3dd,b222da87-ad35-5af3-a97b-fe79d711e640,Please use a towel to dry the dishes.,请用毛巾擦干盘子。,use,human_written,4.0,,approved,false,,2
+db863b97-0454-58e9-9d0d-252cf0440d3f,d5575035-88c6-551e-b8dd-45de6019d133,I need a key to open this door.,我需要钥匙打开这扇门。,need,human_written,4.0,,approved,false,,1
+ddc19bab-f692-56b3-8893-a995e8507807,d5575035-88c6-551e-b8dd-45de6019d133,Plants need water and light.,植物需要水和光。,need,human_written,4.0,,approved,false,,2
+fe522d14-1d37-5b51-8195-2691e8f26b72,bc42250d-e9b0-5548-8520-507905032ee7,Drink plenty of water every day.,每天喝足够的水。,water,human_written,4.0,,approved,false,,1
+a50e044a-e521-53b5-a427-fd3cb935beab,bc42250d-e9b0-5548-8520-507905032ee7,The bottle is full of cold water.,瓶子里装满了冷水。,water,human_written,4.0,,approved,false,,2
+f5e5fd0f-a105-52e3-8875-b1bd6c1708de,e1d0b281-bd1d-5357-8c29-6bf28b878198,Wash the cups after breakfast.,早餐后清洗杯子。,wash,human_written,4.0,,approved,false,,1
+c0f7ff74-b4a8-5b2d-aeaa-81c5ab7da071,e1d0b281-bd1d-5357-8c29-6bf28b878198,Please wash your hands before cooking.,做饭前请洗手。,wash,human_written,4.0,,approved,false,,2
+7364f75d-c1c5-5145-a7d7-c35c19d3b312,d138c02e-250d-5173-81f2-a28ae44637f6,My father likes to cook dinner.,我父亲喜欢做晚饭。,cook,human_written,4.0,,approved,false,,1
+65e566f5-1b04-5337-8400-1b2b558c29ab,d138c02e-250d-5173-81f2-a28ae44637f6,We cook vegetables in a large pot.,我们用大锅煮蔬菜。,cook,human_written,4.0,,approved,false,,2
+b77d2726-c1fa-5049-8464-2928e9318c95,5215b60d-5cd3-5a42-a3eb-0a623e84c11f,The bread is baking in the oven.,面包正在烤箱里烘烤。,oven,human_written,4.0,,approved,false,,1
+b5612f01-cb70-57cf-a190-3c33d36d31cd,5215b60d-5cd3-5a42-a3eb-0a623e84c11f,She put the dish inside the oven.,她把盘子放进烤箱。,oven,human_written,4.0,,approved,false,,2
+0d4501be-33d1-56a5-8564-7819bd0b1bf7,6f1fdc81-f614-5260-a096-1c9d093de999,Please move the chair near the table.,请把椅子移到桌边。,move,human_written,4.0,,approved,false,,1
+815275b8-902e-582c-b1ba-cae6c1f3a321,6f1fdc81-f614-5260-a096-1c9d093de999,They will move the sofa into the hall.,他们会把沙发搬进门厅。,move,human_written,4.0,,approved,false,,2
+37037227-123d-5b44-b744-5be9a2e36a25,6d0a7cba-1364-5548-b3aa-3c0d577e9868,They own a small apartment downtown.,他们在市中心拥有一套小公寓。,own,human_written,4.0,,approved,false,,1
+44e68a10-b19b-568e-8f15-71f69084aabc,6d0a7cba-1364-5548-b3aa-3c0d577e9868,We own the house but rent the garage.,我们拥有这所房子，但出租车库。,own,human_written,4.0,,approved,false,,2
+99dea87a-450f-5866-91df-3caced08ffc7,dc445442-7ec6-5d43-bf3c-6022e778dfcb,A worker came to repair the broken door.,一名工人来修理坏门。,repair,human_written,4.0,,approved,false,,1
+6db9c555-1b85-57c4-a339-89c97387fd13,dc445442-7ec6-5d43-bf3c-6022e778dfcb,They need to repair the kitchen floor.,他们需要修理厨房地板。,repair,human_written,4.0,,approved,false,,2
+b6d3d832-114e-5dcc-840d-f20e73e3f526,81510652-c6de-5075-8fc1-0f2ea93237e3,The lamp uses very little electricity.,这盏灯用电很少。,electricity,human_written,4.0,,approved,false,,1
+4c6f15f3-82ac-5bbc-9181-25819bbabb7f,81510652-c6de-5075-8fc1-0f2ea93237e3,The house lost electricity during the storm.,暴风雨期间房子停电了。,electricity,human_written,4.0,,approved,false,,2
+e1721fed-2762-5885-8833-e507b6010ec0,b95b0ea1-6fe5-5911-9a67-f26885036a1d,Can you fix the broken lamp?,你能修好坏掉的灯吗？,fix,human_written,4.0,,approved,false,,1
+fb196d9a-c371-5b35-93f8-02291e75dabf,b95b0ea1-6fe5-5911-9a67-f26885036a1d,He will fix the loose shelf tomorrow.,他明天会修理松动的架子。,fix,human_written,4.0,,approved,false,,2
+772bf162-e742-533a-babd-cae5431fb61b,f8384550-fef8-5c67-ab11-463e0ad8888d,She carried the towels in a basket.,她用篮子装着毛巾。,basket,human_written,4.0,,approved,false,,1
+97dd4881-728b-5ec9-adb1-7103a493c744,f8384550-fef8-5c67-ab11-463e0ad8888d,The fruit basket is on the table.,水果篮在桌上。,basket,human_written,4.0,,approved,false,,2
+70cb0c49-c7d5-50d7-8bfd-991e9b6ab761,6635203e-9ad1-5faa-a561-4932d0f5c1e3,This couch is soft and comfortable.,这张长沙发柔软舒适。,comfortable,human_written,4.0,,approved,false,,1
+9f2b5b1e-0b97-57e4-942c-0a9fa2ab2fc3,6635203e-9ad1-5faa-a561-4932d0f5c1e3,The new mattress feels comfortable.,新床垫感觉很舒服。,comfortable,human_written,4.0,,approved,false,,2
+41bf8ed6-41c1-5048-bdbc-197b5c36af19,c6457a5d-be5a-5773-869a-d3cf856d2e5f,Keep medicine in a safe place.,把药放在安全的地方。,safe,human_written,4.0,,approved,false,,1
+2af3af50-62d9-5487-87e0-671114ede532,c6457a5d-be5a-5773-869a-d3cf856d2e5f,The children feel safe at home.,孩子们在家感到安全。,safe,human_written,4.0,,approved,false,,2
+56b389ef-19e4-5b33-a8fd-7fc360704d39,4e5508d3-8261-59db-a090-20056046533f,They rent an apartment near the university.,他们在大学附近租了一套公寓。,rent,human_written,4.0,,approved,false,,1
+7a9d705e-e57a-5bcc-a90e-b4ec3ca75c21,4e5508d3-8261-59db-a090-20056046533f,We rent this house from a local family.,我们向当地一家人租这所房子。,rent,human_written,4.0,,approved,false,,2
+c3ea7447-8cba-545d-82a1-b9aee6c5134b,30ebfa46-fded-591b-a067-6c880f089f9b,Keep fresh food in the refrigerator.,把新鲜食物放在冰箱里。,refrigerator,human_written,4.0,,approved,false,,1
+cdd46ad5-02a8-5ac0-bae5-d7b11bdb659d,30ebfa46-fded-591b-a067-6c880f089f9b,The refrigerator stands beside the cabinet.,冰箱放在橱柜旁边。,refrigerator,human_written,4.0,,approved,false,,2
+d0d21caa-7f72-5f12-89e0-cbd4d89bd2d0,28aec5ee-e0db-58bb-b954-41d155a94b31,The pot is heating on the stove.,锅正在炉灶上加热。,stove,human_written,4.0,,approved,false,,1
+9bd9bd2d-c792-5900-8a69-7333ddbe75b9,28aec5ee-e0db-58bb-b954-41d155a94b31,Turn off the stove after cooking.,做完饭后关掉炉灶。,stove,human_written,4.0,,approved,false,,2

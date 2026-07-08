@@ -2,11 +2,11 @@ package com.example.firsttest.ui.practice
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
@@ -64,7 +64,7 @@ fun PracticeResultScreen(
         ) {
             item {
                 Text(
-                    "练习完成！",
+                    "Practice complete",
                     style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.Bold,
                 )
@@ -85,12 +85,12 @@ fun PracticeResultScreen(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
-                        StatLine("✅  答对题数", "$correctCount / $totalCount")
+                        StatLine("Correct", "$correctCount / $totalCount")
                         StatLine(
-                            "📊  正确率",
-                            if (totalCount > 0) "${(correctCount * 100 / totalCount)}%" else "—",
+                            "Accuracy",
+                            if (totalCount > 0) "${(correctCount * 100 / totalCount)}%" else "--",
                         )
-                        StatLine("⚡  获得鸭力值", "+$duckPowerEarned")
+                        StatLine("Duck power", "+$duckPowerEarned")
                     }
                 }
             }
@@ -113,7 +113,7 @@ fun PracticeResultScreen(
                         },
                         modifier = Modifier.fillMaxWidth(),
                     ) {
-                        Text(if (wordListExpanded) "收起本关单词" else "本关单词与状态")
+                        Text(if (wordListExpanded) "Hide level words" else "Show level words and status")
                     }
                 }
 
@@ -128,7 +128,7 @@ fun PracticeResultScreen(
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(state.message, color = MaterialTheme.colorScheme.error)
                                 TextButton(onClick = { viewModel.loadLevelWords(levelNumber) }) {
-                                    Text("重试")
+                                    Text("Retry")
                                 }
                             }
                         }
@@ -144,13 +144,13 @@ fun PracticeResultScreen(
                                         Modifier.padding(14.dp),
                                         verticalArrangement = Arrangement.spacedBy(4.dp),
                                     ) {
-                                        androidx.compose.foundation.layout.Row(
+                                        Row(
                                             Modifier.fillMaxWidth(),
                                             horizontalArrangement = Arrangement.SpaceBetween,
                                         ) {
                                             Text(word.word, fontWeight = FontWeight.Bold)
                                             Text(
-                                                if (word.isDue) "${word.status} · 待复习"
+                                                if (word.isDue) "${word.status} - due review"
                                                 else word.status,
                                                 color = MaterialTheme.colorScheme.primary,
                                             )
@@ -161,7 +161,7 @@ fun PracticeResultScreen(
                                         )
                                         if (word.wrongCount > 0) {
                                             Text(
-                                                "累计答错 ${word.wrongCount} 次",
+                                                "Wrong answers: ${word.wrongCount}",
                                                 style = MaterialTheme.typography.bodySmall,
                                                 color = MaterialTheme.colorScheme.error,
                                             )
@@ -183,12 +183,12 @@ fun PracticeResultScreen(
         ) {
             if (levelNumber != null && onRepeat != null) {
                 Button(onClick = onRepeat, modifier = Modifier.fillMaxWidth()) {
-                    Text("再练一轮（重新组题）")
+                    Text("Practice again")
                 }
             }
 
             OutlinedButton(onClick = onReturnHome, modifier = Modifier.fillMaxWidth()) {
-                Text("返回首页")
+                Text("Return to Home")
             }
         }
     }
@@ -196,7 +196,7 @@ fun PracticeResultScreen(
 
 @Composable
 private fun StatLine(label: String, value: String) {
-    androidx.compose.foundation.layout.Row(
+    Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -211,8 +211,8 @@ private fun starsString(rating: Int): String {
 }
 
 private fun encouragement(stars: Int): String = when (stars) {
-    3 -> "太棒了！满分完成，鸭力值暴涨！🎉"
-    2 -> "做得不错！继续练习，马上就能三星！💪"
-    1 -> "继续加油！多练几遍，你一定可以的！🦆"
-    else -> "没关系，每一次练习都是进步！重新来过！"
+    3 -> "Strong work. You cleared this round with excellent accuracy."
+    2 -> "Good progress. Review the missed words and try for three stars."
+    1 -> "You finished the round. Practice again to strengthen recall."
+    else -> "Keep going. Each attempt gives you better data for review."
 }

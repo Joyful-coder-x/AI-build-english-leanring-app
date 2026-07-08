@@ -7,112 +7,108 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.repository.UserRepository
+import com.example.firsttest.data.repository.VocabRepository
 import com.example.firsttest.di.AppRepositories
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import java.time.LocalDate
 import java.util.Calendar
-
-// ---- Calendar day -----------------------------------------------------------
 
 enum class DayState { CHECKED, TODAY, MISSED, FUTURE }
 
 data class CalendarDay(val dayOfMonth: Int, val state: DayState)
-
-// ---- UI state ---------------------------------------------------------------
 
 sealed interface StreakUiState {
     data object Loading : StreakUiState
     data class Success(
         val currentDays: Int,
         val goalDays: Int,
-        val monthLabel: String,                    // "2026年6月"
-        val calendarDays: List<CalendarDay?>,      // null = empty alignment slot
+        val monthLabel: String,
+        val calendarDays: List<CalendarDay?>,
         val checkedThisMonth: Int,
         val streakProtectionCount: Int,
         val challengeKeyCount: Int,
     ) : StreakUiState
 }
 
-// ---- ViewModel --------------------------------------------------------------
-
 /**
- * Drives the 每日连胜 screen (spec 2.4.1).
+ * Drives the streak screen.
  *
- * Streak data comes from [UserRepository.userFlow] so it auto-updates when
- * duck power or other user fields change within the session.
- *
- * Calendar check-in state is derived from [currentDays]: the last N consecutive
- * days (including today) are shown as CHECKED.
- *
- * TODO PHASE 2: after completing a practice session (≥1★), automatically
- *   increment streak and update TODAY's calendar cell.
- *   Spec rule: one check-in per calendar day; check-in earned by ≥1★ in
- *   鸭力训练 OR by completing any 挑战赛 (spec 2.4.1).
- *   Also: if streak breaks and user has 连胜保护, auto-consume it and keep streak.
- * TODO PHASE 3: persist check-in history to Supabase `checkins` table.
+ * Streak counters come from [UserRepository.userFlow]. Calendar check marks use
+ * completed practice-session dates from [VocabRepository.getPracticeSessionDates],
+ * which is also the source used by the Profile practice heatmap. The backend
+ * round-completion RPC owns streak/reward updates; this screen reads the result.
  */
 class StreakViewModel(
     userRepository: UserRepository,
+    private val vocabRepository: VocabRepository,
 ) : ViewModel() {
 
-    val uiState: StateFlow<StreakUiState> = userRepository
-        .userFlow()
-        .map { user ->
-            val now = Calendar.getInstance()
-            StreakUiState.Success(
-                currentDays  = user.streak.currentDays,
-                goalDays     = user.streak.goalDays,
-                monthLabel   = formatMonth(now),
-                // TODO: calendar shows last-N-days as CHECKED (approximation).
-                //   Real per-day history needs a checkin_history table in Supabase.
-                calendarDays = buildCalendar(user.streak.currentDays, now),
-                // TODO: checkedThisMonth is approximate (min of streak vs day-of-month).
-                //   Accurate count requires per-day check-in records.
-                checkedThisMonth      = minOf(user.streak.currentDays, now.get(Calendar.DAY_OF_MONTH)),
-                // TODO: props not persisted to Supabase — always 0 until user_props table added.
-                streakProtectionCount = user.props.firstOrNull { it.type == PropType.STREAK_PROTECTION }?.count ?: 0,
-                challengeKeyCount     = user.props.firstOrNull { it.type == PropType.CHALLENGE_KEY }?.count ?: 0,
-            )
+    private val sessionDates = MutableStateFlow<List<LocalDate>>(emptyList())
+
+    val uiState: StateFlow<StreakUiState> = combine(
+        userRepository.userFlow(),
+        sessionDates,
+    ) { user, dates ->
+        val now = Calendar.getInstance()
+        val checkedDaysOfMonth = dates
+            .filter { it.year == now.get(Calendar.YEAR) && it.monthValue == now.get(Calendar.MONTH) + 1 }
+            .map { it.dayOfMonth }
+            .toSet()
+        StreakUiState.Success(
+            currentDays = user.streak.currentDays,
+            goalDays = user.streak.goalDays,
+            monthLabel = formatMonth(now),
+            calendarDays = buildCalendar(checkedDaysOfMonth, now),
+            checkedThisMonth = checkedDaysOfMonth.size,
+            streakProtectionCount = user.props.firstOrNull { it.type == PropType.STREAK_PROTECTION }?.count ?: 0,
+            challengeKeyCount = user.props.firstOrNull { it.type == PropType.CHALLENGE_KEY }?.count ?: 0,
+        )
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, StreakUiState.Loading)
+
+    init {
+        viewModelScope.launch {
+            val dayOfMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+            sessionDates.value = runCatching {
+                vocabRepository.getPracticeSessionDates(recentDays = dayOfMonth)
+            }.getOrDefault(emptyList())
         }
-        .stateIn(viewModelScope, SharingStarted.Eagerly, StreakUiState.Loading)
+    }
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer { StreakViewModel(AppRepositories.user) }
+            initializer { StreakViewModel(AppRepositories.user, AppRepositories.vocab) }
         }
 
         private fun formatMonth(cal: Calendar): String {
             val year = cal.get(Calendar.YEAR)
             val month = cal.get(Calendar.MONTH) + 1
-            return "${year}年${month}月"
+            return "%04d-%02d".format(year, month)
         }
 
         /**
-         * Builds a list of nullable [CalendarDay] items for a 7-column grid.
-         * null entries are used to pad the start of the first week so day 1
-         * falls on the correct column (Mon-based week).
+         * Builds a nullable 7-column calendar grid. Null entries pad the first
+         * and last weeks so day cells align to Monday-based weeks.
          */
-        internal fun buildCalendar(currentDays: Int, today: Calendar): List<CalendarDay?> {
+        internal fun buildCalendar(checkedDaysOfMonth: Set<Int>, today: Calendar): List<CalendarDay?> {
             val todayDom = today.get(Calendar.DAY_OF_MONTH)
             val daysInMonth = today.getActualMaximum(Calendar.DAY_OF_MONTH)
-
-            // First day of this month — Mon=0 … Sun=6
             val first = Calendar.getInstance().also {
                 it.set(today.get(Calendar.YEAR), today.get(Calendar.MONTH), 1)
             }
             val leadingEmpties = (first.get(Calendar.DAY_OF_WEEK) - Calendar.MONDAY + 7) % 7
 
-            val firstCheckedDom = maxOf(1, todayDom - currentDays + 1)
-
             val days = mutableListOf<CalendarDay?>()
             repeat(leadingEmpties) { days.add(null) }
             for (dom in 1..daysInMonth) {
                 val state = when {
-                    dom > todayDom  -> DayState.FUTURE
+                    dom > todayDom -> DayState.FUTURE
                     dom == todayDom -> DayState.TODAY
-                    dom >= firstCheckedDom -> DayState.CHECKED
+                    dom in checkedDaysOfMonth -> DayState.CHECKED
                     else -> DayState.MISSED
                 }
                 days.add(CalendarDay(dom, state))

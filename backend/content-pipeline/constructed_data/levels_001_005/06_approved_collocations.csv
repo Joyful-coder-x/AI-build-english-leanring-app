@@ -1,0 +1,35 @@
+﻿collocation_id,sense_id,headword,level_number,collocation,translation_zh,source,vocabulary_role,human_review,review_reason,review_status
+col_reviewed_family_n_1_1,family_n_1,family,1,family member,家庭成员,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_relative_n_1_2,relative_n_1,relative,1,close relative,近亲,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_couple_n_1_3,couple_n_1,couple,1,married couple,已婚夫妇,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_child_n_1_4,child_n_1,child,1,young child,年幼的孩子,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_name_n_1_5,name_n_1,name,1,full name,全名,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_grandparent_n_1_6,grandparent_n_1,grandparent,1,elderly grandparent,年长的祖父母,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_birth_n_1_7,birth_n_1,birth,2,date of birth,出生日期,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_hair_n_1_8,hair_n_1,hair,2,short hair,短发,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_appearance_n_1_9,appearance_n_1,appearance,2,physical appearance,外貌,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_body_n_1_10,body_n_1,body,2,healthy body,健康的身体,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_voice_n_1_11,voice_n_1,voice,2,calm voice,平静的声音,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_face_n_1_12,face_n_1,face,2,round face,圆脸,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_care_v_1_13,care_v_1,care,3,care about,关心,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_support_v_1_14,support_v_1,support,3,support a decision,支持一个决定,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_relationship_n_1_15,relationship_n_1,relationship,3,close relationship,亲密关系,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_responsibility_n_1_16,responsibility_n_1,responsibility,3,shared responsibility,共同责任,CURATED_FROM_REVIEWED_SENSE,general_ielts,F,,approved
+col_reviewed_attitude_n_1_17,attitude_n_1,attitude,3,positive attitude,积极态度,CURATED_FROM_REVIEWED_SENSE,general_ielts,F,,approved
+col_reviewed_communicate_v_1_18,communicate_v_1,communicate,3,communicate openly,坦诚沟通,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_protect_v_1_19,protect_v_1,protect,3,protect from danger,保护免受危险,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_door_n_1_20,door_n_1,door,4,front door,前门,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_cabinet_n_1_21,cabinet_n_1,cabinet,4,kitchen cabinet,厨房橱柜,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_window_n_1_22,window_n_1,window,4,bedroom window,卧室窗户,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_lamp_n_1_23,lamp_n_1,lamp,4,desk lamp,书桌灯,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_yard_n_1_24,yard_n_1,yard,4,front yard,前院,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_building_n_1_25,building_n_1,building,4,apartment building,公寓楼,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_sofa_n_1_26,sofa_n_1,sofa,4,comfortable sofa,舒适的沙发,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_water_n_1_27,water_n_1,water,5,glass of water,一杯水,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_knife_n_1_28,knife_n_1,knife,5,kitchen knife,菜刀,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_wash_v_1_29,wash_v_1,wash,5,wash the dishes,洗碗,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_cook_v_1_30,cook_v_1,cook,5,cook dinner,做晚饭,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_repair_v_1_31,repair_v_1,repair,5,repair a door,修门,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_rent_v_1_32,rent_v_1,rent,5,rent an apartment,租公寓,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_stove_n_1_33,stove_n_1,stove,5,turn off the stove,关掉炉灶,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved
+col_reviewed_basket_n_1_34,basket_n_1,basket,5,shopping basket,购物篮,CURATED_FROM_REVIEWED_SENSE,foundation,F,,approved

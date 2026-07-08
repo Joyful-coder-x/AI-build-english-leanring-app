@@ -30,7 +30,7 @@
 - Curriculum hierarchy: several words make up a level, and several levels make up an IELTS band.
 - A level has approximately 80 total word placements: 45-55 new words, with the remainder made up of forms, collocations, and reviewed/context words.
 
-## Project status (as of 2026-06-28)
+## Project status (as of 2026-07-01)
 
 ### Approved progression change (2026-06-24)
 
@@ -51,16 +51,20 @@
 - [x] **Codebase index** — `docs/CODEBASE_INDEX.md`: complete file map with active/legacy categorization, architecture rules, coding conventions, scope boundaries.
 - [x] **All 8 question types** — `LevelPracticeScreen` renders type-specific UI for all types: meaning_choice (MCQ), sentence_cloze_typing (keyboard), listening_choice/listening_fill (audio panel), speaking_repeat/open_speaking (self-assess), word_form (keyboard), reading_comprehension (passage card). `FakeVocabRepository` generates all 8 types for offline dev.
 - [x] **Profile heatmap** — GitHub-style 12-week × 7-day contribution grid on Profile screen; `VocabRepository.getPracticeSessionDates()` reads live data from `practice_sessions` in both `SupabaseVocabRepository` and `FakeVocabRepository`.
+- [x] **Android TTS for listening types** — device TTS (`TextToSpeech`, `Locale.US`) reads the target word aloud on question load; replay button shown; `listening_fill` shows Chinese definition as context instead (word not in stem by RPC design).
+- [x] **Auth + onboarding flow wired** — `AppSessionViewModel` drives app routing: `LoginScreen` (signed out), `OnboardingScreen` (questionnaire pending), `MainScreen` (authenticated), error state with retry. Deep link scheme `kuakuaduck://auth` registered in AndroidManifest for Supabase magic links.
+- [x] **LevelProgressScreen** — intermediate screen between Home and `LevelPracticeScreen`; level tap goes here first (shows level info / word count), then routes to practice.
+- [x] **SpellingCorrection UX** — `ShowingClozeAnswer` + `ClozeMemoryRetype` merged into single `SpellingCorrection` state; shows letter-by-letter diff of wrong vs. correct answer; retry stays client-side until perfect (no backend hit); Chinese hint toggle in Answering state.
+- [x] **SupabaseMistakeRepository live** — wired in `AppRepositories`; reads from `mistake_senses` + `user_sense_mastery`.
+- [x] **Migration 016 additions** — staged type-3 cloze dispatcher (`save_practice_answer` wraps `finalize_practice_answer`); `near_meaning_count` + `duck_points` columns on `practice_round_questions`; keyboard trigger fix.
 
 ### Still needed
 - [ ] Apply migrations 015 + 016 to hosted Supabase; verify they run cleanly.
 - [ ] **RLS policies** — verify Supabase Row Level Security allows anonymous reads on words/questions tables.
-- [ ] **Onboarding flow** — `ui/onboarding/` exists but is not wired into `AppSessionViewModel` navigation.
-- [ ] **Profile screen** — heatmap now reads live session data; other stats (duck power, radar, streak) still come from `FakeUserRepository`.
-- [ ] **SupabaseMistakeRepository** — `mistake_senses` table writes exist in RPCs; Android side still uses `FakeMistakeRepository`.
+- [ ] **Profile screen** — heatmap reads live session data; duck power, radar, and streak stats still need backend queries in `SupabaseUserRepository`.
 - [ ] **StreakScreen** — UI exists; needs live Supabase data (streak counters via `refresh_user_profile` RPC).
 - [ ] **word_forms table** — verify current Supabase migration schema and import compatibility before next production load.
-- [ ] **TTS audio** — `pronunciation_tts_manifest.jsonl` exists but `synthesize_audio.py` not yet built; no audio files yet.
+- [ ] **TTS audio pipeline** — `pronunciation_tts_manifest.jsonl` exists but `synthesize_audio.py` not yet built; no pre-generated audio files (listening questions currently use Android device TTS as a placeholder).
 - [ ] **Content: remaining curriculum** — continue with the reviewed numbered workflow documented in `backend/content-pipeline/README.md`.
-- [ ] **levels table** — needs data rows before level-select screen can work.
+- [ ] **levels table** — needs data rows before `LevelProgressScreen` can show real level info.
 - [ ] **AssessmentIntroScreen + MeaningChoiceScreen** — deleted as legacy; `AssessmentScreen` is retained for reassessment flow from Profile.

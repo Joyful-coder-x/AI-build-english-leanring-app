@@ -1,0 +1,969 @@
+﻿record_type,record_id,headword,previous_human_review,decision,final_definition_en,final_definition_zh,human_review,review_status
+word_sense,family_n_1,family,T,approved_with_correction,group consisting of one or two parents and their children,家庭；家人,F,approved
+word_sense,parent_n_1,parent,T,approved_with_correction,person’s father or mother,父亲或母亲,F,approved
+word_sense,mother_n_1,mother,T,approved_with_correction,female parent of a child or animal; a person who is acting as a mother to a child,母亲；妈妈,F,approved
+word_sense,child_n_1,child,T,approved_with_correction,young human who is not yet an adult,儿童；孩子,F,approved
+word_sense,father_n_1,father,T,approved_with_correction,male parent of a child or an animal; a person who is acting as the father to a child,父亲；爸爸,F,approved
+word_sense,son_n_1,son,T,approved_with_correction,person’s male child,儿子,F,approved
+word_sense,daughter_n_1,daughter,F,approved,person’s female child,女儿,F,approved
+word_sense,baby_n_1,baby,F,approved_with_correction,very young child or animal,婴儿,F,approved
+word_sense,brother_n_1,brother,F,approved_with_correction,boy or man who has the same parents as another person,兄弟；哥哥；弟弟,F,approved
+word_sense,dad_n_1,dad,T,approved_with_correction,father,爸爸,F,approved
+word_sense,husband_n_1,husband,T,approved_with_correction,the man that somebody is married to; a married man,丈夫,F,approved
+word_sense,wife_n_1,wife,T,approved_with_correction,the woman that somebody is married to; a married woman,妻子；太太,F,approved
+word_sense,sister_n_1,sister,T,approved_with_correction,girl or woman who has the same mother and father as another person,姐妹；姐姐；妹妹,F,approved
+word_sense,couple_n_1,couple,T,approved_with_correction,two people who are married or in a romantic relationship,夫妻；情侣,F,approved
+word_sense,married_adj_1,married,T,approved_with_correction,having a husband or wife,已婚的,F,approved
+word_sense,adult_n_1,adult,T,approved_with_correction,fully grown person who is legally responsible for their actions,成年人,F,approved
+word_sense,person_n_1,person,T,approved_with_correction,human as an individual,人；个人,F,approved
+word_sense,aunt_n_1,aunt,T,approved_with_correction,the sister of your father or mother; the wife of your uncle or aunt,姑妈；姨妈；伯母；婶母,F,approved
+word_sense,boy_n_1,boy,F,approved,male child or a young male person,男孩,F,approved
+word_sense,girl_n_1,girl,T,approved_with_correction,female child,女孩,F,approved
+word_sense,marriage_n_1,marriage,T,approved_with_correction,the legal relationship between two people who are married to each other,婚姻,F,approved
+word_sense,uncle_n_1,uncle,T,approved_with_correction,the brother of your mother or father; the husband of your aunt or uncle,叔叔；伯伯；舅舅；姨父,F,approved
+word_sense,cousin_n_1,cousin,T,approved_with_correction,child of your aunt or uncle,堂兄弟姐妹；表兄弟姐妹,F,approved
+word_sense,man_n_1,man,T,approved_with_correction,an adult male human,成年男子,F,approved
+word_sense,woman_n_1,woman,T,approved_with_correction,an adult female human,成年女子,F,approved
+word_sense,age_n_1,age,T,approved_with_correction,the number of years that a person has lived or a thing has existed,年龄,F,approved
+word_sense,relative_n_1,relative,T,approved_with_correction,person who is in the same family as somebody else,亲戚,F,approved
+word_sense,grandmother_n_1,grandmother,T,approved_with_correction,the mother of your father or mother,祖母；外祖母,F,approved
+word_sense,people_n_1,people,T,approved_with_correction,"human beings; men, women and children",人们,F,approved
+word_sense,grandfather_n_1,grandfather,T,approved_with_correction,the father of your father or mother,祖父；外祖父,F,approved
+word_sense,friend_n_1,friend,T,approved_with_correction,"person you know well and like, and who is not usually a member of your family",朋友,F,approved
+word_sense,kid_n_1,kid,T,approved_with_correction,child or young person,小孩；孩子,F,approved
+word_sense,mom_n_1,mom,T,approved,informal terms for a mother,妈妈,F,approved
+word_sense,name_n_1,name,T,approved_with_correction,"word or words that a particular person, animal, place or thing is known by",名字；姓名,F,approved
+word_sense,young_adj_1,young,T,approved_with_correction,having lived or existed for only a short time; not fully developed,年轻的；年幼的,F,approved
+word_sense,grandparent_n_1,grandparent,F,approved_with_correction,the father or mother of your father or mother,祖父母；外祖父母,F,approved
+word_sense,old_adj_1,old,T,approved_with_correction,having lived for many years; no longer young,年老的,F,approved
+word_sense,partner_n_1,partner,T,approved_with_correction,a person you do an activity with or share a relationship with,搭档；伴侣,F,approved
+word_sense,teenager_n_1,teenager,F,approved_with_correction,person who is between 13 and 19 years old,青少年,F,approved
+word_sense,twin_n_1,twin,T,approved_with_correction,one of two children born at the same time to the same mother,双胞胎之一,F,approved
+word_sense,grandson_n_1,grandson,T,approved_with_correction,a male grandchild,孙子；外孙,F,approved
+word_sense,granddaughter_n_1,granddaughter,T,approved_with_correction,a female grandchild,孙女；外孙女,F,approved
+word_sense,nephew_n_1,nephew,T,approved_with_correction,a son of your brother or sister,侄子；外甥,F,approved
+word_sense,neighbor_n_1,neighbor,T,approved,a person who lives (or is located) near another,邻居,F,approved
+word_sense,niece_n_1,niece,T,approved_with_correction,a daughter of your brother or sister,侄女；外甥女,F,approved
+word_sense,short_adj_1,short,T,approved_with_correction,having a small height or length,矮的；短的,F,approved
+word_sense,grow_v_1,grow,T,approved_with_correction,"to become larger, taller, or more developed",成长；长大,F,approved
+word_sense,birth_n_1,birth,T,approved_with_correction,the time when a baby is born; the process of being born,出生,F,approved
+word_sense,heavy_adj_1,heavy,T,approved_with_correction,weighing a lot; difficult to lift or move,重的,F,approved
+word_sense,strong_adj_1,strong,T,approved_with_correction,"having a lot of physical power so that you can lift heavy weights, do hard physical work, etc.",强壮的,F,approved
+word_sense,height_n_1,height,T,approved_with_correction,the measurement of how tall a person or thing is,身高；高度,F,approved
+word_sense,face_n_1,face,T,approved_with_correction,"the front part of the head, where the eyes, nose and mouth are",脸；面部,F,approved
+word_sense,beautiful_adj_1,beautiful,F,approved,having beauty; giving pleasure to the senses or to the mind,美丽的,F,approved
+word_sense,youth_n_1,youth,T,approved_with_correction,"the time of life when a person is young, especially the time before a child becomes an adult",青春时期；年轻时期,F,approved
+word_sense,eye_n_1,eye,T,approved_with_correction,either of the two organs on the face that you see with,眼睛,F,approved
+word_sense,tall_adj_1,tall,T,approved_with_correction,having a greater than average height,高的,F,approved
+word_sense,born_v_1,born,T,approved,brought into life by birth,出生的；天生的,F,approved
+word_sense,hair_n_1,hair,T,approved_with_correction,the substance that looks like a mass of fine threads growing on a person's head,头发,F,approved
+word_sense,pretty_adj_1,pretty,T,approved_with_correction,attractive without being very beautiful,漂亮的,F,approved
+word_sense,thin_adj_1,thin,T,approved_with_correction,having little fat on the body,瘦的,F,approved
+word_sense,healthy_adj_1,healthy,T,approved_with_correction,having good health and not likely to become ill,健康的,F,approved
+word_sense,weak_adj_1,weak,T,approved_with_correction,not physically strong,虚弱的,F,approved
+word_sense,hand_n_1,hand,T,approved_with_correction,"the part of the body at the end of the arm, including the fingers and thumb",手,F,approved
+word_sense,foot_n_1,foot,T,approved_with_correction,"the lowest part of the leg, below the ankle, on which a person or an animal stands",脚,F,approved
+word_sense,head_n_1,head,T,approved_with_correction,"the part of the body on top of the neck containing the eyes, nose, mouth and brain",头；头部,F,approved
+word_sense,body_n_1,body,T,approved_with_correction,the whole physical structure of a human or an animal,身体,F,approved
+word_sense,arm_n_1,arm,T,approved_with_correction,either of the two long parts that stick out from the top of the body and connect the shoulders to the hands,手臂,F,approved
+word_sense,nose_n_1,nose,T,approved_with_correction,"the part of the face that sticks out above the mouth, used for breathing and smelling things",鼻子,F,approved
+word_sense,mouth_n_1,mouth,T,approved_with_correction,"the opening in the face used for speaking, eating, etc.; the area inside the head behind this opening",嘴；口腔,F,approved
+word_sense,childhood_n_1,childhood,F,approved_with_correction,the period of somebody’s life when they are a child,童年,F,approved
+word_sense,skin_n_1,skin,T,approved_with_correction,the layer of tissue that covers the body,皮肤,F,approved
+word_sense,ear_n_1,ear,T,approved_with_correction,either of the organs on the sides of the head that you hear with,耳朵,F,approved
+word_sense,leg_n_1,leg,T,approved_with_correction,one of the long parts that connect the feet to the rest of the body,腿,F,approved
+word_sense,tooth_n_1,tooth,T,approved_with_correction,any of the hard white structures in the mouth used for biting food,牙齿,F,approved
+word_sense,single_adj_1,single,T,approved_with_correction,not married or in a romantic relationship,单身的,F,approved
+word_sense,look_n_1,look,T,approved,a person's appearance or the expression on their face,外表；神情,F,approved
+word_sense,laugh_v_1,laugh,T,approved_with_correction,to make the sounds and movements of your face that show you think something is funny or silly,笑,F,approved
+word_sense,voice_n_1,voice,T,approved_with_correction,the sound or sounds produced through the mouth by a person speaking or singing,嗓音；声音,F,approved
+word_sense,smile_v_1,smile,T,approved_with_correction,to make a smile appear on your face,微笑,F,approved
+word_sense,appearance_n_1,appearance,T,approved_with_correction,the way that somebody/something looks on the outside; what somebody/something seems to be,外貌；外表,F,approved
+word_sense,dead_adj_1,dead,T,approved_with_correction,no longer alive,死的；失去生命的,F,approved
+word_sense,male_adj_1,male,T,approved_with_correction,being a man or boy,男性的；雄性的,F,approved
+word_sense,female_adj_1,female,T,approved_with_correction,being a woman or a girl,女性的；雌性的,F,approved
+word_sense,cute_adj_1,cute,T,approved_with_correction,pretty and attractive,可爱的,F,approved
+word_sense,alive_adj_1,alive,T,approved_with_correction,living; not dead,活着的,F,approved
+word_sense,handsome_adj_1,handsome,T,approved_with_correction,pleasing in appearance especially by reason of conformity to ideals of form and proportion,英俊的,F,approved
+word_sense,elderly_adj_1,elderly,T,approved_with_correction,used as a polite word for ‘old’,年长的；上了年纪的,F,approved
+word_sense,pregnant_adj_1,pregnant,T,approved_with_correction,having a baby or young animal developing inside her/its body,怀孕的,F,approved
+word_sense,beard_n_1,beard,T,approved_with_correction,the hair growing on the lower part of a man's face,胡须；胡子,F,approved
+word_sense,slim_adj_1,slim,T,approved,thin in an attractive or healthy-looking way,苗条的,F,approved
+word_sense,care_v_1,care,T,approved_with_correction,to feel that something is important and worth worrying about,关心；在意,F,approved
+word_sense,support_v_1,support,T,approved_with_correction,"to help someone emotionally, practically, or financially",支持；帮助,F,approved
+word_sense,love_v_1,love,T,approved_with_correction,to have very strong feelings of liking and caring for somebody,爱；喜爱,F,approved
+word_sense,help_v_1,help,T,approved_with_correction,to make it easier or possible for somebody to do something by doing something for them or by giving them something that they need,帮助,F,approved
+word_sense,live_v_1,live,T,approved_with_correction,to have your home in a particular place,居住,F,approved
+word_sense,share_v_1,share,T,approved_with_correction,"to have, use or experience something at the same time as somebody else",分享；共用,F,approved
+word_sense,visit_v_1,visit,T,approved_with_correction,to go to see a person or a place for a period of time,拜访；看望,F,approved
+word_sense,meet_v_1,meet,T,approved_with_correction,"to come together with someone, either by plan or by chance",见面；遇见,F,approved
+word_sense,relationship_n_1,relationship,T,approved_with_correction,"the way in which two people, groups or countries behave towards each other or deal with each other",关系,F,approved
+word_sense,remember_v_1,remember,T,approved_with_correction,"to have or keep an image in your memory of an event, a person, a place, etc. from the past",记得；记住,F,approved
+word_sense,know_v_1,know,T,approved_with_correction,to have information in your mind as a result of experience or because you have learned or been told it,知道；认识,F,approved
+word_sense,nice_adj_1,nice,T,approved_with_correction,pleasant or attractive,友好的；令人愉快的,F,approved
+word_sense,kind_adj_1,kind,T,approved_with_correction,"caring about others; gentle, friendly and generous",善良的；体贴的,F,approved
+word_sense,respect_v_1,respect,T,approved_with_correction,to have a very good opinion of somebody/something; to admire somebody/something,尊重,F,approved
+word_sense,culture_n_1,culture,T,approved_with_correction,"the customs and beliefs, art, way of life and social organization of a particular country or group",文化,F,approved
+word_sense,friendly_adj_1,friendly,T,approved_with_correction,behaving in a kind and pleasant way because you like somebody or want to help them,友好的,F,approved
+word_sense,community_n_1,community,T,approved_with_correction,"all the people who live in a particular area, country, etc. when talked about as a group",社区,F,approved
+word_sense,quiet_adj_1,quiet,T,approved_with_correction,making very little noise,安静的,F,approved
+word_sense,role_n_1,role,T,approved,the function or position someone has in a family or group,角色；职责,F,approved
+word_sense,trust_n_1,trust,T,approved_with_correction,"the belief that somebody/something is good, sincere, honest, etc. and will not try to harm or trick you",信任,F,approved
+word_sense,responsibility_n_1,responsibility,T,approved_with_correction,"duty to deal with or take care of somebody/something, so that you may be blamed if something goes wrong",责任,F,approved
+word_sense,active_adj_1,active,T,approved_with_correction,"always busy doing things, especially physical activities",活跃的；积极的,F,approved
+word_sense,independent_adj_1,independent,T,approved_with_correction,able to live or act without depending on other people,独立的,F,approved
+word_sense,honest_adj_1,honest,T,approved_with_correction,"always telling the truth, and never stealing or cheating",诚实的,F,approved
+word_sense,raise_v_1,raise,T,approved,to care for a child until the child becomes an adult,抚养；养育,F,approved
+word_sense,value_n_1,value,T,approved,a belief about what is important or morally right,价值观；准则,F,approved
+word_sense,different_adj_1,different,F,approved,not the same as somebody/something; not like somebody/something else,不同的,F,approved
+word_sense,argument_n_1,argument,T,approved_with_correction,"conversation or discussion in which two or more people disagree, often angrily",争吵；争论,F,approved
+word_sense,agree_v_1,agree,T,approved_with_correction,to have the same opinion as somebody; to say that you have the same opinion,同意,F,approved
+word_sense,similar_adj_1,similar,T,approved_with_correction,like somebody/something but not exactly the same,相似的,F,approved
+word_sense,polite_adj_1,polite,T,approved_with_correction,having or showing good manners and respect for the feelings of others,有礼貌的,F,approved
+word_sense,attitude_n_1,attitude,T,approved_with_correction,the way that you think and feel about somebody/something; the way that you behave towards somebody/something that shows how you think and feel,态度,F,approved
+word_sense,responsible_adj_1,responsible,T,approved_with_correction,"having the job or duty of doing something or taking care of somebody/something, so that you may be blamed if something goes wrong",负责任的,F,approved
+word_sense,tradition_n_1,tradition,T,approved_with_correction,"belief, custom or way of doing something that has existed for a long time among a particular group of people; a set of these beliefs or customs",传统,F,approved
+word_sense,together_adv_1,together,T,approved_with_correction,with or near to somebody/something else; with each other,一起；共同,F,approved
+word_sense,common_adj_1,common,T,approved_with_correction,happening often; existing in large numbers or in many places,常见的；共同的,F,approved
+word_sense,influence_n_1,influence,T,approved_with_correction,the effect that somebody/something has on the way a person thinks or behaves or on the way that something works or develops,影响,F,approved
+word_sense,protect_v_1,protect,T,approved_with_correction,"to make sure that somebody/something is not harmed, injured, damaged, etc.",保护,F,approved
+word_sense,close_adj_1,close,T,approved_with_correction,having a strong and friendly relationship,亲密的；关系密切的,F,approved
+word_sense,alone_adj_1,alone,T,approved_with_correction,without any other people,独自的；单独的,F,approved
+word_sense,generation_n_1,generation,T,approved_with_correction,all the people who were born at about the same time,一代人,F,approved
+word_sense,disagree_v_1,disagree,T,approved_with_correction,"if two people disagree or one person disagrees with another about something, they have a different opinion about it",不同意；有分歧,F,approved
+word_sense,encourage_v_1,encourage,T,approved_with_correction,"to give somebody support, courage or hope",鼓励,F,approved
+word_sense,behavior_n_1,behavior,T,approved_with_correction,manner of acting or controlling yourself,行为；举止,F,approved
+word_sense,communicate_v_1,communicate,T,approved_with_correction,"to share or exchange information, news, ideas, feelings, etc.",沟通；交流,F,approved
+word_sense,house_n_1,house,T,approved_with_correction,"building for people to live in, usually for one family",房子；住宅,F,approved
+word_sense,building_n_1,building,T,approved_with_correction,structure such as a house or school that has a roof and walls,建筑物,F,approved
+word_sense,room_n_1,room,T,approved_with_correction,"part of a building that has its own walls, floor and ceiling and is usually used for a particular purpose",房间,F,approved
+word_sense,home_n_1,home,T,approved,the house or apartment where a person lives,家；住所,F,approved
+word_sense,wall_n_1,wall,T,approved_with_correction,"long, solid structure that rises straight up from the ground, made of stone, brick or concrete, that surrounds, divides or protects an area of land",墙；墙壁,F,approved
+word_sense,bedroom_n_1,bedroom,F,approved,room for sleeping in,卧室,F,approved
+word_sense,apartment_n_1,apartment,T,approved_with_correction,"set of rooms for living in, usually on one floor of a building",公寓,F,approved
+word_sense,bathroom_n_1,bathroom,T,approved_with_correction,"room in which there is a bath, a washbasin and often a toilet",浴室；卫生间,F,approved
+word_sense,kitchen_n_1,kitchen,T,approved_with_correction,room in which meals are cooked or prepared,厨房,F,approved
+word_sense,window_n_1,window,T,approved_with_correction,"an opening in the wall or roof of a building, car, etc., usually covered with glass, that allows light and air to come in and people to see out; the glass in a window",窗户,F,approved
+word_sense,floor_n_1,floor,T,approved_with_correction,the surface of a room that you walk on,地板,F,approved
+word_sense,door_n_1,door,F,approved,"piece of wood, glass, etc. that is opened and closed so that people can get in and out of a room, building, car, etc.; a similar thing in a cupboard",门,F,approved
+word_sense,garden_n_1,garden,T,approved_with_correction,"piece of land next to or around your house where you can grow flowers, fruit, vegetables, etc., usually with a lawn (= an area of grass)",花园,F,approved
+word_sense,table_n_1,table,T,approved_with_correction,piece of furniture that consists of a flat top supported by legs,桌子,F,approved
+word_sense,chair_n_1,chair,T,approved_with_correction,"piece of furniture for one person to sit on, with a back, a seat and four legs",椅子,F,approved
+word_sense,hall_n_1,hall,T,approved_with_correction,space or passage inside the entrance or front door of a building,门厅；走廊,F,approved
+word_sense,roof_n_1,roof,T,approved_with_correction,the structure that covers or forms the top of a building or vehicle,屋顶,F,approved
+word_sense,bed_n_1,bed,T,approved_with_correction,piece of furniture for sleeping on,床,F,approved
+word_sense,yard_n_1,yard,T,approved_with_correction,an area of land next to a house,院子,F,approved
+word_sense,furniture_n_1,furniture,T,approved_with_correction,"objects that can be moved, such as tables, chairs and beds, that are put into a house or an office to make it suitable for living or working in",家具,F,approved
+word_sense,ceiling_n_1,ceiling,F,approved,the top inside surface of a room,天花板,F,approved
+word_sense,desk_n_1,desk,T,approved_with_correction,"piece of furniture like a table, often with drawers (= parts like boxes in it with handles on the front for pulling them open), that you sit at to read, write, work, etc.",书桌；办公桌,F,approved
+word_sense,light_n_1,light,T,approved,a lamp or other object that produces light,灯；光源,F,approved
+word_sense,entrance_n_1,entrance,T,approved_with_correction,"door, gate, passage, etc. used for entering a room, building or place",入口,F,approved
+word_sense,garage_n_1,garage,T,approved_with_correction,building for keeping one or more cars or other vehicles in,车库,F,approved
+word_sense,shelf_n_1,shelf,T,approved_with_correction,"flat board, made of wood, metal, glass, etc., fixed to the wall or forming part of a cupboard, bookcase, etc., for things to be placed on",架子；搁板,F,approved
+word_sense,key_n_1,key,T,approved_with_correction,"piece of metal with a special shape used for locking a door, starting a car, etc.",钥匙,F,approved
+word_sense,mirror_n_1,mirror,T,approved_with_correction,"piece of special flat glass that reflects images, so that you can see yourself when you look in it",镜子,F,approved
+word_sense,carpet_n_1,carpet,T,approved_with_correction,"piece of thick woven material made of wool, etc., used to cover the floor of a room or stairs; the material used for carpets",地毯,F,approved
+word_sense,lamp_n_1,lamp,F,approved,"device that uses electricity, oil or gas to produce light",灯,F,approved
+word_sense,lock_n_1,lock,T,approved_with_correction,"device that keeps a door, window, box, etc. shut, usually needing a key to open it",锁,F,approved
+word_sense,stairs_n_1,stairs,T,approved,a flight of stairs or a flight of steps,楼梯,F,approved
+word_sense,shower_n_1,shower,T,approved_with_correction,equipment that sprays water so a person can wash,淋浴器,F,approved
+word_sense,cabinet_n_1,cabinet,T,approved,a piece of furniture with shelves or drawers used for storage,橱柜；储物柜,F,approved
+word_sense,curtain_n_1,curtain,T,approved_with_correction,piece of cloth that is hung to cover a window,窗帘,F,approved
+word_sense,balcony_n_1,balcony,T,approved_with_correction,a platform outside an upper floor of a building,阳台,F,approved
+word_sense,toilet_n_1,toilet,T,approved_with_correction,large bowl attached to a pipe that you sit on or stand over when you get rid of waste matter from your body,马桶；厕所,F,approved
+word_sense,closet_n_1,closet,T,approved,a small storage space or cupboard for clothes and other things,壁橱；衣橱,F,approved
+word_sense,drawer_n_1,drawer,T,approved_with_correction,a boxlike container in a piece of furniture; made so as to slide in and out,抽屉,F,approved
+word_sense,couch_n_1,couch,T,approved,a long comfortable seat for two or more people,长沙发,F,approved
+word_sense,wardrobe_n_1,wardrobe,T,approved_with_correction,a tall piece of furniture that provides storage space for clothes; has a door and rails or hooks for hanging clothes,衣柜；衣橱,F,approved
+word_sense,sofa_n_1,sofa,T,approved,an upholstered seat for more than one person,沙发,F,approved
+word_sense,blanket_n_1,blanket,T,approved_with_correction,"large cover, often made of wool, used especially on beds to keep people warm",毯子；毛毯,F,approved
+word_sense,pillow_n_1,pillow,T,approved_with_correction,a cushion to support the head of a sleeping person,枕头,F,approved
+word_sense,mattress_n_1,mattress,T,approved_with_correction,"a large thick pad filled with resilient material and often incorporating coiled springs, used as a bed or part of a bed",床垫,F,approved
+word_sense,cup_n_1,cup,T,approved_with_correction,"small container that is like a bowl in shape, usually with a handle, used for drinking tea, coffee, etc.",杯子,F,approved
+word_sense,glass_n_1,glass,T,approved,a small container made of glass that is used for drinking,玻璃杯,F,approved
+word_sense,object_n_1,object,T,approved_with_correction,"thing that can be seen and touched, but is not alive",物体；物品,F,approved
+word_sense,thing_n_1,thing,T,approved_with_correction,"an object whose name you do not use because you do not need to or want to, or because you do not know it",东西；事物,F,approved
+word_sense,box_n_1,box,T,approved_with_correction,"container made of wood, thick card, metal, etc. with a flat stiff base and sides and often a lid (= cover), used especially for holding solid things",盒子；箱子,F,approved
+word_sense,bag_n_1,bag,T,approved_with_correction,"container made of cloth, leather, plastic or paper, used to carry things in, especially when shopping or travelling",袋子；包,F,approved
+word_sense,bottle_n_1,bottle,T,approved_with_correction,"glass or plastic container, usually round with straight sides and a narrow neck, used especially for storing liquids",瓶子,F,approved
+word_sense,knife_n_1,knife,T,approved_with_correction,"sharp blade (= metal edge) with a handle, used for cutting or as a weapon",刀；小刀,F,approved
+word_sense,television_n_1,television,F,approved_with_correction,piece of electrical equipment with a screen on which you can watch programmes with moving pictures and sounds,电视机,F,approved
+word_sense,dish_n_1,dish,T,approved,a shallow container used for cooking or serving food,盘；碟,F,approved
+word_sense,computer_n_1,computer,T,approved_with_correction,"an electronic machine that can store, organize and find information, do processes with numbers and other data, and control other machines",电脑,F,approved
+word_sense,plate_n_1,plate,T,approved_with_correction,"flat, usually round, dish that you put food on",盘子,F,approved
+word_sense,phone_n_1,phone,T,approved_with_correction,piece of equipment for talking to people who are not in the same place as you,电话；手机,F,approved
+word_sense,bowl_n_1,bowl,T,approved_with_correction,"deep round dish with a wide open top, used especially for holding food or liquid",碗,F,approved
+word_sense,clock_n_1,clock,T,approved_with_correction,"an instrument for measuring and showing time, in a room, on the wall of a building or on a computer screen (not worn or carried like a watch)",时钟,F,approved
+word_sense,towel_n_1,towel,T,approved_with_correction,"piece of cloth or paper used for drying things, especially your body",毛巾,F,approved
+word_sense,spoon_n_1,spoon,T,approved_with_correction,"tool that has a handle with a shallow bowl at the end, used for mixing, serving and eating food",勺子；汤匙,F,approved
+word_sense,carry_v_1,carry,T,approved_with_correction,to support the weight of somebody/something and take them or it from place to place; to take somebody/something from one place to another,搬；携带,F,approved
+word_sense,fork_n_1,fork,T,approved_with_correction,"tool with a handle and three or four sharp points (called prongs), used for picking up and eating food",叉子,F,approved
+word_sense,pot_n_1,pot,T,approved_with_correction,deep round container used for cooking things in,锅,F,approved
+word_sense,put_v_1,put,T,approved_with_correction,to move something into a particular place or position,放；置于,F,approved
+word_sense,keep_v_1,keep,T,approved_with_correction,to store something in a particular place or condition,存放；保存,F,approved
+word_sense,clean_v_1,clean,T,approved_with_correction,to remove the dirt or dust from something,清洁；打扫,F,approved
+word_sense,pan_n_1,pan,T,approved_with_correction,a wide metal container used for cooking food,平底锅,F,approved
+word_sense,open_v_1,open,T,approved_with_correction,"to move a door, window, lid, etc. into a position that is no longer closed; to get into this position",打开,F,approved
+word_sense,soap_n_1,soap,T,approved_with_correction,substance that you use with water for washing your body,肥皂,F,approved
+word_sense,brush_n_1,brush,T,approved_with_correction,"an object made of short stiff hairs (called bristles) or wires set in a block of wood or plastic, usually attached to a handle. Brushes are used for many different jobs, such as cleaning, painting and tidying your hair.",刷子,F,approved
+word_sense,fridge_n_1,fridge,F,approved_with_correction,piece of electrical equipment in which food is kept cold so that it stays fresh,冰箱,F,approved
+word_sense,use_v_1,use,T,approved_with_correction,"to do something with a machine, a method, an object, etc. for a particular purpose",使用,F,approved
+word_sense,need_v_1,need,T,approved_with_correction,"to require something/somebody because they are essential or very important, not just because you would like to have them",需要,F,approved
+word_sense,water_n_1,water,T,approved_with_correction,"liquid without colour, smell or taste that falls as rain, is in lakes, rivers and seas, and is used for drinking, washing, etc.",水,F,approved
+word_sense,wash_v_1,wash,T,approved_with_correction,to make something/somebody clean using water and usually soap,洗；清洗,F,approved
+word_sense,cook_v_1,cook,T,approved_with_correction,"to prepare food by heating it, for example by boiling, baking or frying it",烹饪；做饭,F,approved
+word_sense,oven_n_1,oven,T,approved_with_correction,"the part of a cooker that is like a box with a door on the front, in which food is cooked or heated",烤箱,F,approved
+word_sense,move_v_1,move,T,approved_with_correction,"to change position or make somebody/something change position in a way that can be seen, heard or felt",移动；搬动,F,approved
+word_sense,own_v_1,own,T,approved_with_correction,"to have something that belongs to you, especially because you have bought it",拥有,F,approved
+word_sense,repair_v_1,repair,T,approved_with_correction,"to fix something that is broken, damaged or torn",修理,F,approved
+word_sense,electricity_n_1,electricity,T,approved_with_correction,"form of energy from charged elementary particles, usually supplied as electric current through cables, wires, etc. for lighting, heating, driving machines, etc.",电；电力,F,approved
+word_sense,fix_v_1,fix,T,approved_with_correction,to repair or correct something,修理；修好,F,approved
+word_sense,basket_n_1,basket,T,approved_with_correction,"container for holding or carrying things. Baskets are made of long thin pieces of material that bends and twists easily, for example plastic, wire or wicker.",篮子,F,approved
+word_sense,comfortable_adj_1,comfortable,T,approved_with_correction,"making you feel physically relaxed; pleasant to wear, sit on, etc.",舒适的,F,approved
+word_sense,safe_adj_1,safe,T,approved_with_correction,"protected from any danger, harm or loss",安全的,F,approved
+word_sense,rent_v_1,rent,T,approved,"to pay money to use a home, room, or object for a period of time",租用；租住,F,approved
+word_sense,refrigerator_n_1,refrigerator,T,approved_with_correction,white goods in which food can be stored at low temperatures,冰箱,F,approved
+word_sense,stove_n_1,stove,T,approved_with_correction,a kitchen appliance with burners used for cooking food,炉灶,F,approved
+word_form,mother_n_1_form_2,mother,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mother_n_1_form_3,mother,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mother_n_1_form_4,mother,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mother_n_1_form_5,mother,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,father_n_1_form_2,father,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,father_n_1_form_3,father,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,father_n_1_form_4,father,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,father_n_1_form_5,father,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,baby_n_1_form_2,baby,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,baby_n_1_form_3,baby,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,baby_n_1_form_4,baby,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,baby_n_1_form_5,baby,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,husband_n_1_form_2,husband,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,husband_n_1_form_3,husband,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,husband_n_1_form_4,husband,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,husband_n_1_form_5,husband,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couple_n_1_form_2,couple,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couple_n_1_form_3,couple,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couple_n_1_form_4,couple,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couple_n_1_form_5,couple,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,married_adj_1_form_1,married,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,married_adj_1_form_2,married,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,married_adj_1_form_3,married,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,married_adj_1_form_4,married,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,man_n_1_form_2,man,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,man_n_1_form_3,man,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,man_n_1_form_4,man,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,man_n_1_form_5,man,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,age_n_1_form_2,age,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,age_n_1_form_3,age,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,age_n_1_form_4,age,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,age_n_1_form_5,age,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,people_n_1_form_2,people,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,people_n_1_form_3,people,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,people_n_1_form_4,people,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,people_n_1_form_5,people,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,kid_n_1_form_2,kid,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,kid_n_1_form_3,kid,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,kid_n_1_form_4,kid,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,kid_n_1_form_5,kid,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,name_n_1_form_2,name,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,name_n_1_form_3,name,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,name_n_1_form_4,name,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,name_n_1_form_5,name,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,old_adj_1_form_3,old,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,partner_n_1_form_2,partner,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,partner_n_1_form_3,partner,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,partner_n_1_form_4,partner,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,partner_n_1_form_5,partner,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,twin_n_1_form_2,twin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,twin_n_1_form_3,twin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,twin_n_1_form_4,twin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,twin_n_1_form_5,twin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,neighbor_n_1_form_2,neighbor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,neighbor_n_1_form_3,neighbor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,neighbor_n_1_form_4,neighbor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,neighbor_n_1_form_5,neighbor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,short_adj_1_form_3,short,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,short_adj_1_form_4,short,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,short_adj_1_form_5,short,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,short_adj_1_form_6,short,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,birth_n_1_form_2,birth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,birth_n_1_form_3,birth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,birth_n_1_form_4,birth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,birth_n_1_form_5,birth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,heavy_adj_1_form_3,heavy,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,face_n_1_form_1,face,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,face_n_1_form_3,face,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,face_n_1_form_4,face,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,face_n_1_form_5,face,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,eye_n_1_form_2,eye,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,eye_n_1_form_3,eye,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,eye_n_1_form_4,eye,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,eye_n_1_form_5,eye,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,born_v_1_form_1,born,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,born_v_1_form_2,born,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,born_v_1_form_3,born,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,born_v_1_form_4,born,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,born_v_1_form_5,born,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,thin_adj_1_form_2,thin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,thin_adj_1_form_4,thin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,thin_adj_1_form_5,thin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,thin_adj_1_form_6,thin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,hand_n_1_form_2,hand,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,hand_n_1_form_3,hand,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,hand_n_1_form_4,hand,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,hand_n_1_form_5,hand,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,foot_n_1_form_2,foot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,foot_n_1_form_3,foot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,foot_n_1_form_4,foot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,foot_n_1_form_5,foot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,head_n_1_form_2,head,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,head_n_1_form_3,head,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,head_n_1_form_4,head,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,head_n_1_form_5,head,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,body_n_1_form_2,body,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,body_n_1_form_3,body,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,body_n_1_form_4,body,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,body_n_1_form_5,body,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,arm_n_1_form_2,arm,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,arm_n_1_form_3,arm,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,arm_n_1_form_4,arm,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,arm_n_1_form_5,arm,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,nose_n_1_form_2,nose,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,nose_n_1_form_3,nose,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,nose_n_1_form_4,nose,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,nose_n_1_form_5,nose,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mouth_n_1_form_2,mouth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mouth_n_1_form_3,mouth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mouth_n_1_form_4,mouth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mouth_n_1_form_5,mouth,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,skin_n_1_form_2,skin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,skin_n_1_form_3,skin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,skin_n_1_form_4,skin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,skin_n_1_form_5,skin,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,single_adj_1_form_1,single,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,single_adj_1_form_2,single,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,single_adj_1_form_3,single,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,single_adj_1_form_4,single,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,single_adj_1_form_5,single,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,look_n_1_form_1,look,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,look_n_1_form_2,look,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,look_n_1_form_3,look,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,look_n_1_form_4,look,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,laugh_v_1_form_5,laugh,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,voice_n_1_form_2,voice,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,voice_n_1_form_3,voice,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,voice_n_1_form_4,voice,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,voice_n_1_form_5,voice,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,smile_v_1_form_3,smile,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,male_adj_1_form_1,male,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,female_adj_1_form_1,female,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,beard_n_1_form_2,beard,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,beard_n_1_form_3,beard,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,beard_n_1_form_4,beard,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,beard_n_1_form_5,beard,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,slim_adj_1_form_2,slim,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,slim_adj_1_form_3,slim,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,slim_adj_1_form_4,slim,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,slim_adj_1_form_5,slim,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,care_v_1_form_5,care,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,support_v_1_form_5,support,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,love_v_1_form_5,love,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,help_v_1_form_5,help,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,live_v_1_form_5,live,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,share_v_1_form_1,share,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,visit_v_1_form_2,visit,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,kind_adj_1_form_1,kind,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,respect_v_1_form_1,respect,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,culture_n_1_form_2,culture,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,culture_n_1_form_3,culture,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,friendly_adj_1_form_2,friendly,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,quiet_adj_1_form_3,quiet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,quiet_adj_1_form_4,quiet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,quiet_adj_1_form_5,quiet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,quiet_adj_1_form_6,quiet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,trust_n_1_form_2,trust,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,trust_n_1_form_3,trust,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,trust_n_1_form_4,trust,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,trust_n_1_form_5,trust,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,active_adj_1_form_1,active,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,independent_adj_1_form_1,independent,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,value_n_1_form_2,value,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,value_n_1_form_3,value,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,value_n_1_form_4,value,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,value_n_1_form_5,value,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,influence_n_1_form_1,influence,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,influence_n_1_form_3,influence,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,influence_n_1_form_4,influence,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,influence_n_1_form_5,influence,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,close_adj_1_form_1,close,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,close_adj_1_form_3,close,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,close_adj_1_form_4,close,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,close_adj_1_form_6,close,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,house_n_1_form_2,house,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,house_n_1_form_3,house,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,house_n_1_form_4,house,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,house_n_1_form_5,house,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,building_n_1_form_1,building,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,building_n_1_form_2,building,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,building_n_1_form_4,building,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,room_n_1_form_2,room,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,room_n_1_form_3,room,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,room_n_1_form_4,room,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,room_n_1_form_5,room,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,home_n_1_form_2,home,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,home_n_1_form_3,home,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,home_n_1_form_4,home,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,home_n_1_form_5,home,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,wall_n_1_form_2,wall,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,wall_n_1_form_3,wall,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,wall_n_1_form_4,wall,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,wall_n_1_form_5,wall,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,floor_n_1_form_2,floor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,floor_n_1_form_3,floor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,floor_n_1_form_4,floor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,floor_n_1_form_5,floor,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garden_n_1_form_2,garden,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garden_n_1_form_3,garden,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garden_n_1_form_4,garden,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garden_n_1_form_5,garden,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,table_n_1_form_2,table,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,table_n_1_form_3,table,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,table_n_1_form_4,table,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,table_n_1_form_5,table,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,chair_n_1_form_2,chair,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,chair_n_1_form_3,chair,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,chair_n_1_form_4,chair,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,chair_n_1_form_5,chair,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,hall_n_1_form_2,hall,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,roof_n_1_form_2,roof,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,roof_n_1_form_3,roof,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,roof_n_1_form_4,roof,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,roof_n_1_form_5,roof,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bed_n_1_form_2,bed,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bed_n_1_form_3,bed,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bed_n_1_form_4,bed,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bed_n_1_form_5,bed,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_2,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_3,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_4,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_5,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_6,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,light_n_1_form_7,light,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,entrance_n_1_form_2,entrance,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,entrance_n_1_form_3,entrance,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,entrance_n_1_form_4,entrance,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,entrance_n_1_form_5,entrance,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garage_n_1_form_2,garage,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garage_n_1_form_3,garage,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garage_n_1_form_4,garage,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,garage_n_1_form_5,garage,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,key_n_1_form_2,key,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,key_n_1_form_3,key,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,key_n_1_form_4,key,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,key_n_1_form_5,key,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mirror_n_1_form_2,mirror,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mirror_n_1_form_3,mirror,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mirror_n_1_form_4,mirror,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,mirror_n_1_form_5,mirror,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,carpet_n_1_form_2,carpet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,carpet_n_1_form_3,carpet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,carpet_n_1_form_4,carpet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,carpet_n_1_form_5,carpet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,lock_n_1_form_1,lock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,lock_n_1_form_3,lock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,lock_n_1_form_4,lock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,lock_n_1_form_5,lock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,stairs_n_1_form_2,stairs,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,stairs_n_1_form_3,stairs,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,shower_n_1_form_2,shower,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,shower_n_1_form_3,shower,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,shower_n_1_form_4,shower,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,shower_n_1_form_5,shower,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,curtain_n_1_form_2,curtain,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,curtain_n_1_form_3,curtain,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,curtain_n_1_form_4,curtain,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,curtain_n_1_form_5,curtain,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,balcony_n_1_form_2,balcony,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,closet_n_1_form_2,closet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,closet_n_1_form_3,closet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,closet_n_1_form_4,closet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,closet_n_1_form_5,closet,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couch_n_1_form_1,couch,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couch_n_1_form_3,couch,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couch_n_1_form_4,couch,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,couch_n_1_form_5,couch,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,blanket_n_1_form_2,blanket,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,blanket_n_1_form_3,blanket,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,blanket_n_1_form_4,blanket,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,blanket_n_1_form_5,blanket,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pillow_n_1_form_2,pillow,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pillow_n_1_form_3,pillow,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pillow_n_1_form_4,pillow,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pillow_n_1_form_5,pillow,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,cup_n_1_form_2,cup,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,cup_n_1_form_3,cup,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,cup_n_1_form_4,cup,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,cup_n_1_form_5,cup,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,glass_n_1_form_2,glass,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,glass_n_1_form_3,glass,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,glass_n_1_form_4,glass,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,glass_n_1_form_5,glass,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,object_n_1_form_2,object,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,object_n_1_form_3,object,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,object_n_1_form_4,object,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,object_n_1_form_5,object,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,box_n_1_form_2,box,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,box_n_1_form_3,box,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,box_n_1_form_4,box,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,box_n_1_form_5,box,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bag_n_1_form_2,bag,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bag_n_1_form_3,bag,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bag_n_1_form_4,bag,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bag_n_1_form_5,bag,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bottle_n_1_form_2,bottle,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bottle_n_1_form_3,bottle,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bottle_n_1_form_4,bottle,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bottle_n_1_form_5,bottle,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,knife_n_1_form_2,knife,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,knife_n_1_form_3,knife,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,knife_n_1_form_4,knife,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,knife_n_1_form_5,knife,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,dish_n_1_form_2,dish,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,dish_n_1_form_3,dish,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,dish_n_1_form_4,dish,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,dish_n_1_form_5,dish,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,plate_n_1_form_2,plate,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,plate_n_1_form_3,plate,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,plate_n_1_form_4,plate,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,plate_n_1_form_5,plate,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,phone_n_1_form_1,phone,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,phone_n_1_form_3,phone,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,phone_n_1_form_4,phone,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,phone_n_1_form_5,phone,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bowl_n_1_form_2,bowl,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bowl_n_1_form_3,bowl,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bowl_n_1_form_4,bowl,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,bowl_n_1_form_5,bowl,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,clock_n_1_form_2,clock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,clock_n_1_form_3,clock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,clock_n_1_form_4,clock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,clock_n_1_form_5,clock,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,towel_n_1_form_2,towel,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,towel_n_1_form_3,towel,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,towel_n_1_form_4,towel,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,towel_n_1_form_5,towel,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,spoon_n_1_form_2,spoon,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,spoon_n_1_form_3,spoon,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,spoon_n_1_form_4,spoon,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,spoon_n_1_form_5,spoon,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,fork_n_1_form_2,fork,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,fork_n_1_form_3,fork,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,fork_n_1_form_4,fork,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,fork_n_1_form_5,fork,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pot_n_1_form_2,pot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pot_n_1_form_3,pot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pot_n_1_form_4,pot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pot_n_1_form_5,pot,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,put_v_1_form_2,put,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,put_v_1_form_3,put,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,clean_v_1_form_3,clean,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,clean_v_1_form_6,clean,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pan_n_1_form_2,pan,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pan_n_1_form_3,pan,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pan_n_1_form_4,pan,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,pan_n_1_form_5,pan,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,soap_n_1_form_2,soap,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,soap_n_1_form_3,soap,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,soap_n_1_form_4,soap,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,soap_n_1_form_5,soap,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,brush_n_1_form_1,brush,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,brush_n_1_form_2,brush,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,brush_n_1_form_4,brush,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,brush_n_1_form_5,brush,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,use_v_1_form_5,use,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,need_v_1_form_1,need,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,water_n_1_form_2,water,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,water_n_1_form_3,water,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,water_n_1_form_4,water,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,water_n_1_form_5,water,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,wash_v_1_form_4,wash,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,cook_v_1_form_4,cook,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,move_v_1_form_5,move,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,repair_v_1_form_1,repair,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,fix_v_1_form_5,fix,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,safe_adj_1_form_3,safe,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,rent_v_1_form_1,rent,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,rent_v_1_form_6,rent,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,rent_v_1_form_7,rent,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,stove_n_1_form_2,stove,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,stove_n_1_form_3,stove,F,rejected_wrong_pos_for_selected_sense,,,F,rejected
+word_form,stove_n_1_form_4,stove,T,rejected_invalid_exchange_metadata,,,F,rejected
+word_form,stove_n_1_form_5,stove,T,rejected_invalid_exchange_metadata,,,F,rejected
+collocation,col_father_n_1_1,father,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_son_n_1_1,son,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_baby_n_1_1,baby,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_brother_n_1_1,brother,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_dad_n_1_1,dad,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_husband_n_1_1,husband,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_sister_n_1_1,sister,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_married_adj_1_1,married,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_aunt_n_1_1,aunt,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_boy_n_1_1,boy,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_girl_n_1_1,girl,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_marriage_n_1_1,marriage,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_uncle_n_1_1,uncle,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_cousin_n_1_1,cousin,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_man_n_1_1,man,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_woman_n_1_1,woman,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_relative_n_1_1,relative,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_friend_n_1_1,friend,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_kid_n_1_1,kid,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_name_n_1_1,name,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_partner_n_1_1,partner,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_teenager_n_1_1,teenager,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_twin_n_1_1,twin,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_short_adj_1_1,short,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_birth_n_1_1,birth,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_heavy_adj_1_1,heavy,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_face_n_1_1,face,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_beautiful_adj_1_1,beautiful,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_youth_n_1_1,youth,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_tall_adj_1_1,tall,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_born_v_1_1,born,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_hair_n_1_1,hair,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_pretty_adj_1_1,pretty,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_healthy_adj_1_1,healthy,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_skin_n_1_1,skin,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_ear_n_1_1,ear,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_look_n_1_1,look,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_laugh_v_1_1,laugh,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_smile_v_1_1,smile,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_appearance_n_1_1,appearance,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_male_adj_1_1,male,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_female_adj_1_1,female,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_cute_adj_1_1,cute,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_alive_adj_1_1,alive,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_elderly_adj_1_1,elderly,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_pregnant_adj_1_1,pregnant,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_support_v_1_1,support,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_love_v_1_1,love,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_relationship_n_1_1,relationship,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_remember_v_1_1,remember,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_know_v_1_1,know,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_nice_adj_1_1,nice,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_culture_n_1_1,culture,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_friendly_adj_1_1,friendly,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_quiet_adj_1_1,quiet,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_independent_adj_1_1,independent,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_honest_adj_1_1,honest,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_value_n_1_1,value,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_different_adj_1_1,different,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_argument_n_1_1,argument,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_similar_adj_1_1,similar,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_polite_adj_1_1,polite,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_attitude_n_1_1,attitude,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_responsible_adj_1_1,responsible,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_tradition_n_1_1,tradition,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_together_adv_1_1,together,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_common_adj_1_1,common,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_protect_v_1_1,protect,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_alone_adj_1_1,alone,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_generation_n_1_1,generation,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_disagree_v_1_1,disagree,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_encourage_v_1_1,encourage,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_communicate_v_1_1,communicate,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_house_n_1_1,house,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_building_n_1_1,building,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_wall_n_1_1,wall,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_bedroom_n_1_1,bedroom,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_apartment_n_1_1,apartment,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_window_n_1_1,window,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_floor_n_1_1,floor,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_door_n_1_1,door,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_garden_n_1_1,garden,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_table_n_1_1,table,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_chair_n_1_1,chair,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_hall_n_1_1,hall,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_roof_n_1_1,roof,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_bed_n_1_1,bed,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_furniture_n_1_1,furniture,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_desk_n_1_1,desk,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_light_n_1_1,light,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_mirror_n_1_1,mirror,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_lamp_n_1_1,lamp,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_shower_n_1_1,shower,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_cabinet_n_1_1,cabinet,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_toilet_n_1_1,toilet,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_glass_n_1_1,glass,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_box_n_1_1,box,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_bottle_n_1_1,bottle,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_television_n_1_1,television,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_dish_n_1_1,dish,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_computer_n_1_1,computer,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_plate_n_1_1,plate,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_bowl_n_1_1,bowl,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_clock_n_1_1,clock,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_spoon_n_1_1,spoon,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_carry_v_1_1,carry,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_pot_n_1_1,pot,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_put_v_1_1,put,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_brush_n_1_1,brush,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_use_v_1_1,use,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_need_v_1_1,need,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_water_n_1_1,water,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_wash_v_1_1,wash,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_move_v_1_1,move,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_repair_v_1_1,repair,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_electricity_n_1_1,electricity,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_basket_n_1_1,basket,T,rejected_raw_example_fragment,,,F,rejected
+collocation,col_comfortable_adj_1_1,comfortable,T,rejected_raw_example_fragment,,,F,rejected
+usage_evidence,oxford_family_n_1,family,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_parent_n_1,parent,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_mother_n_1,mother,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_child_n_1,child,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_father_n_1,father,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_son_n_1,son,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_daughter_n_1,daughter,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_baby_n_1,baby,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_brother_n_1,brother,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_dad_n_1,dad,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_husband_n_1,husband,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_wife_n_1,wife,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_sister_n_1,sister,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_couple_n_1,couple,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_married_adj_1,married,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_adult_n_1,adult,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_person_n_1,person,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_aunt_n_1,aunt,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_boy_n_1,boy,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_girl_n_1,girl,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_marriage_n_1,marriage,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_uncle_n_1,uncle,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_cousin_n_1,cousin,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_man_n_1,man,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_woman_n_1,woman,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_age_n_1,age,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_relative_n_1,relative,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_grandmother_n_1,grandmother,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_people_n_1,people,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_grandfather_n_1,grandfather,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_friend_n_1,friend,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_kid_n_1,kid,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_name_n_1,name,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_young_adj_1,young,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_grandparent_n_1,grandparent,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_old_adj_1,old,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_partner_n_1,partner,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_teenager_n_1,teenager,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_twin_n_1,twin,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_short_adj_1,short,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_grow_v_1,grow,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_birth_n_1,birth,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_heavy_adj_1,heavy,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_strong_adj_1,strong,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_height_n_1,height,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_face_n_1,face,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_beautiful_adj_1,beautiful,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_youth_n_1,youth,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_eye_n_1,eye,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_tall_adj_1,tall,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_born_v_1,born,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_hair_n_1,hair,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_pretty_adj_1,pretty,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_thin_adj_1,thin,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_healthy_adj_1,healthy,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_weak_adj_1,weak,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_hand_n_1,hand,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_foot_n_1,foot,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_head_n_1,head,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_body_n_1,body,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_arm_n_1,arm,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_nose_n_1,nose,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_mouth_n_1,mouth,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_childhood_n_1,childhood,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_skin_n_1,skin,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_ear_n_1,ear,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_leg_n_1,leg,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_tooth_n_1,tooth,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_single_adj_1,single,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_look_n_1,look,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_laugh_v_1,laugh,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_voice_n_1,voice,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_smile_v_1,smile,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_appearance_n_1,appearance,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_dead_adj_1,dead,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_male_adj_1,male,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_female_adj_1,female,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_cute_adj_1,cute,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_alive_adj_1,alive,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_elderly_adj_1,elderly,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_pregnant_adj_1,pregnant,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_care_v_1,care,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_support_v_1,support,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_love_v_1,love,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_help_v_1,help,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_live_v_1,live,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_share_v_1,share,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_visit_v_1,visit,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_meet_v_1,meet,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_relationship_n_1,relationship,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_remember_v_1,remember,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_know_v_1,know,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_nice_adj_1,nice,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_kind_adj_1,kind,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_respect_v_1,respect,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_culture_n_1,culture,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_friendly_adj_1,friendly,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_community_n_1,community,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_quiet_adj_1,quiet,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_role_n_1,role,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_trust_n_1,trust,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_responsibility_n_1,responsibility,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_active_adj_1,active,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_independent_adj_1,independent,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_honest_adj_1,honest,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_raise_v_1,raise,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_value_n_1,value,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_different_adj_1,different,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_argument_n_1,argument,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_agree_v_1,agree,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_similar_adj_1,similar,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_polite_adj_1,polite,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_attitude_n_1,attitude,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_responsible_adj_1,responsible,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_tradition_n_1,tradition,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_together_adv_1,together,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_common_adj_1,common,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_influence_n_1,influence,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_protect_v_1,protect,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_close_adj_1,close,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_alone_adj_1,alone,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_generation_n_1,generation,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_disagree_v_1,disagree,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_encourage_v_1,encourage,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_communicate_v_1,communicate,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_house_n_1,house,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_building_n_1,building,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_room_n_1,room,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_home_n_1,home,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_wall_n_1,wall,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bedroom_n_1,bedroom,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_apartment_n_1,apartment,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bathroom_n_1,bathroom,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_kitchen_n_1,kitchen,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_window_n_1,window,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_floor_n_1,floor,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_door_n_1,door,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_garden_n_1,garden,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_table_n_1,table,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_chair_n_1,chair,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_hall_n_1,hall,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_roof_n_1,roof,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bed_n_1,bed,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_yard_n_1,yard,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_furniture_n_1,furniture,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_ceiling_n_1,ceiling,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_desk_n_1,desk,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_light_n_1,light,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_entrance_n_1,entrance,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_garage_n_1,garage,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_shelf_n_1,shelf,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_key_n_1,key,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_mirror_n_1,mirror,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_carpet_n_1,carpet,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_lamp_n_1,lamp,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_lock_n_1,lock,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_shower_n_1,shower,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_cabinet_n_1,cabinet,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_curtain_n_1,curtain,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_toilet_n_1,toilet,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_blanket_n_1,blanket,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_cup_n_1,cup,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_glass_n_1,glass,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_object_n_1,object,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_thing_n_1,thing,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_box_n_1,box,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bag_n_1,bag,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bottle_n_1,bottle,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_knife_n_1,knife,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_television_n_1,television,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_dish_n_1,dish,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_computer_n_1,computer,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_plate_n_1,plate,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_phone_n_1,phone,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_bowl_n_1,bowl,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_clock_n_1,clock,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_towel_n_1,towel,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_spoon_n_1,spoon,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_carry_v_1,carry,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_fork_n_1,fork,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_pot_n_1,pot,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_put_v_1,put,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_keep_v_1,keep,T,rejected_sense_not_guaranteed,,,F,rejected
+usage_evidence,oxford_clean_v_1,clean,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_open_v_1,open,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_soap_n_1,soap,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_brush_n_1,brush,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_fridge_n_1,fridge,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_use_v_1,use,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_need_v_1,need,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_water_n_1,water,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_wash_v_1,wash,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_cook_v_1,cook,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_oven_n_1,oven,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_move_v_1,move,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_own_v_1,own,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_repair_v_1,repair,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_electricity_n_1,electricity,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_fix_v_1,fix,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_basket_n_1,basket,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_comfortable_adj_1,comfortable,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_safe_adj_1,safe,T,approved_private_study_evidence,,,F,approved
+usage_evidence,oxford_rent_v_1,rent,T,approved_private_study_evidence,,,F,approved
+level_assignment,l001_mom_n_1,mom,T,approved,,,F,approved
+level_assignment,l001_grandson_n_1,grandson,T,approved,,,F,approved
+level_assignment,l001_granddaughter_n_1,granddaughter,T,approved,,,F,approved
+level_assignment,l001_nephew_n_1,nephew,T,approved,,,F,approved
+level_assignment,l001_neighbor_n_1,neighbor,T,approved,,,F,approved
+level_assignment,l001_niece_n_1,niece,T,approved,,,F,approved
+level_assignment,l002_arm_n_1,arm,T,approved,,,F,approved
+level_assignment,l002_look_n_1,look,T,approved,,,F,approved
+level_assignment,l002_cute_adj_1,cute,T,approved,,,F,approved
+level_assignment,l002_handsome_adj_1,handsome,T,approved,,,F,approved
+level_assignment,l002_elderly_adj_1,elderly,T,approved,,,F,approved
+level_assignment,l002_pregnant_adj_1,pregnant,T,approved,,,F,approved
+level_assignment,l002_beard_n_1,beard,T,approved,,,F,approved
+level_assignment,l002_slim_adj_1,slim,T,approved,,,F,approved
+level_assignment,l003_support_v_1,support,T,approved,,,F,approved
+level_assignment,l003_role_n_1,role,T,approved,,,F,approved
+level_assignment,l003_trust_n_1,trust,T,approved,,,F,approved
+level_assignment,l003_raise_v_1,raise,T,approved,,,F,approved
+level_assignment,l003_value_n_1,value,T,approved,,,F,approved
+level_assignment,l003_close_adj_1,close,T,approved,,,F,approved
+level_assignment,l003_behavior_n_1,behavior,T,approved,,,F,approved
+level_assignment,l004_house_n_1,house,T,approved,,,F,approved
+level_assignment,l004_chair_n_1,chair,T,approved,,,F,approved
+level_assignment,l004_light_n_1,light,T,approved,,,F,approved
+level_assignment,l004_stairs_n_1,stairs,T,approved,,,F,approved
+level_assignment,l004_cabinet_n_1,cabinet,T,approved,,,F,approved
+level_assignment,l004_balcony_n_1,balcony,T,approved,,,F,approved
+level_assignment,l004_closet_n_1,closet,T,approved,,,F,approved
+level_assignment,l004_drawer_n_1,drawer,T,approved,,,F,approved
+level_assignment,l004_couch_n_1,couch,T,approved,,,F,approved
+level_assignment,l004_wardrobe_n_1,wardrobe,T,approved,,,F,approved
+level_assignment,l004_sofa_n_1,sofa,T,approved,,,F,approved
+level_assignment,l004_blanket_n_1,blanket,T,approved,,,F,approved
+level_assignment,l004_pillow_n_1,pillow,T,approved,,,F,approved
+level_assignment,l004_mattress_n_1,mattress,T,approved,,,F,approved
+level_assignment,l005_glass_n_1,glass,T,approved,,,F,approved
+level_assignment,l005_object_n_1,object,T,approved,,,F,approved
+level_assignment,l005_dish_n_1,dish,T,approved,,,F,approved
+level_assignment,l005_fix_v_1,fix,T,approved,,,F,approved
+level_assignment,l005_basket_n_1,basket,T,approved,,,F,approved
+level_assignment,l005_rent_v_1,rent,T,approved,,,F,approved
+level_assignment,l005_refrigerator_n_1,refrigerator,T,approved,,,F,approved
+level_assignment,l005_stove_n_1,stove,T,approved,,,F,approved
+content_source,oxford_repo,,T,approved_private_reference,,,F,approved
+content_source,ielts_word_trainer,,T,approved_reference_not_imported_as_content,,,F,approved
+content_source,cc_cedict,,T,approved_reference_not_imported_as_content,,,F,approved
+content_source,webster_open_source,,T,approved_private_reference,,,F,approved
+content_source,webster_csv,,T,approved_reference_not_imported_as_content,,,F,approved

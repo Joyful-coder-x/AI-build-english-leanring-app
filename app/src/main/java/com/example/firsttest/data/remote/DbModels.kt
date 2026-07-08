@@ -139,6 +139,7 @@ data class DbPracticeRoundQuestion(
     @SerialName("hint_used") val hintUsed: Boolean = false,
     @SerialName("letter_count") val letterCount: Int? = null,
     @SerialName("revealed_answer") val revealedAnswer: String? = null,
+    @SerialName("audio_text") val audioText: String? = null,
     @SerialName("answer_given") val answerGiven: String? = null,
     @SerialName("is_answered") val isAnswered: Boolean = false,
 )
@@ -217,6 +218,68 @@ data class DbPracticeRoundResult(
     @SerialName("question_count") val questionCount: Int = 0,
 )
 
+@Serializable
+data class DbStartBandUpgradeExamParams(
+    @SerialName("p_target_band") val targetBand: Double,
+)
+
+@Serializable
+data class DbSaveBandUpgradeAnswerParams(
+    @SerialName("p_attempt_id") val attemptId: String,
+    @SerialName("p_position") val position: Int,
+    @SerialName("p_answer") val answer: String,
+    @SerialName("p_response_time_ms") val responseTimeMs: Int,
+)
+
+@Serializable
+data class DbCompleteBandUpgradeExamParams(
+    @SerialName("p_attempt_id") val attemptId: String,
+)
+
+@Serializable
+data class DbBandUpgradeOption(
+    val id: String,
+    val text: String,
+    @SerialName("sort_order") val sortOrder: Int = 0,
+)
+
+@Serializable
+data class DbBandUpgradeQuestion(
+    val position: Int,
+    @SerialName("question_id") val questionId: String,
+    @SerialName("question_type_key") val questionTypeKey: String,
+    val category: String,
+    @SerialName("answer_form") val answerForm: String,
+    val stem: String? = null,
+    @SerialName("prompt_hint") val promptHint: String? = null,
+    @SerialName("translation_zh") val translationZh: String? = null,
+    val headword: String? = null,
+    val options: List<DbBandUpgradeOption> = emptyList(),
+    val answered: Boolean = false,
+    @SerialName("is_correct") val isCorrect: Boolean? = null,
+)
+
+@Serializable
+data class DbBandUpgradeExam(
+    @SerialName("attempt_id") val attemptId: String,
+    @SerialName("source_band") val sourceBand: Double,
+    @SerialName("target_band") val targetBand: Double,
+    val status: String,
+    @SerialName("question_count") val questionCount: Int,
+    @SerialName("correct_count") val correctCount: Int? = null,
+    val accuracy: Double? = null,
+    val passed: Boolean? = null,
+    @SerialName("category_counts") val categoryCounts: Map<String, Int> = emptyMap(),
+    val questions: List<DbBandUpgradeQuestion> = emptyList(),
+)
+
+@Serializable
+data class DbBandUpgradeAnswerResult(
+    @SerialName("already_saved") val alreadySaved: Boolean = false,
+    val position: Int,
+    @SerialName("is_correct") val isCorrect: Boolean? = null,
+)
+
 /**
  * Row shape for `public.questions` (docs/architecture/DATA_MODEL_AND_CAPACITY.md §4.6).
  * Only the columns needed by Phase 2 are mapped; extra DB columns are ignored.
@@ -280,6 +343,13 @@ data class DbSenseMastery(
     @SerialName("next_due_at") val nextDueAt: String? = null,
 )
 
+@Serializable
+data class DbPronunciationRow(
+    @SerialName("sense_id") val senseId: String? = null,
+    @SerialName("word_id") val wordId: String? = null,
+    @SerialName("ipa_us") val ipaUs: String,
+)
+
 /** Single level_number from user_level_progress (for highest-unlocked query). */
 @Serializable
 data class DbLevelNumber(
@@ -291,4 +361,23 @@ data class DbLevelNumber(
 @Serializable
 data class DbSessionStartedAt(
     @SerialName("started_at") val startedAt: String,
+)
+
+/** One row from user_props — a stack of a single 道具 type. */
+@Serializable
+data class DbUserProp(
+    @SerialName("prop_type") val propType: String,
+    val count: Int,
+)
+
+@Serializable
+data class DbGrantPropParams(
+    @SerialName("p_prop_type") val propType: String,
+    @SerialName("p_count") val count: Int,
+)
+
+@Serializable
+data class DbGrantPropResult(
+    @SerialName("prop_type") val propType: String,
+    val count: Int,
 )

@@ -15,11 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.firsttest.ui.assessment.AssessmentScreen
+import com.example.firsttest.ui.home.BandUpgradeExamScreen
 import com.example.firsttest.ui.home.HomeNav
 import com.example.firsttest.ui.home.HomeScreen
-import com.example.firsttest.ui.home.BandExamPlaceholderScreen
 import com.example.firsttest.ui.level.LevelPracticeScreen
+import com.example.firsttest.ui.level.LevelProgressScreen
 import com.example.firsttest.ui.mistakes.MistakesScreen
 import com.example.firsttest.ui.practice.PracticeQuestionScreen
 import com.example.firsttest.ui.practice.PracticeResultScreen
@@ -28,18 +28,15 @@ import com.example.firsttest.ui.scratch.ScratchCardScreen
 import com.example.firsttest.ui.streak.StreakScreen
 
 enum class TopLevelDestination(val label: String, val icon: String) {
-    Home("首页", "🏠"),
-    Streak("连胜", "🔥"),
-    Mistakes("错词本", "📕"),
-    Profile("我的", "🦆"),
+    Home("Home", "H"),
+    Streak("Streak", "S"),
+    Mistakes("Mistakes", "M"),
+    Profile("Profile", "P"),
 }
 
 /**
- * App shell: a 4-tab [NavigationBar] with Home-tab sub-navigation for the
- * practice answering flow and scratch card.
- *
- * [showReassessment] overlays [AssessmentScreen] in re-assessment mode, which
- * is triggered from ProfileScreen's "重新评测" / "评测报告" buttons.
+ * App shell with Home-tab sub-navigation for the active Phase 1 learning path.
+ * Legacy placement/reassessment is intentionally not reachable from the shell.
  */
 @Composable
 fun MainScreen(
@@ -48,22 +45,15 @@ fun MainScreen(
 ) {
     var selected by rememberSaveable { mutableStateOf(TopLevelDestination.Home) }
     var homeNav by remember { mutableStateOf<HomeNav>(HomeNav.LearningPath) }
-    var showReassessment by rememberSaveable { mutableStateOf(false) }
+    var homeRefreshToken by rememberSaveable { mutableStateOf(0) }
 
-    // Reassessment overlay — covers the entire shell.
-    if (showReassessment) {
-        BackHandler { showReassessment = false }
-        AssessmentScreen(
-            isNewUser = false,
-            onComplete = { showReassessment = false },
-            modifier = modifier,
-        )
-        return
+    fun returnToLearningPath(refresh: Boolean = false) {
+        if (refresh) homeRefreshToken += 1
+        homeNav = HomeNav.LearningPath
     }
 
-    // System back pops Home sub-nav back to the learning path.
     BackHandler(enabled = homeNav !is HomeNav.LearningPath) {
-        homeNav = HomeNav.LearningPath
+        returnToLearningPath(refresh = true)
     }
 
     Scaffold(
@@ -84,89 +74,89 @@ fun MainScreen(
         Box(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             when (selected) {
                 TopLevelDestination.Home -> when (val nav = homeNav) {
-                    is HomeNav.LearningPath ->
-                        HomeScreen(
-                            onLevelClick = { levelNumber ->
+                    is HomeNav.LearningPath -> HomeScreen(
+                        refreshToken = homeRefreshToken,
+                        onLevelClick = { levelNumber ->
+                            homeNav = HomeNav.LevelProgress(levelNumber)
+                        },
+                        onBandTestClick = { targetBand ->
+                            homeNav = HomeNav.BandExam(targetBand)
+                        },
+                    )
+
+                    is HomeNav.LevelProgress -> LevelProgressScreen(
+                        levelNumber = nav.levelNumber,
+                        onBack = { returnToLearningPath(refresh = true) },
+                        onStartPractice = { levelNumber ->
+                            homeNav = HomeNav.LevelPractice(
+                                levelNumber = levelNumber,
+                                attemptId = System.nanoTime(),
+                            )
+                        },
+                    )
+
+                    is HomeNav.LevelPractice -> LevelPracticeScreen(
+                        levelNumber = nav.levelNumber,
+                        attemptId = nav.attemptId,
+                        onBack = { returnToLearningPath(refresh = true) },
+                        onSessionComplete = { correct, total, stars, power ->
+                            homeNav = HomeNav.PracticeResult(
+                                nav.levelNumber,
+                                correct,
+                                total,
+                                stars,
+                                power,
+                            )
+                        },
+                    )
+
+                    is HomeNav.MeaningChoice -> homeNav = HomeNav.LearningPath
+
+                    is HomeNav.PracticeQuestion -> PracticeQuestionScreen(
+                        cardId = nav.cardId,
+                        onBack = { returnToLearningPath(refresh = true) },
+                        onSessionComplete = { correct, total, stars, power -> 
+                            homeNav = HomeNav.PracticeResult(
+                                null,
+                                correct,
+                                total,
+                                stars,
+                                power,
+                            )
+                        },
+                    )
+
+                    is HomeNav.PracticeResult -> PracticeResultScreen(
+                        levelNumber = nav.levelNumber,
+                        correctCount = nav.correctCount,
+                        totalCount = nav.totalCount,
+                        starRating = nav.starRating,
+                        duckPowerEarned = nav.duckPowerEarned,
+                        onRepeat = nav.levelNumber?.let { levelNumber ->
+                            {
                                 homeNav = HomeNav.LevelPractice(
                                     levelNumber = levelNumber,
                                     attemptId = System.nanoTime(),
                                 )
-                            },
-                            onBandTestClick = { targetBand ->
-                                homeNav = HomeNav.BandExam(targetBand)
-                            },
-                        )
+                            }
+                        },
+                        onReturnHome = { returnToLearningPath(refresh = true) },
+                    )
 
-                    is HomeNav.LevelPractice ->
-                        LevelPracticeScreen(
-                            levelNumber = nav.levelNumber,
-                            attemptId = nav.attemptId,
-                            onBack = { homeNav = HomeNav.LearningPath },
-                            onSessionComplete = { correct, total, stars, power ->
-                                homeNav = HomeNav.PracticeResult(
-                                    nav.levelNumber,
-                                    correct,
-                                    total,
-                                    stars,
-                                    power,
-                                )
-                            },
-                        )
+                    is HomeNav.ScratchCard -> ScratchCardScreen(
+                        cardId = nav.cardId,
+                        onComplete = { returnToLearningPath(refresh = true) },
+                    )
 
-                    is HomeNav.MeaningChoice -> homeNav = HomeNav.LearningPath
-
-                    is HomeNav.PracticeQuestion ->
-                        PracticeQuestionScreen(
-                            cardId = nav.cardId,
-                            onBack = { homeNav = HomeNav.LearningPath },
-                            onSessionComplete = { correct, total, stars, power ->
-                                homeNav = HomeNav.PracticeResult(
-                                    null,
-                                    correct,
-                                    total,
-                                    stars,
-                                    power,
-                                )
-                            },
-                        )
-
-                    is HomeNav.PracticeResult ->
-                        PracticeResultScreen(
-                            levelNumber = nav.levelNumber,
-                            correctCount = nav.correctCount,
-                            totalCount = nav.totalCount,
-                            starRating = nav.starRating,
-                            duckPowerEarned = nav.duckPowerEarned,
-                            onRepeat = nav.levelNumber?.let { levelNumber ->
-                                {
-                                    homeNav = HomeNav.LevelPractice(
-                                        levelNumber = levelNumber,
-                                        attemptId = System.nanoTime(),
-                                    )
-                                }
-                            },
-                            onReturnHome = { homeNav = HomeNav.LearningPath },
-                        )
-
-                    is HomeNav.ScratchCard ->
-                        ScratchCardScreen(
-                            cardId = nav.cardId,
-                            onComplete = { homeNav = HomeNav.LearningPath },
-                        )
-
-                    is HomeNav.BandExam ->
-                        BandExamPlaceholderScreen(
-                            targetBand = nav.targetBand,
-                            onBack = { homeNav = HomeNav.LearningPath },
-                        )
+                    is HomeNav.BandExam -> BandUpgradeExamScreen(
+                        targetBand = nav.targetBand,
+                        onBack = { returnToLearningPath(refresh = true) },
+                    )
                 }
 
                 TopLevelDestination.Streak -> StreakScreen()
                 TopLevelDestination.Mistakes -> MistakesScreen()
-                TopLevelDestination.Profile -> ProfileScreen(
-                    onReassessClick = { showReassessment = true },
-                    onSignOut = onSignOut,
-                )
+                TopLevelDestination.Profile -> ProfileScreen(onSignOut = onSignOut)
             }
         }
     }
