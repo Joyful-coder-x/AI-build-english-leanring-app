@@ -1,5 +1,44 @@
 # IELTS Vocabulary Database
 
+## GitHub Actions deployment
+
+This repo deploys schema changes with GitHub Actions from
+`.github/workflows/supabase-db.yml`.
+
+The workflow is:
+
+```text
+edit locally -> test locally -> commit -> push to GitHub master -> GitHub Actions runs supabase db push
+```
+
+Because the repository keeps Supabase files in `backend/supabase/`, the action
+runs Supabase CLI commands with `--workdir backend/supabase`. Do not move or
+duplicate the migrations folder just for CI.
+
+Add these repository secrets in GitHub:
+
+```text
+SUPABASE_ACCESS_TOKEN
+SUPABASE_DB_PASSWORD
+SUPABASE_PROJECT_ID
+SUPABASE_DATABASE_URL
+```
+
+`SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`, and `SUPABASE_PROJECT_ID` are
+used by `supabase link` and `supabase db push`. `SUPABASE_DATABASE_URL` is used
+only by the manual Band 4 content import job.
+
+Automatic pushes to `master` deploy SQL migrations only. The Band 4 CSV package
+is imported only through a manual **Run workflow** action with
+`import_band4=true`, because the CSV load is content-changing and should happen
+only after a backup and operator review.
+
+Before pushing a migration, run the disposable local proof from the repo root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File backend/supabase/manual/run_phase1_local_docker_verification.ps1
+```
+
 ## Apply
 
 1. Back up the current Supabase project.

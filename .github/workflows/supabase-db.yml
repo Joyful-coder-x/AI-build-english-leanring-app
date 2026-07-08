@@ -1,0 +1,79 @@
+name: Deploy Supabase Database
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "backend/supabase/migrations/**"
+      - "backend/supabase/tests/**"
+      - "backend/supabase/manual/run_phase1_target_verification.ps1"
+      - "backend/content-pipeline/constructed_data/band_4_0_v1/supabase_import/**"
+      - ".github/workflows/supabase-db.yml"
+  workflow_dispatch:
+    inputs:
+      import_band4:
+        description: "Import the Band 4 CSV package after migrations"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+concurrency:
+  group: supabase-db-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-migrations:
+    name: Deploy migrations
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Prepare Supabase CLI project
+        run: |
+          if [ ! -f backend/supabase/config.toml ]; then
+            supabase --workdir backend/supabase init
+          fi
+
+      - name: Link Supabase project
+        run: supabase --workdir backend/supabase link --project-ref "$SUPABASE_PROJECT_ID"
+
+      - name: Push database migrations
+        run: supabase --workdir backend/supabase db push
+
+  import-band4-content:
+    name: Import Band 4 content
+    runs-on: ubuntu-latest
+    environment: production
+    needs: deploy-migrations
+    if: github.event_name == 'workflow_dispatch' && inputs.import_band4 == 'true'
+
+    env:
+      DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Import Band 4 CSV package and run SQL tests
+        shell: pwsh
+        run: |
+          ./backend/supabase/manual/run_phase1_target_verification.ps1 `
+            -ImportBand4 `
+            -UseDocker
