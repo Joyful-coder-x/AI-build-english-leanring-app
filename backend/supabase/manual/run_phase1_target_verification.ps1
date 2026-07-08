@@ -3,7 +3,8 @@ param(
     [switch]$ApplyMigrations,
     [switch]$ResetVocabulary,
     [switch]$ImportBand4,
-    [switch]$SkipTests
+    [switch]$SkipTests,
+    [switch]$UseDocker
 )
 
 $ErrorActionPreference = "Stop"
@@ -12,10 +13,15 @@ if ([string]::IsNullOrWhiteSpace($DatabaseUrl)) {
     throw "Set DATABASE_URL or pass -DatabaseUrl with the target Supabase Postgres connection string."
 }
 
-if (-not (Get-Command psql -ErrorAction SilentlyContinue)) {
-    throw "psql was not found on PATH. Install PostgreSQL client tools before running target verification."
+if ($UseDocker) {
+    if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+        throw "docker was not found on PATH. Install Docker Desktop, or omit -UseDocker and install psql instead."
+    }
+} elseif (-not (Get-Command psql -ErrorAction SilentlyContinue)) {
+    throw "psql was not found on PATH. Install PostgreSQL client tools, or pass -UseDocker to run psql inside a disposable postgres:17-alpine container instead (only needs Docker Desktop, which this repo's local test harness already uses)."
 }
 
+$psqlImage = "postgres:17-alpine"
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..\..")
 $supabaseDir = Join-Path $repoRoot "backend\supabase"
 $migrationDir = Join-Path $supabaseDir "migrations"
@@ -29,7 +35,13 @@ function Convert-ToPsqlPath([string]$Path) {
 function Invoke-PsqlFile([string]$Path) {
     $resolved = (Resolve-Path $Path).Path
     Write-Host "psql -f $resolved"
-    & psql $DatabaseUrl -v ON_ERROR_STOP=1 -f $resolved
+    if ($UseDocker) {
+        $dir = Split-Path $resolved -Parent
+        $file = Split-Path $resolved -Leaf
+        docker run --rm -v "${dir}:/work" $psqlImage psql $DatabaseUrl -v ON_ERROR_STOP=1 -f "/work/$file"
+    } else {
+        & psql $DatabaseUrl -v ON_ERROR_STOP=1 -f $resolved
+    }
     if ($LASTEXITCODE -ne 0) {
         throw "psql failed for $resolved"
     }
@@ -37,15 +49,24 @@ function Invoke-PsqlFile([string]$Path) {
 
 function Invoke-PsqlCommand([string]$Command) {
     Write-Host "psql -c $($Command.Substring(0, [Math]::Min(90, $Command.Length)))"
-    & psql $DatabaseUrl -v ON_ERROR_STOP=1 -c $Command
+    if ($UseDocker) {
+        # Only ever called from Copy-Csv below, so mounting $importDir is always correct here.
+        docker run --rm -v "${importDir}:/import" $psqlImage psql $DatabaseUrl -v ON_ERROR_STOP=1 -c $Command
+    } else {
+        & psql $DatabaseUrl -v ON_ERROR_STOP=1 -c $Command
+    }
     if ($LASTEXITCODE -ne 0) {
         throw "psql command failed"
     }
 }
 
 function Copy-Csv([string]$TableAndColumns, [string]$CsvName) {
-    $path = Convert-ToPsqlPath (Join-Path $importDir $CsvName)
-    Invoke-PsqlCommand "\copy $TableAndColumns from '$path' with (format csv, header true, encoding 'UTF8')"
+    if ($UseDocker) {
+        Invoke-PsqlCommand "\copy $TableAndColumns from '/import/$CsvName' with (format csv, header true, encoding 'UTF8')"
+    } else {
+        $path = Convert-ToPsqlPath (Join-Path $importDir $CsvName)
+        Invoke-PsqlCommand "\copy $TableAndColumns from '$path' with (format csv, header true, encoding 'UTF8')"
+    }
 }
 
 if ($ApplyMigrations) {
@@ -87,7 +108,12 @@ if (-not $SkipTests) {
         "202607060025_combo_scope_practice_type_selection_test.sql",
         "202607060026_band_upgrade_exam_core_test.sql",
         "202607060027_band4_unlock_chain_test.sql",
-        "202607060029_phase1_practice_logging_evidence_test.sql"
+        "202607060029_phase1_practice_logging_evidence_test.sql",
+        "202607070029_review_before_new_sense_priority_test.sql",
+        "202607070030_login_tracking_test.sql",
+        "202607070031_awards_system_test.sql",
+        "202607070034_skill_scoring_test.sql",
+        "202607070035_overall_assessment_test.sql"
     )
 
     foreach ($test in $tests) {
