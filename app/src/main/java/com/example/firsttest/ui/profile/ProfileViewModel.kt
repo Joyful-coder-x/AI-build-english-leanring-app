@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.firsttest.data.model.Award
 import com.example.firsttest.data.model.User
 import com.example.firsttest.data.repository.UserRepository
 import com.example.firsttest.data.repository.VocabRepository
@@ -22,6 +23,7 @@ sealed interface ProfileUiState {
     data class Success(
         val user: User,
         val sessionDates: List<LocalDate> = emptyList(),
+        val awards: List<Award> = emptyList(),
     ) : ProfileUiState
 }
 
@@ -37,12 +39,14 @@ class ProfileViewModel(
 ) : ViewModel() {
 
     private val _sessionDates = MutableStateFlow<List<LocalDate>>(emptyList())
+    private val _awards = MutableStateFlow<List<Award>>(emptyList())
 
     val uiState: StateFlow<ProfileUiState> = combine(
         userRepository.userFlow(),
         _sessionDates,
-    ) { user, dates ->
-        ProfileUiState.Success(user, dates)
+        _awards,
+    ) { user, dates, awards ->
+        ProfileUiState.Success(user, dates, awards)
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.Eagerly,
@@ -54,6 +58,9 @@ class ProfileViewModel(
             _sessionDates.value = runCatching {
                 vocabRepository.getPracticeSessionDates(recentDays = 84)
             }.getOrDefault(emptyList())
+        }
+        viewModelScope.launch {
+            _awards.value = runCatching { userRepository.getAwards() }.getOrDefault(emptyList())
         }
     }
 

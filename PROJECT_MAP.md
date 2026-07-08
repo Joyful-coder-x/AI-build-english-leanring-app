@@ -84,9 +84,11 @@ ui/home/HomeViewModel.kt               ← WORKING
 ui/home/HomeNav.kt                     ← WORKING
 ui/home/BandUpgradeExamScreen.kt       ← WORKING (backend RPCs exist)
 ui/home/BandUpgradeExamViewModel.kt    ← WORKING
+ui/home/OverallAssessmentScreen.kt     ← WORKING (added 2026-07-07, backend RPCs exist)
+ui/home/OverallAssessmentViewModel.kt  ← WORKING (added 2026-07-07)
 ui/level/LevelProgressScreen.kt        ← WORKING
 ui/level/LevelProgressViewModel.kt     ← WORKING
-ui/level/LevelPracticeScreen.kt        ← WORKING (meaning_choice only)
+ui/level/LevelPracticeScreen.kt        ← WORKING (all 8 question types render since 2026-07-07)
 ui/level/LevelPracticeViewModel.kt     ← WORKING
 ui/practice/PracticeQuestionScreen.kt  ← PARTIAL (only meaning_choice rendered)
 ui/practice/PracticeResultScreen.kt    ← WORKING
@@ -108,10 +110,15 @@ All test files in `ui/` (except `ui/assessment/` which moved to `_temp`) are cur
 ### Backend Supabase — `backend/supabase/`
 
 ```
-migrations/                            ← ALL migrations are current (001–026, 028–029)
+migrations/                            ← ALL migrations are current (001–026, 028–035)
                                          Apply in filename order. Never rename.
                                          029 fixes review-before-new-sense round
                                          assembly priority (2026-07-07 audit).
+                                         030 login tracking, 031 awards, 032 skill_category,
+                                         033 coming_soon flag, 034 skill scoring fn,
+                                         035 overall assessment (034 before 035: dependency).
+                                         None of 029-035 applied to hosted Supabase yet —
+                                         only verified via local Docker harness.
 tests/                                 ← ALL test SQL files are current
 manual/
   run_phase1_local_docker_verification.ps1   ← use for local Docker testing

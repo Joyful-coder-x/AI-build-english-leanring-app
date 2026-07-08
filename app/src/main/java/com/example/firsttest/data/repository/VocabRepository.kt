@@ -7,6 +7,8 @@ import com.example.firsttest.data.model.LevelPracticeAnswerResult
 import com.example.firsttest.data.model.LevelPracticeRound
 import com.example.firsttest.data.model.LevelWordStatus
 import com.example.firsttest.data.model.MeaningChoiceQuestion
+import com.example.firsttest.data.model.OverallAssessment
+import com.example.firsttest.data.model.OverallAssessmentAnswerResult
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
@@ -40,6 +42,16 @@ interface VocabRepository {
         responseTimeMs: Int,
     ): BandUpgradeAnswerResult
     suspend fun completeBandUpgradeExam(attemptId: String): BandUpgradeExam
+
+    /** Starts or resumes the learner's one active 100-question overall assessment. */
+    suspend fun startOverallAssessment(): OverallAssessment
+    suspend fun saveOverallAssessmentAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): OverallAssessmentAnswerResult
+    suspend fun completeOverallAssessment(attemptId: String): OverallAssessment
 
     /** Unified level practice: server-created round supporting option + cloze questions. */
     suspend fun startLevelPracticeRound(levelNumber: Int): LevelPracticeRound

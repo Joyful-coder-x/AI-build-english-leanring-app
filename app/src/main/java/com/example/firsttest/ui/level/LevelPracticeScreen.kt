@@ -416,6 +416,28 @@ private fun QuestionCard(
                     }
                 }
 
+                "open_speaking" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🗣️", fontSize = 28.sp)
+                            Text(
+                                text = question.stem,
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
                 "reading_comprehension" -> {
                     Card(
                         colors = CardDefaults.cardColors(
@@ -427,6 +449,26 @@ private fun QuestionCard(
                             style = MaterialTheme.typography.bodyLarge,
                             modifier = Modifier.padding(16.dp),
                         )
+                    }
+                }
+
+                "word_form" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                        ) {
+                            Text("🔤", fontSize = 28.sp)
+                            Text(
+                                text = question.stem,
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = FontWeight.Bold,
+                            )
+                        }
                     }
                 }
 
@@ -492,6 +534,7 @@ private fun questionTypeIcon(questionTypeKey: String): String = when (questionTy
     "listening_choice" -> "🔊"
     "listening_fill" -> "🎧"
     "speaking_repeat" -> "🎤"
+    "open_speaking" -> "🗣️"
     "word_form" -> "🔤"
     "reading_comprehension" -> "📄"
     else -> "❓"
@@ -503,6 +546,7 @@ private fun questionTypeTitle(questionTypeKey: String): String = when (questionT
     "listening_choice" -> "听力选词"
     "listening_fill" -> "听力拼写"
     "speaking_repeat" -> "口语复读"
+    "open_speaking" -> "开口说"
     "word_form" -> "词形变换"
     "reading_comprehension" -> "阅读理解"
     else -> questionTypeKey.replace('_', ' ').replaceFirstChar { it.uppercase() }
@@ -515,6 +559,7 @@ private fun questionTypeInstruction(questionTypeKey: String, answerForm: String)
         "listening_choice" -> "听完后选择你听到的单词"
         "listening_fill" -> "听完后拼写你听到的单词"
         "speaking_repeat" -> "朗读以下单词，然后自评"
+        "open_speaking" -> "用这个词说一句话，然后自评"
         "word_form" -> "写出目标词的正确词形"
         "reading_comprehension" -> "阅读短文，回答问题"
         else -> if (answerForm == "keyboard") "填写正确的单词" else "选择正确的选项"

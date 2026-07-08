@@ -11,6 +11,7 @@ data class DbLevel(
     @SerialName("level_number") val levelNumber: Int,
     @SerialName("band_id") val bandId: Int,
     val title: String,
+    @SerialName("is_coming_soon") val isComingSoon: Boolean = false,
 )
 
 @Serializable
@@ -280,6 +281,71 @@ data class DbBandUpgradeAnswerResult(
     @SerialName("is_correct") val isCorrect: Boolean? = null,
 )
 
+@Serializable
+data class DbSaveOverallAssessmentAnswerParams(
+    @SerialName("p_attempt_id") val attemptId: String,
+    @SerialName("p_position") val position: Int,
+    @SerialName("p_answer") val answer: String,
+    @SerialName("p_response_time_ms") val responseTimeMs: Int,
+)
+
+@Serializable
+data class DbCompleteOverallAssessmentParams(
+    @SerialName("p_attempt_id") val attemptId: String,
+)
+
+@Serializable
+data class DbOverallAssessmentOption(
+    val id: String,
+    val text: String,
+    @SerialName("sort_order") val sortOrder: Int = 0,
+)
+
+@Serializable
+data class DbOverallAssessmentQuestion(
+    val position: Int,
+    @SerialName("question_id") val questionId: String,
+    @SerialName("question_type_key") val questionTypeKey: String,
+    @SerialName("skill_category") val skillCategory: String,
+    @SerialName("answer_form") val answerForm: String,
+    val stem: String? = null,
+    @SerialName("prompt_hint") val promptHint: String? = null,
+    @SerialName("translation_zh") val translationZh: String? = null,
+    val headword: String? = null,
+    val options: List<DbOverallAssessmentOption> = emptyList(),
+    val answered: Boolean = false,
+    @SerialName("is_correct") val isCorrect: Boolean? = null,
+)
+
+@Serializable
+data class DbOverallAssessmentAttempt(
+    @SerialName("attempt_id") val attemptId: String,
+    val status: String,
+    @SerialName("question_count") val questionCount: Int,
+    @SerialName("correct_count") val correctCount: Int? = null,
+    @SerialName("listening_correct") val listeningCorrect: Int? = null,
+    @SerialName("listening_total") val listeningTotal: Int? = null,
+    @SerialName("reading_correct") val readingCorrect: Int? = null,
+    @SerialName("reading_total") val readingTotal: Int? = null,
+    @SerialName("speaking_correct") val speakingCorrect: Int? = null,
+    @SerialName("speaking_total") val speakingTotal: Int? = null,
+    @SerialName("spelling_correct") val spellingCorrect: Int? = null,
+    @SerialName("spelling_total") val spellingTotal: Int? = null,
+    @SerialName("listening_band") val listeningBand: Double? = null,
+    @SerialName("reading_band") val readingBand: Double? = null,
+    @SerialName("speaking_band") val speakingBand: Double? = null,
+    @SerialName("spelling_band") val spellingBand: Double? = null,
+    @SerialName("overall_band") val overallBand: Double? = null,
+    val questions: List<DbOverallAssessmentQuestion> = emptyList(),
+)
+
+@Serializable
+data class DbOverallAssessmentAnswerResult(
+    @SerialName("already_saved") val alreadySaved: Boolean = false,
+    val position: Int,
+    @SerialName("is_correct") val isCorrect: Boolean? = null,
+)
+
 /**
  * Row shape for `public.questions` (docs/architecture/DATA_MODEL_AND_CAPACITY.md §4.6).
  * Only the columns needed by Phase 2 are mapped; extra DB columns are ignored.
@@ -380,4 +446,29 @@ data class DbGrantPropParams(
 data class DbGrantPropResult(
     @SerialName("prop_type") val propType: String,
     val count: Int,
+)
+
+@Serializable
+data class DbCheckAwardsParams(
+    @SerialName("p_user_id") val userId: String,
+)
+
+@Serializable
+data class DbNewAward(
+    @SerialName("new_award_id") val awardId: String,
+    @SerialName("new_award_name") val awardName: String,
+)
+
+@Serializable
+data class DbUserAward(
+    @SerialName("award_id") val awardId: String,
+    @SerialName("awarded_at") val awardedAt: String,
+    @SerialName("award_definitions") val definition: DbAwardDefinition? = null,
+)
+
+@Serializable
+data class DbAwardDefinition(
+    val id: String,
+    @SerialName("name_zh") val nameZh: String,
+    @SerialName("description_zh") val descriptionZh: String? = null,
 )

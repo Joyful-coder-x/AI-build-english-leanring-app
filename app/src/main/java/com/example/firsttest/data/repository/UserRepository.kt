@@ -1,5 +1,6 @@
 package com.example.firsttest.data.repository
 
+import com.example.firsttest.data.model.Award
 import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.model.User
 import kotlinx.coroutines.flow.Flow
@@ -45,4 +46,7 @@ interface UserRepository {
 
     /** Marks onboarding complete; [userFlow] will emit a user with [User.onboardingCompleted] = true. */
     suspend fun completeOnboarding()
+
+    /** All badges earned so far (masterplan Feature J), most recent first. */
+    suspend fun getAwards(): List<Award>
 }

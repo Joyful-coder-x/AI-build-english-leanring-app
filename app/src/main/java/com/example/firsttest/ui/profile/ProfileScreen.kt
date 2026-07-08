@@ -51,6 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.AbilityRadar
+import com.example.firsttest.data.model.Award
 import com.example.firsttest.data.model.DuckTitle
 import com.example.firsttest.data.model.Prop
 import com.example.firsttest.data.model.PropType
@@ -85,6 +86,7 @@ fun ProfileScreen(
             is ProfileUiState.Success -> ProfileContent(
                 user = state.user,
                 sessionDates = state.sessionDates,
+                awards = state.awards,
                 onSignOut = onSignOut,
                 accountState = accountState,
                 onCurrentPasswordChanged = accountViewModel::setCurrentPassword,
@@ -100,6 +102,7 @@ fun ProfileScreen(
 private fun ProfileContent(
     user: User,
     sessionDates: List<LocalDate>,
+    awards: List<Award>,
     onSignOut: () -> Unit,
     accountState: AccountUiState,
     onCurrentPasswordChanged: (String) -> Unit,
@@ -117,6 +120,7 @@ private fun ProfileContent(
         PracticeHeatmapCard(sessionDates)
         RadarCard(user)
         if (user.props.isNotEmpty()) PropsCard(user.props)
+        if (awards.isNotEmpty()) AwardsCard(awards)
         AccountSecurityCard(
             state = accountState,
             onCurrentPasswordChanged = onCurrentPasswordChanged,
@@ -391,6 +395,26 @@ private fun PropsCard(props: List<Prop>) {
 }
 
 @Composable
+private fun AwardsCard(awards: List<Award>) {
+    Card(Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text(text = "我的成就", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            awards.forEach { award ->
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(text = "🏅", fontSize = 24.sp)
+                    Column {
+                        Text(text = award.nameZh, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
+                        award.descriptionZh?.let {
+                            Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun AccountSecurityCard(
     state: AccountUiState,
     onCurrentPasswordChanged: (String) -> Unit,
@@ -526,6 +550,9 @@ private fun ProfileContentPreview() {
                 LocalDate.now().minusDays(3),
                 LocalDate.now().minusDays(7),
                 LocalDate.now().minusDays(14),
+            ),
+            awards = listOf(
+                Award("bronze_duck", "第一只鸭！", "完成首次登录", "2026-07-01T00:00:00Z"),
             ),
             onSignOut = {},
             accountState = AccountUiState(),

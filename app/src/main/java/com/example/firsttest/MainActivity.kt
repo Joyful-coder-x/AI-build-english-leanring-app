@@ -12,10 +12,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -69,7 +71,25 @@ private fun AppContent(
             bootstrap = state.bootstrap,
             onCompleted = viewModel::retry,
         )
-        is AppSessionState.Authenticated -> MainScreen(onSignOut = viewModel::signOut)
+        is AppSessionState.Authenticated -> {
+            MainScreen(onSignOut = viewModel::signOut)
+            if (state.newAwards.isNotEmpty()) {
+                AlertDialog(
+                    onDismissRequest = viewModel::clearNewAwards,
+                    confirmButton = {
+                        TextButton(onClick = viewModel::clearNewAwards) { Text("好的") }
+                    },
+                    title = { Text("获得新成就！") },
+                    text = {
+                        Column {
+                            state.newAwards.forEach { award ->
+                                Text("🏅 ${award.nameZh}")
+                            }
+                        }
+                    },
+                )
+            }
+        }
         is AppSessionState.Error -> {
             Column(
                 modifier = Modifier

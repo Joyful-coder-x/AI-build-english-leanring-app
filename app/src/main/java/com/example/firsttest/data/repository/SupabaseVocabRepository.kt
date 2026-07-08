@@ -10,6 +10,9 @@ import com.example.firsttest.data.model.LevelPracticeRound
 import com.example.firsttest.data.model.LevelWordStatus
 import com.example.firsttest.data.model.MeaningChoiceOption
 import com.example.firsttest.data.model.MeaningChoiceQuestion
+import com.example.firsttest.data.model.OverallAssessment
+import com.example.firsttest.data.model.OverallAssessmentAnswerResult
+import com.example.firsttest.data.model.OverallAssessmentQuestion
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
@@ -26,7 +29,10 @@ import com.example.firsttest.data.remote.DbPracticeAnswerResult
 import com.example.firsttest.data.remote.DbPracticeRound
 import com.example.firsttest.data.remote.DbPracticeRoundResult
 import com.example.firsttest.data.remote.DbBandUpgradeAnswerResult
+import com.example.firsttest.data.remote.DbCompleteOverallAssessmentParams
+import com.example.firsttest.data.remote.DbOverallAssessmentAttempt
 import com.example.firsttest.data.remote.DbSaveBandUpgradeAnswerParams
+import com.example.firsttest.data.remote.DbSaveOverallAssessmentAnswerParams
 import com.example.firsttest.data.remote.DbSavePracticeAnswerParams
 import com.example.firsttest.data.remote.DbSaveMeaningChoiceAnswerParams
 import com.example.firsttest.data.remote.DbSessionStartedAt
@@ -227,6 +233,42 @@ class SupabaseVocabRepository : VocabRepository {
         return row.toBandUpgradeExam()
     }
 
+    override suspend fun startOverallAssessment(): OverallAssessment {
+        val row = Supabase.client.postgrest.rpc("start_overall_assessment")
+            .decodeAs<DbOverallAssessmentAttempt>()
+        return row.toOverallAssessment()
+    }
+
+    override suspend fun saveOverallAssessmentAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): OverallAssessmentAnswerResult {
+        val row = Supabase.client.postgrest.rpc(
+            "save_overall_assessment_answer",
+            DbSaveOverallAssessmentAnswerParams(
+                attemptId = attemptId,
+                position = position,
+                answer = answer,
+                responseTimeMs = responseTimeMs,
+            ),
+        ).decodeAs<com.example.firsttest.data.remote.DbOverallAssessmentAnswerResult>()
+        return OverallAssessmentAnswerResult(
+            alreadySaved = row.alreadySaved,
+            position = row.position,
+            isCorrect = row.isCorrect,
+        )
+    }
+
+    override suspend fun completeOverallAssessment(attemptId: String): OverallAssessment {
+        val row = Supabase.client.postgrest.rpc(
+            "complete_overall_assessment",
+            DbCompleteOverallAssessmentParams(attemptId),
+        ).decodeAs<DbOverallAssessmentAttempt>()
+        return row.toOverallAssessment()
+    }
+
     override suspend fun saveMeaningChoiceAnswer(
         levelNumber: Int,
         senseId: String,
@@ -269,7 +311,7 @@ class SupabaseVocabRepository : VocabRepository {
         val requestedNumbers = numbers.toSet()
         val rows = Supabase.client
             .from("levels")
-            .select(Columns.list("level_number, band_id, title"))
+            .select(Columns.list("level_number, band_id, title, is_coming_soon"))
             .decodeList<DbLevel>()
 
         val progressMap = Supabase.client
@@ -298,6 +340,7 @@ class SupabaseVocabRepository : VocabRepository {
                 bestAccuracy = progress?.progress?.toFloat() ?: 0f,
                 bestStarRating = progress?.bestStarRating ?: 0,
                 completedSessionCount = progress?.completedSessionCount ?: 0,
+                isComingSoon = row.isComingSoon,
             )
         }.toList()
     }
@@ -513,6 +556,52 @@ private fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
                 answerForm = question.answerForm,
                 stem = question.stem.orEmpty(),
                 promptHint     = "Choose the matching English word.",
+                translationZh = question.translationZh.orEmpty(),
+                headword = question.headword.orEmpty(),
+                options = question.options
+                    .sortedBy { it.sortOrder }
+                    .map { option ->
+                        MeaningChoiceOption(
+                            optionId = option.id,
+                            senseId = "",
+                            text = option.text,
+                            isCorrect = false,
+                        )
+                    },
+                answered = question.answered,
+                isCorrect = question.isCorrect,
+            )
+        },
+    )
+
+private fun DbOverallAssessmentAttempt.toOverallAssessment(): OverallAssessment =
+    OverallAssessment(
+        attemptId = attemptId,
+        status = status,
+        questionCount = questionCount,
+        correctCount = correctCount,
+        listeningCorrect = listeningCorrect,
+        listeningTotal = listeningTotal,
+        readingCorrect = readingCorrect,
+        readingTotal = readingTotal,
+        speakingCorrect = speakingCorrect,
+        speakingTotal = speakingTotal,
+        spellingCorrect = spellingCorrect,
+        spellingTotal = spellingTotal,
+        listeningBand = listeningBand,
+        readingBand = readingBand,
+        speakingBand = speakingBand,
+        spellingBand = spellingBand,
+        overallBand = overallBand,
+        questions = questions.map { question ->
+            OverallAssessmentQuestion(
+                position = question.position,
+                questionId = question.questionId,
+                questionTypeKey = question.questionTypeKey,
+                skillCategory = question.skillCategory,
+                answerForm = question.answerForm,
+                stem = question.stem.orEmpty(),
+                promptHint = question.promptHint.orEmpty(),
                 translationZh = question.translationZh.orEmpty(),
                 headword = question.headword.orEmpty(),
                 options = question.options

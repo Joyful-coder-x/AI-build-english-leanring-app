@@ -1,6 +1,7 @@
 package com.example.firsttest.data.repository
 
 import com.example.firsttest.data.model.AbilityRadar
+import com.example.firsttest.data.model.Award
 import com.example.firsttest.data.model.Prop
 import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.model.StreakInfo
@@ -60,6 +61,15 @@ class FakeUserRepository : UserRepository {
     override suspend fun completeOnboarding() {
         _state.update { it.copy(onboardingCompleted = true) }
     }
+
+    override suspend fun getAwards(): List<Award> = listOf(
+        Award(
+            id = "bronze_duck",
+            nameZh = "第一只鸭！",
+            descriptionZh = "完成首次登录",
+            awardedAt = "2026-07-01T00:00:00Z",
+        ),
+    )
 
     companion object {
         private fun nextStreakGoal(days: Int, currentGoal: Int): Int {

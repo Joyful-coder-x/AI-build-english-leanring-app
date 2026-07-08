@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import com.example.firsttest.ui.home.BandUpgradeExamScreen
 import com.example.firsttest.ui.home.HomeNav
 import com.example.firsttest.ui.home.HomeScreen
+import com.example.firsttest.ui.home.OverallAssessmentScreen
 import com.example.firsttest.ui.level.LevelPracticeScreen
 import com.example.firsttest.ui.level.LevelProgressScreen
 import com.example.firsttest.ui.mistakes.MistakesScreen
@@ -81,6 +82,9 @@ fun MainScreen(
                         },
                         onBandTestClick = { targetBand ->
                             homeNav = HomeNav.BandExam(targetBand)
+                        },
+                        onOverallAssessmentClick = {
+                            homeNav = HomeNav.OverallAssessment
                         },
                     )
 
@@ -150,6 +154,10 @@ fun MainScreen(
 
                     is HomeNav.BandExam -> BandUpgradeExamScreen(
                         targetBand = nav.targetBand,
+                        onBack = { returnToLearningPath(refresh = true) },
+                    )
+
+                    is HomeNav.OverallAssessment -> OverallAssessmentScreen(
                         onBack = { returnToLearningPath(refresh = true) },
                     )
                 }

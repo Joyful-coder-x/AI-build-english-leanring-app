@@ -167,6 +167,7 @@ private class FailingBootstrapRepository(
 private class SessionUserRepositoryFake : SessionUserRepository {
     override suspend fun refreshCurrentUser() = Unit
     override suspend fun clear() = Unit
+    override suspend fun recordLoginAndCheckAwards(): List<com.example.firsttest.data.model.NewAward> = emptyList()
     override suspend fun getCurrentUser() = User(
         id = "KQ1000000001",
         nickname = "Tester",

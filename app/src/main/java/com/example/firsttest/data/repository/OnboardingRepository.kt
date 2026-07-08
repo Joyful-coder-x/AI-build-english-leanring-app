@@ -1,5 +1,6 @@
 package com.example.firsttest.data.repository
 
+import com.example.firsttest.data.model.NewAward
 import com.example.firsttest.data.model.User
 
 enum class OnboardingFlowState {
@@ -36,4 +37,10 @@ interface SessionUserRepository {
     suspend fun refreshCurrentUser()
     suspend fun clear()
     suspend fun getCurrentUser(): User
+
+    /**
+     * Records a login event and returns any newly-granted awards. Called once
+     * per session start (masterplan Feature B/J).
+     */
+    suspend fun recordLoginAndCheckAwards(): List<NewAward>
 }

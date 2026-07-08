@@ -93,7 +93,11 @@ try {
         "202607060026_band_upgrade_exam_core_test.sql",
         "202607060027_band4_unlock_chain_test.sql",
         "202607060029_phase1_practice_logging_evidence_test.sql",
-        "202607070029_review_before_new_sense_priority_test.sql"
+        "202607070029_review_before_new_sense_priority_test.sql",
+        "202607070030_login_tracking_test.sql",
+        "202607070031_awards_system_test.sql",
+        "202607070034_skill_scoring_test.sql",
+        "202607070035_overall_assessment_test.sql"
     )
 
     foreach ($test in $phase1Tests) {

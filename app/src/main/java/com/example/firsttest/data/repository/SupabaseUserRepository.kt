@@ -1,15 +1,20 @@
 package com.example.firsttest.data.repository
 
 import com.example.firsttest.data.model.AbilityRadar
+import com.example.firsttest.data.model.Award
+import com.example.firsttest.data.model.NewAward
 import com.example.firsttest.data.model.Prop
 import com.example.firsttest.data.model.PropType
 import com.example.firsttest.data.model.StreakInfo
 import com.example.firsttest.data.model.User
 import com.example.firsttest.data.model.UserLevel
+import com.example.firsttest.data.remote.DbCheckAwardsParams
 import com.example.firsttest.data.remote.DbGrantPropParams
 import com.example.firsttest.data.remote.DbGrantPropResult
 import com.example.firsttest.data.remote.DbLevelNumber
+import com.example.firsttest.data.remote.DbNewAward
 import com.example.firsttest.data.remote.DbProfile
+import com.example.firsttest.data.remote.DbUserAward
 import com.example.firsttest.data.remote.DbUserProp
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.auth
@@ -77,6 +82,15 @@ class SupabaseUserRepository(
         state.value = emptyUser()
     }
 
+    override suspend fun recordLoginAndCheckAwards(): List<NewAward> {
+        val authUser = client.auth.currentUserOrNull() ?: error("No authenticated user.")
+        client.postgrest.rpc("record_login")
+        return client.postgrest.rpc(
+            "check_and_grant_awards",
+            DbCheckAwardsParams(userId = authUser.id),
+        ).decodeList<DbNewAward>().map { NewAward(id = it.awardId, nameZh = it.awardName) }
+    }
+
     // Temporary local behavior until learning/reward RPCs are introduced.
     override suspend fun addDuckPower(amount: Int) {
         state.update { it.copy(duckPower = it.duckPower + amount) }
@@ -102,6 +116,24 @@ class SupabaseUserRepository(
 
     override suspend fun completeOnboarding() {
         error("Onboarding finalization is server-owned. Use the placement RPC.")
+    }
+
+    override suspend fun getAwards(): List<Award> {
+        val authUser = client.auth.currentUserOrNull() ?: error("No authenticated user.")
+        return client.from("user_awards")
+            .select(Columns.raw("award_id, awarded_at, award_definitions(id, name_zh, description_zh)")) {
+                filter { eq("user_id", authUser.id) }
+                order("awarded_at", Order.DESCENDING)
+            }
+            .decodeList<DbUserAward>()
+            .map {
+                Award(
+                    id = it.awardId,
+                    nameZh = it.definition?.nameZh ?: it.awardId,
+                    descriptionZh = it.definition?.descriptionZh,
+                    awardedAt = it.awardedAt,
+                )
+            }
     }
 
     private fun DbProfile.toDomain(

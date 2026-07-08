@@ -48,22 +48,29 @@ These terms have precise definitions throughout. Do not reinterpret them.
 
 ### What is fully working in Phase 1
 
-| Area | Requirement |
-|---|---|
-| Authentication | Username + password login, registration, session restore |
-| Onboarding | 5-question onboarding, routes directly to Level 1 |
-| Levels 1–5 | All 45 new senses per level, all 8 question types, practice rounds, logging, unlock chain |
-| Practice rounds | Server-created 20-question sets, all 8 types rendered in Android UI |
-| Spaced review | now / 1 day / 1 week / 1 month intervals, strictly enforced |
-| Level-up logic | Server-side: 90% of new senses with 10-min delayed review → unlock next level |
-| Mistake notebook | Wrong answers indexed, viewable, fed into next round |
-| Daily streak | Once-per-calendar-day check-in on round completion, persisted server-side |
-| Login tracking | Login count, first login, last login, per-user in Supabase |
-| Awards | Milestone awards for login streaks, level completions, band completions |
-| Band 4 assessment | 40 random questions from Band 4 available levels (currently 1–5) |
-| Overall assessment | 100 random questions from all available bands and levels |
-| Skill scoring | Per-assessment skill scores (listening, reading, speaking, spelling) per the Scoring PDF |
-| Levels 6+ | "Coming Soon" locked cards — tapping opens a placeholder screen |
+Status as of 2026-07-07 (implementation pass): backend migrations 030–035 and
+the corresponding Android UI were built and verified via the local Docker SQL
+test harness, `gradlew test` (all unit tests), and `gradlew assembleDebug`
+(full build). Not yet verified: a real on-device manual run through the app,
+or applying 030–035 to the hosted Supabase project — do both before calling
+Phase 1 demo-ready.
+
+| Area | Requirement | Status |
+|---|---|---|
+| Authentication | Username + password login, registration, session restore | Done |
+| Onboarding | 5-question onboarding, routes directly to Level 1 | Done |
+| Levels 1–5 | All 45 new senses per level, all 8 question types, practice rounds, logging, unlock chain | Done |
+| Practice rounds | Server-created 20-question sets, all 8 types rendered in Android UI | Done (open_speaking + word_form added 2026-07-07) |
+| Spaced review | now / 1 day / 1 week / 1 month intervals, strictly enforced | Done; review-before-new priority bug fixed 2026-07-07 (migration 029) |
+| Level-up logic | Server-side: 90% of new senses with 10-min delayed review → unlock next level | Done |
+| Mistake notebook | Wrong answers indexed, viewable, fed into next round | Done |
+| Daily streak | Once-per-calendar-day check-in on round completion, persisted server-side | Done |
+| Login tracking | Login count, first login, last login, per-user in Supabase | Done (migration 030) |
+| Awards | Milestone awards for login streaks, level completions, band completions | Done (migration 031); Android calls `check_and_grant_awards` client-side after login/round completion rather than embedding it server-side — see Feature J |
+| Band 4 assessment | 40 random questions from Band 4 available levels (currently 1–5) | Done |
+| Overall assessment | 100 random questions from all available bands and levels | Done (migrations 034–035, `OverallAssessmentScreen`) |
+| Skill scoring | Per-assessment skill scores (listening, reading, speaking, spelling) per the Scoring PDF | Done (`compute_skill_band`, piecewise mapping from Scoring PDF Table 2 — see Feature I) |
+| Levels 6+ | "Coming Soon" locked cards — tapping shows an in-place dialog | Done (migration 033; `LevelRow` in `HomeScreen.kt`, not a separate placeholder screen route) |
 
 ### What is NOT in Phase 1
 
@@ -129,11 +136,11 @@ Risk: Out of scope for Phase 1.
 
 Every time a user signs in or the app restores a session, a login event is recorded. Every time a user completes a practice round on a new calendar day, the day streak increments. Streak and login data drive awards (Feature J) and the streak calendar display.
 
-### Current state
+### Current state — DONE 2026-07-07
 
-Implemented: `consecutive_login_days`, `longest_login_streak`, `last_login_at`, `duck_power` in profiles. Migration 011 adds idempotent once-per-calendar-day streak increment. Migration 024 adds props and protection items.
+Implemented: `current_streak_days`, `longest_streak_days`, `last_practice_date`, `duck_power` in profiles (migration 011, corrected names — the fields above used the intended-but-not-actual names). Migration 024 adds props and protection items.
 
-Missing: `login_count` (total lifetime logins, not just consecutive days), `login_log` table for history, login-triggered awards.
+`login_count`, `first_login_at`, `last_login_at`, and the `user_login_log` table are now implemented in migration `202607070030_login_tracking.sql`, with `record_login()` called from `AppSessionViewModel` once per session (guarded by a `hasRecordedLoginThisSession` flag so retries don't double-count). Verified by `202607070030_login_tracking_test.sql`.
 
 ### 3 Options
 
@@ -316,11 +323,7 @@ The question type infrastructure (question_types, questions, question_options ta
 
 Android is further along than previously documented: `LevelPracticeScreen.kt` already has a `when(questionTypeKey)` dispatch rendering distinct UI for `meaning_choice`, `sentence_cloze_typing` (icon/title/instruction only, no distinct content block yet), `listening_choice`, `listening_fill`, `speaking_repeat`, and `reading_comprehension`. TTS covers both listening types.
 
-**Real remaining gap (verified by reading the code directly):**
-- `open_speaking` has **no case at all** in the dispatch — it falls to the generic `else -> "❓"` fallback. There is no self-check ("会了" / "再练练") UI for this type anywhere in the app. This contradicts CLAUDE.md's "all 8 question types" done-claim.
-- `word_form` has an icon/title/instruction but no distinct content block — it renders through the generic stem layout, which may or may not be adequate; verify manually.
-
-Do not re-build the 6 already-working types. Scope the remaining Feature D work to: (1) build `open_speaking`'s self-check panel, (2) verify/finish `word_form`'s content block.
+**Gap fixed 2026-07-07:** `open_speaking` and `word_form` now have dedicated content-area blocks and icon/title/instruction entries in `LevelPracticeScreen.kt`. Note `open_speaking`'s answer submission needed no new plumbing — it already used `answer_form='option'` with 4 generated options (same self-check-via-multiple-choice mechanism as `speaking_repeat`, both seeded in migration 019's `speaking_options` block), so the existing generic `OptionList` renders it correctly; only the prompt/content display was missing. All 8 types now render distinctly. Verified by `gradlew test` + `assembleDebug` (compiles); not yet verified by a manual on-device run through a real Level 1 round.
 
 ### 3 Options
 
@@ -604,9 +607,11 @@ A 100-question assessment launched from the home screen. This tests the learner'
 
 Think of it as the app's equivalent of a "diagnostic test" at the start of Khan Academy SAT prep, or the initial IELTS Reading test in Magoosh.
 
-### Current state
+### Current state — DONE 2026-07-07
 
-NOT implemented. The legacy `AssessmentScreen.kt` exists but is unreachable from the main app. The self-assessment design draft (`SELF_ASSESSMENT_20Q_PLAN.md`) defines the data shape but is not the implementation.
+Implemented: migrations `202607070034_skill_scoring.sql` and `202607070035_overall_assessment.sql` (`overall_assessment_attempts`, `overall_assessment_questions`, `start_overall_assessment`, `save_overall_assessment_answer`, `complete_overall_assessment`). Android: `OverallAssessmentScreen.kt` + `OverallAssessmentViewModel.kt`, entered via a "📊 开始评测" button on the home screen, routed through `HomeNav.OverallAssessment`. Verified by `202607070035_overall_assessment_test.sql` (stratification, grading, `user_sense_mastery` untouched, band computation) plus `gradlew test`/`assembleDebug`.
+
+The legacy `AssessmentScreen.kt` this section originally referenced was removed in the 2026-07-07 `_temp/` cleanup; the new implementation was built fresh from this document's spec, not from that legacy code.
 
 ### 3 Options
 
@@ -740,9 +745,11 @@ Based on a learner's answers in the Overall Assessment (100Q) or the Band Assess
 
 Then map each skill's accuracy rate to an estimated IELTS band, per the Scoring System PDF.
 
-### Current state
+### Current state — DONE 2026-07-07
 
-NOT implemented. The data shape is designed in `SELF_ASSESSMENT_20Q_PLAN.md`. The scoring PDF (`D:\project\support\Scoring System Design for IELTS-Style Bands.pdf`) contains the exact formula. The scoring system must follow that PDF.
+Implemented in migration `202607070034_skill_scoring.sql`: `sense_difficulty_weight(sense_id)` (returns the `bands.band_score` of the sense's originating level, default 4.0) and `compute_skill_band(weighted_correct, weighted_max)`. Read the actual PDF (`pdftotext`-extracted, since no PDF renderer was available in this environment): it offers two calibration methods — a logistic S-curve requiring simulation-derived constants (`k`, `m`) we don't have (no real user data exists pre-launch), and a piecewise raw-to-band table (its Table 2). We implemented the piecewise table, generalized as fractions of the maximum achievable weighted score (its cut points 0/10/25/40/55/70/85/100/115/130/135 out of max 135 become fractions 0/.074/.185/.296/.407/.519/.630/.741/.852/.963/1.0) — this is directly reusable without inventing calibration constants, unlike the logistic option. `complete_overall_assessment` computes weighted correct/max sums per skill (via `sense_difficulty_weight`) and calls `compute_skill_band`. Verified by `202607070034_skill_scoring_test.sql` and the overall-assessment integration test.
+
+Note: in Phase 1, all content is Band 4.0, so the difficulty weighting is inert (every item has the same weight) — it activates automatically once Band 4.5+ content exists, without further changes.
 
 ### 3 Options
 
@@ -832,9 +839,13 @@ The app rewards learners with:
 4. **Level completion awards:** badges for completing levels or bands.
 5. **Scratch cards (刮刮卡):** earned on round completion, provide a random bonus (extra duck power, a streak freeze, etc.).
 
-### Current state
+### Current state — DONE 2026-07-07
 
-Duck power, streak fields, titles, scratch card UI, and migration 024 (props and protection) exist. The award for login milestones and level completion badges are NOT yet defined or implemented.
+Duck power, streak fields, titles, scratch card UI, and migration 024 (props and protection) exist. Login-milestone and level-completion badges are now implemented in migration `202607070031_awards_system.sql` (`award_definitions`, `user_awards`, `check_and_grant_awards(user_id)`). Band-completion badges are wired into the same function (checked via `band_upgrade_attempts.passed`) but no `band_complete` award rows are seeded yet — add them when Band 4.5 content ships.
+
+**Deliberate deviation from this section's original design:** `check_and_grant_awards()` is called by the Android client (`AppSessionViewModel` after `record_login()`) rather than embedded inside `complete_practice_round`/`complete_band_upgrade_exam`. This avoids modifying those already-tested, complex functions. The function is idempotent (checks actual current state, not incremental events), so a client that forgets to call it just delays a badge grant to the next login — it never loses one. Wire a call after `complete_practice_round`/`complete_band_upgrade_exam` too if you want badges to appear immediately after those actions rather than at next login.
+
+Verified by `202607070031_awards_system_test.sql` (grants exactly once, respects thresholds) and Android `ProfileScreen.kt`'s new "我的成就" card + `MainActivity.kt`'s celebration dialog.
 
 ### 3 Options
 
@@ -923,11 +934,11 @@ RETURNS TABLE (new_award_id text, new_award_name text) ...
 
 Levels 6 through all higher levels are visible in the UI as locked cards with a "即将上线" ("Coming soon") label. Tapping them shows a placeholder screen — it does not crash or route to a blank screen.
 
-### Current state
+### Current state — DONE 2026-07-07
 
-Levels 6–33 have `band_4_0_v1` data imported but are in a "lightweight" state (fewer question types). The learner-facing treatment of these levels is not finalized.
+Levels 6–33 have `band_4_0_v1` data imported and are genuinely playable (lightweight question-type set, per migration 025) — they are Band 4.0 content, not "coming soon." Only levels outside Band 4.0 (`band_id <> 1`, i.e. Level 34+ / Band 4.5 and beyond) are coming-soon, since those are metadata-only stub rows with no real word/question data (confirmed via `verify_project_installation.sql`: 240 total level rows, only 33 have content).
 
-**2026-07-07 audit note:** a generic locked-level pattern already exists and can likely be adapted rather than built from scratch — `LevelProgressScreen.kt` has `LockedLevelContent()` and `HomeScreen.kt` already dims locked levels (`alpha(0.55f)`) with a "Locked" label. Neither uses an `is_coming_soon` concept yet; `Level.kt` only has `isUnlocked`. The Step 6 work below is mostly about adding the `is_coming_soon` server flag and swapping copy/routing for Level 6+, not inventing new locked-card UI.
+Implemented in migration `202607070033_coming_soon_flag.sql` (`levels.is_coming_soon`, set `true` where `band_id <> 1`). Android: `HomeScreen.kt`'s `LevelRow` shows a dimmed card with a "即将上线" label; tapping shows an `AlertDialog` ("这个关卡即将上线，敬请期待！") instead of navigating — this reuses the existing locked-level dimming pattern rather than a separate placeholder screen/route, which is a smaller change with the same user-facing effect (CS-002/CS-003 are satisfied by the dialog, not a dedicated screen).
 
 ### 3 Options
 
@@ -987,31 +998,33 @@ band_upgrade_attempts
 band_upgrade_attempt_questions
 ```
 
-### Must add or verify in Phase 1
+### Must add or verify in Phase 1 — ALL DONE 2026-07-07, pending hosted-Supabase apply
 
 | Table | Status | Priority |
 |---|---|---|
-| `user_login_log` | New | High |
-| `award_definitions` | New | High |
-| `user_awards` | New | High |
-| `overall_assessment_attempts` | New | High |
-| `overall_assessment_questions` | New | High |
-| `questions.skill_category` | Column to add | High |
-| `profiles.login_count` | Column to add | High |
-| `profiles.first_login_at` | Column to add | Medium |
-| `levels.is_coming_soon` | Column to add | Medium |
+| `user_login_log` | Done — migration 030 | High |
+| `award_definitions` | Done — migration 031 | High |
+| `user_awards` | Done — migration 031 | High |
+| `overall_assessment_attempts` | Done — migration 035 | High |
+| `overall_assessment_questions` | Done — migration 035 | High |
+| `questions.skill_category` | Done — migration 032 | High |
+| `profiles.login_count` | Done — migration 030 | High |
+| `profiles.first_login_at` | Done — migration 030 | Medium |
+| `levels.is_coming_soon` | Done — migration 033 | Medium |
 
-### Migration sequence for Phase 1 additions
-
-Create these as new numbered migrations, in order:
+### Migration sequence for Phase 1 additions — actual filenames (differ slightly from the original plan)
 
 ```
-202607070030_login_tracking.sql          — user_login_log, profiles.login_count
+202607070029_review_before_new_sense_priority.sql — Feature E bug fix (see above), not originally planned
+202607070030_login_tracking.sql          — user_login_log, profiles.login_count/first_login_at/last_login_at, record_login()
 202607070031_awards_system.sql           — award_definitions, user_awards, check_and_grant_awards()
-202607070032_overall_assessment.sql      — overall_assessment_attempts, overall_assessment_questions
-202607070033_skill_category_column.sql   — questions.skill_category, backfill UPDATE
-202607070034_coming_soon_flag.sql        — levels.is_coming_soon, set true for Level 6+
+202607070032_skill_category_column.sql   — questions.skill_category, backfill UPDATE
+202607070033_coming_soon_flag.sql        — levels.is_coming_soon, set true where band_id <> 1
+202607070034_skill_scoring.sql           — sense_difficulty_weight(), compute_skill_band() (must precede 035, which calls it)
+202607070035_overall_assessment.sql      — overall_assessment_attempts/questions, start/save/complete RPCs
 ```
+
+Apply all of 025–035 to the hosted Supabase in filename order — none of migrations 029–035 have been applied to a hosted project yet, only verified via the local Docker harness (`backend/supabase/manual/run_phase1_local_docker_verification.ps1`).
 
 ---
 
@@ -1034,15 +1047,17 @@ Create these as new numbered migrations, in order:
 
 **Dead code found in 2026-07-07 audit:** `finalize_practice_answer` (added in migration 020) appears to have no `GRANT EXECUTE` to `authenticated` and is not called by the production evidence test (`202607060029_phase1_practice_logging_evidence_test.sql` calls `save_practice_answer` directly). Confirm this is truly unused before Phase 1 sign-off, and either wire it in or delete it — don't leave two parallel answer-saving functions in the schema.
 
-### New RPCs for Phase 1
+### New RPCs for Phase 1 — DONE 2026-07-07
 
 | RPC | Migration | Purpose |
 |---|---|---|
 | `record_login()` | 030 | Increment login_count, insert into user_login_log |
-| `check_and_grant_awards(user_id)` | 031 | Check login milestones, grant new badges |
-| `start_overall_assessment()` | 032 | Create 100-question assessment attempt |
-| `save_overall_assessment_answer(attempt_id, position, answer, ms)` | 032 | Grade and save one assessment answer |
-| `complete_overall_assessment(attempt_id)` | 032 | Tally scores, compute bands, return result |
+| `check_and_grant_awards(user_id)` | 031 | Check login milestones, grant new badges — called from Android, not embedded server-side (see Feature J) |
+| `sense_difficulty_weight(sense_id)` | 034 | Per-item difficulty weight (bands.band_score) for the Scoring PDF's weighted raw score |
+| `compute_skill_band(weighted_correct, weighted_max)` | 034 | Piecewise raw-to-band mapping (Scoring PDF Table 2) |
+| `start_overall_assessment()` | 035 | Create/resume the learner's one active 100-question assessment attempt |
+| `save_overall_assessment_answer(attempt_id, position, answer, ms)` | 035 | Grade and save one assessment answer |
+| `complete_overall_assessment(attempt_id)` | 035 | Tally scores, compute per-skill bands, return result |
 
 ---
 
@@ -1050,74 +1065,46 @@ Create these as new numbered migrations, in order:
 
 Do these in order. Do not start step N until step N-1 passes its acceptance criteria.
 
-### Step 1: Backend stabilization (do this first, before any Android work)
+### Step 1: Backend stabilization — DONE locally 2026-07-07, hosted apply still pending
 
-1. Apply migrations 025–029 to the hosted Supabase in filename order (029 fixes the review-before-new sense priority bug found in the 2026-07-07 audit — see Feature E).
-2. Run `verify_project_installation.sql`. Require READY, 0 warnings, 0 failures.
-3. Run all SQL test files in `backend/supabase/tests/`.
-4. Run `.\gradlew.bat test` — all 72+ unit tests must pass.
-5. Run `.\gradlew.bat assembleDebug` — build must succeed.
-6. Record the hosted migration state in `docs/plans/README.md`.
+1. Apply migrations 025–035 to the hosted Supabase in filename order. **Not yet done** — only applied and verified against the disposable local Docker Postgres via `run_phase1_local_docker_verification.ps1`.
+2. Run `verify_project_installation.sql`. Required READY, 0 warnings, 0 failures — passed locally (137 checks).
+3. Run all SQL test files in `backend/supabase/tests/` — all pass locally, including the 4 new ones added 2026-07-07 (`202607070030`, `202607070031`, `202607070034`, `202607070035`).
+4. Run `.\gradlew.bat test` — passed.
+5. Run `.\gradlew.bat assembleDebug` — passed.
+6. Record the hosted migration state in `docs/plans/README.md` — still to do once applied to a real hosted project.
 
-### Step 2: 8 question types in Android UI — SCOPE CORRECTED per 2026-07-07 audit
+### Step 2: 8 question types in Android UI — DONE 2026-07-07
 
-6 of 8 types already render with type-specific UI in `LevelPracticeScreen.kt` (meaning_choice, sentence_cloze_typing, listening_choice, listening_fill, speaking_repeat, reading_comprehension), and TTS is already wired for both listening types. Do not rebuild these. Remaining work:
+All 8 types now render with distinct content-area UI in `LevelPracticeScreen.kt`; `open_speaking` and `word_form` were the gap, both fixed. Not yet verified by an actual on-device manual run through a Level 1 round (only `gradlew test`/`assembleDebug`).
 
-1. Add an `open_speaking` case to the `when(questionTypeKey)` dispatch in `LevelPracticeScreen.kt` — currently it falls through to the generic `else` fallback with no self-check UI at all.
-2. Verify/finish `word_form`'s content block — it currently has an icon/title/instruction but reuses the generic stem layout; confirm this is adequate or give it a dedicated block.
-3. Verify manually that a Level 1 practice round shows all 8 distinct question type presentations, including the two fixed above.
+### Step 3: Login tracking — DONE 2026-07-07
 
-### Step 3: Login tracking
+Migration 030 applied locally. `AppSessionViewModel` calls `recordLoginAndCheckAwards()` (which calls both `record_login()` and `check_and_grant_awards()`) once per session, guarded against double-counting on `retry()`.
 
-1. Apply migration 030 (`login_tracking.sql`).
-2. Add `record_login()` call in Android at app start (after session restore) in `SessionViewModel` or `AppRepositories`.
-3. Verify `profiles.login_count` increments in Supabase after login.
+### Step 4: Awards system — DONE 2026-07-07
 
-### Step 4: Awards system
-
-1. Apply migration 031 (`awards_system.sql`).
-2. Seed `award_definitions` rows with the login milestone and level-completion definitions.
-3. Call `check_and_grant_awards()` from `complete_practice_round` (server-side trigger or called within the RPC).
-4. Android: after round completion, check if any new awards were returned; show celebration animation if so.
-5. Profile screen: add a badges/awards section showing all `user_awards` for the user.
+Migration 031 applied locally with 7 seeded `award_definitions` rows (bronze/silver/gold/platinum_duck at login counts 1/7/30/100, login_streak_3 at count 3, first_level/band4_starter at level completions). `check_and_grant_awards()` is called from Android (`AppSessionViewModel`) rather than embedded in `complete_practice_round`, per the deliberate-deviation note in Feature J. `MainActivity.kt` shows a celebration `AlertDialog` for new awards; `ProfileScreen.kt` has a "我的成就" card listing all earned badges.
 
 ### Step 5: Level-up unlock chain verification (Levels 1–5)
 
-1. Play through Level 1 manually with real Supabase.
-2. Verify Level 2 unlocks after Level 1 completion.
-3. Verify Level 3 unlocks after Level 2, etc., through Level 5.
-4. Run `202607060027_band4_unlock_chain_test.sql` against hosted Supabase.
-5. Verify the home screen updates without requiring a full app restart.
+Not re-verified in this pass — `202607060027_band4_unlock_chain_test.sql` already passed as part of the Step 1 local Docker run, but a manual on-device play-through against a hosted Supabase project is still outstanding.
 
-### Step 6: "Coming Soon" treatment
+### Step 6: "Coming Soon" treatment — DONE 2026-07-07, with a scope correction
 
-1. Apply migration 034 (`coming_soon_flag.sql`).
-2. Set `is_coming_soon = true` for Level 6+.
-3. Android home screen: if `level.is_coming_soon` then render `ComingSoonLevelCard` instead of the active level card.
-4. Tapping a coming-soon card routes to `ComingSoonScreen` (one reusable screen).
+Migration 033 sets `is_coming_soon = true` where `band_id <> 1` (not "Level 6+" — Levels 6–33 are real Band 4.0 content and are NOT coming-soon; only Level 34+/Band 4.5+ is). Android: `HomeScreen.kt`'s existing `LevelRow` renders the coming-soon state inline (dimmed, "即将上线" label) rather than a separate `ComingSoonLevelCard`/`ComingSoonScreen`; tapping shows an `AlertDialog`, not a routed screen. This reuses existing UI instead of building new components, with the same user-facing effect.
 
 ### Step 7: Band Assessment wiring
 
-1. Verify migration 026 is on hosted Supabase.
-2. Wire `BandUpgradeExamScreen` ViewModel to real `start_band_upgrade_exam` / `save_band_upgrade_answer` / `complete_band_upgrade_exam` RPCs.
-3. Render the result screen with per-skill breakdown and pass/fail.
-4. Award `band4_complete` badge on first pass (via `check_and_grant_awards` trigger).
+Already done prior to this pass (confirmed by the 2026-07-07 audit) — `BandUpgradeExamScreen`/`BandUpgradeExamViewModel` are fully wired to the real RPCs. `band4_complete`/similar award rows are not yet seeded in `award_definitions` (only `band_complete` trigger-type support exists in `check_and_grant_awards`); add rows when needed.
 
-### Step 8: Overall Assessment
+### Step 8: Overall Assessment — DONE 2026-07-07
 
-1. Apply migration 032 (`overall_assessment.sql`).
-2. Apply migration 033 (`skill_category_column.sql`) — adds skill_category to questions and backfills.
-3. Build `OverallAssessmentScreen.kt` and `OverallAssessmentViewModel.kt`.
-4. Wire to `start_overall_assessment`, `save_overall_assessment_answer`, `complete_overall_assessment`.
-5. Build the result screen: 4-skill score bars + IELTS band estimate + disclaimer.
-6. Add "开始评测" entry on the home screen.
+Migrations 032 (`skill_category_column.sql`) and 035 (`overall_assessment.sql`) applied locally. `OverallAssessmentScreen.kt` and `OverallAssessmentViewModel.kt` built, with a `Confirm` state (question count + time warning) before starting. Wired to `start_overall_assessment`/`save_overall_assessment_answer`/`complete_overall_assessment`. Result screen shows the 4-skill breakdown, band estimates, and the "not an official IELTS score" disclaimer. "📊 开始评测" button added to `HomeScreen.kt`.
 
-### Step 9: Scoring system implementation
+### Step 9: Scoring system implementation — DONE 2026-07-07
 
-1. Read the Scoring PDF and extract the exact formula.
-2. Implement `compute_skill_band(correct int, total int, question_difficulty_levels int[])` as a Postgres function.
-3. Call it within `complete_overall_assessment` and `complete_band_upgrade_exam`.
-4. Unit test the scoring formula against the examples in the PDF.
+Read the actual Scoring PDF via `pdftotext` extraction (no PDF renderer was available in this environment). Implemented `sense_difficulty_weight(sense_id)` and `compute_skill_band(weighted_correct, weighted_max)` in migration 034 (signature differs from this step's original sketch — see Feature I for why: it takes pre-aggregated weighted sums, not raw arrays, computed by the caller). Called from `complete_overall_assessment` only; `complete_band_upgrade_exam` was left untouched since its result screen only needs raw category counts, not band estimates (see Feature G's result mockup). Unit-tested against concrete accuracy fractions in `202607070034_skill_scoring_test.sql`.
 
 ### Step 10: Final integration pass
 

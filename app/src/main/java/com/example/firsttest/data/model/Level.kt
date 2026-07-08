@@ -9,4 +9,5 @@ data class Level(
     val bestAccuracy: Float = 0f,
     val bestStarRating: Int = 0,
     val completedSessionCount: Int = 0,
+    val isComingSoon: Boolean = false,
 )

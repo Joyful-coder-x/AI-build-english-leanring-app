@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -26,6 +27,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -48,6 +50,7 @@ fun HomeScreen(
     refreshToken: Int = 0,
     onLevelClick: (levelNumber: Int) -> Unit = {},
     onBandTestClick: (targetBand: Double) -> Unit = {},
+    onOverallAssessmentClick: () -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory),
 ) {
     LaunchedEffect(refreshToken) {
@@ -67,6 +70,15 @@ fun HomeScreen(
                     streakDays = state.streakDays,
                     streakGoal = state.streakGoal,
                 )
+                OutlinedButton(
+                    onClick = onOverallAssessmentClick,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                ) {
+                    Text("📊 开始评测")
+                }
+                Spacer(Modifier.height(8.dp))
                 BandList(
                     bands = state.bands,
                     onLevelClick = onLevelClick,
@@ -219,7 +231,10 @@ private fun BandCard(
 
 @Composable
 private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
+    var showComingSoonDialog by remember(level.number) { mutableStateOf(false) }
+
     val statusText = when {
+        level.isComingSoon -> "即将上线"
         level.isCompleted -> buildString {
             append("Completed")
             if (level.completedSessionCount > 0) {
@@ -244,8 +259,14 @@ private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .alpha(if (level.isUnlocked) 1f else 0.55f)
-            .then(if (level.isUnlocked) Modifier.clickable(onClick = onClick) else Modifier),
+            .alpha(if (level.isUnlocked && !level.isComingSoon) 1f else 0.55f)
+            .then(
+                when {
+                    level.isComingSoon -> Modifier.clickable { showComingSoonDialog = true }
+                    level.isUnlocked -> Modifier.clickable(onClick = onClick)
+                    else -> Modifier
+                }
+            ),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
         Row(
@@ -255,6 +276,7 @@ private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
         ) {
             Text(
                 when {
+                    level.isComingSoon -> "🔒"
                     level.isCompleted -> "Done"
                     level.isUnlocked -> "Start"
                     else -> "Locked"
@@ -274,12 +296,23 @@ private fun LevelRow(level: Level, displayTitle: String, onClick: () -> Unit) {
                 )
             }
             Text(
-                text = if (level.isUnlocked) "Open" else "Locked",
+                text = if (level.isComingSoon) "即将上线" else if (level.isUnlocked) "Open" else "Locked",
                 style = MaterialTheme.typography.labelMedium,
-                color = if (level.isUnlocked) MaterialTheme.colorScheme.primary
+                color = if (level.isUnlocked && !level.isComingSoon) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+
+    if (showComingSoonDialog) {
+        AlertDialog(
+            onDismissRequest = { showComingSoonDialog = false },
+            confirmButton = {
+                TextButton(onClick = { showComingSoonDialog = false }) { Text("知道了") }
+            },
+            title = { Text("即将上线") },
+            text = { Text("这个关卡即将上线，敬请期待！") },
+        )
     }
 }
 

@@ -10,6 +10,9 @@ import com.example.firsttest.data.model.LevelPracticeRound
 import com.example.firsttest.data.model.LevelWordStatus
 import com.example.firsttest.data.model.MeaningChoiceOption
 import com.example.firsttest.data.model.MeaningChoiceQuestion
+import com.example.firsttest.data.model.OverallAssessment
+import com.example.firsttest.data.model.OverallAssessmentAnswerResult
+import com.example.firsttest.data.model.OverallAssessmentQuestion
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
@@ -141,6 +144,8 @@ class FakeVocabRepository : VocabRepository {
 
     private var activeBandExam: BandUpgradeExam? = null
     private val bandExamAnswers = mutableMapOf<Int, Boolean>()
+    private var activeOverallAssessment: OverallAssessment? = null
+    private val overallAssessmentAnswers = mutableMapOf<Int, Boolean>()
 
     override suspend fun startBandUpgradeExam(targetBand: Double): BandUpgradeExam {
         activeBandExam?.let { return it }
@@ -228,6 +233,89 @@ class FakeVocabRepository : VocabRepository {
         ).also { activeBandExam = null }
     }
 
+    override suspend fun startOverallAssessment(): OverallAssessment {
+        activeOverallAssessment?.let { return it }
+        val skills = listOf("listening", "reading", "speaking", "spelling")
+        val questions = (1..100).map { position ->
+            val skill = skills[(position - 1) / 25]
+            val isKeyboard = skill == "spelling"
+            OverallAssessmentQuestion(
+                position = position,
+                questionId = "fake-overall-$position",
+                questionTypeKey = when (skill) {
+                    "listening" -> "listening_choice"
+                    "speaking" -> "speaking_repeat"
+                    "spelling" -> "sentence_cloze_typing"
+                    else -> "meaning_choice"
+                },
+                skillCategory = skill,
+                answerForm = if (isKeyboard) "keyboard" else "option",
+                stem = if (isKeyboard) "Type the word for: evidence" else "evidence",
+                promptHint = "Overall assessment question",
+                translationZh = "evidence; proof",
+                headword = "evidence",
+                options = if (isKeyboard) emptyList() else listOf(
+                    MeaningChoiceOption("fake-${position}-a", "", "evidence", false),
+                    MeaningChoiceOption("fake-${position}-b", "", "method", false),
+                    MeaningChoiceOption("fake-${position}-c", "", "policy", false),
+                    MeaningChoiceOption("fake-${position}-d", "", "factor", false),
+                ),
+                answered = false,
+                isCorrect = null,
+            )
+        }
+        return OverallAssessment(
+            attemptId = "fake-overall-assessment",
+            status = "started",
+            questionCount = questions.size,
+            correctCount = null,
+            listeningCorrect = null, listeningTotal = 25,
+            readingCorrect = null, readingTotal = 25,
+            speakingCorrect = null, speakingTotal = 25,
+            spellingCorrect = null, spellingTotal = 25,
+            listeningBand = null, readingBand = null, speakingBand = null, spellingBand = null,
+            overallBand = null,
+            questions = questions,
+        ).also {
+            activeOverallAssessment = it
+            overallAssessmentAnswers.clear()
+        }
+    }
+
+    override suspend fun saveOverallAssessmentAnswer(
+        attemptId: String,
+        position: Int,
+        answer: String,
+        responseTimeMs: Int,
+    ): OverallAssessmentAnswerResult {
+        val isCorrect = answer.equals("evidence", ignoreCase = true) ||
+            answer.startsWith("fake-$position-a")
+        overallAssessmentAnswers[position] = isCorrect
+        return OverallAssessmentAnswerResult(
+            alreadySaved = false,
+            position = position,
+            isCorrect = isCorrect,
+        )
+    }
+
+    override suspend fun completeOverallAssessment(attemptId: String): OverallAssessment {
+        val attempt = requireNotNull(activeOverallAssessment)
+        val correct = overallAssessmentAnswers.values.count { it }
+        return attempt.copy(
+            status = "completed",
+            correctCount = correct,
+            listeningCorrect = 20, readingCorrect = 20, speakingCorrect = 20, spellingCorrect = 20,
+            listeningBand = 6.0, readingBand = 6.0, speakingBand = 6.0, spellingBand = 6.0,
+            overallBand = 6.0,
+            questions = attempt.questions.map { question ->
+                question.copy(
+                    answered = overallAssessmentAnswers.containsKey(question.position),
+                    isCorrect = overallAssessmentAnswers[question.position],
+                )
+            },
+        ).also { activeOverallAssessment = null }
+    }
+
     override suspend fun saveMeaningChoiceAnswer(
         levelNumber: Int, senseId: String, selectedSenseId: String,
         isCorrect: Boolean, responseTimeMs: Int,
@@ -249,6 +337,7 @@ class FakeVocabRepository : VocabRepository {
                 title = "Level $n",
                 bandScore = bandScoreForLevel(n),
                 isUnlocked = n == 1,
+                isComingSoon = n > 33,
             )
         }
 

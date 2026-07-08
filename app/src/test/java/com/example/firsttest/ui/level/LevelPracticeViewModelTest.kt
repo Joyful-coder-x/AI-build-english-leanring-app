@@ -271,6 +271,8 @@ private class RecordingSessionUserRepository(
     override suspend fun clear() = Unit
 
     override suspend fun getCurrentUser(): User = userRepository.getCurrentUser()
+
+    override suspend fun recordLoginAndCheckAwards(): List<com.example.firsttest.data.model.NewAward> = emptyList()
 }
 
 private class CompleteFailsOnceRepository(

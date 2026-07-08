@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.firsttest.data.model.NewAward
 import com.example.firsttest.data.model.User
 import com.example.firsttest.data.repository.AuthRepository
 import com.example.firsttest.data.repository.AuthState
@@ -27,7 +28,10 @@ sealed interface AppSessionState {
         val user: User,
         val bootstrap: UserBootstrapState,
     ) : AppSessionState
-    data class Authenticated(val user: User) : AppSessionState
+    data class Authenticated(
+        val user: User,
+        val newAwards: List<NewAward> = emptyList(),
+    ) : AppSessionState
     data class Error(val message: String) : AppSessionState
 }
 
@@ -39,6 +43,7 @@ class AppSessionViewModel(
     private val mutableState =
         MutableStateFlow<AppSessionState>(AppSessionState.RestoringSession)
     val uiState: StateFlow<AppSessionState> = mutableState.asStateFlow()
+    private var hasRecordedLoginThisSession = false
 
     init {
         viewModelScope.launch {
@@ -47,6 +52,7 @@ class AppSessionViewModel(
                     AuthState.Restoring -> mutableState.value = AppSessionState.RestoringSession
                     AuthState.SignedOut -> {
                         userRepository.clear()
+                        hasRecordedLoginThisSession = false
                         mutableState.value = AppSessionState.SignedOut
                     }
                     is AuthState.SignedIn -> loadBootstrap()
@@ -68,6 +74,20 @@ class AppSessionViewModel(
         }
     }
 
+    /** Dismisses the celebration UI after new awards have been shown once. */
+    fun clearNewAwards() {
+        val current = mutableState.value
+        if (current is AppSessionState.Authenticated && current.newAwards.isNotEmpty()) {
+            mutableState.value = current.copy(newAwards = emptyList())
+        }
+    }
+
+    private suspend fun recordLoginOnce(): List<NewAward> {
+        if (hasRecordedLoginThisSession) return emptyList()
+        hasRecordedLoginThisSession = true
+        return runCatching { userRepository.recordLoginAndCheckAwards() }.getOrDefault(emptyList())
+    }
+
     private suspend fun loadBootstrap() {
         mutableState.value = AppSessionState.LoadingBootstrap
         var user: User? = null
@@ -84,7 +104,7 @@ class AppSessionViewModel(
                             "Apply the latest Supabase migration and retry."
                     )
                 OnboardingFlowState.HOME_READY ->
-                    AppSessionState.Authenticated(user)
+                    AppSessionState.Authenticated(user, newAwards = recordLoginOnce())
                 OnboardingFlowState.PLACEMENT_FINALIZED ->
                     AppSessionState.Error("Placement is still being finalized. Please retry.")
             }
