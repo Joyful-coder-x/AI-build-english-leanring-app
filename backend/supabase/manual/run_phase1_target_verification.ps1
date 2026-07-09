@@ -50,13 +50,53 @@ function Invoke-PsqlFile([string]$Path) {
 function Invoke-PsqlCommand([string]$Command) {
     Write-Host "psql -c $($Command.Substring(0, [Math]::Min(90, $Command.Length)))"
     if ($UseDocker) {
-        # Only ever called from Copy-Csv below, so mounting $importDir is always correct here.
         docker run --rm -v "${importDir}:/import" $psqlImage psql $DatabaseUrl -v ON_ERROR_STOP=1 -c $Command
     } else {
         & psql $DatabaseUrl -v ON_ERROR_STOP=1 -c $Command
     }
     if ($LASTEXITCODE -ne 0) {
         throw "psql command failed"
+    }
+}
+
+function Assert-TableExists([string]$Schema, [string]$Table) {
+    if ($Schema -notmatch '^[a-z_][a-z0-9_]*$' -or $Table -notmatch '^[a-z_][a-z0-9_]*$') {
+        throw "Invalid table identifier: $Schema.$Table"
+    }
+
+    $qualified = "$Schema.$Table"
+    $check = @'
+DO $$
+BEGIN
+  IF to_regclass('__QUALIFIED_TABLE__') IS NULL THEN
+    RAISE EXCEPTION 'Missing required table: __QUALIFIED_TABLE__. Run migrations against this target database before importing Band 4 content.';
+  END IF;
+END $$;
+'@
+    Invoke-PsqlCommand ($check.Replace("__QUALIFIED_TABLE__", $qualified))
+}
+
+function Assert-Band4ImportSchemaReady {
+    $requiredTables = @(
+        "content_sources",
+        "topic_clusters",
+        "bands",
+        "levels",
+        "words",
+        "word_senses",
+        "word_forms",
+        "pronunciations",
+        "level_sense_assignments",
+        "usage_evidence",
+        "examples",
+        "collocations",
+        "question_types",
+        "questions",
+        "question_options"
+    )
+
+    foreach ($table in $requiredTables) {
+        Assert-TableExists "public" $table
     }
 }
 
@@ -81,6 +121,7 @@ if ($ResetVocabulary) {
 }
 
 if ($ImportBand4) {
+    Assert-Band4ImportSchemaReady
     Copy-Csv "public.content_sources(id,source_key,name,source_url,license_name,copyright_status,attribution_text,notes,human_review)" "01_content_sources.csv"
     Invoke-PsqlFile (Join-Path $importDir "02_topic_clusters_upsert.sql")
     Invoke-PsqlFile (Join-Path $importDir "03_band_levels_upsert.sql")
