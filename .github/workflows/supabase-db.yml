@@ -75,7 +75,51 @@ jobs:
         shell: bash
         run: |
           docker run --rm postgres:17-alpine \
-            psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -c "do \$\$ begin if to_regclass('public.content_sources') is null then raise exception 'Missing public.content_sources. Check that SUPABASE_PROJECT_ID and SUPABASE_DATABASE_URL point to the same Supabase project, then run migrations before importing content.'; end if; end \$\$;"
+            psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -c "
+              with existing_public_tables as (
+                select coalesce(string_agg(tablename, ', ' order by tablename), '<none>') as names
+                from pg_tables
+                where schemaname = 'public'
+              ),
+              migration_versions as (
+                select case
+                  when to_regclass('supabase_migrations.schema_migrations') is null then '<schema_migrations table missing>'
+                  else '<schema_migrations table exists; detailed versions checked below>'
+                end as versions
+              )
+              select
+                current_database() as database_name,
+                current_user as database_user,
+                inet_server_addr() as server_addr,
+                inet_server_port() as server_port,
+                (select names from existing_public_tables) as existing_public_tables,
+                (select versions from migration_versions) as recorded_migrations,
+                to_regclass('public.content_sources') as content_sources_table;
+
+              do \$\$
+              declare
+                existing_public_tables text;
+                recorded_migrations text;
+              begin
+                select coalesce(string_agg(tablename, ', ' order by tablename), '<none>')
+                into existing_public_tables
+                from pg_tables
+                where schemaname = 'public';
+
+                if to_regclass('supabase_migrations.schema_migrations') is null then
+                  recorded_migrations := '<schema_migrations table missing>';
+                else
+                  execute 'select coalesce(string_agg(version, '', '' order by version), ''<no migrations recorded>'') from supabase_migrations.schema_migrations'
+                  into recorded_migrations;
+                end if;
+
+                if to_regclass('public.content_sources') is null then
+                  raise exception 'Missing public.content_sources in DATABASE_URL target. Existing public tables: %. Recorded migrations: %. Check that SUPABASE_PROJECT_ID and SUPABASE_DATABASE_URL point to the same Supabase project, then run migrations before importing content.',
+                    existing_public_tables,
+                    recorded_migrations;
+                end if;
+              end
+              \$\$;"
 
       - name: Import Band 4 CSV package and run SQL tests
         shell: pwsh

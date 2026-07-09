@@ -59,23 +59,6 @@ function Invoke-PsqlCommand([string]$Command) {
     }
 }
 
-function Assert-TableExists([string]$Schema, [string]$Table) {
-    if ($Schema -notmatch '^[a-z_][a-z0-9_]*$' -or $Table -notmatch '^[a-z_][a-z0-9_]*$') {
-        throw "Invalid table identifier: $Schema.$Table"
-    }
-
-    $qualified = "$Schema.$Table"
-    $check = @'
-DO $$
-BEGIN
-  IF to_regclass('__QUALIFIED_TABLE__') IS NULL THEN
-    RAISE EXCEPTION 'Missing required table: __QUALIFIED_TABLE__. Run migrations against this target database before importing Band 4 content.';
-  END IF;
-END $$;
-'@
-    Invoke-PsqlCommand ($check.Replace("__QUALIFIED_TABLE__", $qualified))
-}
-
 function Assert-Band4ImportSchemaReady {
     $requiredTables = @(
         "content_sources",
@@ -96,8 +79,82 @@ function Assert-Band4ImportSchemaReady {
     )
 
     foreach ($table in $requiredTables) {
-        Assert-TableExists "public" $table
+        if ($table -notmatch '^[a-z_][a-z0-9_]*$') {
+            throw "Invalid table identifier: public.$table"
+        }
     }
+
+    $values = ($requiredTables | ForEach-Object { "('$_')" }) -join ","
+$check = @"
+with required(table_name) as (
+  values $values
+),
+missing as (
+  select table_name
+  from required
+  where to_regclass('public.' || table_name) is null
+),
+existing_public_tables as (
+  select coalesce(string_agg(tablename, ', ' order by tablename), '<none>') as names
+  from pg_tables
+  where schemaname = 'public'
+),
+migration_versions as (
+  select case
+    when to_regclass('supabase_migrations.schema_migrations') is null then '<schema_migrations table missing>'
+    else '<schema_migrations table exists; detailed versions checked below>'
+  end as versions
+)
+select
+  current_database() as database_name,
+  current_user as database_user,
+  inet_server_addr() as server_addr,
+  inet_server_port() as server_port,
+  (select names from existing_public_tables) as existing_public_tables,
+  (select versions from migration_versions) as recorded_migrations,
+  coalesce((select string_agg(table_name, ', ' order by table_name) from missing), '<none>') as missing_required_tables;
+
+do `$`$
+declare
+  missing_required_tables text;
+  existing_public_tables text;
+  recorded_migrations text;
+begin
+  with required(table_name) as (
+    values $values
+  ),
+  missing as (
+    select table_name
+    from required
+    where to_regclass('public.' || table_name) is null
+  )
+  select coalesce(string_agg(table_name, ', ' order by table_name), '')
+  into missing_required_tables
+  from missing;
+
+  select coalesce(string_agg(tablename, ', ' order by tablename), '<none>')
+  into existing_public_tables
+  from pg_tables
+  where schemaname = 'public';
+
+  if to_regclass('supabase_migrations.schema_migrations') is null then
+    recorded_migrations := '<schema_migrations table missing>';
+  else
+    execute 'select coalesce(string_agg(version, '', '' order by version), ''<no migrations recorded>'') from supabase_migrations.schema_migrations'
+    into recorded_migrations;
+  end if;
+
+  if missing_required_tables <> '' then
+    raise exception 'Band 4 import schema is not ready. Missing required tables: %. Existing public tables: %. Recorded migrations: %',
+      missing_required_tables,
+      existing_public_tables,
+      recorded_migrations;
+  end if;
+end
+`$`$;
+"@
+
+    Invoke-PsqlCommand $check
 }
 
 function Copy-Csv([string]$TableAndColumns, [string]$CsvName) {
