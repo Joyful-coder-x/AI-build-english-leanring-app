@@ -5,6 +5,9 @@
 --
 -- It clears shared curriculum/content plus dependent learning and assessment
 -- rows so the Band 4 package can be loaded from a clean content state.
+--
+-- Static lookup tables such as bands and question_types are intentionally kept.
+-- They are seeded by migrations and are referenced by the content package.
 
 begin;
 
@@ -40,8 +43,7 @@ declare
     'words',
     'content_sources',
     'levels',
-    'topic_clusters',
-    'bands'
+    'topic_clusters'
   ];
   existing_tables text;
 begin

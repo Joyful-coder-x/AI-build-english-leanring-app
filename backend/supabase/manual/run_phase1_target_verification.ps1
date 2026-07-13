@@ -167,6 +167,62 @@ function Copy-Csv([string]$TableAndColumns, [string]$CsvName) {
     }
 }
 
+function Seed-StaticContentLookups {
+$seedSql = @"
+insert into public.bands (id, band_score, display_name, sort_order)
+values
+  (1, 4.0, 'IELTS 4.0', 1),
+  (2, 4.5, 'IELTS 4.5', 2),
+  (3, 5.0, 'IELTS 5.0', 3),
+  (4, 5.5, 'IELTS 5.5', 4),
+  (5, 6.0, 'IELTS 6.0', 5),
+  (6, 6.5, 'IELTS 6.5', 6),
+  (7, 7.0, 'IELTS 7.0', 7),
+  (8, 7.5, 'IELTS 7.5', 8),
+  (9, 8.0, 'IELTS 8.0', 9)
+on conflict (id) do update
+set band_score = excluded.band_score,
+    display_name = excluded.display_name,
+    sort_order = excluded.sort_order;
+
+insert into public.question_types (
+  type_code, category, name, name_zh, answer_form, skill_type, notes
+)
+values
+  (1, 'new_word', 'initial_letter_fill', '首字母填空', 'keyboard', 'spelling', 'Example sentence with target blank'),
+  (2, 'new_word', 'word_choice', '单词选择', 'option', 'multiple_choice', 'Example sentence with distractors'),
+  (3, 'new_word', 'sentence_cloze_typing', '句子填空输入', 'keyboard', 'spelling', 'Sentence blank with Chinese hint and staged memory retype'),
+  (4, 'listening', 'listening_fill', '听力填空', 'keyboard', 'listening', 'Audio spelling'),
+  (5, 'listening', 'listening_comprehension', '听力理解', 'option', 'listening', 'Audio comprehension'),
+  (6, 'speaking', 'guided_repeat', '选择并复述', 'voice', 'speaking', 'Guided production'),
+  (7, 'speaking', 'open_speaking', '理解并口述', 'voice', 'speaking', 'Open production'),
+  (8, 'speaking', 'sentence_repeat', '填空并复述', 'voice', 'speaking', 'Sentence production'),
+  (9, 'reading', 'definition_choice', '英文释义选择', 'option', 'meaning', 'Definition recognition'),
+  (10, 'reading', 'word_form', '词形变化', 'keyboard', 'reading', 'Inflected form'),
+  (11, 'reading', 'synonym_choice', '同义词选择', 'option', 'synonym', 'Generated from lexical relations'),
+  (12, 'reading', 'antonym_choice', '反义词选择', 'option', 'antonym', 'Generated from lexical relations'),
+  (13, 'reading', 'reading_comprehension', '阅读理解', 'option', 'reading', 'Context comprehension'),
+  (14, 'writing', 'translation_fill', '翻译补全', 'keyboard', 'writing', 'Chinese-to-English production'),
+  (101, 'new_word',  'meaning_choice',          'meaning choice',          'option',   'meaning',   'Choose the English word that matches the meaning'),
+  (102, 'new_word',  'sentence_cloze_typing',   'sentence cloze typing',   'keyboard', 'spelling',  'Type the target word in a sentence blank'),
+  (103, 'listening', 'listening_choice',        'listening choice',        'option',   'listening', 'Choose the word heard in the prompt'),
+  (104, 'listening', 'listening_fill',          'listening fill',          'keyboard', 'listening', 'Type the word heard in the prompt'),
+  (105, 'speaking',  'speaking_repeat',         'speaking repeat',         'option',   'speaking',  'Repeat the word and self-check'),
+  (106, 'speaking',  'open_speaking',           'open speaking',           'option',   'speaking',  'Use the word aloud and self-check'),
+  (107, 'reading',   'word_form',               'word form',               'keyboard', 'spelling',  'Type the target word/form'),
+  (108, 'reading',   'reading_comprehension',   'reading comprehension',   'option',   'reading',   'Choose the word that completes the context')
+on conflict (type_code) do update
+set category = excluded.category,
+    name = excluded.name,
+    name_zh = excluded.name_zh,
+    answer_form = excluded.answer_form,
+    skill_type = excluded.skill_type,
+    notes = excluded.notes;
+"@
+
+    Invoke-PsqlCommand $seedSql
+}
+
 function Upsert-Csv([string]$TableName, [string[]]$Columns, [string[]]$ConflictColumns, [string]$CsvName) {
     $stageName = "public._band4_import_" + (($TableName -replace "^public\.", "") -replace "[^a-zA-Z0-9_]", "_")
     $columnList = $Columns -join ","
@@ -217,6 +273,7 @@ if ($ResetVocabulary) {
 
 if ($ImportBand4) {
     Assert-Band4ImportSchemaReady
+    Seed-StaticContentLookups
     Copy-Csv "public.content_sources(id,source_key,name,source_url,license_name,copyright_status,attribution_text,notes,human_review)" "01_content_sources.csv"
     Invoke-PsqlFile (Join-Path $importDir "02_topic_clusters_upsert.sql")
     Invoke-PsqlFile (Join-Path $importDir "03_band_levels_upsert.sql")
@@ -234,6 +291,7 @@ if ($ImportBand4) {
 
 if ($UpsertBand4) {
     Assert-Band4ImportSchemaReady
+    Seed-StaticContentLookups
     Upsert-Csv "public.content_sources" @("id","source_key","name","source_url","license_name","copyright_status","attribution_text","notes","human_review") @("id") "01_content_sources.csv"
     Invoke-PsqlFile (Join-Path $importDir "02_topic_clusters_upsert.sql")
     Invoke-PsqlFile (Join-Path $importDir "03_band_levels_upsert.sql")
