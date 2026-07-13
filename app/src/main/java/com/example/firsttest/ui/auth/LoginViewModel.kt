@@ -107,8 +107,17 @@ class LoginViewModel(
                     (raw.contains("password", ignoreCase = true) &&
                         raw.contains("characters", ignoreCase = true)) ->
                     "Password must be at least $MIN_PASSWORD_LENGTH characters."
-                else -> "Authentication failed. Try again."
+                else -> "Authentication failed: ${debugAuthMessage(error, raw)}"
             }
+        }
+
+        private fun debugAuthMessage(error: Throwable, raw: String): String {
+            val sanitized = raw
+                .replace(Regex("https?://\\S+"), "[url]")
+                .replace(Regex("(?i)(apikey|authorization)=\\S+"), "$1=[redacted]")
+                .replace(Regex("(?i)(headers?:).*"), "$1 [redacted]")
+                .trim()
+            return sanitized.ifBlank { error::class.simpleName ?: "Unknown error" }
         }
 
         val Factory: ViewModelProvider.Factory = viewModelFactory {

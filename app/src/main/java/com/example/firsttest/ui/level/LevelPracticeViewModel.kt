@@ -31,6 +31,10 @@ sealed interface LevelPracticeUiState {
         val letterCount: Int? = question.letterCount,
         val feedback: String = "",
         val lastWrongAnswer: String = "",
+        val selfCheckHintStage: Int = 0,
+        val selfCheckDefinitionZh: String = "",
+        val selfCheckExampleSentence: String? = null,
+        val isHintLoading: Boolean = false,
         val questionStartMs: Long = System.currentTimeMillis(),
         val isSubmitting: Boolean = false,
     ) : LevelPracticeUiState {
@@ -71,6 +75,7 @@ sealed interface LevelPracticeUiState {
         val correctAnswer: String?,    // cloze questions
         val answerOutcome: String,     // "full_correct" | "assisted_correct" | "remediation_completed" | "wrong"
         val comboCount: Int,
+        val selfCheckHintUsed: Boolean = false,
     ) : LevelPracticeUiState {
         val isCorrect: Boolean get() = answerOutcome == "full_correct" || answerOutcome == "assisted_correct"
     }
@@ -126,7 +131,51 @@ class LevelPracticeViewModel(
 
     fun onOptionSelected(optionId: String) {
         val s = _uiState.value as? LevelPracticeUiState.Answering ?: return
+        val option = s.question.options.firstOrNull { it.optionId == optionId } ?: return
+        if (s.question.isSpeakingSelfCheck() && option.isSelfCheckHint()) {
+            showSelfCheckHint(s)
+            return
+        }
         _uiState.value = s.copy(selectedOptionId = optionId)
+    }
+
+    private fun showSelfCheckHint(state: LevelPracticeUiState.Answering) {
+        if (state.isHintLoading) return
+        if (state.selfCheckHintStage == 0) {
+            _uiState.value = state.copy(
+                selfCheckHintStage = 1,
+                selfCheckDefinitionZh = state.question.translationZh,
+                selectedOptionId = null,
+                questionStartMs = System.currentTimeMillis(),
+            )
+            return
+        }
+
+        _uiState.value = state.copy(isHintLoading = true, selectedOptionId = null)
+        viewModelScope.launch {
+            try {
+                val hint = vocabRepository.getSenseHint(state.question.senseId)
+                val current = _uiState.value as? LevelPracticeUiState.Answering ?: return@launch
+                if (current.question.questionId != state.question.questionId) return@launch
+                _uiState.value = current.copy(
+                    selfCheckHintStage = 2,
+                    selfCheckDefinitionZh = hint.definitionZh.ifBlank { current.question.translationZh },
+                    selfCheckExampleSentence = hint.exampleSentence,
+                    isHintLoading = false,
+                    questionStartMs = System.currentTimeMillis(),
+                )
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                val current = _uiState.value as? LevelPracticeUiState.Answering ?: return@launch
+                _uiState.value = current.copy(
+                    selfCheckHintStage = 2,
+                    selfCheckExampleSentence = null,
+                    isHintLoading = false,
+                    questionStartMs = System.currentTimeMillis(),
+                )
+            }
+        }
     }
 
     fun onTypedAnswerChanged(text: String) {
@@ -227,9 +276,23 @@ class LevelPracticeViewModel(
                 lastWrongAnswer = answer,
                 correctAnswer = requireNotNull(result.revealedAnswer),
             )
-            else -> showReview(
-                state.question, state.questionIndex, state.totalQuestions, answer, result,
-            )
+            else -> {
+                val effectiveResult =
+                    if (state.question.isSpeakingSelfCheck() && state.selfCheckHintStage > 0) {
+                        result.copy(answerOutcome = "assisted_correct")
+                    } else {
+                        result
+                    }
+                showReview(
+                    state.question,
+                    state.questionIndex,
+                    state.totalQuestions,
+                    answer,
+                    effectiveResult,
+                    selfCheckHintUsed = state.question.isSpeakingSelfCheck() &&
+                        state.selfCheckHintStage > 0,
+                )
+            }
         }
     }
 
@@ -239,6 +302,7 @@ class LevelPracticeViewModel(
         totalQuestions: Int,
         answer: String,
         result: com.example.firsttest.data.model.LevelPracticeAnswerResult,
+        selfCheckHintUsed: Boolean = false,
     ) {
         if (result.answerOutcome == "full_correct") comboCount++ else comboCount = 0
         _uiState.value = LevelPracticeUiState.Reviewing(
@@ -250,6 +314,7 @@ class LevelPracticeViewModel(
             correctAnswer = result.revealedAnswer ?: result.correctAnswer,
             answerOutcome = result.answerOutcome,
             comboCount = comboCount,
+            selfCheckHintUsed = selfCheckHintUsed,
         )
     }
 
@@ -309,6 +374,16 @@ class LevelPracticeViewModel(
 
     private fun elapsed(startMs: Long): Int =
         (System.currentTimeMillis() - startMs).coerceIn(0, Int.MAX_VALUE.toLong()).toInt()
+
+    private fun LevelPracticeQuestion.isSpeakingSelfCheck(): Boolean =
+        questionTypeKey == "open_speaking" ||
+            questionTypeKey == "speaking_repeat" ||
+            typeCode == 105 ||
+            typeCode == 106 ||
+            stem.startsWith("Say one short sentence using:", ignoreCase = true)
+
+    private fun com.example.firsttest.data.model.MeaningChoiceOption.isSelfCheckHint(): Boolean =
+        text == "I need hint" || text == "I need more practice."
 
     companion object {
         fun factory(levelNumber: Int) = viewModelFactory {

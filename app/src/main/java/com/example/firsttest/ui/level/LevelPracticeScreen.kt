@@ -146,13 +146,25 @@ fun LevelPracticeScreen(
                         Text(if (showHint) "隐藏提示" else "查看中文提示")
                     }
                 } else {
+                    val options = speakingSelfCheckOptions(
+                        state.question,
+                        hintStage = state.selfCheckHintStage,
+                    )
                     OptionList(
-                        options = state.question.options,
+                        options = options,
                         selectedId = state.selectedOptionId,
                         reviewingCorrectId = null,
                         reviewingSelectedId = null,
                         onSelect = viewModel::onOptionSelected,
                     )
+                    if (state.selfCheckHintStage > 0 || state.isHintLoading) {
+                        SelfCheckHintPanel(
+                            definitionZh = state.selfCheckDefinitionZh,
+                            exampleSentence = state.selfCheckExampleSentence,
+                            isLoading = state.isHintLoading,
+                            hasExample = state.selfCheckHintStage >= 2,
+                        )
+                    }
                 }
                 Spacer(Modifier.height(4.dp))
                 Button(
@@ -216,9 +228,13 @@ fun LevelPracticeScreen(
                     )
                 } else {
                     OptionList(
-                        options = state.question.options,
+                        options = speakingSelfCheckOptions(state.question),
                         selectedId = null,
-                        reviewingCorrectId = state.correctOptionId,
+                        reviewingCorrectId = if (state.question.isSpeakingSelfCheck()) {
+                            null
+                        } else {
+                            state.correctOptionId
+                        },
                         reviewingSelectedId = state.submittedAnswer,
                         onSelect = {},
                     )
@@ -227,6 +243,8 @@ fun LevelPracticeScreen(
                 ReviewPanel(
                     answerOutcome = state.answerOutcome,
                     translationZh = state.question.translationZh,
+                    isSpeakingSelfCheck = state.question.isSpeakingSelfCheck(),
+                    selfCheckHintUsed = state.selfCheckHintUsed,
                 )
                 Spacer(Modifier.height(4.dp))
                 val isLast = state.questionIndex + 1 == state.totalQuestions
@@ -240,6 +258,37 @@ fun LevelPracticeScreen(
         }
     }
 }
+
+private fun speakingSelfCheckOptions(
+    question: LevelPracticeQuestion,
+    hintStage: Int = 0,
+): List<MeaningChoiceOption> {
+    if (!question.isSpeakingSelfCheck()) {
+        return question.options
+    }
+
+    val hint = question.options.firstOrNull {
+        it.text == "I need hint" || it.text == "I need more practice."
+    }
+    val known = question.options.firstOrNull {
+        it.text == "I know how to use" || it.text == "I used it clearly."
+    }
+
+    return listOfNotNull(
+        hint?.let {
+            if (hintStage == 1) it.copy(text = "I need more hint")
+            else it
+        },
+        known,
+    ).ifEmpty { question.options.take(2) }
+}
+
+private fun LevelPracticeQuestion.isSpeakingSelfCheck(): Boolean =
+    questionTypeKey == "open_speaking" ||
+        questionTypeKey == "speaking_repeat" ||
+        typeCode == 105 ||
+        typeCode == 106 ||
+        stem.startsWith("Say one short sentence using:", ignoreCase = true)
 
 // ---- Sub-components ---------------------------------------------------------
 
@@ -762,6 +811,62 @@ private fun ClozeReview(
 }
 
 @Composable
+private fun SelfCheckHintPanel(
+    definitionZh: String,
+    exampleSentence: String?,
+    isLoading: Boolean,
+    hasExample: Boolean,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+        ),
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(
+                "Hint",
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+            if (definitionZh.isNotBlank()) {
+                Text(
+                    "Chinese meaning: $definitionZh",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
+            }
+            when {
+                isLoading -> Text(
+                    "Loading example...",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
+                hasExample && !exampleSentence.isNullOrBlank() -> Text(
+                    "Example: $exampleSentence",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
+                hasExample -> Text(
+                    "No example sentence is available for this word yet.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
+                else -> Text(
+                    "Select I need hint again for an example, or select I know how to use when ready.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun OptionList(
     options: List<MeaningChoiceOption>,
     selectedId: String?,
@@ -803,15 +908,72 @@ private fun OptionButton(
         colors = ButtonDefaults.outlinedButtonColors(containerColor = containerColor),
     ) {
         Text(
-            text = option.text,
+            text = displayOptionText(option.text),
             fontWeight = if (isSelected || isReviewingCorrect) FontWeight.SemiBold else FontWeight.Normal,
             fontSize = 14.sp,
         )
     }
 }
 
+private fun displayOptionText(text: String): String = when (text) {
+    "I need more practice." -> "I need hint"
+    "I used it clearly." -> "I know how to use"
+    else -> text
+}
+
 @Composable
-private fun ReviewPanel(answerOutcome: String, translationZh: String) {
+private fun ReviewPanel(
+    answerOutcome: String,
+    translationZh: String,
+    isSpeakingSelfCheck: Boolean = false,
+    selfCheckHintUsed: Boolean = false,
+) {
+    if (isSpeakingSelfCheck) {
+        val bgColor = if (selfCheckHintUsed) {
+            MaterialTheme.colorScheme.tertiaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceVariant
+        }
+        val textColor = if (selfCheckHintUsed) {
+            MaterialTheme.colorScheme.onTertiaryContainer
+        } else {
+            MaterialTheme.colorScheme.onSurfaceVariant
+        }
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = bgColor),
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Text(
+                    if (selfCheckHintUsed) "Needs more practice" else "Self-check saved",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = textColor,
+                )
+                Text(
+                    if (selfCheckHintUsed) {
+                        "You used a hint, so this word should stay in review."
+                    } else {
+                        "You marked that you can use this word."
+                    },
+                    style = MaterialTheme.typography.bodySmall,
+                    color = textColor,
+                )
+                if (translationZh.isNotBlank()) {
+                    Text(
+                        "Chinese meaning: $translationZh",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = textColor,
+                    )
+                }
+            }
+        }
+        return
+    }
+
     val isCorrect = answerOutcome == "full_correct" || answerOutcome == "assisted_correct"
     val isRemediation = answerOutcome == "remediation_completed"
     val bgColor = when {

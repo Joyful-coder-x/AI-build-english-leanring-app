@@ -16,6 +16,7 @@ import com.example.firsttest.data.model.OverallAssessmentQuestion
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
+import com.example.firsttest.data.model.SenseHint
 import java.time.LocalDate
 
 /**
@@ -463,9 +464,8 @@ class FakeVocabRepository : VocabRepository {
                 answerForm      = "option", questionTypeKey = "speaking_repeat",
                 translationZh   = "实现；达到",
                 options         = listOf(
-                    MeaningChoiceOption("sp5a", "s1", "✅ 我清晰地说出来了", true),
-                    MeaningChoiceOption("sp5b", "s1", "🤔 大概说对了", true),
-                    MeaningChoiceOption("sp5c", "s1", "❌ 我没说出来", false),
+                    MeaningChoiceOption("sp5a", "s1", "I need hint", false),
+                    MeaningChoiceOption("sp5b", "s1", "I know how to use", true),
                 ),
             ))
             add(LevelPracticeQuestion(
@@ -619,6 +619,16 @@ class FakeVocabRepository : VocabRepository {
             reviewStage     = null,
         )
     }
+
+    override suspend fun getSenseHint(senseId: String): SenseHint =
+        SenseHint(
+            definitionZh = activeLevelRound
+                ?.questions
+                ?.firstOrNull { it.senseId == senseId }
+                ?.translationZh
+                .orEmpty(),
+            exampleSentence = "I can use this word in a short sentence.",
+        )
 
     override suspend fun getPracticeSessionDates(recentDays: Int): List<LocalDate> {
         val today = LocalDate.now()

@@ -12,6 +12,7 @@ import com.example.firsttest.data.model.OverallAssessmentAnswerResult
 import com.example.firsttest.data.model.PracticeAnswerResult
 import com.example.firsttest.data.model.PracticeRound
 import com.example.firsttest.data.model.PracticeRoundResult
+import com.example.firsttest.data.model.SenseHint
 import java.time.LocalDate
 
 /**
@@ -61,6 +62,7 @@ interface VocabRepository {
         answer: String,
         responseTimeMs: Int,
     ): LevelPracticeAnswerResult
+    suspend fun getSenseHint(senseId: String): SenseHint
 
     /** Legacy client-built flow retained temporarily for compatibility tests. */
     suspend fun getMeaningChoiceQuestionsForLevel(levelNumber: Int, limit: Int = 10): List<MeaningChoiceQuestion>

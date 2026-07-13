@@ -23,6 +23,7 @@ import com.example.firsttest.data.remote.DbCompleteMeaningChoiceSessionParams
 import com.example.firsttest.data.remote.DbLevel
 import com.example.firsttest.data.remote.DbLevelProgress
 import com.example.firsttest.data.remote.DbGetLevelWordStatusesParams
+import com.example.firsttest.data.remote.DbExampleHintRow
 import com.example.firsttest.data.remote.DbLevelWordStatus
 import com.example.firsttest.data.remote.DbLevelSenseRow
 import com.example.firsttest.data.remote.DbPracticeAnswerResult
@@ -35,10 +36,12 @@ import com.example.firsttest.data.remote.DbSaveBandUpgradeAnswerParams
 import com.example.firsttest.data.remote.DbSaveOverallAssessmentAnswerParams
 import com.example.firsttest.data.remote.DbSavePracticeAnswerParams
 import com.example.firsttest.data.remote.DbSaveMeaningChoiceAnswerParams
+import com.example.firsttest.data.remote.DbSenseHintRow
 import com.example.firsttest.data.remote.DbSessionStartedAt
 import com.example.firsttest.data.remote.DbStartPracticeRoundParams
 import com.example.firsttest.data.remote.DbStartBandUpgradeExamParams
 import com.example.firsttest.data.remote.Supabase
+import com.example.firsttest.data.model.SenseHint
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
@@ -63,6 +66,7 @@ internal fun resolvedPracticeQuestionTypeKey(
         103  -> "listening_choice"
         104  -> "listening_fill"
         105  -> "speaking_repeat"
+        106  -> "open_speaking"
         107  -> "word_form"
         108  -> "reading_comprehension"
         3    -> "sentence_cloze_typing"   // legacy type_code before migration 019
@@ -99,7 +103,7 @@ class SupabaseVocabRepository : VocabRepository {
                     levelNumber = row.levelNumber,
                     senseId = question.senseId,
                     position = question.position,
-                promptHint     = "Choose the matching English word.",
+                    promptHint = question.promptHint,
                     stem = question.stem,
                     wordText = question.stem,
                     partOfSpeech = "",
@@ -493,6 +497,29 @@ class SupabaseVocabRepository : VocabRepository {
             letterCount     = row.letterCount,
             feedback        = row.feedback.orEmpty(),
             revealedAnswer  = row.revealedAnswer,
+        )
+    }
+
+    override suspend fun getSenseHint(senseId: String): SenseHint {
+        val sense = Supabase.client
+            .from("word_senses")
+            .select(Columns.list("definition_zh")) {
+                filter { eq("id", senseId) }
+                limit(1)
+            }
+            .decodeSingle<DbSenseHintRow>()
+
+        val example = Supabase.client
+            .from("examples")
+            .select(Columns.list("sentence_en")) {
+                filter { eq("sense_id", senseId) }
+                limit(1)
+            }
+            .decodeSingleOrNull<DbExampleHintRow>()
+
+        return SenseHint(
+            definitionZh = sense.definitionZh,
+            exampleSentence = example?.sentenceEn,
         )
     }
 

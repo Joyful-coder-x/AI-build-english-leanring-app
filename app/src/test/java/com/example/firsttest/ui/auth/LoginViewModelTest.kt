@@ -64,7 +64,7 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun authErrorsNeverExposeRequestDetails() {
+    fun recognizedAuthErrorsNeverExposeRequestDetails() {
         val error = IllegalStateException(
             "weak_password URL: https://example.supabase.co/auth/v1/signup Headers: apikey=secret"
         )
@@ -76,13 +76,13 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun unknownAuthErrorsUseGenericMessage() {
+    fun unknownAuthErrorsShowSanitizedDebugMessage() {
         val error = IllegalStateException(
             "URL: https://example.supabase.co/auth/v1/signup Headers: apikey=secret"
         )
 
         assertEquals(
-            "Authentication failed. Try again.",
+            "Authentication failed: URL: [url] Headers: [redacted]",
             LoginViewModel.authMessage(error),
         )
     }

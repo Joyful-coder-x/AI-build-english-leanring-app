@@ -16,6 +16,7 @@ owner area so work does not split across overlapping documents.
 | `PHASE_1_QA_AND_CONTENT_AUDIT_2026_07_06.md` | Current user-flow and Band 4 data audit findings, fixes applied, and remaining editorial risks | Product scope decisions or target-DB deployment steps |
 | `PHASE_1_MANUAL_DEMO_SCRIPT.md` | Repeatable manual demo script and operator evidence checklist for the full Phase 1 path | Implementation design or backlog ownership |
 | `PHASE_1_TARGET_EVIDENCE_TEMPLATE.md` | Fill-in proof template for hosted Supabase verification, Android build/install evidence, fresh-user manual flow, and known demo limitations | Product scope decisions or implementation design |
+| `CONTENT_TABLE_UPDATE_OPERATIONS.md` | Rules for storing content edits, preserving import keys, and choosing GitHub Actions `update_table` versus `load_table` | Editorial quality standards or schema design rationale |
 
 Checkpoint plan:
 

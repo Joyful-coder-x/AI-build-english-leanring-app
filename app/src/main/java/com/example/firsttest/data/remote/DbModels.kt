@@ -183,6 +183,16 @@ data class DbPracticeAnswerResult(
 )
 
 @Serializable
+data class DbSenseHintRow(
+    @SerialName("definition_zh") val definitionZh: String,
+)
+
+@Serializable
+data class DbExampleHintRow(
+    @SerialName("sentence_en") val sentenceEn: String,
+)
+
+@Serializable
 data class DbCompletePracticeRoundParams(
     @SerialName("p_round_id") val roundId: String,
 )

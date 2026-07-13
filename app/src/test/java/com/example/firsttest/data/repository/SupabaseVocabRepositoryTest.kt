@@ -51,4 +51,12 @@ class SupabaseVocabRepositoryTest {
             resolvedPracticeQuestionTypeKey(null, null, 2),
         )
     }
+
+    @Test
+    fun openSpeakingMetadataIsDerivedFromTypeCode() {
+        assertEquals(
+            "open_speaking",
+            resolvedPracticeQuestionTypeKey(null, null, 106),
+        )
+    }
 }

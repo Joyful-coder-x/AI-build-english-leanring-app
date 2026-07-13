@@ -165,6 +165,64 @@ class LevelPracticeViewModelTest {
     }
 
     @Test
+    fun speakingSelfCheckHintDoesNotSubmitAnswer() = runTest(dispatcher) {
+        val vm = newVm()
+        advanceUntilIdle()
+        advanceToQuestion(vm, targetIndex = 4)
+
+        val speaking = vm.uiState.value as LevelPracticeUiState.Answering
+        assertEquals("speaking_repeat", speaking.question.questionTypeKey)
+
+        val hintOption = speaking.question.options.first { it.text == "I need hint" }
+        vm.onOptionSelected(hintOption.optionId)
+        advanceUntilIdle()
+
+        val hinted = vm.uiState.value as LevelPracticeUiState.Answering
+        assertEquals(4, hinted.questionIndex)
+        assertEquals(1, hinted.selfCheckHintStage)
+        assertEquals("实现；达到", hinted.selfCheckDefinitionZh)
+        assertEquals(null, hinted.selectedOptionId)
+        assertFalse(hinted.submitEnabled)
+    }
+
+    @Test
+    fun speakingSelfCheckSecondHintLoadsExample() = runTest(dispatcher) {
+        val vm = newVm()
+        advanceUntilIdle()
+        advanceToQuestion(vm, targetIndex = 4)
+
+        val hintOption = (vm.uiState.value as LevelPracticeUiState.Answering)
+            .question.options.first { it.text == "I need hint" }
+        vm.onOptionSelected(hintOption.optionId)
+        advanceUntilIdle()
+        vm.onOptionSelected(hintOption.optionId)
+        advanceUntilIdle()
+
+        val hinted = vm.uiState.value as LevelPracticeUiState.Answering
+        assertEquals(2, hinted.selfCheckHintStage)
+        assertEquals("I can use this word in a short sentence.", hinted.selfCheckExampleSentence)
+    }
+
+    @Test
+    fun speakingSelfCheckAfterHintIsAssistedNotFullCorrect() = runTest(dispatcher) {
+        val vm = newVm()
+        advanceUntilIdle()
+        advanceToQuestion(vm, targetIndex = 4)
+
+        val question = (vm.uiState.value as LevelPracticeUiState.Answering).question
+        vm.onOptionSelected(question.options.first { it.text == "I need hint" }.optionId)
+        advanceUntilIdle()
+        vm.onOptionSelected(question.options.first { it.text == "I know how to use" }.optionId)
+        vm.onSubmit()
+        advanceUntilIdle()
+
+        val reviewing = vm.uiState.value as LevelPracticeUiState.Reviewing
+        assertEquals("assisted_correct", reviewing.answerOutcome)
+        assertEquals(0, reviewing.comboCount)
+        assertTrue(reviewing.selfCheckHintUsed)
+    }
+
+    @Test
     fun finishesRoundAndRefreshesUser() = runTest(dispatcher) {
         val userRepository = RecordingSessionUserRepository()
         val vm = newVm(userRepository = userRepository)

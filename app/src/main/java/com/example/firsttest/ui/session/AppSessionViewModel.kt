@@ -139,8 +139,17 @@ class AppSessionViewModel(
                     raw.contains("network", ignoreCase = true) ||
                     raw.contains("connection", ignoreCase = true) ->
                     "We couldn't connect to the server. Check your internet connection and try again."
-                else -> "We couldn't load your account. Please try again."
+                else -> "We couldn't load your account: ${debugSessionMessage(error, raw)}"
             }
+        }
+
+        private fun debugSessionMessage(error: Throwable, raw: String): String {
+            val sanitized = raw
+                .replace(Regex("https?://\\S+"), "[url]")
+                .replace(Regex("(?i)(apikey|authorization)=\\S+"), "$1=[redacted]")
+                .replace(Regex("(?i)(headers?:).*"), "$1 [redacted]")
+                .trim()
+            return sanitized.ifBlank { error::class.simpleName ?: "Unknown error" }
         }
 
         val Factory: ViewModelProvider.Factory = viewModelFactory {

@@ -106,6 +106,26 @@ class AppSessionViewModelTest {
 
         assertTrue(viewModel.uiState.value is AppSessionState.Authenticated)
     }
+
+    @Test
+    fun unknownBootstrapErrorShowsSanitizedDetails() = runTest(dispatcher) {
+        val auth = SessionAuthRepository(AuthState.SignedIn("user-1", "u@example.com"))
+        val viewModel = AppSessionViewModel(
+            auth,
+            SessionUserRepositoryFake(),
+            FailingBootstrapRepository(
+                "PostgrestException: permission denied URL: " +
+                    "https://example.supabase.co/rest/v1/rpc Headers: apikey=secret"
+            ),
+        )
+
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value as AppSessionState.Error
+        assertTrue(state.message.contains("permission denied"))
+        assertTrue(state.message.contains("[url]"))
+        assertTrue(state.message.contains("[redacted]"))
+    }
 }
 
 private class SessionAuthRepository(initial: AuthState) : AuthRepository {

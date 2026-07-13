@@ -38,3 +38,8 @@ data class LevelPracticeAnswerResult(
     val feedback: String = "",
     val revealedAnswer: String? = null,
 )
+
+data class SenseHint(
+    val definitionZh: String,
+    val exampleSentence: String?,
+)
