@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import com.example.firsttest.ui.home.BandUpgradeExamScreen
 import com.example.firsttest.ui.home.HomeNav
 import com.example.firsttest.ui.home.HomeScreen
@@ -29,10 +30,10 @@ import com.example.firsttest.ui.scratch.ScratchCardScreen
 import com.example.firsttest.ui.streak.StreakScreen
 
 enum class TopLevelDestination(val label: String, val icon: String) {
-    Home("Home", "H"),
-    Streak("Streak", "S"),
-    Mistakes("Mistakes", "M"),
-    Profile("Profile", "P"),
+    Home("首页", "🏠"),
+    Streak("连胜", "🔥"),
+    Mistakes("错词本", "📕"),
+    Profile("我的", "🦆"),
 }
 
 /**
@@ -65,7 +66,7 @@ fun MainScreen(
                     NavigationBarItem(
                         selected = selected == destination,
                         onClick = { selected = destination },
-                        icon = { Text(destination.icon) },
+                        icon = { Text(destination.icon, fontSize = 22.sp) },
                         label = { Text(destination.label) },
                     )
                 }
