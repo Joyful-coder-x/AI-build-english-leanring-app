@@ -17,6 +17,7 @@ sealed interface LevelProgressUiState {
     data object Loading : LevelProgressUiState
     data class Success(
         val levelNumber: Int,
+        val levelTitle: String,
         val isUnlocked: Boolean,
         val words: List<LevelWordStatus>,
     ) : LevelProgressUiState {
@@ -49,7 +50,12 @@ class LevelProgressViewModel(
                 } else {
                     emptyList()
                 }
-                _uiState.value = LevelProgressUiState.Success(levelNumber, isUnlocked, statuses)
+                _uiState.value = LevelProgressUiState.Success(
+                    levelNumber = levelNumber,
+                    levelTitle = level?.title.orEmpty(),
+                    isUnlocked = isUnlocked,
+                    words = statuses,
+                )
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {

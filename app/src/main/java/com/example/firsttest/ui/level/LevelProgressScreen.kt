@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -56,9 +57,14 @@ fun LevelProgressScreen(
                 .padding(start = 4.dp, end = 16.dp, top = 4.dp, bottom = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            TextButton(onClick = onBack) { Text("Back") }
+            TextButton(onClick = onBack) { Text("← 返回") }
+            val title = (uiState as? LevelProgressUiState.Success)
+                ?.levelTitle
+                ?.substringAfter(":", missingDelimiterValue = "")
+                ?.trim()
+                ?.takeIf { it.isNotEmpty() }
             Text(
-                "Level $levelNumber",
+                "🦆 鸭力训练 $levelNumber" + (title?.let { " · $it" } ?: ""),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
             )
@@ -77,14 +83,14 @@ fun LevelProgressScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                 ) {
-                    Text("Unable to load level progress", style = MaterialTheme.typography.titleMedium)
+                    Text("加载失败了鸭", style = MaterialTheme.typography.titleMedium)
                     Text(
                         state.message,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                     Spacer(Modifier.height(16.dp))
-                    Button(onClick = viewModel::retry) { Text("Retry") }
+                    Button(onClick = viewModel::retry) { Text("重试") }
                 }
 
             is LevelProgressUiState.Success ->
@@ -122,14 +128,14 @@ private fun LevelProgressContent(
                 color = ColorMastered,
                 count = state.masteredCount,
                 total = state.words.size,
-                label = "Mastered",
+                label = "已掌握",
             )
             SummaryChip(
                 modifier = Modifier.weight(1f),
                 color = ColorStarted,
                 count = state.startedCount,
                 total = state.words.size,
-                label = "Started",
+                label = "学习中",
             )
         }
 
@@ -137,11 +143,11 @@ private fun LevelProgressContent(
             onClick = onStartPractice,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("Start practice", fontSize = 16.sp)
+            Text("开始鸭力训练 🦆", fontSize = 16.sp)
         }
 
         Text(
-            "Words in this level - ${state.words.size}",
+            "本关共 ${state.words.size} 个单词",
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -149,9 +155,9 @@ private fun LevelProgressContent(
         WordGrid(words = state.words)
 
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            LegendItem(ColorMastered, "Mastered")
-            LegendItem(ColorStarted, "Learning")
-            LegendItem(MaterialTheme.colorScheme.surfaceVariant, "Not started")
+            LegendItem(ColorMastered, "已掌握")
+            LegendItem(ColorStarted, "学习中")
+            LegendItem(MaterialTheme.colorScheme.surfaceVariant, "未学习")
         }
     }
 }
@@ -163,14 +169,16 @@ private fun LockedLevelContent() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
+        Text("🔒", fontSize = 40.sp)
+        Spacer(Modifier.height(8.dp))
         Text(
-            "Level locked",
+            "这一关还没解锁鸭",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            "Complete the previous level to unlock this one.",
+            "完成上一关的鸭力训练即可解锁～",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

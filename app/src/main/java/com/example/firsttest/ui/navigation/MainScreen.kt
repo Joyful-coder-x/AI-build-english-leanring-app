@@ -86,6 +86,9 @@ fun MainScreen(
                         onOverallAssessmentClick = {
                             homeNav = HomeNav.OverallAssessment
                         },
+                        onScratchCardClick = { cardId ->
+                            homeNav = HomeNav.ScratchCard(cardId)
+                        },
                     )
 
                     is HomeNav.LevelProgress -> LevelProgressScreen(
