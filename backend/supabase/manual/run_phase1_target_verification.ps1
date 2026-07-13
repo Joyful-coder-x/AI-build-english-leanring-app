@@ -3,6 +3,7 @@ param(
     [switch]$ApplyMigrations,
     [switch]$ResetVocabulary,
     [switch]$ImportBand4,
+    [switch]$UpsertBand4,
     [switch]$SkipTests,
     [switch]$UseDocker
 )
@@ -166,6 +167,43 @@ function Copy-Csv([string]$TableAndColumns, [string]$CsvName) {
     }
 }
 
+function Upsert-Csv([string]$TableName, [string[]]$Columns, [string[]]$ConflictColumns, [string]$CsvName) {
+    $stageName = "public._band4_import_" + (($TableName -replace "^public\.", "") -replace "[^a-zA-Z0-9_]", "_")
+    $columnList = $Columns -join ","
+    $conflictList = $ConflictColumns -join ","
+    $updateColumns = $Columns | Where-Object { $ConflictColumns -notcontains $_ }
+    $updateList = ($updateColumns | ForEach-Object { "$_ = excluded.$_" }) -join ","
+
+    if ([string]::IsNullOrWhiteSpace($updateList)) {
+        $conflictAction = "do nothing"
+    } else {
+        $conflictAction = "do update set $updateList"
+    }
+
+    $copyPath = if ($UseDocker) {
+        "/import/$CsvName"
+    } else {
+        Convert-ToPsqlPath (Join-Path $importDir $CsvName)
+    }
+
+    Invoke-PsqlCommand "drop table if exists $stageName; create table $stageName (like $TableName including defaults);"
+
+    try {
+        Invoke-PsqlCommand "\copy $stageName($columnList) from '$copyPath' with (format csv, header true, encoding 'UTF8')"
+
+        $command = @"
+insert into $TableName($columnList)
+select $columnList
+from $stageName
+on conflict ($conflictList) $conflictAction;
+"@
+
+        Invoke-PsqlCommand $command
+    } finally {
+        Invoke-PsqlCommand "drop table if exists $stageName;"
+    }
+}
+
 if ($ApplyMigrations) {
     Get-ChildItem $migrationDir -Filter "*.sql" |
         Sort-Object Name |
@@ -192,6 +230,23 @@ if ($ImportBand4) {
     Copy-Csv "public.collocations(id,sense_id,collocation,translation_zh,difficulty_band,source_id,human_review,review_status)" "11_collocations.csv"
     Copy-Csv "public.questions(id,sense_id,question_type_id,type_code,category,answer_form,word_id,example_id,stem,correct_answer,difficulty,is_active,generation_version,human_review,prompt_hint,translation_zh,expected_time_ms,question_type_key,is_context_hint,context_for_multiple_meaning)" "12_questions.csv"
     Copy-Csv "public.question_options(id,question_id,option_text,target_sense_id,is_correct,sort_order,human_review)" "13_question_options.csv"
+}
+
+if ($UpsertBand4) {
+    Assert-Band4ImportSchemaReady
+    Upsert-Csv "public.content_sources" @("id","source_key","name","source_url","license_name","copyright_status","attribution_text","notes","human_review") @("id") "01_content_sources.csv"
+    Invoke-PsqlFile (Join-Path $importDir "02_topic_clusters_upsert.sql")
+    Invoke-PsqlFile (Join-Path $importDir "03_band_levels_upsert.sql")
+    Upsert-Csv "public.words" @("id","headword","display_spelling","frequency_rank","human_review") @("id") "04_words.csv"
+    Upsert-Csv "public.word_senses" @("id","word_id","part_of_speech","sense_number","definition_en","definition_zh","vocabulary_role","difficulty_band","cefr_level","register","is_primary","source_id","human_review","review_status") @("id") "05_word_senses.csv"
+    Upsert-Csv "public.word_forms" @("id","word_id","sense_id","form_type","form_text","source_id","human_review") @("id") "06_word_forms.csv"
+    Upsert-Csv "public.pronunciations" @("id","word_id","sense_id","ipa_us","audio_path","source_id","human_review") @("id") "07_pronunciations.csv"
+    Upsert-Csv "public.level_sense_assignments" @("level_number","sense_id","placement_type","order_in_level","vocabulary_role","is_required","human_review") @("level_number","sense_id","placement_type") "08_level_sense_assignments.csv"
+    Upsert-Csv "public.usage_evidence" @("id","sense_id","source_id","quoted_text","matched_span","source_locator","usage_analysis","paper_types","copyright_status","human_review") @("id") "09_usage_evidence.csv"
+    Upsert-Csv "public.examples" @("id","sense_id","sentence_en","translation_zh","target_span","origin","difficulty_band","source_id","review_status","human_review","audio_path","sort_order") @("id") "10_examples.csv"
+    Upsert-Csv "public.collocations" @("id","sense_id","collocation","translation_zh","difficulty_band","source_id","human_review","review_status") @("id") "11_collocations.csv"
+    Upsert-Csv "public.questions" @("id","sense_id","question_type_id","type_code","category","answer_form","word_id","example_id","stem","correct_answer","difficulty","is_active","generation_version","human_review","prompt_hint","translation_zh","expected_time_ms","question_type_key","is_context_hint","context_for_multiple_meaning") @("id") "12_questions.csv"
+    Upsert-Csv "public.question_options" @("id","question_id","option_text","target_sense_id","is_correct","sort_order","human_review") @("id") "13_question_options.csv"
 }
 
 if (-not $SkipTests) {

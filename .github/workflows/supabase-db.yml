@@ -8,18 +8,20 @@ on:
       - "backend/supabase/migrations/**"
       - "backend/supabase/tests/**"
       - "backend/supabase/manual/run_phase1_target_verification.ps1"
+      - "backend/supabase/manual/reset_vocabulary_content_for_rebuild.sql"
       - "backend/content-pipeline/constructed_data/band_4_0_v1/supabase_import/**"
       - ".github/workflows/supabase-db.yml"
   workflow_dispatch:
     inputs:
-      import_band4:
-        description: "Import the Band 4 CSV package after migrations"
+      content_action:
+        description: "Content table action after migrations"
         required: true
-        default: "false"
+        default: "none"
         type: choice
         options:
-          - "false"
-          - "true"
+          - "none"
+          - "load_table"
+          - "update_table"
 
 concurrency:
   group: supabase-db-${{ github.ref }}
@@ -30,6 +32,7 @@ jobs:
     name: Deploy migrations
     runs-on: ubuntu-latest
     environment: production
+    if: github.event_name != 'workflow_dispatch' || inputs.content_action == 'none'
 
     env:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
@@ -57,12 +60,12 @@ jobs:
       - name: Push database migrations
         run: supabase --workdir backend/supabase db push
 
-  import-band4-content:
-    name: Import Band 4 content
+  content-tables:
+    name: Content tables
     runs-on: ubuntu-latest
     environment: production
     needs: deploy-migrations
-    if: github.event_name == 'workflow_dispatch' && inputs.import_band4 == 'true'
+    if: always() && github.event_name == 'workflow_dispatch' && inputs.content_action != 'none'
 
     env:
       DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
@@ -121,9 +124,19 @@ jobs:
               end
               \$\$;"
 
-      - name: Import Band 4 CSV package and run SQL tests
+      - name: Load tables from clean Band 4 CSV package
+        if: inputs.content_action == 'load_table'
         shell: pwsh
         run: |
           ./backend/supabase/manual/run_phase1_target_verification.ps1 `
+            -ResetVocabulary `
             -ImportBand4 `
+            -UseDocker
+
+      - name: Update tables from Band 4 CSV package
+        if: inputs.content_action == 'update_table'
+        shell: pwsh
+        run: |
+          ./backend/supabase/manual/run_phase1_target_verification.ps1 `
+            -UpsertBand4 `
             -UseDocker
