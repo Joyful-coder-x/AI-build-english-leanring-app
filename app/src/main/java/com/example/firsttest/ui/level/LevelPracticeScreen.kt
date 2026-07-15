@@ -444,7 +444,9 @@ private fun QuestionCard(
     }
     val replayStatusMessage = when {
         questionTypeKey != "listening_choice" && questionTypeKey != "listening_fill" -> null
-        listeningWord == null -> "Audio target missing. Apply the audio_text migration, then start a new round."
+        listeningWord == null ->
+            "Audio target missing. Apply the audio_text migration, then start a new round.\n" +
+                "(${listeningWordMissingDetail(question)})"
         tts == null -> ttsStatusMessage ?: "Audio engine loading. Tap replay to retry."
         else -> null
     }
@@ -665,6 +667,13 @@ private fun effectiveQuestionTypeKey(question: LevelPracticeQuestion): String {
     } else {
         "listening_choice"
     }
+}
+
+private fun listeningWordMissingDetail(question: LevelPracticeQuestion): String {
+    val hasQuotedWord = Regex("says\\s+\"([^\"]+)\"", RegexOption.IGNORE_CASE).containsMatchIn(question.stem)
+    return "qid=${question.questionId} type=${question.questionTypeKey} " +
+        "audio_text=${question.audioText ?: "null"} quoted_stem=$hasQuotedWord " +
+        "revealed_answer=${question.revealedAnswer ?: "null"} stem_is_single_word=${question.stem.isSingleEnglishWord()}"
 }
 
 private fun listeningSpeechText(
