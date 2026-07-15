@@ -17,6 +17,7 @@ data class LevelPracticeQuestion(
     val translationZh: String,
     val options: List<MeaningChoiceOption>,  // empty for cloze questions
     val audioText: String? = null,
+    val isAnswered: Boolean = false,  // true when resuming a round past this position
 )
 
 data class LevelPracticeRound(

@@ -465,7 +465,7 @@ class FakeVocabRepository : VocabRepository {
                 translationZh   = "实现；达到",
                 options         = listOf(
                     MeaningChoiceOption("sp5a", "s1", "I need hint", false),
-                    MeaningChoiceOption("sp5b", "s1", "I know how to use", true),
+                    MeaningChoiceOption("sp5b", "s1", "I know it", true),
                 ),
             ))
             add(LevelPracticeQuestion(
@@ -524,7 +524,9 @@ class FakeVocabRepository : VocabRepository {
     ): LevelPracticeAnswerResult {
         val question = activeLevelRound?.questions?.firstOrNull { it.position == position }
         val correct = levelRoundCorrectAnswers[position] ?: ""
-        val isCorrect = answer.trim().equals(correct.trim(), ignoreCase = true)
+        val isCorrect = answer == "__self_check_known__" &&
+            question?.questionTypeKey in setOf("speaking_repeat", "open_speaking") ||
+            answer.trim().equals(correct.trim(), ignoreCase = true)
 
         if (question?.questionTypeKey == "sentence_cloze_typing") {
             val attemptCount = levelRoundAttemptCounts[position] ?: 0

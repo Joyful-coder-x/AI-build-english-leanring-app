@@ -119,8 +119,20 @@ class LevelPracticeViewModel(
                 val round = vocabRepository.startLevelPracticeRound(levelNumber)
                 roundId = round.roundId
                 questions = round.questions
-                _uiState.value = if (questions.isNotEmpty()) buildAnswering(0)
-                                 else LevelPracticeUiState.Error("该关卡暂无题目，请稍后重试")
+                // Resuming an in-progress round: replaying an already-graded position
+                // would resubmit into a question the backend already scored, so the
+                // server just echoes back its original (possibly stale-looking) verdict.
+                // Skip forward to the first position that hasn't been answered yet.
+                val nextIndex = questions.indexOfFirst { !it.isAnswered }
+                _uiState.value = when {
+                    questions.isEmpty() -> LevelPracticeUiState.Error("该关卡暂无题目，请稍后重试")
+                    nextIndex == -1 -> {
+                        awaitingCompletion = true
+                        finishRound()
+                        return@launch
+                    }
+                    else -> buildAnswering(nextIndex)
+                }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
@@ -131,6 +143,10 @@ class LevelPracticeViewModel(
 
     fun onOptionSelected(optionId: String) {
         val s = _uiState.value as? LevelPracticeUiState.Answering ?: return
+        if (s.question.isSpeakingSelfCheck() && optionId == SELF_CHECK_KNOWN_OPTION_ID) {
+            _uiState.value = s.copy(selectedOptionId = optionId)
+            return
+        }
         val option = s.question.options.firstOrNull { it.optionId == optionId } ?: return
         if (s.question.isSpeakingSelfCheck() && option.isSelfCheckHint()) {
             showSelfCheckHint(s)
@@ -147,6 +163,14 @@ class LevelPracticeViewModel(
                 selfCheckDefinitionZh = state.question.translationZh,
                 selectedOptionId = null,
                 questionStartMs = System.currentTimeMillis(),
+            )
+            return
+        }
+        if (state.question.isReadAloudSelfCheck()) {
+            _uiState.value = state.copy(
+                selectedOptionId = null,
+                questionStartMs = System.currentTimeMillis(),
+                isSubmitting = false,
             )
             return
         }
@@ -382,10 +406,17 @@ class LevelPracticeViewModel(
             typeCode == 106 ||
             stem.startsWith("Say one short sentence using:", ignoreCase = true)
 
+    private fun LevelPracticeQuestion.isReadAloudSelfCheck(): Boolean =
+        questionTypeKey == "speaking_repeat" ||
+            typeCode == 105 ||
+            stem.startsWith("Say this word aloud:", ignoreCase = true)
+
     private fun com.example.firsttest.data.model.MeaningChoiceOption.isSelfCheckHint(): Boolean =
         text == "I need hint" || text == "I need more practice."
 
     companion object {
+        private const val SELF_CHECK_KNOWN_OPTION_ID = "__self_check_known__"
+
         fun factory(levelNumber: Int) = viewModelFactory {
             initializer {
                 LevelPracticeViewModel(

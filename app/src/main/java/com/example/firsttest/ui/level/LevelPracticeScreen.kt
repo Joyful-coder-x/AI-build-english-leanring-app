@@ -62,18 +62,40 @@ fun LevelPracticeScreen(
     // Android built-in TTS engine for listening question types
     val context = LocalContext.current
     var ttsEngine: TextToSpeech? by remember { mutableStateOf(null) }
-    DisposableEffect(context) {
+    var ttsInitAttempt by remember { mutableStateOf(0) }
+    var ttsStatusMessage: String? by remember { mutableStateOf("Audio engine loading...") }
+    DisposableEffect(context, ttsInitAttempt) {
         lateinit var engine: TextToSpeech
         engine = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                engine.language = Locale.US
-                ttsEngine = engine
+                val languageResult = engine.setLanguage(Locale.US)
+                if (
+                    languageResult == TextToSpeech.LANG_MISSING_DATA ||
+                    languageResult == TextToSpeech.LANG_NOT_SUPPORTED
+                ) {
+                    ttsEngine = null
+                    ttsStatusMessage = "US English voice data is not available on this device."
+                } else {
+                    ttsEngine = engine
+                    ttsStatusMessage = null
+                }
+            } else {
+                ttsEngine = null
+                ttsStatusMessage = "Audio engine is not ready."
             }
         }
         onDispose {
             engine.shutdown()
             ttsEngine = null
         }
+    }
+    // TTS init is async and occasionally reports non-SUCCESS on first bind;
+    // retry a few times after a short delay instead of leaving playback dead
+    // for the rest of the session.
+    LaunchedEffect(ttsInitAttempt) {
+        if (ttsInitAttempt >= 3) return@LaunchedEffect
+        kotlinx.coroutines.delay(1500)
+        if (ttsEngine == null) ttsInitAttempt++
     }
 
     if (uiState is LevelPracticeUiState.Finished) {
@@ -112,7 +134,13 @@ fun LevelPracticeScreen(
                     comboCount = state.comboCount,
                     onBack = onBack,
                 )
-                QuestionCard(state.question, tts = ttsEngine, autoSpeak = true)
+                QuestionCard(
+                    question = state.question,
+                    tts = ttsEngine,
+                    autoSpeak = true,
+                    ttsStatusMessage = ttsStatusMessage,
+                    onRetryTts = { ttsInitAttempt++ },
+                )
                 Spacer(Modifier.height(4.dp))
                 if (state.question.answerForm == "keyboard") {
                     ClozeInput(
@@ -155,7 +183,15 @@ fun LevelPracticeScreen(
                         selectedId = state.selectedOptionId,
                         reviewingCorrectId = null,
                         reviewingSelectedId = null,
-                        onSelect = viewModel::onOptionSelected,
+                        onSelect = { optionId ->
+                            val selected = options.firstOrNull { it.optionId == optionId }
+                            if (state.question.isReadAloudSelfCheck() &&
+                                selected?.isDisplayedSelfCheckHint() == true
+                            ) {
+                                speakReadAloudHint(state.question, ttsEngine)
+                            }
+                            viewModel.onOptionSelected(optionId)
+                        },
                     )
                     if (state.selfCheckHintStage > 0 || state.isHintLoading) {
                         SelfCheckHintPanel(
@@ -163,6 +199,7 @@ fun LevelPracticeScreen(
                             exampleSentence = state.selfCheckExampleSentence,
                             isLoading = state.isHintLoading,
                             hasExample = state.selfCheckHintStage >= 2,
+                            isReadAloud = state.question.isReadAloudSelfCheck(),
                         )
                     }
                 }
@@ -182,7 +219,12 @@ fun LevelPracticeScreen(
                     comboCount = state.comboCount,
                     onBack = onBack,
                 )
-                QuestionCard(state.question, tts = ttsEngine)
+                QuestionCard(
+                    question = state.question,
+                    tts = ttsEngine,
+                    ttsStatusMessage = ttsStatusMessage,
+                    onRetryTts = { ttsInitAttempt++ },
+                )
                 SpellingCorrectionPanel(
                     lastWrongAnswer = state.lastWrongAnswer,
                     correctAnswer = state.correctAnswer,
@@ -218,7 +260,16 @@ fun LevelPracticeScreen(
                     comboCount = state.comboCount,
                     onBack = onBack,
                 )
-                QuestionCard(state.question, tts = ttsEngine)
+                val reviewListeningText = state.correctOptionId?.let { correctId ->
+                    state.question.options.firstOrNull { it.optionId == correctId }?.text
+                }
+                QuestionCard(
+                    question = state.question,
+                    tts = ttsEngine,
+                    speechTextOverride = reviewListeningText,
+                    ttsStatusMessage = ttsStatusMessage,
+                    onRetryTts = { ttsInitAttempt++ },
+                )
                 Spacer(Modifier.height(4.dp))
                 if (state.question.answerForm == "keyboard") {
                     ClozeReview(
@@ -271,17 +322,40 @@ private fun speakingSelfCheckOptions(
         it.text == "I need hint" || it.text == "I need more practice."
     }
     val known = question.options.firstOrNull {
-        it.text == "I know how to use" || it.text == "I used it clearly."
+        it.text == "I know how to use" ||
+            it.text == "I used it clearly." ||
+            it.text == "I know how to read" ||
+            it.text == "I know it"
+    } ?: question.options.firstOrNull { option ->
+        option.isCorrect && option.optionId != hint?.optionId
     }
+    val readAloud = question.isReadAloudSelfCheck()
 
     return listOfNotNull(
         hint?.let {
-            if (hintStage == 1) it.copy(text = "I need more hint")
-            else it
+            it.copy(
+                text = when {
+                    readAloud && hintStage > 0 -> "\uD83D\uDD0A Hear it again"
+                    readAloud -> "\uD83D\uDD0A I need hint"
+                    hintStage == 1 -> "I need more hint"
+                    else -> it.text
+                },
+            )
         },
-        known,
+        known?.let {
+            it.copy(
+                text = if (readAloud) "I know it" else "I know how to use",
+            )
+        } ?: MeaningChoiceOption(
+            optionId = SELF_CHECK_KNOWN_OPTION_ID,
+            senseId = question.senseId,
+            text = if (readAloud) "I know it" else "I know how to use",
+            isCorrect = true,
+        ),
     ).ifEmpty { question.options.take(2) }
 }
+
+private const val SELF_CHECK_KNOWN_OPTION_ID = "__self_check_known__"
 
 private fun LevelPracticeQuestion.isSpeakingSelfCheck(): Boolean =
     questionTypeKey == "open_speaking" ||
@@ -289,6 +363,22 @@ private fun LevelPracticeQuestion.isSpeakingSelfCheck(): Boolean =
         typeCode == 105 ||
         typeCode == 106 ||
         stem.startsWith("Say one short sentence using:", ignoreCase = true)
+
+private fun LevelPracticeQuestion.isReadAloudSelfCheck(): Boolean =
+    questionTypeKey == "speaking_repeat" ||
+        typeCode == 105 ||
+        stem.startsWith("Say this word aloud:", ignoreCase = true)
+
+private fun MeaningChoiceOption.isDisplayedSelfCheckHint(): Boolean =
+    text == "I need hint" ||
+        text == "I need more practice." ||
+        text == "\uD83D\uDD0A I need hint" ||
+        text == "\uD83D\uDD0A Hear it again"
+
+private fun speakReadAloudHint(question: LevelPracticeQuestion, tts: TextToSpeech?) {
+    val word = readAloudSpeechText(question) ?: return
+    tts?.speak(word, TextToSpeech.QUEUE_FLUSH, null, "${question.questionId}_read_hint")
+}
 
 // ---- Sub-components ---------------------------------------------------------
 
@@ -332,12 +422,18 @@ private fun QuestionCard(
     question: LevelPracticeQuestion,
     tts: TextToSpeech? = null,
     autoSpeak: Boolean = false,
+    speechTextOverride: String? = null,
+    ttsStatusMessage: String? = null,
+    onRetryTts: () -> Unit = {},
 ) {
     val questionTypeKey = effectiveQuestionTypeKey(question)
-    val listeningWord = listeningSpeechText(question, questionTypeKey)
+    val listeningWord = listeningSpeechText(question, questionTypeKey, speechTextOverride)
     val replayAudio = {
-        listeningWord?.let { speechText ->
-            tts?.speak(
+        val speechText = listeningWord
+        when {
+            speechText == null -> Unit
+            tts == null -> onRetryTts()
+            else -> tts.speak(
                 speechText,
                 TextToSpeech.QUEUE_FLUSH,
                 null,
@@ -346,10 +442,18 @@ private fun QuestionCard(
         }
         Unit
     }
+    val replayStatusMessage = when {
+        questionTypeKey != "listening_choice" && questionTypeKey != "listening_fill" -> null
+        listeningWord == null -> "Audio target missing. Apply the audio_text migration, then start a new round."
+        tts == null -> ttsStatusMessage ?: "Audio engine loading. Tap replay to retry."
+        else -> null
+    }
 
-    // Auto-speak when the question first appears (Answering state only)
+    // Auto-speak when the question first appears. TTS initializes async, so
+    // include the engine in the key; otherwise questions shown before TTS is
+    // ready never play automatically.
     if (autoSpeak && listeningWord != null && tts != null) {
-        LaunchedEffect(question.questionId) {
+        LaunchedEffect(question.questionId, listeningWord, tts) {
             tts.speak(listeningWord, TextToSpeech.QUEUE_FLUSH, null, question.questionId)
         }
     }
@@ -399,9 +503,16 @@ private fun QuestionCard(
                             )
                             OutlinedButton(
                                 onClick = replayAudio,
-                                enabled = listeningWord != null && tts != null,
+                                enabled = listeningWord != null,
                             ) {
-                                Text("🔊 再听一次")
+                                Text(if (tts == null) "Retry audio" else "🔊 再听一次")
+                            }
+                            replayStatusMessage?.let {
+                                Text(
+                                    it,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                                )
                             }
                         }
                     }
@@ -435,9 +546,16 @@ private fun QuestionCard(
                             )
                             OutlinedButton(
                                 onClick = replayAudio,
-                                enabled = listeningWord != null && tts != null,
+                                enabled = listeningWord != null,
                             ) {
-                                Text("🔊 再听一次")
+                                Text(if (tts == null) "Retry audio" else "🔊 再听一次")
+                            }
+                            replayStatusMessage?.let {
+                                Text(
+                                    it,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                                )
                             }
                         }
                     }
@@ -552,6 +670,7 @@ private fun effectiveQuestionTypeKey(question: LevelPracticeQuestion): String {
 private fun listeningSpeechText(
     question: LevelPracticeQuestion,
     questionTypeKey: String,
+    speechTextOverride: String? = null,
 ): String? {
     if (questionTypeKey != "listening_choice" && questionTypeKey != "listening_fill") return null
 
@@ -561,8 +680,26 @@ private fun listeningSpeechText(
         ?.get(1)
 
     return (
-        question.audioText
+        speechTextOverride
+            ?: question.audioText
             ?: quotedWord
+            ?: question.revealedAnswer
+            ?: question.stem.takeIf { it.isSingleEnglishWord() }
+        )?.englishOnly()
+}
+
+private fun readAloudSpeechText(question: LevelPracticeQuestion): String? {
+    val promptedWord = Regex(
+        "(?:say\\s+this\\s+word\\s+aloud|read\\s+this\\s+word|repeat\\s+aloud)\\s*:\\s*([A-Za-z][A-Za-z'-]*)",
+        RegexOption.IGNORE_CASE,
+    )
+        .find(question.stem)
+        ?.groupValues
+        ?.get(1)
+
+    return (
+        question.audioText
+            ?: promptedWord
             ?: question.revealedAnswer
             ?: question.stem.takeIf { it.isSingleEnglishWord() }
         )?.englishOnly()
@@ -816,6 +953,7 @@ private fun SelfCheckHintPanel(
     exampleSentence: String?,
     isLoading: Boolean,
     hasExample: Boolean,
+    isReadAloud: Boolean = false,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -856,6 +994,11 @@ private fun SelfCheckHintPanel(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onTertiaryContainer,
                 )
+                isReadAloud -> Text(
+                    "Tap the speaker hint again to hear the word, or select I know it when ready.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                )
                 else -> Text(
                     "Select I need hint again for an example, or select I know how to use when ready.",
                     style = MaterialTheme.typography.bodySmall,
@@ -880,6 +1023,7 @@ private fun OptionList(
                 option = option,
                 isSelected = option.optionId == selectedId,
                 isReviewingCorrect = option.optionId == reviewingCorrectId,
+                isReviewingSelection = option.optionId == reviewingSelectedId,
                 isReviewingWrongSelection = option.optionId == reviewingSelectedId &&
                         option.optionId != reviewingCorrectId,
                 onClick = { onSelect(option.optionId) },
@@ -893,23 +1037,43 @@ private fun OptionButton(
     option: MeaningChoiceOption,
     isSelected: Boolean,
     isReviewingCorrect: Boolean,
+    isReviewingSelection: Boolean,
     isReviewingWrongSelection: Boolean,
     onClick: () -> Unit,
 ) {
+    val displayText = displayOptionText(option.text)
+    val isPositiveSelfCheck = displayText in setOf(
+        "I know it",
+        "I know how to use",
+        "I know how to read",
+    )
+    val isSubmittedPositiveSelfCheck = isPositiveSelfCheck &&
+        (isReviewingSelection || isReviewingCorrect)
     val containerColor = when {
         isReviewingCorrect        -> MaterialTheme.colorScheme.primaryContainer
+        isSubmittedPositiveSelfCheck -> Color(0xFFE3F5E8)
         isReviewingWrongSelection -> MaterialTheme.colorScheme.errorContainer
         isSelected                -> MaterialTheme.colorScheme.secondaryContainer
         else                      -> MaterialTheme.colorScheme.surface
     }
+    val contentColor = if (isSubmittedPositiveSelfCheck) {
+        Color(0xFF1B5E20)
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
     OutlinedButton(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
-        colors = ButtonDefaults.outlinedButtonColors(containerColor = containerColor),
+        colors = ButtonDefaults.outlinedButtonColors(
+            containerColor = containerColor,
+            contentColor = contentColor,
+        ),
     ) {
         Text(
-            text = displayOptionText(option.text),
-            fontWeight = if (isSelected || isReviewingCorrect) FontWeight.SemiBold else FontWeight.Normal,
+            text = displayText,
+            fontWeight = if (
+                isSelected || isReviewingCorrect || isSubmittedPositiveSelfCheck
+            ) FontWeight.SemiBold else FontWeight.Normal,
             fontSize = 14.sp,
         )
     }

@@ -438,7 +438,7 @@ class SupabaseVocabRepository : VocabRepository {
                     questionId     = q.questionId,
                     senseId        = q.senseId,
                     position       = q.position,
-                promptHint     = "Choose the matching English word.",
+                    promptHint     = q.promptHint,
                     stem           = q.stem,
                     answerForm     = resolvedPracticeAnswerForm(q.answerForm, q.typeCode),
                     questionTypeKey = resolvedPracticeQuestionTypeKey(
@@ -454,6 +454,7 @@ class SupabaseVocabRepository : VocabRepository {
                     revealedAnswer = q.revealedAnswer,
                     audioText      = q.audioText,
                     translationZh  = q.translationZh,
+                    isAnswered     = q.isAnswered,
                     options        = q.options.map { opt ->
                         MeaningChoiceOption(
                             optionId  = opt.optionId,

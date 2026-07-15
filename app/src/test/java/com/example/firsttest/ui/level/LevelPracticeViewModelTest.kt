@@ -186,7 +186,7 @@ class LevelPracticeViewModelTest {
     }
 
     @Test
-    fun speakingSelfCheckSecondHintLoadsExample() = runTest(dispatcher) {
+    fun readAloudSelfCheckSecondHintDoesNotLoadExample() = runTest(dispatcher) {
         val vm = newVm()
         advanceUntilIdle()
         advanceToQuestion(vm, targetIndex = 4)
@@ -199,8 +199,9 @@ class LevelPracticeViewModelTest {
         advanceUntilIdle()
 
         val hinted = vm.uiState.value as LevelPracticeUiState.Answering
-        assertEquals(2, hinted.selfCheckHintStage)
-        assertEquals("I can use this word in a short sentence.", hinted.selfCheckExampleSentence)
+        assertEquals(1, hinted.selfCheckHintStage)
+        assertEquals(null, hinted.selfCheckExampleSentence)
+        assertFalse(hinted.isHintLoading)
     }
 
     @Test
@@ -212,7 +213,7 @@ class LevelPracticeViewModelTest {
         val question = (vm.uiState.value as LevelPracticeUiState.Answering).question
         vm.onOptionSelected(question.options.first { it.text == "I need hint" }.optionId)
         advanceUntilIdle()
-        vm.onOptionSelected(question.options.first { it.text == "I know how to use" }.optionId)
+        vm.onOptionSelected(question.options.first { it.text == "I know it" }.optionId)
         vm.onSubmit()
         advanceUntilIdle()
 
