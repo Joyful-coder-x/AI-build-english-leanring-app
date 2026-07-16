@@ -12,8 +12,10 @@ edit locally -> test locally -> commit -> push to GitHub master -> GitHub Action
 ```
 
 Because the repository keeps Supabase files in `backend/supabase/`, the action
-runs Supabase CLI commands with `--workdir backend/supabase`. Do not move or
-duplicate the migrations folder just for CI.
+runs Supabase CLI commands with `--workdir backend`. The CLI resolves migrations
+as `<workdir>/supabase/migrations`, so using `backend/supabase` as the workdir
+would incorrectly scan an empty `backend/supabase/supabase/migrations` folder.
+Do not move or duplicate the migrations folder just for CI.
 
 Add these repository secrets in GitHub:
 
@@ -26,12 +28,54 @@ SUPABASE_DATABASE_URL
 
 `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`, and `SUPABASE_PROJECT_ID` are
 used by `supabase link` and `supabase db push`. `SUPABASE_DATABASE_URL` is used
-only by the manual Band 4 content import job.
+by the migration-history safety check and the manual Band 4 content job.
 
 Automatic pushes to `master` deploy SQL migrations only. The Band 4 CSV package
 is imported only through a manual **Run workflow** action with
-`import_band4=true`, because the CSV load is content-changing and should happen
-only after a backup and operator review.
+`content_action=load_table` or `content_action=update_table`, because CSV changes
+should happen only after a backup and operator review.
+
+### One-time hosted migration history recovery
+
+The original workflow used `--workdir backend/supabase`, which made the CLI scan
+the empty path `backend/supabase/supabase/migrations`. A successful Actions run
+therefore did not prove that any repository migration had been applied.
+
+Do not solve an empty hosted migration history with `db push --include-all` when
+the hosted schema already exists. That can rerun historical DDL against live
+objects. First back up the hosted database and verify which migrations were
+applied manually. If the hosted database was built from
+`manual/manual_apply_all_migrations.sql`, that bundle ends at migration 035.
+Verify it without mutations:
+
+```powershell
+$env:DATABASE_URL = "postgresql://..."
+powershell -ExecutionPolicy Bypass -File `
+  backend/supabase/manual/run_phase1_target_verification.ps1
+```
+
+Only after that verification succeeds, link the correct project and baseline
+the versions contained in the manual bundle. `migration repair` changes history
+records only; it does not execute the migration SQL:
+
+```powershell
+supabase --workdir backend link --project-ref $env:SUPABASE_PROJECT_ID
+
+$versions = Get-ChildItem backend/supabase/migrations/*.sql |
+  Where-Object Name -LE '202607070035_overall_assessment.sql' |
+  Sort-Object Name |
+  ForEach-Object { ($_.BaseName -split '_')[0] }
+
+supabase --workdir backend migration repair @versions `
+  --status applied --yes
+supabase --workdir backend migration list --linked
+supabase --workdir backend db push --dry-run
+```
+
+The dry run should list only migrations after 035. Review that list, then apply
+it with `supabase --workdir backend db push --yes`. The CI workflow intentionally
+fails when hosted migration history is missing or empty, preventing accidental
+historical reapplication.
 
 Before pushing a migration, run the disposable local proof from the repo root:
 
@@ -141,6 +185,7 @@ backend/supabase/tests/202607060026_band_upgrade_exam_core_test.sql
 backend/supabase/tests/202607060027_band4_unlock_chain_test.sql
 backend/supabase/tests/202607060029_phase1_practice_logging_evidence_test.sql
 backend/supabase/tests/202607070029_review_before_new_sense_priority_test.sql
+backend/supabase/tests/202607150043_speaking_self_check_submission_test.sql
 ```
 
 The runtime tests open server-created rounds for Band 4, verify configurable

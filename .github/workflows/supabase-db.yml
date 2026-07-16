@@ -38,6 +38,7 @@ jobs:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
       SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+      DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
 
     steps:
       - name: Checkout repo
@@ -51,14 +52,38 @@ jobs:
       - name: Prepare Supabase CLI project
         run: |
           if [ ! -f backend/supabase/config.toml ]; then
-            supabase --workdir backend/supabase init
+            supabase --workdir backend init
           fi
 
       - name: Link Supabase project
-        run: supabase --workdir backend/supabase link --project-ref "$SUPABASE_PROJECT_ID"
+        run: supabase --workdir backend link --project-ref "$SUPABASE_PROJECT_ID"
+
+      - name: Require initialized remote migration history
+        shell: bash
+        run: |
+          history_table="$(docker run --rm postgres:17-alpine \
+            psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -Atc \
+            "select to_regclass('supabase_migrations.schema_migrations');")"
+
+          if [ "$history_table" != "supabase_migrations.schema_migrations" ]; then
+            echo "::error::Remote migration history table is missing. Baseline the existing schema with 'supabase migration repair' before enabling automatic pushes."
+            exit 1
+          fi
+
+          history_count="$(docker run --rm postgres:17-alpine \
+            psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -Atc \
+            "select count(*) from supabase_migrations.schema_migrations;")"
+
+          if [ "$history_count" -eq 0 ]; then
+            echo "::error::Remote migration history is empty. Do not use --include-all against the existing production schema; baseline the migrations already applied first."
+            exit 1
+          fi
+
+      - name: Preview pending database migrations
+        run: supabase --workdir backend db push --dry-run
 
       - name: Push database migrations
-        run: supabase --workdir backend/supabase db push
+        run: supabase --workdir backend db push --yes
 
   content-tables:
     name: Content tables

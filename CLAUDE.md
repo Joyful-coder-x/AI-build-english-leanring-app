@@ -25,12 +25,12 @@
 
 ## Supabase deployment workflow
 
-- The working deployment path is: local edit -> local verification -> commit -> push to GitHub `master` -> GitHub Actions runs `supabase db push`.
+- The intended deployment path is: local edit -> local verification -> commit -> push to GitHub `master` -> GitHub Actions runs `supabase db push`.
 - GitHub Actions workflow: `.github/workflows/supabase-db.yml`; it uses repository secrets `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`, `SUPABASE_PROJECT_ID`, and `SUPABASE_DATABASE_URL`.
 - SQL schema/RPC/RLS changes must be added as forward-only files in `backend/supabase/migrations/`; do not edit migrations that may already have been applied to hosted Supabase.
 - Normal pushes deploy migrations only. The `Import Band 4 content` job is intentionally skipped unless the workflow is manually run with `import_band4=true`.
 - Do not run the Band 4 CSV import automatically or casually. It is content-changing and should happen only after a database backup and explicit operator intent.
-- The GitHub Actions deployment was confirmed working on 2026-07-08: `Deploy migrations` succeeded; `Import Band 4 content` skipped as designed.
+- The 2026-07-08 Actions success did not deploy migrations because the workflow used the wrong CLI workdir and scanned an empty nested migrations directory. The workflow must use `--workdir backend`; hosted migration history must be baselined before automatic pushes are treated as operational.
 
 ### Curriculum terminology
 

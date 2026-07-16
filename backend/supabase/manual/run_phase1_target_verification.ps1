@@ -324,7 +324,8 @@ if (-not $SkipTests) {
         "202607070030_login_tracking_test.sql",
         "202607070031_awards_system_test.sql",
         "202607070034_skill_scoring_test.sql",
-        "202607070035_overall_assessment_test.sql"
+        "202607070035_overall_assessment_test.sql",
+        "202607150043_speaking_self_check_submission_test.sql"
     )
 
     foreach ($test in $tests) {

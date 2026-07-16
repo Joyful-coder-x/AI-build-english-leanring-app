@@ -51,12 +51,14 @@ These terms have precise definitions throughout. Do not reinterpret them.
 Status as of 2026-07-08: backend migrations 030–035 and the corresponding
 Android UI were built and verified via the local Docker SQL test harness,
 `gradlew test` (all unit tests), and `gradlew assembleDebug` (full build).
-Hosted Supabase migration deployment is now wired through GitHub Actions:
+Hosted Supabase migration deployment is intended to run through GitHub Actions:
 local edit -> local verification -> commit -> push to GitHub `master` ->
 `.github/workflows/supabase-db.yml` runs `supabase db push`. The rerun of
-workflow run #1 succeeded: `Deploy migrations` passed, while `Import Band 4
-content` was skipped as designed. Not yet verified: a real on-device manual run
-through the app.
+workflow run #1 reported success, but a 2026-07-15 audit found that the CLI was
+pointed at an empty nested migrations directory, so that run did not prove any
+migrations were deployed. Hosted migration history must be baselined before
+automatic deployment is operational. Not yet verified: a real on-device manual
+run through the app.
 
 **Hosted deployment rule:** SQL schema/RPC/RLS changes go into
 `backend/supabase/migrations/` as forward-only migration files and are deployed
@@ -1081,7 +1083,7 @@ Do these in order. Do not start step N until step N-1 passes its acceptance crit
 
 ### Step 1: Backend stabilization — DONE locally 2026-07-07, GitHub Actions hosted deploy working 2026-07-08
 
-1. Hosted migration deployment is wired and working through GitHub Actions. Push migration commits to `master`; `.github/workflows/supabase-db.yml` runs `supabase db push` against the hosted Supabase project.
+1. Hosted migration deployment is wired through GitHub Actions, but the existing hosted schema must first be reconciled with the empty migration history. After that one-time baseline, pushes to `master` run `.github/workflows/supabase-db.yml` against the hosted Supabase project.
 2. Run `verify_project_installation.sql`. Required READY, 0 warnings, 0 failures — passed locally (137 checks).
 3. Run all SQL test files in `backend/supabase/tests/` — all pass locally, including the 4 new ones added 2026-07-07 (`202607070030`, `202607070031`, `202607070034`, `202607070035`).
 4. Run `.\gradlew.bat test` — passed.
