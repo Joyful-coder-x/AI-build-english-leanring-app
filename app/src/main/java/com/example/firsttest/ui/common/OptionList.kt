@@ -15,6 +15,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.firsttest.data.model.MeaningChoiceOption
 
+// A single "this is correct" color, used whether the option is objectively
+// correct (meaning_choice, reading_comprehension, ...) or a self-assessed
+// positive response (speaking/read-aloud self-check) -- both used to render
+// with different colors (theme purple vs. hardcoded green), which read as
+// inconsistent across question types.
+private val CorrectAnswerContainerColor = Color(0xFFE3F5E8)
+private val CorrectAnswerContentColor = Color(0xFF1B5E20)
+
 @Composable
 internal fun OptionList(
     options: List<MeaningChoiceOption>,
@@ -55,15 +63,15 @@ internal fun OptionButton(
     )
     val isSubmittedPositiveSelfCheck = isPositiveSelfCheck &&
         (isReviewingSelection || isReviewingCorrect)
+    val isCorrectHighlight = isReviewingCorrect || isSubmittedPositiveSelfCheck
     val containerColor = when {
-        isReviewingCorrect        -> MaterialTheme.colorScheme.primaryContainer
-        isSubmittedPositiveSelfCheck -> Color(0xFFE3F5E8)
+        isCorrectHighlight        -> CorrectAnswerContainerColor
         isReviewingWrongSelection -> MaterialTheme.colorScheme.errorContainer
         isSelected                -> MaterialTheme.colorScheme.secondaryContainer
         else                      -> MaterialTheme.colorScheme.surface
     }
-    val contentColor = if (isSubmittedPositiveSelfCheck) {
-        Color(0xFF1B5E20)
+    val contentColor = if (isCorrectHighlight) {
+        CorrectAnswerContentColor
     } else {
         MaterialTheme.colorScheme.onSurface
     }
