@@ -12,6 +12,11 @@ begin
     'public.finalize_practice_answer(uuid,integer,text,integer)'::regprocedure
   ) into v_original;
 
+  -- The stored function source picked up CRLF line endings from an earlier
+  -- Windows-side psql apply; normalize before matching against the LF-only
+  -- blocks below, or the replace() never finds a match.
+  v_original := replace(v_original, chr(13), '');
+
   if position('''__self_check_known__''' in v_original) > 0 then
     return;
   end if;
