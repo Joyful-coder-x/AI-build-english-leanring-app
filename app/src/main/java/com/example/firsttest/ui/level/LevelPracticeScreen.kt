@@ -15,7 +15,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -43,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.LevelPracticeQuestion
 import com.example.firsttest.data.model.MeaningChoiceOption
+import com.example.firsttest.ui.common.OptionList
 import java.util.Locale
 
 @Composable
@@ -1016,82 +1016,6 @@ private fun SelfCheckHintPanel(
             }
         }
     }
-}
-
-@Composable
-private fun OptionList(
-    options: List<MeaningChoiceOption>,
-    selectedId: String?,
-    reviewingCorrectId: String?,
-    reviewingSelectedId: String?,
-    onSelect: (String) -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        options.forEach { option ->
-            OptionButton(
-                option = option,
-                isSelected = option.optionId == selectedId,
-                isReviewingCorrect = option.optionId == reviewingCorrectId,
-                isReviewingSelection = option.optionId == reviewingSelectedId,
-                isReviewingWrongSelection = option.optionId == reviewingSelectedId &&
-                        option.optionId != reviewingCorrectId,
-                onClick = { onSelect(option.optionId) },
-            )
-        }
-    }
-}
-
-@Composable
-private fun OptionButton(
-    option: MeaningChoiceOption,
-    isSelected: Boolean,
-    isReviewingCorrect: Boolean,
-    isReviewingSelection: Boolean,
-    isReviewingWrongSelection: Boolean,
-    onClick: () -> Unit,
-) {
-    val displayText = displayOptionText(option.text)
-    val isPositiveSelfCheck = displayText in setOf(
-        "I know it",
-        "I know how to use",
-        "I know how to read",
-    )
-    val isSubmittedPositiveSelfCheck = isPositiveSelfCheck &&
-        (isReviewingSelection || isReviewingCorrect)
-    val containerColor = when {
-        isReviewingCorrect        -> MaterialTheme.colorScheme.primaryContainer
-        isSubmittedPositiveSelfCheck -> Color(0xFFE3F5E8)
-        isReviewingWrongSelection -> MaterialTheme.colorScheme.errorContainer
-        isSelected                -> MaterialTheme.colorScheme.secondaryContainer
-        else                      -> MaterialTheme.colorScheme.surface
-    }
-    val contentColor = if (isSubmittedPositiveSelfCheck) {
-        Color(0xFF1B5E20)
-    } else {
-        MaterialTheme.colorScheme.onSurface
-    }
-    OutlinedButton(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = containerColor,
-            contentColor = contentColor,
-        ),
-    ) {
-        Text(
-            text = displayText,
-            fontWeight = if (
-                isSelected || isReviewingCorrect || isSubmittedPositiveSelfCheck
-            ) FontWeight.SemiBold else FontWeight.Normal,
-            fontSize = 14.sp,
-        )
-    }
-}
-
-private fun displayOptionText(text: String): String = when (text) {
-    "I need more practice." -> "I need hint"
-    "I used it clearly." -> "I know how to use"
-    else -> text
 }
 
 @Composable

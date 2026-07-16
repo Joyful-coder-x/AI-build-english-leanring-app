@@ -564,7 +564,7 @@ internal fun bandScoreForId(bandId: Int): Double = when (bandId) {
     else -> error("Unknown band id: $bandId")
 }
 
-private fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
+internal fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
     BandUpgradeExam(
         attemptId = attemptId,
         sourceBand = sourceBand,
@@ -587,7 +587,6 @@ private fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
                 translationZh = question.translationZh.orEmpty(),
                 headword = question.headword.orEmpty(),
                 options = question.options
-                    .sortedBy { it.sortOrder }
                     .map { option ->
                         MeaningChoiceOption(
                             optionId = option.id,
@@ -602,7 +601,7 @@ private fun DbBandUpgradeExam.toBandUpgradeExam(): BandUpgradeExam =
         },
     )
 
-private fun DbOverallAssessmentAttempt.toOverallAssessment(): OverallAssessment =
+internal fun DbOverallAssessmentAttempt.toOverallAssessment(): OverallAssessment =
     OverallAssessment(
         attemptId = attemptId,
         status = status,
@@ -633,7 +632,6 @@ private fun DbOverallAssessmentAttempt.toOverallAssessment(): OverallAssessment 
                 translationZh = question.translationZh.orEmpty(),
                 headword = question.headword.orEmpty(),
                 options = question.options
-                    .sortedBy { it.sortOrder }
                     .map { option ->
                         MeaningChoiceOption(
                             optionId = option.id,

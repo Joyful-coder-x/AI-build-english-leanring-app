@@ -36,12 +36,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.BandUpgradeExam
 import com.example.firsttest.data.model.BandUpgradeQuestion
-import com.example.firsttest.data.model.MeaningChoiceOption
+import com.example.firsttest.ui.common.OptionList
 import java.util.Locale
 
 @Composable
@@ -128,9 +127,11 @@ fun BandUpgradeExamScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
                 } else {
-                    BandExamOptionList(
+                    OptionList(
                         options = state.question.options,
                         selectedId = state.selectedOptionId,
+                        reviewingCorrectId = null,
+                        reviewingSelectedId = null,
                         onSelect = viewModel::onOptionSelected,
                     )
                 }
@@ -220,28 +221,6 @@ private fun BandExamQuestionCard(
                     text = question.translationZh,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun BandExamOptionList(
-    options: List<MeaningChoiceOption>,
-    selectedId: String?,
-    onSelect: (String) -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        options.forEach { option ->
-            OutlinedButton(
-                onClick = { onSelect(option.optionId) },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(
-                    text = if (option.optionId == selectedId) "> ${option.text}" else option.text,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
