@@ -126,7 +126,6 @@ fun LevelPracticeScreen(
                 ErrorContent(state.message, viewModel::retry, onBack)
 
             is LevelPracticeUiState.Answering -> {
-                var showHint by remember(state.question.questionId) { mutableStateOf(false) }
                 TopBar(
                     levelNumber = levelNumber,
                     current = state.questionIndex + 1,
@@ -152,7 +151,7 @@ fun LevelPracticeScreen(
                         lastWrongAnswer = state.lastWrongAnswer,
                         feedback = state.feedback,
                     )
-                    if (showHint && state.question.translationZh.isNotBlank()) {
+                    if (state.question.translationZh.isNotBlank()) {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
                             colors = CardDefaults.cardColors(
@@ -166,12 +165,6 @@ fun LevelPracticeScreen(
                                 color = MaterialTheme.colorScheme.onTertiaryContainer,
                             )
                         }
-                    }
-                    TextButton(
-                        onClick = { showHint = !showHint },
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                    ) {
-                        Text(if (showHint) "隐藏提示" else "查看中文提示")
                     }
                 } else {
                     val options = speakingSelfCheckOptions(
