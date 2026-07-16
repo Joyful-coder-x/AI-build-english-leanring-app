@@ -6,7 +6,7 @@ data class Level(
     val bandScore: Double,
     val isUnlocked: Boolean,
     val isCompleted: Boolean = false,
-    val bestAccuracy: Float = 0f,
+    val completionRate: Float = 0f,
     val bestStarRating: Int = 0,
     val completedSessionCount: Int = 0,
     val isComingSoon: Boolean = false,

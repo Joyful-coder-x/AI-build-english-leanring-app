@@ -13,7 +13,7 @@ if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..\..")
 $supabaseDir = Join-Path $repoRoot "backend\supabase"
 $migrationDir = Join-Path $supabaseDir "migrations"
-$testDir = Join-Path $supabaseDir "tests"
+$testDir = Join-Path $migrationDir "tests"
 $importDir = Join-Path $repoRoot "backend\content-pipeline\constructed_data\band_4_0_v1\supabase_import"
 
 if ([string]::IsNullOrWhiteSpace($ContainerName)) {

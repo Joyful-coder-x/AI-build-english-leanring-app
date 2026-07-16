@@ -24,3 +24,4 @@ backend/content-pipeline/*service_role*
 backend/content-pipeline/*google*credentials*
 backend/content-pipeline/*.key.json
 /backend/content-pipeline/sources/
+backend/supabase/.temp/

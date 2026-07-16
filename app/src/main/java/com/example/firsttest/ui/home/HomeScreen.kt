@@ -479,7 +479,7 @@ private fun LevelPathCard(level: Level, displayTitle: String, onClick: () -> Uni
                             }
                             Spacer(Modifier.width(6.dp))
                             Text(
-                                "正确率 ${(level.bestAccuracy * 100).toInt()}%",
+                                "完成率 ${(level.completionRate * 100).toInt()}%",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )

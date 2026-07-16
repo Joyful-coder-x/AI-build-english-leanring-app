@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "backend/supabase/migrations/**"
-      - "backend/supabase/tests/**"
       - "backend/supabase/manual/run_phase1_target_verification.ps1"
       - "backend/supabase/manual/reset_vocabulary_content_for_rebuild.sql"
       - "backend/content-pipeline/constructed_data/band_4_0_v1/supabase_import/**"

@@ -132,7 +132,7 @@ class HomeViewModelTest {
                     },
                     isUnlocked = number <= 2,
                     isCompleted = number == 1,
-                    bestAccuracy = if (number == 1) 1f else 0f,
+                    completionRate = if (number == 1) 1f else 0f,
                     bestStarRating = if (number == 1) 3 else 0,
                     completedSessionCount = if (number == 1) 1 else 0,
                 )
@@ -168,7 +168,7 @@ class HomeViewModelTest {
                     },
                     isUnlocked = number <= 5,
                     isCompleted = number in 1..4,
-                    bestAccuracy = if (number in 1..4) 0.95f else 0f,
+                    completionRate = if (number in 1..4) 0.95f else 0f,
                     bestStarRating = if (number in 1..4) 3 else 0,
                     completedSessionCount = if (number in 1..4) 1 else 0,
                 )

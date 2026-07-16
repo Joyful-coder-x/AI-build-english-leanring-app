@@ -341,7 +341,7 @@ class SupabaseVocabRepository : VocabRepository {
                 bandScore = bandScoreForId(row.bandId),
                 isUnlocked = progress?.isUnlocked ?: (row.levelNumber == 1),
                 isCompleted = progress?.isCompleted ?: false,
-                bestAccuracy = progress?.progress?.toFloat() ?: 0f,
+                completionRate = progress?.progress?.toFloat() ?: 0f,
                 bestStarRating = progress?.bestStarRating ?: 0,
                 completedSessionCount = progress?.completedSessionCount ?: 0,
                 isComingSoon = row.isComingSoon,
