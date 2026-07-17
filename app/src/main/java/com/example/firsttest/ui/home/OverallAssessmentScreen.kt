@@ -36,12 +36,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.firsttest.data.model.MeaningChoiceOption
 import com.example.firsttest.data.model.OverallAssessment
 import com.example.firsttest.data.model.OverallAssessmentQuestion
+import com.example.firsttest.ui.common.OptionList
 import java.util.Locale
 
 @Composable
@@ -53,19 +53,41 @@ fun OverallAssessmentScreen(
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
     var ttsEngine: TextToSpeech? by remember { mutableStateOf(null) }
+    var ttsInitAttempt by remember { mutableStateOf(0) }
+    var ttsStatusMessage: String? by remember { mutableStateOf("Audio engine loading...") }
 
-    DisposableEffect(context) {
+    DisposableEffect(context, ttsInitAttempt) {
         lateinit var engine: TextToSpeech
         engine = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                engine.language = Locale.US
-                ttsEngine = engine
+                val languageResult = engine.setLanguage(Locale.US)
+                if (
+                    languageResult == TextToSpeech.LANG_MISSING_DATA ||
+                    languageResult == TextToSpeech.LANG_NOT_SUPPORTED
+                ) {
+                    ttsEngine = null
+                    ttsStatusMessage = "US English voice data is not available on this device."
+                } else {
+                    ttsEngine = engine
+                    ttsStatusMessage = null
+                }
+            } else {
+                ttsEngine = null
+                ttsStatusMessage = "Audio engine is not ready."
             }
         }
         onDispose {
             engine.shutdown()
             ttsEngine = null
         }
+    }
+    // TTS init is async and occasionally reports non-SUCCESS on first bind;
+    // retry a few times after a short delay instead of leaving playback dead
+    // for the rest of the assessment.
+    LaunchedEffect(ttsInitAttempt) {
+        if (ttsInitAttempt >= 3) return@LaunchedEffect
+        kotlinx.coroutines.delay(1500)
+        if (ttsEngine == null) ttsInitAttempt++
     }
 
     Column(
@@ -128,7 +150,13 @@ fun OverallAssessmentScreen(
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                AssessmentQuestionCard(question = state.question, tts = ttsEngine, autoSpeak = true)
+                AssessmentQuestionCard(
+                    question = state.question,
+                    tts = ttsEngine,
+                    autoSpeak = true,
+                    ttsStatusMessage = ttsStatusMessage,
+                    onRetryTts = { ttsInitAttempt++ },
+                )
                 if (state.question.answerForm == "keyboard") {
                     OutlinedTextField(
                         value = state.typedAnswer,
@@ -143,9 +171,11 @@ fun OverallAssessmentScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
                 } else {
-                    AssessmentOptionList(
+                    OptionList(
                         options = state.question.options,
                         selectedId = state.selectedOptionId,
+                        reviewingCorrectId = null,
+                        reviewingSelectedId = null,
                         onSelect = viewModel::onOptionSelected,
                     )
                 }
@@ -190,12 +220,24 @@ private fun AssessmentQuestionCard(
     question: OverallAssessmentQuestion,
     tts: TextToSpeech?,
     autoSpeak: Boolean,
+    ttsStatusMessage: String? = null,
+    onRetryTts: () -> Unit = {},
 ) {
     val isListening = question.questionTypeKey == "listening_choice" || question.questionTypeKey == "listening_fill"
     val speechText = question.headword.ifBlank { question.stem }.englishOnly()
+    val replayAudio = {
+        when {
+            speechText == null -> Unit
+            tts == null -> onRetryTts()
+            else -> tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, "${question.questionId}_replay")
+        }
+        Unit
+    }
 
+    // TTS initializes async, so include the engine in the key; otherwise
+    // questions shown before TTS is ready never play automatically.
     if (isListening && autoSpeak && speechText != null && tts != null) {
-        LaunchedEffect(question.questionId) {
+        LaunchedEffect(question.questionId, speechText, tts) {
             tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, question.questionId)
         }
     }
@@ -213,51 +255,180 @@ private fun AssessmentQuestionCard(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (isListening) {
-                OutlinedButton(
-                    onClick = {
-                        if (speechText != null && tts != null) {
-                            tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, "${question.questionId}_replay")
+
+            when (question.questionTypeKey) {
+                "listening_choice" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Text("🔊", fontSize = 40.sp)
+                            Text(
+                                "已播放语音，请选择你听到的单词",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                            )
+                            OutlinedButton(onClick = replayAudio, enabled = speechText != null) {
+                                Text(if (tts == null) "Retry audio" else "🔊 再听一次")
+                            }
+                            if (tts == null) {
+                                Text(
+                                    ttsStatusMessage ?: "Audio engine loading. Tap replay to retry.",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                                )
+                            }
                         }
-                    },
-                    enabled = speechText != null && tts != null,
-                ) {
-                    Text("🔊 再听一次")
+                    }
                 }
-            } else {
-                Text(
-                    text = question.stem.ifBlank { question.headword },
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
-                )
+
+                "listening_fill" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Text("🎧", fontSize = 40.sp)
+                            if (question.translationZh.isNotBlank()) {
+                                Text(
+                                    question.translationZh,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                )
+                            }
+                            Text(
+                                "听语音，拼写你听到的英文单词",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.6f),
+                            )
+                            OutlinedButton(onClick = replayAudio, enabled = speechText != null) {
+                                Text(if (tts == null) "Retry audio" else "🔊 再听一次")
+                            }
+                            if (tts == null) {
+                                Text(
+                                    ttsStatusMessage ?: "Audio engine loading. Tap replay to retry.",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                                )
+                            }
+                        }
+                    }
+                }
+
+                "speaking_repeat" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🎤", fontSize = 28.sp)
+                            Text(
+                                text = question.stem.ifBlank { question.headword },
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
+                "open_speaking" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🗣️", fontSize = 28.sp)
+                            Text(
+                                text = question.stem.ifBlank { question.headword },
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
+                "reading_comprehension" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        ),
+                    ) {
+                        Text(
+                            text = question.stem.ifBlank { question.headword },
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(16.dp),
+                        )
+                    }
+                }
+
+                "word_form" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                        ) {
+                            Text("🔤", fontSize = 28.sp)
+                            Text(
+                                text = question.stem.ifBlank { question.headword },
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = FontWeight.Bold,
+                            )
+                        }
+                    }
+                }
+
+                else -> {
+                    Text(
+                        text = question.stem.ifBlank { question.headword },
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
             }
-            if (question.translationZh.isNotBlank()) {
+
+            // Only sentence_cloze_typing gets the translation as a hint: its
+            // stem is a sentence with the word blanked out, which is often
+            // not enough context alone. listening_fill already shows
+            // translationZh inline above; the other types either state the
+            // word directly or are answered by ear/mouth.
+            if (question.questionTypeKey == "sentence_cloze_typing" &&
+                question.translationZh.isNotBlank()
+            ) {
                 Text(
                     text = question.translationZh,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun AssessmentOptionList(
-    options: List<MeaningChoiceOption>,
-    selectedId: String?,
-    onSelect: (String) -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        options.forEach { option ->
-            OutlinedButton(
-                onClick = { onSelect(option.optionId) },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(
-                    text = if (option.optionId == selectedId) "> ${option.text}" else option.text,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

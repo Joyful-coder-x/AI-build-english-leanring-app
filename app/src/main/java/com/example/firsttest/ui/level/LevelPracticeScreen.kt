@@ -151,7 +151,14 @@ fun LevelPracticeScreen(
                         lastWrongAnswer = state.lastWrongAnswer,
                         feedback = state.feedback,
                     )
-                    if (state.question.translationZh.isNotBlank()) {
+                    // Only sentence_cloze_typing gets this hint: its stem is a
+                    // sentence with the word blanked out, which is often not
+                    // enough context alone. word_form already names the word
+                    // in its stem, and listening_fill shows translationZh
+                    // inline in its own card above (see QuestionCard).
+                    if (effectiveQuestionTypeKey(state.question) == "sentence_cloze_typing" &&
+                        state.question.translationZh.isNotBlank()
+                    ) {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
                             colors = CardDefaults.cardColors(

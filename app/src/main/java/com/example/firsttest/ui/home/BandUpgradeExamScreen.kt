@@ -37,6 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firsttest.data.model.BandUpgradeExam
 import com.example.firsttest.data.model.BandUpgradeQuestion
@@ -56,19 +57,41 @@ fun BandUpgradeExamScreen(
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
     var ttsEngine: TextToSpeech? by remember { mutableStateOf(null) }
+    var ttsInitAttempt by remember { mutableStateOf(0) }
+    var ttsStatusMessage: String? by remember { mutableStateOf("Audio engine loading...") }
 
-    DisposableEffect(context) {
+    DisposableEffect(context, ttsInitAttempt) {
         lateinit var engine: TextToSpeech
         engine = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                engine.language = Locale.US
-                ttsEngine = engine
+                val languageResult = engine.setLanguage(Locale.US)
+                if (
+                    languageResult == TextToSpeech.LANG_MISSING_DATA ||
+                    languageResult == TextToSpeech.LANG_NOT_SUPPORTED
+                ) {
+                    ttsEngine = null
+                    ttsStatusMessage = "US English voice data is not available on this device."
+                } else {
+                    ttsEngine = engine
+                    ttsStatusMessage = null
+                }
+            } else {
+                ttsEngine = null
+                ttsStatusMessage = "Audio engine is not ready."
             }
         }
         onDispose {
             engine.shutdown()
             ttsEngine = null
         }
+    }
+    // TTS init is async and occasionally reports non-SUCCESS on first bind;
+    // retry a few times after a short delay instead of leaving playback dead
+    // for the rest of the exam.
+    LaunchedEffect(ttsInitAttempt) {
+        if (ttsInitAttempt >= 3) return@LaunchedEffect
+        kotlinx.coroutines.delay(1500)
+        if (ttsEngine == null) ttsInitAttempt++
     }
 
     Column(
@@ -112,6 +135,8 @@ fun BandUpgradeExamScreen(
                     question = state.question,
                     tts = ttsEngine,
                     autoSpeak = true,
+                    ttsStatusMessage = ttsStatusMessage,
+                    onRetryTts = { ttsInitAttempt++ },
                 )
                 if (state.question.answerForm == "keyboard") {
                     OutlinedTextField(
@@ -176,12 +201,24 @@ private fun BandExamQuestionCard(
     question: BandUpgradeQuestion,
     tts: TextToSpeech?,
     autoSpeak: Boolean,
+    ttsStatusMessage: String? = null,
+    onRetryTts: () -> Unit = {},
 ) {
     val isListening = question.questionTypeKey == "listening_choice"
     val speechText = question.headword.ifBlank { question.stem }.englishOnly()
+    val replayAudio = {
+        when {
+            speechText == null -> Unit
+            tts == null -> onRetryTts()
+            else -> tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, "${question.questionId}_replay")
+        }
+        Unit
+    }
 
+    // TTS initializes async, so include the engine in the key; otherwise
+    // questions shown before TTS is ready never play automatically.
     if (isListening && autoSpeak && speechText != null && tts != null) {
-        LaunchedEffect(question.questionId) {
+        LaunchedEffect(question.questionId, speechText, tts) {
             tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, question.questionId)
         }
     }
@@ -199,24 +236,83 @@ private fun BandExamQuestionCard(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (isListening) {
-                OutlinedButton(
-                    onClick = {
-                        if (speechText != null && tts != null) {
-                            tts.speak(speechText, TextToSpeech.QUEUE_FLUSH, null, "${question.questionId}_replay")
+
+            when (question.questionTypeKey) {
+                "listening_choice" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        ),
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Text("🔊", fontSize = 40.sp)
+                            Text(
+                                "已播放语音，请选择你听到的单词",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                            )
+                            OutlinedButton(
+                                onClick = replayAudio,
+                                enabled = speechText != null,
+                            ) {
+                                Text(if (tts == null) "Retry audio" else "🔊 再听一次")
+                            }
+                            if (tts == null) {
+                                Text(
+                                    ttsStatusMessage ?: "Audio engine loading. Tap replay to retry.",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f),
+                                )
+                            }
                         }
-                    },
-                    enabled = speechText != null && tts != null,
-                ) {
-                    Text("Play word")
+                    }
+                }
+
+                "speaking_repeat" -> {
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        ),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🎤", fontSize = 28.sp)
+                            Text(
+                                text = visibleStem(question),
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                    }
+                }
+
+                else -> {
+                    Text(
+                        text = visibleStem(question),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                    )
                 }
             }
-            Text(
-                text = visibleStem(question),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
-            if (question.translationZh.isNotBlank()) {
+
+            // Only sentence_cloze_typing gets the translation as a hint: its
+            // stem is a sentence with the word blanked out, which is often
+            // not enough context alone. The other types either state the
+            // word directly (meaning_choice) or are answered by ear
+            // (listening_choice) / by mouth (speaking_repeat).
+            if (question.questionTypeKey == "sentence_cloze_typing" &&
+                question.translationZh.isNotBlank()
+            ) {
                 Text(
                     text = question.translationZh,
                     style = MaterialTheme.typography.bodyMedium,
@@ -275,12 +371,10 @@ private fun defaultPrompt(question: BandUpgradeQuestion): String = when (questio
     else -> "Answer the question."
 }
 
+// listening_choice never reaches this: it has its own card branch above that
+// doesn't show the raw stem, since it would leak the answer as text.
 private fun visibleStem(question: BandUpgradeQuestion): String =
-    if (question.questionTypeKey == "listening_choice") {
-        "Listen first, then choose."
-    } else {
-        question.stem.ifBlank { question.headword }
-    }
+    question.stem.ifBlank { question.headword }
 
 private fun String.englishOnly(): String? =
     replace(Regex("[^\\x00-\\x7F]+"), " ")
